@@ -16,12 +16,12 @@ namespace JobSolution.DTO.DTO
         public string LastName { get; set; }
         [Required]
         [StringLength(255, MinimumLength = 1, ErrorMessage = "Email format is incorect")]
+        [EmailAddress]
         public string Email { get; set; }
         [Required]
         [StringLength(255, MinimumLength = 1, ErrorMessage = "University title cannot be longer than 255 characters.")]
         public string University { get; set; }
         [Required]
         public DateTime? DateOfBirth { get; set; }
-
     }
 }

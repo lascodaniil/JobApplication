@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JobSolution.Domain\JobSolution.Domain.csproj" />
+    <ProjectReference Include="..\JobSolution.Infrastructure\JobSolution.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\bin\Debug\netstandard2.0\JobSolution.DTO.deps.json
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\bin\Debug\netstandard2.0\JobSolution.DTO.dll
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\bin\Debug\netstandard2.0\JobSolution.DTO.pdb
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\bin\Debug\netstandard2.0\JobSolution.Domain.dll
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\obj\Debug\netstandard2.0\JobSolution.DTO.csprojAssemblyReference.cache
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\obj\Debug\netstandard2.0\JobSolution.DTO.csproj.CoreCompileInputs.cache
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\obj\Debug\netstandard2.0\JobSolution.DTO.AssemblyInfoInputs.cache
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\obj\Debug\netstandard2.0\JobSolution.DTO.AssemblyInfo.cs
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\obj\Debug\netstandard2.0\JobSolution.DTO.csproj.CopyComplete
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\obj\Debug\netstandard2.0\JobSolution.DTO.dll
+D:\AmdarisProjectDB\JobSolution\JobSolution.DTO\obj\Debug\netstandard2.0\JobSolution.DTO.pdb

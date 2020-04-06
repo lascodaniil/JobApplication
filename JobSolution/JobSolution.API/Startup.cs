@@ -44,10 +44,11 @@ namespace JobSolution.API
                         Version = "v1"
                     });
             });
-           // services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddDbContext<JobDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IJobService, JobService>();
+            services.AddTransient<IStudentService, StudentService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 

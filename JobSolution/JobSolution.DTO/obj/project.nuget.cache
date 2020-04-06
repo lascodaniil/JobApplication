@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "20E4rGuw1vzFA3J7+8ygDaoolDpjSxkgnlsetZzmjtIrLPMT4wagZ9WUL6Ow0/3Lv/cesUiLI4Rw/wkCAj52aA==",
+  "dgSpecHash": "3KhDxqCmG5wUJc16PEIT2lLBkRXeKGd6JQLERQ7gDbhq91RFU69sEZ+UpK/1RGoOUxGyXVqFKPnMFtc5BYzdzQ==",
   "success": true,
-  "projectFilePath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj",
+  "projectFilePath": "D:\\JobApplication\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniil\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\google.protobuf\\3.6.1\\google.protobuf.3.6.1.nupkg.sha512",

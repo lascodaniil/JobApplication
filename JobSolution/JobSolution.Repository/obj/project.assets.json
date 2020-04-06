@@ -7104,11 +7104,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj",
+      "projectUniqueName": "D:\\JobApplication\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj",
       "projectName": "JobSolution.Repository",
-      "projectPath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj",
+      "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj",
       "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
-      "outputPath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Repository\\obj\\",
+      "outputPath": "D:\\JobApplication\\JobSolution\\JobSolution.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7124,11 +7124,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj": {
-              "projectPath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj"
+            "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj": {
+              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj"
             },
-            "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj": {
-              "projectPath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj"
+            "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj": {
+              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj"
             }
           }
         }

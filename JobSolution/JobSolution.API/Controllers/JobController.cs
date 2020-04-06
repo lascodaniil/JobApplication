@@ -33,7 +33,8 @@ namespace JobSolution.API.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var obj = await _jobService.GetByID(id);
-            return Ok(obj);
+            var result = _mapper.Map<JobDTO>(obj);
+            return Ok(result);
         }
 
         [HttpPost]
@@ -67,9 +68,10 @@ namespace JobSolution.API.Controllers
         }
             
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(Job job)
+        public async Task<IActionResult> Update(JobDTO job)
         {
-            _jobService.Update(job);
+            var UpdatedJob = _mapper.Map<Job>(job);
+            _jobService.Update(UpdatedJob);
             _jobService.SaveAll();
             return Ok();
         }

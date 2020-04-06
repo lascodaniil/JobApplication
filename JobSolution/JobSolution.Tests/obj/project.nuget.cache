@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BXnsAZ3MrVhqSAB0/3roLD5fFdahW/9YYPm9oGczuCrx2aJ0Aa2sdbTR6dOs4cTOTExlFKv8xKKnFIYhgYefTQ==",
+  "dgSpecHash": "8mFGUzXCtPylndaXwtgXeUH86etVvdrzW74cUA95SW02RDTHNQsUCduKlY0WgPdjrFQptf0eIhVnMm9gpVxnNw==",
   "success": true,
-  "projectFilePath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Tests\\JobSolution.Tests.csproj",
+  "projectFilePath": "D:\\JobApplication\\JobSolution\\JobSolution.Tests\\JobSolution.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniil\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",

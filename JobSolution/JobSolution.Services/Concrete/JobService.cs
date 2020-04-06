@@ -10,7 +10,7 @@ namespace JobSolution.Services.Concrete
 {
     public class JobService : IJobService
     {
-        private IRepository<Job> _jobRepository;
+        private readonly IRepository<Job> _jobRepository;
         public JobService(IRepository<Job> jobRepository)
         {
             _jobRepository = jobRepository;

@@ -7132,11 +7132,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
+      "projectUniqueName": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
       "projectName": "JobSolution.Domain",
-      "projectPath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
+      "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
       "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
-      "outputPath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Domain\\obj\\",
+      "outputPath": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config",

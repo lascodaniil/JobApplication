@@ -6,12 +6,14 @@ using System.Text;
 
 namespace JobSolution.API.Profile
 {
-    public class JobProfile : AutoMapper.Profile
+    public class AutoMapperProfile : AutoMapper.Profile
     {   
-        public JobProfile()
+        public AutoMapperProfile()
         {
             CreateMap<JobDTO, Job>();
             CreateMap<Job, JobDTO>();
+            CreateMap<Student, StudentDTO>();
+            CreateMap<StudentDTO, Student>();
         }
     }
 }

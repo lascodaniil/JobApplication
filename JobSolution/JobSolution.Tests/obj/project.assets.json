@@ -9430,11 +9430,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Tests\\JobSolution.Tests.csproj",
+      "projectUniqueName": "D:\\JobApplication\\JobSolution\\JobSolution.Tests\\JobSolution.Tests.csproj",
       "projectName": "JobSolution.Tests",
-      "projectPath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Tests\\JobSolution.Tests.csproj",
+      "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Tests\\JobSolution.Tests.csproj",
       "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
-      "outputPath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.Tests\\obj\\",
+      "outputPath": "D:\\JobApplication\\JobSolution\\JobSolution.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9450,8 +9450,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.API\\JobSolution.API.csproj": {
-              "projectPath": "D:\\AmdarisProjectDB\\JobSolution\\JobSolution.API\\JobSolution.API.csproj"
+            "D:\\JobApplication\\JobSolution\\JobSolution.API\\JobSolution.API.csproj": {
+              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.API\\JobSolution.API.csproj"
             }
           }
         }

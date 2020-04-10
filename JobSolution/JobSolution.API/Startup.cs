@@ -17,6 +17,8 @@ using JobSolution.Services.Concrete;
 using JobSolution.Services.Interfaces;
 using JobSolution.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using JobSolution.Domain;
 
 namespace JobSolution.API
 {
@@ -32,11 +34,10 @@ namespace JobSolution.API
         {
 
 
-            services.AddCors(options => options.AddPolicy("Cors", builder =>
-                   builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
-            services.AddMvc();
+            services.AddCors(options => options.AddPolicy("Cors", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
             services.AddSwaggerGen(options =>
             {
+
                 options.SwaggerDoc("v1",
                     new Microsoft.OpenApi.Models.OpenApiInfo
                     {
@@ -44,12 +45,30 @@ namespace JobSolution.API
                         Version = "v1"
                     });
             });
+
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddDbContext<JobDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IJobService, JobService>();
             services.AddTransient<IStudentService, StudentService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+
+            services.AddIdentity<AppUser, IdentityRole>(opts =>
+            {
+                opts.Password.RequiredLength = 6;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+            }).AddEntityFrameworkStores<JobDbContext>().AddDefaultTokenProviders();
+
+            //services.AddIdentity<AppUser, IdentityRole>()
+            // .AddEntityFrameworkStores<JobDbContext>()
+            // .AddDefaultTokenProviders();
+
+            services.AddMvc();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

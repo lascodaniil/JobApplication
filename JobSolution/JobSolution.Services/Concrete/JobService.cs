@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace JobSolution.Services.Concrete
 {
+    // de mapat aici 
     public class JobService : IJobService
     {
         private readonly IRepository<Job> _jobRepository;
@@ -19,11 +20,12 @@ namespace JobSolution.Services.Concrete
         public async Task Add(Job entity)
         {
             await _jobRepository.Add(entity);
+            await _jobRepository.SaveAll();
         }
 
         public async Task<IEnumerable<Job>> GetAll()
         {
-            return await _jobRepository.GetAll();
+            return await _jobRepository.GetAll(); // dto de returnat, 
         }
 
         public async Task<Job> GetByID(int id)
@@ -36,8 +38,8 @@ namespace JobSolution.Services.Concrete
             var job = _jobRepository.GetByID(Id);
             if (job != null)
             {
-                _jobRepository.Remove(Id);
-                _jobRepository.SaveAll();
+                await _jobRepository.Remove(Id);
+                await _jobRepository.SaveAll();
             }
         }
 
@@ -48,7 +50,7 @@ namespace JobSolution.Services.Concrete
 
         public async Task Update(Job entity)
         {
-            _jobRepository.Update(entity);
+            await _jobRepository.Update(entity);
         }
     }
 }

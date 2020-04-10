@@ -15,12 +15,5 @@ namespace JobSolution.Services.Interfaces
 
 
 
-    //Task<IEnumerable<Job>> GetAll();
-    //Task<Job> GetByID(int id);
-    //Task Add(Job entity);
-    //Task Update(Job entity);
-    //Task Remove(int Id);
-    //Task SaveAll();
-
 
 }

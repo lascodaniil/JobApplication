@@ -1,0 +1,24 @@
+export class Job{
+    constructor(
+        public id?:number,
+        public Title?:string,
+        public City?:string,
+        public Contact?:string,
+        public Author?:string,
+        public PostDate?:Date,
+        public EndDate?:Date,
+    ){}
+}
+
+
+
+// public int AuthorId { get; set; }
+//         public int CategoryId { get; set; }
+//         public string Title { get; set; }
+//         public string City { get; set; }
+//         public string Contact { get; set; }
+//         public Author Author { get; set; }
+//         public DateTime? PostDate { get; set; }
+//         public DateTime? EndDate { get; set; }
+//         public Categories Category { get; set; }
+//         public ICollection<StudentJob> StudentJobs { get; set; }

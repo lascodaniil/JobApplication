@@ -11,11 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSolution.Infrastructure"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSolution.DTO", "JobSolution.DTO\JobSolution.DTO.csproj", "{BD044B8C-E6AA-4DB4-9BDE-9BBE7E32A85B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSolution.Tests", "JobSolution.Tests\JobSolution.Tests.csproj", "{AD569540-E5B6-417D-A4EF-8B73BF256805}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSolution.Tests", "JobSolution.Tests\JobSolution.Tests.csproj", "{AD569540-E5B6-417D-A4EF-8B73BF256805}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSolution.Repository", "JobSolution.Repository\JobSolution.Repository.csproj", "{13F2840E-DC27-4415-8454-C8197AFD5FEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSolution.Repository", "JobSolution.Repository\JobSolution.Repository.csproj", "{13F2840E-DC27-4415-8454-C8197AFD5FEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobSolution.Services", "JobSolution.Services\JobSolution.Services.csproj", "{574531E2-9566-4D90-9D09-51476557E6D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSolution.Services", "JobSolution.Services\JobSolution.Services.csproj", "{574531E2-9566-4D90-9D09-51476557E6D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

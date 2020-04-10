@@ -14,6 +14,10 @@ D:\AmdarisProjectDB\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\Jo
 D:\AmdarisProjectDB\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CopyComplete
 D:\AmdarisProjectDB\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.dll
 D:\AmdarisProjectDB\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.pdb
+D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csprojAssemblyReference.cache
+D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CoreCompileInputs.cache
+D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfoInputs.cache
+D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfo.cs
 D:\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.deps.json
 D:\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.dll
 D:\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.pdb
@@ -23,10 +27,6 @@ D:\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobS
 D:\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
 D:\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Repository.pdb
 D:\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
-D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csprojAssemblyReference.cache
-D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CoreCompileInputs.cache
-D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfoInputs.cache
-D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfo.cs
 D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CopyComplete
 D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.dll
 D:\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.pdb

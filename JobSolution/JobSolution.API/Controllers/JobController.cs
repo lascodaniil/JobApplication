@@ -33,19 +33,19 @@ namespace JobSolution.API.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var obj = await _jobService.GetByID(id);
-            var result = _mapper.Map<JobDTO>(obj);
+            var result = _mapper.Map<JobDTO>(obj); // mapat in service
             return Ok(result);
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] JobDTO jobDTO)
         {
-            var obj = _mapper.Map<Job>(jobDTO);
+            var obj = _mapper.Map<Job>(jobDTO);// service mapeaza 
 
             if (ModelState.IsValid)
             {
                 _jobService.Add(obj);
-                _jobService.SaveAll();
+             //   _jobService.SaveAll();
                 return Ok();
 
             }
@@ -63,14 +63,14 @@ namespace JobSolution.API.Controllers
                 return NotFound();
             }
             _jobService.Remove(id);
-            _jobService.SaveAll();
+          //  _jobService.SaveAll(); // 
              return NoContent();
         }
             
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(JobDTO job)
+        public async Task<IActionResult> Update([FromBody]JobDTO job)
         {
-            var UpdatedJob = _mapper.Map<Job>(job);
+            var UpdatedJob = _mapper.Map<Job>(job);// service 
             _jobService.Update(UpdatedJob);
             _jobService.SaveAll();
             return Ok();

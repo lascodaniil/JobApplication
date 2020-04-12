@@ -1759,6 +1759,15 @@
         "runtime": {
           "JobSolution.Infrastructure.dll": {}
         }
+      },
+      "JobSolution.Repository/1.0.0": {
+        "dependencies": {
+          "JobSolution.Domain": "1.0.0",
+          "JobSolution.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "JobSolution.Repository.dll": {}
+        }
       }
     }
   },
@@ -2836,6 +2845,11 @@
       "sha512": ""
     },
     "JobSolution.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "JobSolution.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

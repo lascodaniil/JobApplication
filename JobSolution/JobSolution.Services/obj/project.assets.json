@@ -7611,8 +7611,8 @@
     },
     "JobSolution.Repository/1.0.0": {
       "type": "project",
-      "path": "../JobSolution.Repo/JobSolution.Repository.csproj",
-      "msbuildProject": "../JobSolution.Repo/JobSolution.Repository.csproj"
+      "path": "../JobSolution.Repository/JobSolution.Repository.csproj",
+      "msbuildProject": "../JobSolution.Repository/JobSolution.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -7657,9 +7657,6 @@
             },
             "D:\\JobApplication\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj": {
               "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj"
-            },
-            "D:\\JobApplication\\JobSolution\\JobSolution.Repo\\JobSolution.Repository.csproj": {
-              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Repo\\JobSolution.Repository.csproj"
             }
           }
         }

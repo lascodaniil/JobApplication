@@ -10,11 +10,15 @@ import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
-
+import { LogInComponent } from './log-in/log-in.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    JobComponent
+    JobComponent,
+    LogInComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatCardModule,
     HttpClientModule,
     MatGridListModule,
-    MatButtonModule
+    MatButtonModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

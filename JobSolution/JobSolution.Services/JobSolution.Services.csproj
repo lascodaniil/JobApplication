@@ -8,7 +8,7 @@
     <ProjectReference Include="..\JobSolution.Domain\JobSolution.Domain.csproj" />
     <ProjectReference Include="..\JobSolution.DTO\JobSolution.DTO.csproj" />
     <ProjectReference Include="..\JobSolution.Repository\JobSolution.Repository.csproj" />
-    <ProjectReference Include="..\JobSolution.Repo\JobSolution.Repository.csproj" />
+    <!--<ProjectReference Include="..\JobSolution.Repo\JobSolution.Repository.csproj" />-->
   </ItemGroup>
 
 </Project>

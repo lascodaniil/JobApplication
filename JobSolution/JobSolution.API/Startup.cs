@@ -26,7 +26,7 @@ using Microsoft.IdentityModel.Tokens;
 using JobSolution.Domain.Auth;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using JobSolution.Infrastructure.Extensions;
-using JobSolution.Repo;
+using JobSolution.Repository;
 
 namespace JobSolution.API
 {

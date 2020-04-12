@@ -12,11 +12,11 @@ namespace JobSolution.Services.Interfaces
     public interface IJobService
     {
 
-        IEnumerable<Job> GetAll();
-        Job GetByID(int id);
-        void Add(Job entity);
-        void Update(Job entity);
-        void Remove(int Id);
-        bool SaveAll();
+        Task<IEnumerable<Job>> GetAll();
+        Task<Job> GetByID(int id);
+        Task Add(Job entity);
+        Task Update(Job entity);
+        Task Remove(int Id);
+        Task SaveAll();
     }
 }

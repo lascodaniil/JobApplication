@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JobSolution.Repository
 {
@@ -17,41 +18,41 @@ namespace JobSolution.Repository
             _jobDbContext = jobDbContext;
         }
 
-        public void Add(T entity)
+        public async Task Add(T entity)
         {
             _jobDbContext.Set<T>().Add(entity);
+            await _jobDbContext.SaveChangesAsync();
         }
 
-        public IEnumerable<T> GetAll()
+        public async Task<IEnumerable<T>> GetAll()
         {
-            return _jobDbContext.Set<T>().ToList();
+            return await _jobDbContext.Set<T>().ToListAsync();
         }
 
-        public T GetByID(int id)
+        public async Task<T> GetByID(int id)
         {
-            return _jobDbContext.Set<T>().FirstOrDefault(x => x.Id == id);
+            return await _jobDbContext.Set<T>().FindAsync(id);
         }
 
-        public void Remove(int Id)
+        public async Task Remove(int Id)
         {
-            var temporaryEntity = _jobDbContext.Set<T>().FirstOrDefault(x => x.Id == Id);
+            var temporaryEntity = await _jobDbContext.Set<T>().FindAsync(Id);
             if (temporaryEntity != null)
             {
                 _jobDbContext.Set<T>().Remove(temporaryEntity);
-                _jobDbContext.SaveChanges();
+                await _jobDbContext.SaveChangesAsync();
             }
         }
 
-        public bool SaveAll()
+        public async Task SaveAll()
         {
-            _jobDbContext.SaveChanges();
-            return true;
+            await _jobDbContext.SaveChangesAsync();
         }
 
-        public void Update(T entity)
+        public async Task Update(T entity)
         {
             _jobDbContext.Entry(entity).State = EntityState.Modified;
-            _jobDbContext.SaveChanges();
+            await _jobDbContext.SaveChangesAsync();
         }
     }
 }

@@ -15,11 +15,11 @@ namespace JobSolution.Services.Concrete
         {
             _studentRepository = studentRepository;
         }
-        public Student GetUserProfile(int id)
-        {
-            var student =  _studentRepository.GetByID(id);
-            return student;
-        }
+        //public Student GetUserProfile(int id)
+        //{
+        //    var student =  _studentRepository.GetByID(id);
+        //    return student;
+        //}
 
         public void SaveAll()
         {

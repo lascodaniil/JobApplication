@@ -33,6 +33,9 @@
               "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj": {
                 "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj"
               },
+              "D:\\JobApplication\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj": {
+                "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj"
+              },
               "D:\\JobApplication\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj": {
                 "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj"
               }

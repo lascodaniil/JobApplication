@@ -25,14 +25,14 @@ namespace JobSolution.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var JobsFromRepo = _jobService.GetAll();
+            var JobsFromRepo = await _jobService.GetAll();
             return Ok(JobsFromRepo);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var obj =  _jobService.GetByID(id);
+            var obj = await _jobService.GetByID(id);
             var result = _mapper.Map<JobDTO>(obj); // mapat in service
             return Ok(result);
         }
@@ -44,8 +44,8 @@ namespace JobSolution.API.Controllers
 
             if (ModelState.IsValid)
             {
-                _jobService.Add(obj);
-                //   _jobService.SaveAll();
+                await _jobService.Add(obj);
+                await _jobService.SaveAll();
                 return Ok();
 
             }
@@ -55,23 +55,34 @@ namespace JobSolution.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var jobToDelete =  _jobService.GetByID(id);
-            var antother = jobToDelete;
+            var jobToDelete = await _jobService.GetByID(id);
 
             if (jobToDelete == null)
             {
                 return NotFound();
             }
-            _jobService.Remove(id);
-            return NoContent();
+
+            await _jobService.Remove(id);
+
+            return Ok();
         }
 
         [HttpPut("Update")]
         public async Task<IActionResult> Update([FromBody]JobDTO job)
         {
             var UpdatedJob = _mapper.Map<Job>(job);// service 
-            _jobService.Update(UpdatedJob);
-            return Ok();
+            if (ModelState.IsValid)
+            {
+                var findResult = await _jobService.GetByID(UpdatedJob.Id);
+                if (findResult != null)
+                {
+                    await _jobService.Update(UpdatedJob);
+                    await _jobService.SaveAll();
+                    return Ok();
+                }
+                return NotFound();
+            }
+            return BadRequest();
         }
     }
 }

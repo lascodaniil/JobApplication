@@ -28,6 +28,7 @@
   <ItemGroup>
     <ProjectReference Include="..\JobSolution.DTO\JobSolution.DTO.csproj" />
     <ProjectReference Include="..\JobSolution.Infrastructure\JobSolution.Infrastructure.csproj" />
+    <ProjectReference Include="..\JobSolution.Repository\JobSolution.Repository.csproj" />
     <ProjectReference Include="..\JobSolution.Services\JobSolution.Services.csproj" />
   </ItemGroup>
 

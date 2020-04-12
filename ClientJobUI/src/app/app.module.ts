@@ -13,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { LogInComponent } from './log-in/log-in.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './navbar/navbar.component';
+import { JobService } from './services/job.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatButtonModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [JobService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,8 @@ using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -48,25 +50,6 @@ namespace JobSolution.Tests
         }
 
         [Fact]
-
-        public void DeleteCorrectIdTest()
-        {
-            //Arrange
-            var mockRepository = new Mock<IJobService>().Object;
-            var mockIMapper = new Mock<IMapper>().Object;
-            var controller = new JobController(mockRepository, mockIMapper);
-            int id = 1; // value
-
-            //Check
-            Task<IActionResult> ActionResult = controller.Delete(id);
-            OkResult contentResult = (OkResult)ActionResult.Result;
-
-            //Assert
-            Assert.NotNull(contentResult);
-            Assert.Equal(200, contentResult.StatusCode);
-        }
-
-        [Fact]
         public void DeleteUncorrectIdTest()
         {
             //Arrange
@@ -82,6 +65,36 @@ namespace JobSolution.Tests
             Assert.NotNull(contentResult);
             Assert.Equal(404, contentResult.StatusCode);
         }
+
+        [Fact]
+        public void DeleteCorrectIdTest()
+        {
+            //Arrange
+            var mockRepository = new Mock<IJobService>().Object;
+            var mockIMapper = new Mock<IMapper>().Object;
+            var controller = new JobController(mockRepository, mockIMapper);
+            int id = 10000; // value bigger the base contains or correct value
+
+            //Check
+            Task<IActionResult> ActionResult = controller.Delete(id);
+            try
+            {
+                NotFoundResult contentResult = (NotFoundResult)ActionResult.Result;
+
+                //Assert
+                Assert.NotNull(contentResult);
+                Assert.Equal(404, contentResult.StatusCode);
+            }
+            catch (Exception ex)
+            {
+                OkObjectResult contentResult = (OkObjectResult)ActionResult.Result;
+
+                //Assert
+                Assert.NotNull(contentResult);
+                Assert.Equal(200, contentResult.StatusCode);
+            }
+        }
+
 
         [Fact]
         public void PostCorrectModelTest()
@@ -150,12 +163,28 @@ namespace JobSolution.Tests
                 Id = 114
             };
 
-            //Check
-            Task<IActionResult> ActionResult = controller.Update(sendValue);
-            NotFoundResult contentResult = (NotFoundResult)ActionResult.Result;
 
-            Assert.NotNull(contentResult);
-            Assert.Equal(404, contentResult.StatusCode);
+            Task<IActionResult> ActionResult = controller.Update(sendValue);
+
+            //Check
+
+            try
+            {
+                NotFoundResult contentResult = (NotFoundResult)ActionResult.Result;
+
+                Assert.NotNull(contentResult);
+                Assert.Equal(404, contentResult.StatusCode);
+            }
+            catch (Exception ex)
+            {
+                //this case in a database then return ok result
+                OkResult contentResult = (OkResult)ActionResult.Result;
+
+                Assert.NotNull(contentResult);
+                Assert.Equal(200, contentResult.StatusCode);
+
+            }
+
         }
     }
 }

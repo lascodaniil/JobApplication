@@ -521,6 +521,9 @@
             "projectReferences": {
               "D:\\JobApplication\\JobSolution\\JobSolution.API\\JobSolution.API.csproj": {
                 "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.API\\JobSolution.API.csproj"
+              },
+              "D:\\JobApplication\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj": {
+                "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj"
               }
             }
           }
@@ -534,6 +537,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
               "version": "[2.2.5, )"

@@ -73,14 +73,9 @@ namespace JobSolution.API.Controllers
             var UpdatedJob = _mapper.Map<Job>(job);// service 
             if (ModelState.IsValid)
             {
-                var findResult = await _jobService.GetByID(UpdatedJob.Id);
-                if (findResult != null)
-                {
-                    await _jobService.Update(UpdatedJob);
-                    await _jobService.SaveAll();
-                    return Ok();
-                }
-                return NotFound();
+                await _jobService.Update(UpdatedJob);
+                await _jobService.SaveAll();
+                return Ok();
             }
             return BadRequest();
         }

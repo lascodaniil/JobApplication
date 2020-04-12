@@ -14,7 +14,5 @@ namespace JobSolution.Domain.Entities
         public DateTime? DateOfBirth { get; set; }
         public DateTime? RegisterDate { get; private set; } = DateTime.Now;
         public ICollection<StudentJob> StudentJobs { get; set; }
-
     }
-
 }

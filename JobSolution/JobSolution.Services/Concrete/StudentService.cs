@@ -15,13 +15,13 @@ namespace JobSolution.Services.Concrete
         {
             _studentRepository = studentRepository;
         }
-        public async Task<Student> GetUserProfile(int id)
+        public Student GetUserProfile(int id)
         {
-            var student = await _studentRepository.GetByID(id);
+            var student =  _studentRepository.GetByID(id);
             return student;
         }
 
-        public async Task SaveAll()
+        public void SaveAll()
         {
             _studentRepository.SaveAll();
         }

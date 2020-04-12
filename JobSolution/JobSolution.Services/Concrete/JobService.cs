@@ -3,8 +3,6 @@ using JobSolution.Repository;
 using JobSolution.Services.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobSolution.Services.Concrete
 {
@@ -17,40 +15,41 @@ namespace JobSolution.Services.Concrete
             _jobRepository = jobRepository;
         }
 
-        public async Task Add(Job entity)
+        public void Add(Job entity)
         {
-            await _jobRepository.Add(entity);
-            await _jobRepository.SaveAll();
+             _jobRepository.Add(entity);
+             _jobRepository.SaveAll();
         }
 
-        public async Task<IEnumerable<Job>> GetAll()
+        public IEnumerable<Job> GetAll()
         {
-            return await _jobRepository.GetAll(); // dto de returnat, 
+            return  _jobRepository.GetAll(); // dto de returnat, 
         }
 
-        public async Task<Job> GetByID(int id)
+        public  Job GetByID(int id)
         {
-            return await _jobRepository.GetByID(id);
+            return _jobRepository.GetByID(id);
         }
 
-        public async Task Remove(int Id)
+        public void Remove(int Id)
         {
             var job = _jobRepository.GetByID(Id);
             if (job != null)
             {
-                await _jobRepository.Remove(Id);
-                await _jobRepository.SaveAll();
+                 _jobRepository.Remove(Id);
+                 _jobRepository.SaveAll();
             }
         }
 
-        public async Task SaveAll()
+        public bool SaveAll()
         {
-            await _jobRepository.SaveAll();
+            _jobRepository.SaveAll();
+            return true;
         }
 
-        public async Task Update(Job entity)
+        public void Update(Job entity)
         {
-            await _jobRepository.Update(entity);
+            _jobRepository.Update(entity);
         }
     }
 }

@@ -12,13 +12,21 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.AspNetCore.Mvc.Formatters;
-using JobSolution.Repository;
 using JobSolution.Services.Concrete;
 using JobSolution.Services.Interfaces;
 using JobSolution.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using JobSolution.Domain;
+using JobSolution.Infrastructure;
+using JobSolution.Infrastructure.WebAuth;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using JobSolution.Domain.Auth;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using JobSolution.Infrastructure.Extensions;
+using JobSolution.Repo;
 
 namespace JobSolution.API
 {
@@ -32,7 +40,6 @@ namespace JobSolution.API
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-
 
             services.AddCors(options => options.AddPolicy("Cors", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
             services.AddSwaggerGen(options =>
@@ -52,26 +59,55 @@ namespace JobSolution.API
             services.AddTransient<IJobService, JobService>();
             services.AddTransient<IStudentService, StudentService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-
-            services.AddIdentity<AppUser, IdentityRole>(opts =>
+            services.AddIdentity<User, Role>(opts =>
             {
                 opts.Password.RequiredLength = 6;
                 opts.Password.RequireNonAlphanumeric = false;
                 opts.Password.RequireLowercase = false;
                 opts.Password.RequireUppercase = false;
                 opts.Password.RequireDigit = false;
-            }).AddEntityFrameworkStores<JobDbContext>().AddDefaultTokenProviders();
-
-            //services.AddIdentity<AppUser, IdentityRole>()
-            // .AddEntityFrameworkStores<JobDbContext>()
-            // .AddDefaultTokenProviders();
-
+            }).AddEntityFrameworkStores<JobDbContext>();
             services.AddMvc();
+
+
+
+            //var authOptions = services.ConfigureAuthOptions(Configuration);
+            //services.AddJwtAuthentication(authOptions);
+            //services.AddControllers(options =>
+            //{
+            //    options.Filters.Add(new AuthorizeFilter());
+            //});
+
+
+            // services.AddSingleton<DbSeeder>();
+            //services.AddAuthentication(
+            //    x =>
+            //    {
+            //        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    })
+            //    .AddJwtBearer(x =>
+            //    {
+            //        x.RequireHttpsMetadata = false;
+            //        x.SaveToken = true;
+            //        x.TokenValidationParameters = new TokenValidationParameters
+            //        {
+            //            ValidateIssuerSigningKey = true,
+            //            IssuerSigningKey =JwtTokenProvider.SecurityKey,
+            //            ValidateAudience = false,
+            //            ValidIssuer = JwtTokenProvider.Issuer,
+
+
+            //        };
+            //    });
+
+
+
+
 
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env/*, DbSeeder dbSeeder*/)
         {
             app.UseCors("Cors");
             app.UseSwagger();
@@ -93,7 +129,24 @@ namespace JobSolution.API
                 endpoints.MapRazorPages();
             });
 
-            app.UseSpa(spa => {
+
+
+            //try
+            //{
+            //    dbSeeder.SendAsync();
+            //}
+            //catch
+            //{
+
+            //}
+            // app.UseJwtProvider();
+
+
+           
+
+
+            app.UseSpa(spa =>
+            {
                 string strategy = Configuration
                 .GetValue<string>("DevTools:ConnectionStrategy");
                 if (strategy == "proxy")
@@ -102,12 +155,11 @@ namespace JobSolution.API
                 }
                 else if (strategy == "managed")
                 {
-                   
-              spa.Options.SourcePath = @"D:\AmdarisProjectDB\ClientUI";
+
+                    spa.Options.SourcePath = @"D:\AmdarisProjectDB\ClientUI";
                     spa.UseAngularCliServer("start");
                 }
             });
-
 
         }
     }

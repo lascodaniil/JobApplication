@@ -2,17 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace JobSolution.Repository
 {
     public interface IRepository<T> where T : BaseEntity
     {
-        Task<IEnumerable<T>> GetAll();
-        Task<T> GetByID(int id);
-        Task Add(T entity);
-        Task Update(T entity);
-        Task Remove(int Id);
-        Task SaveAll();
+        IEnumerable<T> GetAll();
+        T GetByID(int id);
+        void Add(T entity);
+        void Update(T entity);
+        void Remove(int Id);
+        bool SaveAll();
     }
 }

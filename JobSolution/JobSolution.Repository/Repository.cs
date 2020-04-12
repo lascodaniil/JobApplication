@@ -3,8 +3,8 @@ using JobSolution.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace JobSolution.Repository
 {
@@ -17,41 +17,41 @@ namespace JobSolution.Repository
             _jobDbContext = jobDbContext;
         }
 
-        public async Task Add(T entity)
+        public void Add(T entity)
         {
             _jobDbContext.Set<T>().Add(entity);
-            await _jobDbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAll()
+        public IEnumerable<T> GetAll()
         {
-            return await _jobDbContext.Set<T>().ToListAsync();
+            return _jobDbContext.Set<T>().ToList();
         }
 
-        public async Task<T> GetByID(int id)
+        public T GetByID(int id)
         {
-            return await _jobDbContext.Set<T>().FindAsync(id);
+            return _jobDbContext.Set<T>().FirstOrDefault(x => x.Id == id);
         }
 
-        public async Task Remove(int Id)
+        public void Remove(int Id)
         {
-            var temporaryEntity = await _jobDbContext.Set<T>().FindAsync(Id);
+            var temporaryEntity = _jobDbContext.Set<T>().FirstOrDefault(x => x.Id == Id);
             if (temporaryEntity != null)
             {
                 _jobDbContext.Set<T>().Remove(temporaryEntity);
-                await _jobDbContext.SaveChangesAsync();
+                _jobDbContext.SaveChanges();
             }
         }
 
-        public async Task SaveAll()
+        public bool SaveAll()
         {
-            await _jobDbContext.SaveChangesAsync();
+            _jobDbContext.SaveChanges();
+            return true;
         }
 
-        public async Task Update(T entity)
+        public void Update(T entity)
         {
             _jobDbContext.Entry(entity).State = EntityState.Modified;
-            await _jobDbContext.SaveChangesAsync();
+            _jobDbContext.SaveChanges();
         }
     }
 }

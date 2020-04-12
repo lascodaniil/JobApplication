@@ -24,7 +24,7 @@ namespace JobSolution.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var studentFromRepo = await _studentService.GetUserProfile(id);
+            var studentFromRepo =  _studentService.GetUserProfile(id);
             var sendStudentProfile = _mapper.Map<StudentDTO>(studentFromRepo);
             return Ok(sendStudentProfile);
         }

@@ -16,7 +16,7 @@ namespace JobSolution.API.Controllers
     {
         private readonly IJobService _jobService;
         private readonly IMapper _mapper;
-        public JobController(IJobService repositoryJob,  IMapper mapper)
+        public JobController(IJobService repositoryJob, IMapper mapper)
         {
             _jobService = repositoryJob;
             _mapper = mapper;
@@ -25,14 +25,14 @@ namespace JobSolution.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var JobsFromRepo = await _jobService.GetAll();
-            return  Ok(JobsFromRepo);
+            var JobsFromRepo = _jobService.GetAll();
+            return Ok(JobsFromRepo);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var obj = await _jobService.GetByID(id);
+            var obj =  _jobService.GetByID(id);
             var result = _mapper.Map<JobDTO>(obj); // mapat in service
             return Ok(result);
         }
@@ -45,7 +45,7 @@ namespace JobSolution.API.Controllers
             if (ModelState.IsValid)
             {
                 _jobService.Add(obj);
-             //   _jobService.SaveAll();
+                //   _jobService.SaveAll();
                 return Ok();
 
             }
@@ -55,24 +55,22 @@ namespace JobSolution.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var jobToDelete = _jobService.GetByID(id);
-            var antother = jobToDelete.Result;
+            var jobToDelete =  _jobService.GetByID(id);
+            var antother = jobToDelete;
 
             if (jobToDelete == null)
             {
                 return NotFound();
             }
             _jobService.Remove(id);
-          //  _jobService.SaveAll(); // 
-             return NoContent();
+            return NoContent();
         }
-            
+
         [HttpPut("Update")]
         public async Task<IActionResult> Update([FromBody]JobDTO job)
         {
             var UpdatedJob = _mapper.Map<Job>(job);// service 
             _jobService.Update(UpdatedJob);
-            _jobService.SaveAll();
             return Ok();
         }
     }

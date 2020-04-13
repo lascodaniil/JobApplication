@@ -17,11 +17,5 @@ export class JobComponent {
     this.jobService.getAllJobs()
     .subscribe(data => {this.allJobs = data});
   }
-
-  
-
-
-
-
 }
 

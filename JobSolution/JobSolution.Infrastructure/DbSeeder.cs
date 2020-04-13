@@ -11,6 +11,7 @@ namespace JobSolution.Infrastructure
 {
    public class DbSeeder
    {
+      
         private JobDbContext DbContext;
         private RoleManager<Role> RoleManager;
         private UserManager<User> UserManager;

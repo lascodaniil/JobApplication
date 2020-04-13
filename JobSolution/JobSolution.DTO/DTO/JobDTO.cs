@@ -24,5 +24,6 @@ namespace JobSolution.DTO.DTO
         public int AuthorId { get; set; }
         [Required]
         public int CategoryId { get; set; }
+        public string Base64Photo { get; set; }
     }
 }

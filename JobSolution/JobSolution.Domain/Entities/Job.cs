@@ -14,6 +14,7 @@ namespace JobSolution.Domain.Entities
         public Author Author { get; set; }
         public DateTime? PostDate { get; set; }
         public DateTime? EndDate { get; set; }
+        public string Base64Photo { get; set; }
         public Categories Category { get; set; }
         public ICollection<StudentJob> StudentJobs { get; set; }
     }

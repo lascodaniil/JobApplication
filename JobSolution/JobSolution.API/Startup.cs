@@ -124,7 +124,7 @@ namespace JobSolution.API
                 endpoints.MapRazorPages();
             });
 
-            dbSeeder.SendAsync();
+            //dbSeeder.SendAsync();
             app.UseJwtProvider();
             
             app.UseSpa(spa =>

@@ -99,11 +99,11 @@ namespace JobSolution.Tests
         [Fact]
         public void PostCorrectModelTest()
         {
-            //Arrange
+            
             var mockRepository = new Mock<IJobService>().Object;
             var mockIMapper = new Mock<IMapper>().Object;
             var controller = new JobController(mockRepository, mockIMapper);
-            var sendValue = new JobDTO() // value
+            var sendValue = new JobDTO() 
             {
                 Title = "test title",
                 City = "test city",
@@ -112,7 +112,7 @@ namespace JobSolution.Tests
                 CategoryId = 1
             };
 
-            //Check
+            
             Task<IActionResult> ActionResult = controller.Post(sendValue);
             OkResult contentResult = (OkResult)ActionResult.Result;
 
@@ -123,11 +123,11 @@ namespace JobSolution.Tests
         [Fact]
         public void UpdateCorrectModelTest()
         {
-            //which is in a database
+         
             var mockRepository = new Mock<IJobService>().Object;
             var mockIMapper = new Mock<IMapper>().Object;
             var controller = new JobController(mockRepository, mockIMapper);
-            var sendValue = new JobDTO() // value
+            var sendValue = new JobDTO()
             {
                 Title = "test title",
                 City = "test city",
@@ -137,7 +137,7 @@ namespace JobSolution.Tests
                 Id = 0
             };
 
-            //Check
+          
             Task<IActionResult> ActionResult = controller.Update(sendValue);
             OkResult contentResult = (OkResult)ActionResult.Result;
 
@@ -149,11 +149,11 @@ namespace JobSolution.Tests
 
         public void UpdateUnсorrectModelTest()
         {
-            //which is not in a database
+            
             var mockRepository = new Mock<IJobService>().Object;
             var mockIMapper = new Mock<IMapper>().Object;
             var controller = new JobController(mockRepository, mockIMapper);
-            var sendValue = new JobDTO() // value
+            var sendValue = new JobDTO() 
             {
                 Title = "test title not in table",
                 City = "test city not in table",
@@ -166,8 +166,6 @@ namespace JobSolution.Tests
 
             Task<IActionResult> ActionResult = controller.Update(sendValue);
 
-            //Check
-
             try
             {
                 NotFoundResult contentResult = (NotFoundResult)ActionResult.Result;
@@ -177,7 +175,7 @@ namespace JobSolution.Tests
             }
             catch (Exception ex)
             {
-                //this case in a database then return ok result
+                
                 OkResult contentResult = (OkResult)ActionResult.Result;
 
                 Assert.NotNull(contentResult);

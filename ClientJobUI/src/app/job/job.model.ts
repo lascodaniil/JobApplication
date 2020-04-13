@@ -7,6 +7,7 @@ export class Job{
         public Author?:string,
         public PostDate?:Date,
         public EndDate?:Date,
+        public Image?:string
     ){}
 }
 

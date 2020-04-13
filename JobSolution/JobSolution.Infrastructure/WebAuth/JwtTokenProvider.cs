@@ -1,4 +1,5 @@
 ﻿using JobSolution.Domain;
+using JobSolution.Domain.Auth;
 using JobSolution.Infrastructure.Database;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -20,8 +21,8 @@ namespace JobSolution.Infrastructure.WebAuth
         private DateTime TokenExpiration;
         private SigningCredentials SigningCredentials;
         private JobDbContext jobDbContext;
-        private UserManager<AppUser> UserManager;
-        private SignInManager<AppUser> SignInManager;
+        private UserManager<User> UserManager;
+        private SignInManager<User> SignInManager;
 
 
 
@@ -30,7 +31,7 @@ namespace JobSolution.Infrastructure.WebAuth
         public static readonly string Issuer = "JobSolution.WebService";
         public static string TokenEndPoint = "/api/connect/token"; 
 
-        public JwtTokenProvider(RequestDelegate next, JobDbContext dbContext, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public JwtTokenProvider(RequestDelegate next, JobDbContext dbContext, UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _next = next;
             TokenExpiration = DateTime.Now.AddDays(30);

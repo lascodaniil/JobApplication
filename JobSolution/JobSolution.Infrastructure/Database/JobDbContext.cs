@@ -28,8 +28,6 @@ namespace JobSolution.Infrastructure.Database
         }
 
 
-
-
         private void ApplyIdentityMapConfiguration(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("Users", SchemaConsts.Auth);

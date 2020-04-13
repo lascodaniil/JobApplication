@@ -36,7 +36,7 @@ namespace JobSolution.API
         {
             Configuration = configuration;
         }
-
+        
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
@@ -79,35 +79,30 @@ namespace JobSolution.API
             //});
 
 
-            // services.AddSingleton<DbSeeder>();
-            //services.AddAuthentication(
-            //    x =>
-            //    {
-            //        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    })
-            //    .AddJwtBearer(x =>
-            //    {
-            //        x.RequireHttpsMetadata = false;
-            //        x.SaveToken = true;
-            //        x.TokenValidationParameters = new TokenValidationParameters
-            //        {
-            //            ValidateIssuerSigningKey = true,
-            //            IssuerSigningKey =JwtTokenProvider.SecurityKey,
-            //            ValidateAudience = false,
-            //            ValidIssuer = JwtTokenProvider.Issuer,
+             services.AddSingleton<DbSeeder>();
+            services.AddAuthentication(
+                x =>
+                {
+                    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(x =>
+                {
+                    x.RequireHttpsMetadata = false;
+                    x.SaveToken = true;
+                    x.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey =JwtTokenProvider.SecurityKey,
+                        ValidateAudience = false,
+                        ValidIssuer = JwtTokenProvider.Issuer,
 
 
-            //        };
-            //    });
-
-
-
-
-
+                    };
+                });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env/*, DbSeeder dbSeeder*/)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DbSeeder dbSeeder)
         {
             app.UseCors("Cors");
             app.UseSwagger();
@@ -129,22 +124,9 @@ namespace JobSolution.API
                 endpoints.MapRazorPages();
             });
 
-
-
-            //try
-            //{
-            //    dbSeeder.SendAsync();
-            //}
-            //catch
-            //{
-
-            //}
-            // app.UseJwtProvider();
-
-
-           
-
-
+            dbSeeder.SendAsync();
+            app.UseJwtProvider();
+            
             app.UseSpa(spa =>
             {
                 string strategy = Configuration

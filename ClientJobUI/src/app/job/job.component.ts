@@ -13,13 +13,15 @@ export class JobComponent {
   public JobId : Job;
   constructor( private jobService : JobService ) { }
   
-
-
   ngOnInit(){
     this.jobService.getAllJobs()
     .subscribe(data => {this.allJobs = data});
-
-
   }
+
+  
+
+
+
+
 }
 

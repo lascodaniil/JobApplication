@@ -67,7 +67,7 @@ namespace JobSolution.API
                 opts.Password.RequireUppercase = false;
                 opts.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<JobDbContext>();
-            //services.AddMvc();
+            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env/*, DbSeeder dbSeeder*/)

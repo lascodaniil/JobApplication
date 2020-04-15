@@ -4,19 +4,19 @@
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form  [formGroup]="form" class="example-form" (ngSubmit)="login()">
+      <form  [formGroup]="form" class="example-form" (ngSubmit)="login()" novalidate>
         <table class="example-full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field class="example-full-width">
-              <input  formControlName="userName" matInput placeholder="Username"  required>
+              <input  formControlName="userName" matInput placeholder="Username" >
                 <span *ngIf="(form.get('userName').touched || form.get('userName').dirty) && form.get('userName').errors?.required ">Username is a required field</span>
             </mat-form-field>
             </td>
           </tr>
           <tr>
           <td><mat-form-field class="example-full-width">
-            <input formControlName="passWord" matInput placeholder="Password"  type="password"  required>
+            <input formControlName="passWord" matInput placeholder="Password"  type="password" >
             <span *ngIf="(form.get('passWord').touched || form.get('passWord').dirty) && form.get('passWord').errors?.required ">Password is a required field</span>
           </mat-form-field></td>
         </tr></table>

@@ -1,5 +1,5 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import {FormGroup, FormControl, FormBuilder, Validator, FormsModule} from '@angular/forms';
+import {FormGroup, FormControl, FormBuilder, Validator, FormsModule, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,21 +12,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LogInComponent implements OnInit {
 
-  // username: string;
-  // password: string;
   form:FormGroup;
   constructor(private activatedRoute : ActivatedRoute,
     private router: Router,
-    private http: HttpClient) {
+    private http: HttpClient, private builder:FormBuilder) {
        
     }
 
  
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-        userName: new FormControl(),
-        passWord:new FormControl()
+    this.form =this.builder.group ({
+        userName: ['',[Validators.required]],
+        passWord:['',Validators.required]
     });
   }
 

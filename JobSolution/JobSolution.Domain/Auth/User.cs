@@ -4,5 +4,6 @@ namespace JobSolution.Domain.Auth
 {
     public class User: IdentityUser<int>
     {
+
     }
 }

@@ -11,7 +11,7 @@
         <p class="mat-display-1 ">Chisinau</p>
 </div>
 
-<div fxLayout="row | wrap" fxLayoutAlign="center center" class="container">
+<div fxLayout="row | wrap" fxLayoutAlign="center center" >
 
         <div class="service-item">
             <div class="service-item-icon">
@@ -69,5 +69,35 @@
                                 </p>
                             </article>
                             
-                    </div>
+                </div>
+
+                <div class="container">
+                <div >
+                        <input ng-model="firstName"
+                               class="formControl"
+                               name="firstName"
+                               placeholder="First Name"
+                                maxlength="45"
+                               />
+            </div>
+                    <div >
+                    <input ng-model="lastname"
+                            class="formControl"
+                            name="lastname"
+                            placeholder="Last Name"
+                                maxlength="45"
+                    /></div>
+
+            <div class="col-sm-10">
+                <input ng-model="Email" class="formControl" name="Email" placeholder="Insert your email" maxlength="45"
+                />
+           
+                </div>
+                <div >
+                <textarea rows="5" class="formControl textareaClass"  placeholder="Test Area"></textarea>
+            
+                </div>
+                <button class="Button">Trimite</button>
+            </div>
         </section>
+</div>

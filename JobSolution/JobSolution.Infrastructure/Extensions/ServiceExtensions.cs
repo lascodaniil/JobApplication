@@ -9,38 +9,39 @@ using System.Text;
 
 namespace JobSolution.Infrastructure.Extensions
 {
-    public static class ServiceExtensions
-    {
-        public static void AddJwtAuthentication(this IServiceCollection services, AuthOptions authOptions)
+     public static class ServiceExtensions
         {
-            services.AddAuthentication(options =>
+            public static void AddJwtAuthentication(this IServiceCollection services, AuthOptions authOptions)
             {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-            {
-                options.TokenValidationParameters = new TokenValidationParameters
+                services.AddAuthentication(options =>
                 {
-                    ValidateIssuer = true,
-                    ValidIssuer = authOptions.Issuer,
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                }).AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidIssuer = authOptions.Issuer,
 
-                    ValidateAudience = true,
-                    ValidAudience = authOptions.Audience,
+                        ValidateAudience = true,
+                        ValidAudience = authOptions.Audience,
 
-                    ValidateLifetime = true,
+                        ValidateLifetime = true,
 
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = authOptions.GetSymmetricSecurityKey(),
-                };
-            });
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = authOptions.GetSymmetricSecurityKey(),
+                    };
+                });
+            }
+
+            public static AuthOptions ConfigureAuthOptions(this IServiceCollection services, IConfiguration configuration)
+            {
+                var authOptionsConfigurationSection = configuration.GetSection("AuthOptions");
+                services.Configure<AuthOptions>(authOptionsConfigurationSection);
+                var authOptions = authOptionsConfigurationSection.Get<AuthOptions>();
+                return authOptions;
+            }
         }
-
-        public static AuthOptions ConfigureAuthOptions(this IServiceCollection services, IConfiguration configuration)
-        {
-            var authOptionsConfigurationSection = configuration.GetSection("AuthOptions");
-             services.Configure<AuthOptions>(authOptionsConfigurationSection);
-            var authOptions = authOptionsConfigurationSection.Get<AuthOptions>();
-            return authOptions;
-        }
-    }
+    
 }

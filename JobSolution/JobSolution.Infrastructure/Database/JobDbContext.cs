@@ -17,6 +17,8 @@ namespace JobSolution.Infrastructure.Database
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<StudentJob> StudentJobs { get; set; }
+        public DbSet<User> Users { get; set; }
+
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

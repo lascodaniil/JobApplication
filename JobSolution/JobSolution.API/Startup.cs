@@ -40,7 +40,7 @@ namespace JobSolution.API
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddMvc();
             services.AddCors(options => options.AddPolicy("Cors", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
             services.AddSwaggerGen(options =>
             {
@@ -67,10 +67,18 @@ namespace JobSolution.API
                 opts.Password.RequireUppercase = false;
                 opts.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<JobDbContext>();
-            
+
+
+            var authOptions = services.ConfigureAuthOptions(Configuration);
+            services.AddJwtAuthentication(authOptions);
+            services.AddControllers(options =>
+            {
+                options.Filters.Add(new AuthorizeFilter());
+            });
+
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env/*, DbSeeder dbSeeder*/)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
             app.UseCors("Cors");
@@ -103,7 +111,17 @@ namespace JobSolution.API
                 }
             });
 
-            
+
+            //using(var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    var dbContext = serviceScope.ServiceProvider.GetService<JobDbContext>();
+            //    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
+            //    var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
+
+            //    dbContext.Database.Migrate();
+            //    DbSeeder.Seed(dbContext, roleManager, userManager);
+
+            //}
         }
     }
 }

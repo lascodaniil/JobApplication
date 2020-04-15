@@ -6,25 +6,11 @@
       "applicationUrl": "http://localhost:5000",
       "sslPort": 0
     }
+  },
+  "profiles": {
+    "JobSolution.API": {
+      "commandName": "Project",
+      "applicationUrl": "http://localhost:5000"
+    }
   }
-  //,
-  //"$schema": "http://json.schemastore.org/launchsettings.json",
-  //"profiles": {
-  //  "IIS Express": {
-  //    "commandName": "IISExpress",
-  //    "launchUrl": "weatherforecast",
-  //    "environmentVariables": {
-  //      "ASPNETCORE_ENVIRONMENT": "Development"
-  //    }
-  //  },
-  //  "JobSolution.API": {
-  //    "commandName": "Project",
-  //    "launchBrowser": true,
-  //    "launchUrl": "weatherforecast",
-  //    "environmentVariables": {
-  //      "ASPNETCORE_ENVIRONMENT": "Development"
-  //    },
-  //    "applicationUrl": "http://localhost:5000"
-  //  }
-  //}
 }

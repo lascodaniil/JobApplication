@@ -114,7 +114,8 @@ namespace JobSolution.Infrastructure.Migrations
                     City = table.Column<string>(nullable: true),
                     Contact = table.Column<string>(maxLength: 255, nullable: false),
                     PostDate = table.Column<DateTime>(nullable: true),
-                    EndDate = table.Column<DateTime>(nullable: true)
+                    EndDate = table.Column<DateTime>(nullable: true),
+                    Base64Photo = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

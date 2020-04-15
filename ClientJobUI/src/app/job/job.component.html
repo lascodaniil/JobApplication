@@ -1,15 +1,23 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4 pt-3 pb-2" *ngFor="let job of allJobs">
-            <mat-card>  
-                <mat-card-title>{{job.title}}</mat-card-title>
-                <mat-card-content>{{job.city}}</mat-card-content>
-                <img mat-card-image src="{{job.base64Photo}}">
-                <mat-card-actions>
-                    
-                </mat-card-actions>
-                <button mat-raised-button color="warn" [routerLink] = "['/Job',job.id]" (click) = "getById()">MORE DETAILS</button>
-            </mat-card>
-        </div>
-    </div>
-</div>  
+<!--  
+<mat-grid-list cols="4" rowHeight="4:3" [gutterSize]="'15px'">
+    <mat-grid-tile *ngFor="let job of allJobs">
+        <mat-card>  
+            <mat-card-title>{{job.title}}</mat-card-title>
+            <mat-card-content>{{job.city}}</mat-card-content>
+            <img class="image" mat-card-image src="{{job.base64Photo}}">
+            <mat-card-actions></mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list> -->
+
+
+<div fxLayout="row | wrap" fxLayoutAlign="center center" class="container">
+<div *ngFor="let job of allJobs">   
+    <mat-card  class="mat-elevation-z5">  
+        <mat-card-title>{{job.title}}</mat-card-title>
+        <mat-card-content>{{job.city}}</mat-card-content>
+        <img class="image" mat-card-image src="{{job.base64Photo}}">
+        <mat-card-actions></mat-card-actions>
+    </mat-card>
+</div>
+</div>   

@@ -67,50 +67,18 @@ namespace JobSolution.API
                 opts.Password.RequireUppercase = false;
                 opts.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<JobDbContext>();
-            services.AddMvc();
-
-
-
-            //var authOptions = services.ConfigureAuthOptions(Configuration);
-            //services.AddJwtAuthentication(authOptions);
-            //services.AddControllers(options =>
-            //{
-            //    options.Filters.Add(new AuthorizeFilter());
-            //});
-
-
-             services.AddSingleton<DbSeeder>();
-            services.AddAuthentication(
-                x =>
-                {
-                    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
-                .AddJwtBearer(x =>
-                {
-                    x.RequireHttpsMetadata = false;
-                    x.SaveToken = true;
-                    x.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey =JwtTokenProvider.SecurityKey,
-                        ValidateAudience = false,
-                        ValidIssuer = JwtTokenProvider.Issuer,
-
-
-                    };
-                });
+            //services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DbSeeder dbSeeder)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env/*, DbSeeder dbSeeder*/)
         {
+
             app.UseCors("Cors");
             app.UseSwagger();
             app.UseSwaggerUI(options => {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Job API");
                 options.RoutePrefix = "swagger";
             });
-            
             app.UseDeveloperExceptionPage();
             app.UseRouting();
             app.UseAuthentication();
@@ -121,12 +89,10 @@ namespace JobSolution.API
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                  );
-                endpoints.MapRazorPages();
+               ;
             });
 
-            //dbSeeder.SendAsync();
-            app.UseJwtProvider();
-            
+
             app.UseSpa(spa =>
             {
                 string strategy = Configuration
@@ -135,14 +101,9 @@ namespace JobSolution.API
                 {
                     spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:4200");
                 }
-                else if (strategy == "managed")
-                {
-
-                    spa.Options.SourcePath = @"D:\AmdarisProjectDB\ClientUI";
-                    spa.UseAngularCliServer("start");
-                }
             });
 
+            
         }
     }
 }

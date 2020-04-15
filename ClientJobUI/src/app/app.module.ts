@@ -14,12 +14,18 @@ import { LogInComponent } from './log-in/log-in.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './navbar/navbar.component';
 import { JobService } from './services/job.service';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ProfileComponentComponent } from './profile-component/profile-component.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     JobComponent,
     LogInComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,10 @@ import { JobService } from './services/job.service';
     HttpClientModule,
     MatGridListModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [JobService],
   bootstrap: [AppComponent]

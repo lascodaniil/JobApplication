@@ -10,7 +10,7 @@ namespace JobSolution.Services.Concrete
     // de mapat aici 
     public class JobService : IJobService
     {
-        private readonly IRepository<Job> _jobRepository;
+        public IRepository<Job> _jobRepository;
         public JobService(IRepository<Job> jobRepository)
         {
             _jobRepository = jobRepository;
@@ -29,17 +29,26 @@ namespace JobSolution.Services.Concrete
 
         public async Task<Job> GetByID(int id)
         {
-            return await _jobRepository.GetByID(id);
+            if (id > 0)
+            {
+                return await _jobRepository.GetByID(id);
+            }
+
+            return null;
         }
 
         public async Task Remove(int Id)
         {
-            var job = _jobRepository.GetByID(Id);
-            if (job != null)
+            if (Id > 0)
             {
-                await _jobRepository.Remove(Id);
-                await _jobRepository.SaveAll();
+                var job = _jobRepository.GetByID(Id);
+                if (job != null)
+                {
+                    await _jobRepository.Remove(Id);
+                    await _jobRepository.SaveAll();
+                }
             }
+           
         }
 
         public async Task SaveAll()

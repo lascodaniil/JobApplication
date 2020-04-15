@@ -20,7 +20,7 @@ export class JobService {
     return  this.http.get<Job[]>(urlJob);
   }
 
-  getJobById(id:number): Observable<Job>{
+  getJobById(id:number){
     return this.http.get<Job>(`${urlJob}/${id}`);
   }
 }

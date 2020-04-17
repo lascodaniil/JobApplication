@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobSolution.Infrastructure.Migrations
 {
     [DbContext(typeof(JobDbContext))]
-    [Migration("20200415162529_Init")]
-    partial class Init
+    [Migration("20200417015215_Migration_1")]
+    partial class Migration_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -218,7 +218,22 @@ namespace JobSolution.Infrastructure.Migrations
                     b.ToTable("UserRoles","Auth");
                 });
 
-            modelBuilder.Entity("JobSolution.Domain.Entities.Author", b =>
+            modelBuilder.Entity("JobSolution.Domain.Entities.Categories", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("JobSolution.Domain.Entities.Employer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -254,22 +269,7 @@ namespace JobSolution.Infrastructure.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Authors");
-                });
-
-            modelBuilder.Entity("JobSolution.Domain.Entities.Categories", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
+                    b.ToTable("Employers");
                 });
 
             modelBuilder.Entity("JobSolution.Domain.Entities.Job", b =>
@@ -433,7 +433,7 @@ namespace JobSolution.Infrastructure.Migrations
 
             modelBuilder.Entity("JobSolution.Domain.Entities.Job", b =>
                 {
-                    b.HasOne("JobSolution.Domain.Entities.Author", "Author")
+                    b.HasOne("JobSolution.Domain.Entities.Employer", "Author")
                         .WithMany("Job")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)

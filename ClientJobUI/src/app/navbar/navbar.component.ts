@@ -15,6 +15,5 @@ export class NavbarComponent implements OnInit {
 
 
   createProduct(){
-      console.log("metoda rulata");
   }
 }

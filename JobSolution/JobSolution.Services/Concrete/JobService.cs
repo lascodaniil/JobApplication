@@ -3,6 +3,7 @@ using JobSolution.Repository;
 using JobSolution.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace JobSolution.Services.Concrete
@@ -37,6 +38,7 @@ namespace JobSolution.Services.Concrete
             return null;
         }
 
+        
         public async Task Remove(int Id)
         {
             if (Id > 0)

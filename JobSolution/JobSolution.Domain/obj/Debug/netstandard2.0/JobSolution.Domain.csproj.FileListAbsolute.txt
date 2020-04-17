@@ -15,4 +15,3 @@ D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSol
 D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.AssemblyInfo.cs
 D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.dll
 D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.pdb
-D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.csprojAssemblyReference.cache

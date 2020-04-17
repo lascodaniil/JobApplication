@@ -51,6 +51,7 @@ namespace JobSolution.Infrastructure
             {
                 UserName = "Admin",
                 Email = "admin@admin.com",
+                SecurityStamp= Guid.NewGuid().ToString()
             };
 
             if(await userManager.FindByEmailAsync(user_Admin.Email) == null)

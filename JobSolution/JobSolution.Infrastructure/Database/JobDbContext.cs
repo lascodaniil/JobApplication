@@ -12,7 +12,7 @@ namespace JobSolution.Infrastructure.Database
         public JobDbContext(DbContextOptions<JobDbContext> dbContextOptions)  :base(dbContextOptions){ }
 
 
-        public DbSet<Author> Authors { get; set; }
+        public DbSet<Employer> Employers { get; set; }
         public DbSet<Categories> Categories { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Student> Students { get; set; }
@@ -23,7 +23,7 @@ namespace JobSolution.Infrastructure.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new AuthorConfig());
+            modelBuilder.ApplyConfiguration(new EmployerConfig());
             modelBuilder.ApplyConfiguration(new JobConfig());
             modelBuilder.ApplyConfiguration(new StudentConfig());
             ApplyIdentityMapConfiguration(modelBuilder);

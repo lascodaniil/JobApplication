@@ -16,7 +16,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { JobService } from './services/job.service';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { ProfileComponentComponent } from './profile-component/profile-component.component';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AuthInterceptor } from './helpers/AuthInterceptor';
 
 
 @NgModule({
@@ -25,7 +28,7 @@ import { ProfileComponentComponent } from './profile-component/profile-component
     JobComponent,
     LogInComponent,
     NavbarComponent,
-    ProfileComponentComponent
+
   ],
   imports: [
     BrowserModule,
@@ -40,9 +43,16 @@ import { ProfileComponentComponent } from './profile-component/profile-component
     FlexLayoutModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [JobService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    },
+    JobService,
+    AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

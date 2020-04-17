@@ -24,6 +24,7 @@ namespace JobSolution.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var JobsFromRepo = await _jobService.GetAll();

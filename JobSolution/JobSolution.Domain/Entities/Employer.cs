@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace JobSolution.Domain.Entities
 {
-    public class Author : BaseEntity
+    public class Employer : BaseEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -13,6 +13,8 @@ namespace JobSolution.Repository
         Task Add(T entity);
         Task Update(T entity);
         Task Remove(int Id);
+        //Task<PaginatedResult<TDto>> GetPagedData<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : BaseEntity
+        //                                                                                    where TDto : class;
         Task SaveAll();
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JobSolution.Infrastructure.Migrations
 {
-    public partial class Init : Migration
+    public partial class Migration_1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,20 @@ namespace JobSolution.Infrastructure.Migrations
                 name: "Auth");
 
             migrationBuilder.CreateTable(
-                name: "Authors",
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Category = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Employers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -25,20 +38,7 @@ namespace JobSolution.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Authors", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Categories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Category = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_Employers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -121,9 +121,9 @@ namespace JobSolution.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Jobs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Jobs_Authors_AuthorId",
+                        name: "FK_Jobs_Employers_AuthorId",
                         column: x => x.AuthorId,
-                        principalTable: "Authors",
+                        principalTable: "Employers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -278,8 +278,8 @@ namespace JobSolution.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Authors_Email",
-                table: "Authors",
+                name: "IX_Employers_Email",
+                table: "Employers",
                 column: "Email",
                 unique: true);
 
@@ -396,7 +396,7 @@ namespace JobSolution.Infrastructure.Migrations
                 schema: "Auth");
 
             migrationBuilder.DropTable(
-                name: "Authors");
+                name: "Employers");
 
             migrationBuilder.DropTable(
                 name: "Categories");

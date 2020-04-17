@@ -1,4 +1,6 @@
-﻿using JobSolution.Domain.Entities;
+﻿using JobSolution.Domain;
+using JobSolution.Domain.Auth;
+using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,8 @@ namespace JobSolution.API.Profile
         {
             CreateMap<JobDTO, Job>();
             CreateMap<Job, JobDTO>();
+            CreateMap<User, UserForLoginDto>();
+            CreateMap<UserForLoginDto, User>();
             CreateMap<Student, StudentDTO>();
             CreateMap<StudentDTO, Student>();
         }

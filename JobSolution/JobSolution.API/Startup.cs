@@ -70,6 +70,7 @@ namespace JobSolution.API
 
 
             var authOptions = services.ConfigureAuthOptions(Configuration);
+            
             services.AddJwtAuthentication(authOptions);
             services.AddControllers(options =>
             {
@@ -87,10 +88,12 @@ namespace JobSolution.API
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Job API");
                 options.RoutePrefix = "swagger";
             });
+
             app.UseDeveloperExceptionPage();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -112,16 +115,16 @@ namespace JobSolution.API
             });
 
 
-            //using(var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            //{
-            //    var dbContext = serviceScope.ServiceProvider.GetService<JobDbContext>();
-            //    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
-            //    var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var dbContext = serviceScope.ServiceProvider.GetService<JobDbContext>();
+                var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
+                var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
 
-            //    dbContext.Database.Migrate();
-            //    DbSeeder.Seed(dbContext, roleManager, userManager);
+                dbContext.Database.Migrate();
+                DbSeeder.Seed(dbContext, roleManager, userManager);
 
-            //}
+            }
         }
     }
 }

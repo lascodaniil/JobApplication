@@ -11,7 +11,7 @@ namespace JobSolution.Domain.Entities
         public string Title { get; set; }
         public string City { get; set; }
         public string Contact { get; set; }
-        public Author Author { get; set; }
+        public Employer Author { get; set; }
         public DateTime? PostDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string Base64Photo { get; set; }

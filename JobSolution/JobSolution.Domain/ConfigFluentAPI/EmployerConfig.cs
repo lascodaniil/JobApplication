@@ -7,9 +7,9 @@ using System.Text;
 
 namespace JobSolution.Domain.ConfigFluentAPI
 {
-    public class AuthorConfig : IEntityTypeConfiguration<Author>
+    public class EmployerConfig : IEntityTypeConfiguration<Employer>
     {
-        public void Configure(EntityTypeBuilder<Author> entity)
+        public void Configure(EntityTypeBuilder<Employer> entity)
         {
             entity.HasIndex(p => p.Email).IsUnique();
             entity.Property(p => p.Email).HasMaxLength(255).IsRequired();

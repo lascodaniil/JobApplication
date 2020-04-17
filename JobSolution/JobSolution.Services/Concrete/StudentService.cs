@@ -15,15 +15,36 @@ namespace JobSolution.Services.Concrete
         {
             _studentRepository = studentRepository;
         }
+
         public Student GetUserProfile(int id)
         {
-            
+            var studentProfile = _studentRepository.GetByID(id);
+            if (studentProfile != null)
+            {
+                return studentProfile.Result;
+            }
             return null;
         }
+
+        public Task<IEnumerable<Job>> GetAllJobsStudent(int id)
+        {
+            var student = GetUserProfile(id);
+            if (student!=null)
+            {
+
+            }
+        }
+
+
 
         public void SaveAll()
         {
             _studentRepository.SaveAll();
+        }
+
+        Task<Student> IStudentService.GetUserProfile(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

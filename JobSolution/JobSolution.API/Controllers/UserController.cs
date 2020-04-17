@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using JobSolution.Domain.Auth;
+using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -27,9 +28,14 @@ namespace JobSolution.API.Controllers
 
         [Authorize(Roles = "Employer")]
         [HttpGet("Student")]
-        public async Task<IActionResult> GetStudentProfile()
+        public async Task<IActionResult> GetStudentProfile(int id)
         {
-            return Ok();
+            var user = _studentService.GetUserProfile(id);
+            if (user !=null)
+            {
+                return Ok(user);
+            }
+            return NotFound();
         }
 
 
@@ -39,8 +45,5 @@ namespace JobSolution.API.Controllers
         {
             return Ok();
         }
-
-
-
     }
 }

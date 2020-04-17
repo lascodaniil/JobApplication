@@ -8,8 +8,11 @@ namespace JobSolution.Services.Interfaces
 {
     public interface IStudentService
     {
-        Student GetUserProfile(int id);
+        Task<Student> GetUserProfile(int id);
         void SaveAll();
+        Task<IEnumerable<Job>> GetAllJobsStudent();
+        
+
     }
 
 }

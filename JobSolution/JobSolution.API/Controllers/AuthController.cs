@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using JobSolution.Domain;
 using JobSolution.Domain.Auth;
+using JobSolution.Domain.Entities;
 using JobSolution.Infrastructure.Configuration;
 using JobSolution.Infrastructure.Database;
 using Microsoft.AspNetCore.Authorization;
@@ -67,6 +68,42 @@ namespace JobSolution.API.Controllers
             return Unauthorized();
         }
 
+        [AllowAnonymous]
+        [HttpPost("Register")]
+        public async Task<IActionResult> Add([FromBody]UserRegisterDto userRegisterDto)
+        {
+            if (userRegisterDto == null) return new StatusCodeResult(500);
+            var user = await _userManager.FindByNameAsync(userRegisterDto.UserName);
+            if(user != null) { return BadRequest("Username  exists"); }
+
+            user = await _userManager.FindByEmailAsync(userRegisterDto.Email);
+            if(user != null) { return BadRequest("Email exists"); }
+
+            var AddUser = new User()
+            {
+                SecurityStamp = Guid.NewGuid().ToString(),
+                UserName = userRegisterDto.UserName,
+                Email = userRegisterDto.Email,
+            };
+
+            await _userManager.AddToRoleAsync(AddUser, "Employer");
+
+            var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
+            var jwtSecurityToken = new JwtSecurityToken(
+                 issuer: _authOptions.Issuer,
+                 audience: _authOptions.Audience,
+                 claims: new List<Claim>(),
+                 expires: DateTime.Now.AddDays(30),
+                 signingCredentials: signinCredentials);
+
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
+            return Ok(new { AccessToken = encodedToken });
+
+
+        }
 
     }
 }

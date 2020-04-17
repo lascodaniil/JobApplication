@@ -20,6 +20,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from './helpers/AuthInterceptor';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { AuthInterceptor } from './helpers/AuthInterceptor';
     JobComponent,
     LogInComponent,
     NavbarComponent,
+    RegisterComponent,
 
   ],
   imports: [

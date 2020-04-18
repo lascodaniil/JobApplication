@@ -12,3 +12,5 @@ D:\JobApplication\JobSolution\JobSolution.Repository\obj\Debug\netstandard2.0\Jo
 D:\JobApplication\JobSolution\JobSolution.Repository\obj\Debug\netstandard2.0\JobSolution.Repository.csproj.CopyComplete
 D:\JobApplication\JobSolution\JobSolution.Repository\obj\Debug\netstandard2.0\JobSolution.Repository.dll
 D:\JobApplication\JobSolution\JobSolution.Repository\obj\Debug\netstandard2.0\JobSolution.Repository.pdb
+D:\JobApplication\JobSolution\JobSolution.Repository\bin\Debug\netstandard2.0\JobSolution.DTO.dll
+D:\JobApplication\JobSolution\JobSolution.Repository\bin\Debug\netstandard2.0\JobSolution.DTO.pdb

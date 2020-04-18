@@ -38,7 +38,6 @@ namespace JobSolution.Services.Concrete
             return null;
         }
 
-        
         public async Task Remove(int Id)
         {
             if (Id > 0)

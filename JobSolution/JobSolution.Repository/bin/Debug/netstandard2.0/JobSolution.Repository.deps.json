@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "JobSolution.Repository/1.0.0": {
         "dependencies": {
+          "JobSolution.DTO": "1.0.0",
           "JobSolution.Domain": "1.0.0",
           "JobSolution.Infrastructure": "1.0.0",
           "NETStandard.Library": "2.0.3"
@@ -1734,6 +1735,15 @@
           "JobSolution.Domain.dll": {}
         }
       },
+      "JobSolution.DTO/1.0.0": {
+        "dependencies": {
+          "JobSolution.Domain": "1.0.0",
+          "System.ComponentModel.Annotations": "4.7.0"
+        },
+        "runtime": {
+          "JobSolution.DTO.dll": {}
+        }
+      },
       "JobSolution.Infrastructure/1.0.0": {
         "dependencies": {
           "JobSolution.Domain": "1.0.0",
@@ -2816,6 +2826,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "JobSolution.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "JobSolution.DTO/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

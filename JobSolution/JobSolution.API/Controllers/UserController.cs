@@ -17,33 +17,36 @@ namespace JobSolution.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IStudentService _studentService;
-        private readonly IMapper _mapper;
-       
-        
-        public UserController(IStudentService studentService, IMapper mapper)
+        public UserController(IStudentService studentService)
         {
             _studentService = studentService;
-            _mapper = mapper;
         }
 
-        [Authorize(Roles = "Employer")]
-        [HttpGet("Student")]
-        public async Task<IActionResult> GetStudentProfile(int id)
+        //[HttpGet("GetProfile/{id}")]
+        //public async Task<IActionResult> GetStudentProfile(int id)
+        //{
+        //    var student = await _studentService.GetUserProfile(id);
+        //    if(student != null)
+        //    {
+        //        return Ok(student);
+        //    }
+        //    return NotFound();
+        //}
+
+        [HttpGet("GetStudentsJob/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllStudentsJobs(int id)
         {
-            var user = _studentService.GetUserProfile(id);
-            if (user !=null)
-            {
-                return Ok(user);
-            }
-            return NotFound();
+            var AllStudentJobs = await _studentService.GetAllJobsStudent(id);
+            return Ok(AllStudentJobs);
         }
 
-
-        [Authorize(Roles = "Administrator")]
-        [HttpGet("Admin")]
-        public async Task<IActionResult> GetAdminProfle()
+        [HttpGet("GetStudent/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllStudent(int id)
         {
-            return Ok();
+            var student = await _studentService.GetStudent(id);
+            return Ok(student);
         }
     }
 }

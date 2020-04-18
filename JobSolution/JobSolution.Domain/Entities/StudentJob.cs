@@ -8,6 +8,5 @@ namespace JobSolution.Domain.Entities
         public int JobId { get; set; }
         public Job Job { get; set; }
         public Student Student { get; set; }
-
     }
 }

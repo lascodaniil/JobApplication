@@ -8,8 +8,7 @@ namespace JobSolution.DTO.DTO
 {
     public class JobDTO : BaseEntity
     {
-        [Required]
-        [StringLength(255, MinimumLength = 5, ErrorMessage = "Title cannot be longer than 255 characters.")]
+      
         public string Title { get; set; }
 
         [Required]

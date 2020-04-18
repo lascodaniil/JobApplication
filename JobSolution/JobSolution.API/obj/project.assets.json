@@ -3010,6 +3010,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "JobSolution.DTO": "1.0.0",
           "JobSolution.Domain": "1.0.0",
           "JobSolution.Infrastructure": "1.0.0"
         },
@@ -3024,6 +3025,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "AutoMapper": "9.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
           "JobSolution.DTO": "1.0.0",
           "JobSolution.Domain": "1.0.0",
           "JobSolution.Repository": "1.0.0"

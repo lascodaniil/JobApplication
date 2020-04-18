@@ -27,6 +27,8 @@ using JobSolution.Domain.Auth;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using JobSolution.Infrastructure.Extensions;
 using JobSolution.Repository;
+using JobSolution.Repository.Interfaces;
+using JobSolution.Repository.Concrete;
 
 namespace JobSolution.API
 {
@@ -56,6 +58,7 @@ namespace JobSolution.API
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddDbContext<JobDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddTransient<IStudentRepository, StudentRepository>();
             services.AddTransient<IJobService, JobService>();
             services.AddTransient<IStudentService, StudentService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

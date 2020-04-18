@@ -11,11 +11,12 @@ namespace JobSolution.Repository
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly JobDbContext _jobDbContext;
+        protected readonly JobDbContext _jobDbContext;
 
         public Repository(JobDbContext jobDbContext)
         {
             _jobDbContext = jobDbContext;
+            
         }
 
         public async Task Add(T entity)

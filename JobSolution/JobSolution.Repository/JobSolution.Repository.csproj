@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JobSolution.Domain\JobSolution.Domain.csproj" />
+    <ProjectReference Include="..\JobSolution.DTO\JobSolution.DTO.csproj" />
     <ProjectReference Include="..\JobSolution.Infrastructure\JobSolution.Infrastructure.csproj" />
   </ItemGroup>
 

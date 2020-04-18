@@ -1,4 +1,5 @@
 ﻿using JobSolution.Domain.Entities;
+using JobSolution.DTO.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,11 +9,7 @@ namespace JobSolution.Services.Interfaces
 {
     public interface IStudentService
     {
-        Task<Student> GetUserProfile(int id);
-        void SaveAll();
-        Task<IEnumerable<Job>> GetAllJobsStudent();
-        
-
+        Task<IEnumerable<StudentJobDTO>> GetAllJobsStudent(int StudentId);
+        Task<StudentDTO> GetStudent(int StudentId);
     }
-
 }

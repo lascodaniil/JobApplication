@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Y+/Ca44kTH+SEQlp/VvhZbBRisMc2q+57zKIgyodUt0WIoFvb6WFPGP6YLrZxq6zrMA29+3Q3mLPPX8HOfBm6A==",
+  "dgSpecHash": "pLF22u6R15OF0/8kFPJySmCAsA1Cwa2AYZccldwFjVHMwKjaUF1zYoZFsasibwU+9AkozfsIXForXZCmx0ufKQ==",
   "success": true,
   "projectFilePath": "D:\\JobApplication\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Daniil\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\Daniil\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",

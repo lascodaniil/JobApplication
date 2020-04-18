@@ -2244,6 +2244,20 @@
           "bin/placeholder/JobSolution.Domain.dll": {}
         }
       },
+      "JobSolution.DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "JobSolution.Domain": "1.0.0",
+          "System.ComponentModel.Annotations": "4.7.0"
+        },
+        "compile": {
+          "bin/placeholder/JobSolution.DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JobSolution.DTO.dll": {}
+        }
+      },
       "JobSolution.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -7571,6 +7585,11 @@
       "path": "../JobSolution.Domain/JobSolution.Domain.csproj",
       "msbuildProject": "../JobSolution.Domain/JobSolution.Domain.csproj"
     },
+    "JobSolution.DTO/1.0.0": {
+      "type": "project",
+      "path": "../JobSolution.DTO/JobSolution.DTO.csproj",
+      "msbuildProject": "../JobSolution.DTO/JobSolution.DTO.csproj"
+    },
     "JobSolution.Infrastructure/1.0.0": {
       "type": "project",
       "path": "../JobSolution.Infrastructure/JobSolution.Infrastructure.csproj",
@@ -7579,6 +7598,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "JobSolution.DTO >= 1.0.0",
       "JobSolution.Domain >= 1.0.0",
       "JobSolution.Infrastructure >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
@@ -7612,6 +7632,9 @@
           "projectReferences": {
             "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj": {
               "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj"
+            },
+            "D:\\JobApplication\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj": {
+              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj"
             },
             "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj": {
               "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj"

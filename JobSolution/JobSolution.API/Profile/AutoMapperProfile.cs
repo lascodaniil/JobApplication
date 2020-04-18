@@ -18,6 +18,8 @@ namespace JobSolution.API.Profile
             CreateMap<UserForLoginDto, User>();
             CreateMap<Student, StudentDTO>();
             CreateMap<StudentDTO, Student>();
+            CreateMap<Job, StudentJobDTO>();
+
         }
     }
 }

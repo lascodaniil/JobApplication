@@ -21,8 +21,8 @@ export class RegisterService {
   constructor(private http:HttpClient) {
   }
 
-  registerUser(Username:string, Password:string, Email:string, DisplayName:string ) : Observable<TokenParam>{
-      return this.http.post<TokenParam>(URL,{Username:Username, Password:Password, Email:Email, DisplayName:DisplayName}, httpOptions);  
+  registerUser(Username:string, Password:string, Email:string, Role:string ) : Observable<TokenParam>{
+      return this.http.post<TokenParam>(URL,{Username:Username, Password:Password, Email:Email, Role:Role}, httpOptions);  
     }
 }
 

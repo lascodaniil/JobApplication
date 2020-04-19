@@ -31,30 +31,35 @@ namespace JobSolution.API.Controllers
         private readonly IMapper _mapper;
 
 
-        public AuthController(IOptions<AuthOptions> authOption, SignInManager<User> signInManager, UserManager<User> userManager,  IMapper mapper)
+        public AuthController(IOptions<AuthOptions> authOption, SignInManager<User> signInManager, UserManager<User> userManager)
         {
             _authOptions = authOption.Value;
             _signInManager = signInManager;
             _userManager = userManager;
-            _mapper = mapper;
         }
 
         [AllowAnonymous]
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody]UserForLoginDto userLoginDto)
         {
             var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password,false,false);
-
             var user = await _userManager.FindByNameAsync(userLoginDto.Username);
-            //var roles = await  _userManager.GetRolesAsync(user);
-                
+            var role = await _userManager.GetRolesAsync(user);
+
+            var claims = new List<Claim>();
+            foreach(var item in role)
+            {
+                claims.Add(new Claim(ClaimTypes.Role,item ));
+            }
+
+
             if (checkPassword.Succeeded)
             {
                 var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
                 var jwtSecurityToken = new JwtSecurityToken(
                      issuer: _authOptions.Issuer,
                      audience: _authOptions.Audience,
-                     claims: new List<Claim>(),
+                     claims: claims,
                      expires: DateTime.Now.AddDays(30),
                      signingCredentials: signinCredentials);
                 var tokenHandler = new JwtSecurityTokenHandler();
@@ -84,24 +89,23 @@ namespace JobSolution.API.Controllers
                 Email = userRegisterDto.Email,
             };
 
-            await _userManager.AddToRoleAsync(AddUser, "Employer");
+            await _userManager.CreateAsync(AddUser, userRegisterDto.Password);
+            await _userManager.AddToRoleAsync(AddUser, userRegisterDto.RoleFromRegister);
+
 
             var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
             var jwtSecurityToken = new JwtSecurityToken(
                  issuer: _authOptions.Issuer,
                  audience: _authOptions.Audience,
-                 claims: new List<Claim>(),
+                 claims: new List<Claim>() { new Claim(ClaimTypes.Role, userRegisterDto.RoleFromRegister)},
                  expires: DateTime.Now.AddDays(30),
-                 signingCredentials: signinCredentials);
-
-
+                 signingCredentials: signinCredentials) ; 
             var tokenHandler = new JwtSecurityTokenHandler();
-
             var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
             return Ok(new { AccessToken = encodedToken });
-
-
         }
+        
+
 
     }
 }

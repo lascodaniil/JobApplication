@@ -45,10 +45,6 @@ namespace JobSolution.Services.Concrete
                 CategoryId = x.CategoryId
             }).ToList();    
 
-
-
-          //  List<JobDTO> JobListDTO = _mapper.Map<IQueryable<Job>, List<JobDTO>>(Jobs);
-
             return JobsListDTO;
         }
 

@@ -18,6 +18,8 @@ export class RegisterComponent {
   Email : string;
   Password :string;
   DisplayName : string;
+  SelectedRole: string;
+  roles: string[] = ['Employer','Employee'];
   
   constructor(private router: Router,
       private fb: FormBuilder,
@@ -53,8 +55,9 @@ export class RegisterComponent {
      this.Email = this.form.value.Email;
      this.Password = this.form.value.Password;
      this.DisplayName = this.form.value.DisplayName;
+     
       
-      this.RegisterService.registerUser( this.Username, this.Email,this.Password,this.DisplayName)
+      this.RegisterService.registerUser( this.Username, this.Email,this.Password,this.SelectedRole)
       .subscribe(x=>{this.token=x.accessToken; this.RegisterService.tokenObject = this.token; console.log(this.RegisterService.tokenObject); localStorage.setItem('accessToken', this.RegisterService.tokenObject)})
 
   }

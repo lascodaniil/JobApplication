@@ -22,13 +22,13 @@ namespace JobSolution.Services.Concrete
             _studentRepository = studentDal;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<StudentJobDTO>> GetAllJobsStudent(int StudentId)
+        public async Task<IList<StudentJobDTO>> GetAllJobsStudent(int StudentId)
         {
             var StudentsJobs = await _studentRepository.GetJobsForStudent(StudentId);
             var StudentJobsDTO = StudentsJobs.Where(x => x.StudentId == StudentId)
                 .Select(x => new StudentJobDTO()
                 {
-                    AuthorName = x.Job.Author.FirstName,
+                    AuthorName = x.Job.Employer.Name,
                     CategoryName = x.Job.Category.Category,
                     City = x.Job.City,
                     Contact = x.Job.Contact,
@@ -36,7 +36,12 @@ namespace JobSolution.Services.Concrete
                     PostDate = x.Job.PostDate
                 }).ToList();
 
-            return StudentJobsDTO; 
+            return StudentJobsDTO;
+
+
+            //var Jobs = await _studentRepository.GetByIdWithInclude(StudentId, x => x.Employer.Email, y => y.Category.Category);
+            //List<StudentJobDTO> students = _mapper.Map<IList<Job> , List<StudentJobDTO>>(Jobs);
+            //return students;
         }
 
         public async Task<StudentDTO> GetStudent(int StudentId)

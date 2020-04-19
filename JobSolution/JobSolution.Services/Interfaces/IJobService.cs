@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Generic;
 using JobSolution.Repository;
+using JobSolution.DTO.DTO;
 
 namespace JobSolution.Services.Interfaces
 {
     public interface IJobService
     {
-        Task<IEnumerable<Job>> GetAll();
-        Task<Job> GetByID(int id);
-        Task Add(Job entity);
-        Task Update(Job entity);
-        Task Remove(int Id);
-        Task SaveAll();
+        Task<IList<JobDTO>> GetAll();
+        Task<JobDTO> GetByID(int JobId);
+        Task Add(JobDTO JobDTO);
+        Task Update(JobDTO JobDTO);
+        Task Remove(int JobId);
+
     }
 }

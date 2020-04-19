@@ -21,6 +21,10 @@ import { AuthService } from './services/auth.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from './helpers/AuthInterceptor';
 import { RegisterComponent } from './register/register.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -30,7 +34,6 @@ import { RegisterComponent } from './register/register.component';
     LogInComponent,
     NavbarComponent,
     RegisterComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,11 @@ import { RegisterComponent } from './register/register.component';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatCardModule
   ],
   providers: [
     {

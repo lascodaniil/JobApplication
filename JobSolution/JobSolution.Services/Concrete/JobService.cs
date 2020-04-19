@@ -1,5 +1,8 @@
-﻿using JobSolution.Domain.Entities;
+﻿using AutoMapper;
+using JobSolution.Domain.Entities;
+using JobSolution.DTO.DTO;
 using JobSolution.Repository;
+using JobSolution.Repository.Interfaces;
 using JobSolution.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,58 +11,97 @@ using System.Threading.Tasks;
 
 namespace JobSolution.Services.Concrete
 {
-    // de mapat aici 
     public class JobService : IJobService
     {
-        public IRepository<Job> _jobRepository;
-        public JobService(IRepository<Job> jobRepository)
+        private readonly IJobRepository _jobRepository;
+        private readonly IMapper _mapper;
+
+        public JobService(IJobRepository jobRepository, IMapper mapper)
         {
             _jobRepository = jobRepository;
+            _mapper = mapper;
         }
 
-        public async Task Add(Job entity)
+        public async Task Add(JobDTO entity)
         {
-            await _jobRepository.Add(entity);
-            await _jobRepository.SaveAll();
+            var jobDTO = _mapper.Map<Job>(entity);
+            await _jobRepository.Add(jobDTO);
+            _jobRepository.SaveAll();
         }
 
-        public async Task<IEnumerable<Job>> GetAll()
+        public async Task<IList<JobDTO>> GetAll()
         {
-            return await _jobRepository.GetAll(); // dto de returnat, 
+            var Jobs = await _jobRepository.GetAllJobs();
+            List<JobDTO> JobListDTO = _mapper.Map<IQueryable<Job>, List<JobDTO>>(Jobs);
+
+            return JobListDTO;
         }
 
-        public async Task<Job> GetByID(int id)
+        public async Task<JobDTO> GetByID(int id)
         {
-            if (id > 0)
-            {
-                return await _jobRepository.GetByID(id);
-            }
-
-            return null;
+            var toReturn = await _jobRepository.GetJobByID(id);
+            return _mapper.Map<JobDTO>(toReturn);
         }
 
-        public async Task Remove(int Id)
-        {
-            if (Id > 0)
-            {
-                var job = _jobRepository.GetByID(Id);
-                if (job != null)
-                {
-                    await _jobRepository.Remove(Id);
-                    await _jobRepository.SaveAll();
-                }
-            }
+        public async Task Update(JobDTO job) {
+
+            await _jobRepository.Update(_mapper.Map<Job>(job));
            
         }
-
-        public async Task SaveAll()
-        {
-            await _jobRepository.SaveAll();
+        public async Task Remove(int JobId) {
+            
+            await _jobRepository.Delete(JobId);
         }
 
-        public async Task Update(Job entity)
-        {
-            await _jobRepository.Update(entity);
-        }
+      
+
+
+
+        //public async Task<IQueryable<StudentJobDTO>> GetAllJobsStudent(int StudentId)
+        //{
+        //    var StudentsJobs = await _studentRepository.GetJobsForStudent(StudentId);
+        //    var StudentJobsDTO = StudentsJobs.Where(x => x.StudentId == StudentId)
+        //        .Select(x => new StudentJobDTO()
+        //        {
+        //            AuthorName = x.Job.Author.FirstName,
+        //            CategoryName = x.Job.Category.Category,
+        //            City = x.Job.City,
+        //            Contact = x.Job.Contact,
+        //            Title = x.Job.Title,
+        //            PostDate = x.Job.PostDate
+        //        }).AsQueryable();
+
+        //    return StudentJobsDTO;
+        //}
+
+
+
+        //public async Task<IList<JobDTO>> GetAll()
+        //{
+        //    IQueryable<Job> JobsList = await  _jobRepository.GetAllJobs();
+        //    //var JobListDTO = JobsList.Select(x => new JobDTO()
+        //    //{
+        //    //    City = x.City,
+        //    //    EmployerEmail = x.Employer.Email,
+        //    //    Title = x.Title,
+        //    //    Contact = x.Contact,
+        //    //    CategoryName = x.Category.Category,
+        //    //    Base64Photo = x.Base64Photo,
+        //    //    CategoryId = x.CategoryId,
+        //    //    EmployerId = x.EmployerId,
+        //    //}).ToList();
+
+
+
+
+
+
+        //      return JobListDTO;
+        //}
+
+
+
+
+
     }
 }

@@ -48,5 +48,10 @@ namespace JobSolution.API.Controllers
             var student = await _studentService.GetStudent(id);
             return Ok(student);
         }
+
+
+
+
+
     }
 }

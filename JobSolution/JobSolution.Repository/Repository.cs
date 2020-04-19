@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -55,5 +56,22 @@ namespace JobSolution.Repository
             _jobDbContext.Entry(entity).State = EntityState.Modified;
             await _jobDbContext.SaveChangesAsync();
         }
+
+        //public  IQueryable<TEntity> GetAllWithInclude<TEntity>( params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
+        //{
+        //   var query = IncludeProperties(includeProperties);
+        //    return  query;
+        //}
+
+        //private IQueryable<TEntity> IncludeProperties<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
+        //{
+        //   IQueryable<TEntity> entities = _jobDbContext.Set<TEntity>();
+        //   foreach (var includeProperty in includeProperties)
+        //   {
+        //        entities = entities.Include(includeProperty);
+        //   }
+        //    return entities;
+        //}
+
     }
 }

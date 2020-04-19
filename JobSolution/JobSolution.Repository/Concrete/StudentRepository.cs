@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,8 +46,8 @@ namespace JobSolution.Repository.Concrete
 
         public async Task Update(Student student)
         {
-            _jobDbContext.Update(student);
-           await _jobDbContext.SaveChangesAsync();
+            _jobDbContext.Students.Update(student);
+            await SaveAll();
         }
 
         public async Task<IList<Student>> GetAllStudents()
@@ -57,9 +58,30 @@ namespace JobSolution.Repository.Concrete
         public async Task Delete(Student stundent)
         {
              _jobDbContext.Students.Remove(stundent);
-           await  _jobDbContext.SaveChangesAsync();
+            await SaveAll();
+        }
+
+        public async Task<bool> SaveAll()
+        {
+           return await _jobDbContext.SaveChangesAsync()>0;
         }
 
 
+
+        //public async Task<IQueryable<Job>> GetByIdWithInclude(int id, params Expression<Func<Job, object>>[] includeProperties)
+        //{
+        //    var query = IncludeProperties(includeProperties);
+        //    return await query.Where(x => x.Id == id).AsQueryable();
+        //}
+
+        private IQueryable<Job> IncludeProperties(params Expression<Func<Job, object>>[] includeProperties)
+        {
+            IQueryable<Job> entities = _jobDbContext.Set<Job>();
+            foreach (var includeProperty in includeProperties)
+            {
+                entities = entities.Include(includeProperty);
+            }
+            return entities;
+        }
     }
 }

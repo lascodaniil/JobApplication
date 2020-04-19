@@ -20,6 +20,9 @@ namespace JobSolution.API.Profile
             CreateMap<StudentDTO, Student>();
             CreateMap<Job, StudentJobDTO>();
 
+                //.ForMember(x => x.Employer, y => y.MapFrom(z => z.AuthorName)).ForMember(x => x.Category, y => y.MapFrom(z => z.CategoryName));
+                
+           
         }
     }
 }

@@ -6,12 +6,12 @@ namespace JobSolution.Domain.Entities
 {
     public class Job : BaseEntity
     {
-        public int AuthorId { get; set; }
+        public int EmployerId { get; set; }
         public int CategoryId { get; set; }
         public string Title { get; set; }
         public string City { get; set; }
         public string Contact { get; set; }
-        public Employer Author { get; set; }
+        public Employer Employer { get; set; }
         public DateTime? PostDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string Base64Photo { get; set; }

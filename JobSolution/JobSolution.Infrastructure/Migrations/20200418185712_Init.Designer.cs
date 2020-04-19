@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobSolution.Infrastructure.Migrations
 {
     [DbContext(typeof(JobDbContext))]
-    [Migration("20200417015215_Migration_1")]
-    partial class Migration_1
+    [Migration("20200418185712_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -251,17 +251,7 @@ namespace JobSolution.Infrastructure.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("PhoneNumber")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -279,9 +269,6 @@ namespace JobSolution.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Base64Photo")
                         .HasColumnType("nvarchar(max)");
 
@@ -296,6 +283,9 @@ namespace JobSolution.Infrastructure.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
+                    b.Property<int>("EmployerId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
@@ -309,9 +299,9 @@ namespace JobSolution.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
-
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("EmployerId");
 
                     b.ToTable("Jobs");
                 });
@@ -322,6 +312,9 @@ namespace JobSolution.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Base64Photo")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DateOfBirth")
                         .IsRequired()
@@ -341,6 +334,9 @@ namespace JobSolution.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
+
+                    b.Property<int>("NumberOfJobs")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("RegisterDate")
                         .ValueGeneratedOnAdd()
@@ -433,15 +429,15 @@ namespace JobSolution.Infrastructure.Migrations
 
             modelBuilder.Entity("JobSolution.Domain.Entities.Job", b =>
                 {
-                    b.HasOne("JobSolution.Domain.Entities.Employer", "Author")
-                        .WithMany("Job")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("JobSolution.Domain.Entities.Categories", "Category")
                         .WithMany("Jobs")
                         .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JobSolution.Domain.Entities.Employer", "Employer")
+                        .WithMany("Job")
+                        .HasForeignKey("EmployerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

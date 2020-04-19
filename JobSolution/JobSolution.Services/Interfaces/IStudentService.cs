@@ -2,6 +2,7 @@
 using JobSolution.DTO.DTO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +10,8 @@ namespace JobSolution.Services.Interfaces
 {
     public interface IStudentService
     {
-        Task<IEnumerable<StudentJobDTO>> GetAllJobsStudent(int StudentId);
+        Task<IList<StudentJobDTO>> GetAllJobsStudent(int StudentId);
         Task<StudentDTO> GetStudent(int StudentId);
+
     }
 }

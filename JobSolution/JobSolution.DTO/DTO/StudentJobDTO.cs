@@ -12,7 +12,7 @@ namespace JobSolution.DTO.DTO
         public string City { get; set; }
         public string Contact { get; set; }
         public DateTime? PostDate { get; set; }
-        public string AuthorName{ get; set; } // numele
+        public string AuthorName{ get; set; } 
         public string CategoryName { get; set; }
     }
 }

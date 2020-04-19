@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JobSolution.Infrastructure.Migrations
 {
-    public partial class Migration_1 : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,12 +29,10 @@ namespace JobSolution.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(maxLength: 255, nullable: false),
-                    LastName = table.Column<string>(maxLength: 255, nullable: false),
+                    Name = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 255, nullable: false),
                     City = table.Column<string>(nullable: true),
-                    Contact = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true)
+                    Contact = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -51,6 +49,8 @@ namespace JobSolution.Infrastructure.Migrations
                     LastName = table.Column<string>(maxLength: 255, nullable: false),
                     Email = table.Column<string>(maxLength: 255, nullable: false),
                     University = table.Column<string>(nullable: true),
+                    Base64Photo = table.Column<string>(nullable: true),
+                    NumberOfJobs = table.Column<int>(nullable: false),
                     DateOfBirth = table.Column<DateTime>(nullable: false),
                     RegisterDate = table.Column<DateTime>(nullable: true, defaultValueSql: "(GETDATE())")
                 },
@@ -108,7 +108,7 @@ namespace JobSolution.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AuthorId = table.Column<int>(nullable: false),
+                    EmployerId = table.Column<int>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
                     Title = table.Column<string>(maxLength: 255, nullable: false),
                     City = table.Column<string>(nullable: true),
@@ -121,15 +121,15 @@ namespace JobSolution.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Jobs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Jobs_Employers_AuthorId",
-                        column: x => x.AuthorId,
-                        principalTable: "Employers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Jobs_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Jobs_Employers_EmployerId",
+                        column: x => x.EmployerId,
+                        principalTable: "Employers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -284,14 +284,14 @@ namespace JobSolution.Infrastructure.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Jobs_AuthorId",
-                table: "Jobs",
-                column: "AuthorId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Jobs_CategoryId",
                 table: "Jobs",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Jobs_EmployerId",
+                table: "Jobs",
+                column: "EmployerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StudentJobs_JobId",
@@ -396,10 +396,10 @@ namespace JobSolution.Infrastructure.Migrations
                 schema: "Auth");
 
             migrationBuilder.DropTable(
-                name: "Employers");
+                name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Employers");
         }
     }
 }

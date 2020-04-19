@@ -13,6 +13,7 @@ namespace JobSolution.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [AllowAnonymous]
     public class JobController : ControllerBase
     {
         private readonly IJobService _jobService;
@@ -27,59 +28,52 @@ namespace JobSolution.API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
-            var JobsFromRepo = await _jobService.GetAll();
-            return Ok(JobsFromRepo);
+            var JobsFromRepo = _jobService.GetAll().Result.ToList();
+            return Ok(JobsFromRepo.ToList());
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
             if(id > 0)
             {
                 var obj = await _jobService.GetByID(id);
-                var result = _mapper.Map<JobDTO>(obj); // mapat in service
-                return Ok(result);
+              
+                return Ok(obj);
             }
             return null;
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody] JobDTO jobDTO)
         {
-            var obj = _mapper.Map<Job>(jobDTO); // service mapeaza 
-
+            
             if (ModelState.IsValid)
             {
-                await _jobService.Add(obj);
-                await _jobService.SaveAll();
+                await _jobService.Add(jobDTO);
                 return Ok();
-
             }
             return BadRequest();
         }
 
         [HttpDelete("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> Delete(int id)
         {
-            var jobToDelete = await _jobService.GetByID(id);
-
-            if (jobToDelete == null)
-            {
-                return NotFound();
-            }
-
             await _jobService.Remove(id);
             return Ok();
         }
 
+
         [HttpPut("Update")]
+        [AllowAnonymous]
         public async Task<IActionResult> Update([FromBody]JobDTO job)
         {
-            var UpdatedJob = _mapper.Map<Job>(job);
             if (ModelState.IsValid)
             {
-                await _jobService.Update(UpdatedJob);
-                await _jobService.SaveAll();
+                await _jobService.Update(job);
                 return Ok();
             }
             return BadRequest();

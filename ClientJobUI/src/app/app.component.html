@@ -1,6 +1,30 @@
-<app-navbar >
-    
-</app-navbar>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [opened]="true">
+      <mat-nav-list>
+          <img class="circle_image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="">
+          <mat-card-title >
+            <p class=""></p>
+          </mat-card-title>
+        <a mat-list-item href="#"><span class="material-icons">apps</span>Jobs</a>
+        <a mat-list-item href="#"><span class="material-icons">exit_to_app</span>LogIn</a>
+        <a mat-list-item href="#"><span class="material-icons">account_box</span>LogOut</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <span>ClientJobUI</span>
+      </mat-toolbar>
+      
 <router-outlet>
-    
+
 </router-outlet>
+  
+
+
+
+
+
+
+
+

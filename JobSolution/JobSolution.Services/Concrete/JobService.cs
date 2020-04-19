@@ -32,9 +32,24 @@ namespace JobSolution.Services.Concrete
         public async Task<IList<JobDTO>> GetAll()
         {
             var Jobs = await _jobRepository.GetAllJobs();
-            List<JobDTO> JobListDTO = _mapper.Map<IQueryable<Job>, List<JobDTO>>(Jobs);
+            var JobsListDTO = Jobs.Select(x => new JobDTO
+            {
+                EmployerEmail = x.Employer.Email,
+                CategoryName = x.Category.Category,
+                Base64Photo = x.Base64Photo,
+                Title=x.Title,
+                City=x.City,
+                Contact=x.Contact,
+                Id=x.Id,
+                EmployerId=x.Id,
+                CategoryId = x.CategoryId
+            }).ToList();    
 
-            return JobListDTO;
+
+
+          //  List<JobDTO> JobListDTO = _mapper.Map<IQueryable<Job>, List<JobDTO>>(Jobs);
+
+            return JobsListDTO;
         }
 
         public async Task<JobDTO> GetByID(int id)

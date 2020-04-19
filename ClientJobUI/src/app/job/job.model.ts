@@ -4,7 +4,8 @@ export class Job{
         public Title?:string,
         public City?:string,
         public Contact?:string,
-        public Author?:string,
+        public EmployerEmail?:string,
+        public Category?:string,
         public PostDate?:Date,
         public EndDate?:Date,
         public Image?:string

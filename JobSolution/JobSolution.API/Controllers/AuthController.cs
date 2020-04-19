@@ -46,7 +46,7 @@ namespace JobSolution.API.Controllers
             var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password,false,false);
 
             var user = await _userManager.FindByNameAsync(userLoginDto.Username);
-            var roles = await  _userManager.GetRolesAsync(user);
+            //var roles = await  _userManager.GetRolesAsync(user);
                 
             if (checkPassword.Succeeded)
             {
@@ -57,8 +57,6 @@ namespace JobSolution.API.Controllers
                      claims: new List<Claim>(),
                      expires: DateTime.Now.AddDays(30),
                      signingCredentials: signinCredentials);
-                
-
                 var tokenHandler = new JwtSecurityTokenHandler();
                 
                 var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);

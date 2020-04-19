@@ -18,9 +18,8 @@ body{
   }
   
   .mat-toolbar.mat-primary {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 1;
   }
   
   .circle_image{
@@ -33,5 +32,9 @@ body{
     clip-path: circle(40% at 50% 50%);
   }
   
-  
+.mat-sidenav-content,
+.mat-sidenav-container,
+.mat-drawer-content {
+    transform: none !important;
+}
   

@@ -119,16 +119,16 @@ namespace JobSolution.API
             });
 
 
-            //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            //{
-            //    var dbContext = serviceScope.ServiceProvider.GetService<JobDbContext>();
-            //    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
-            //    var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var dbContext = serviceScope.ServiceProvider.GetService<JobDbContext>();
+                var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
+                var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
 
-            //    //dbContext.Database.Migrate();
-            //    //DbSeeder.Seed(dbContext, roleManager, userManager);
+                dbContext.Database.Migrate();
+                DbSeeder.Seed(dbContext, roleManager, userManager);
 
-            //}
+            }
         }
     }
 }

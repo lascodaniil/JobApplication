@@ -12,7 +12,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import { LogInComponent } from './log-in/log-in.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { NavbarComponent } from './navbar/navbar.component';
 import { JobService } from './services/job.service';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -32,7 +31,6 @@ import { MatListModule } from '@angular/material/list';
     AppComponent,
     JobComponent,
     LogInComponent,
-    NavbarComponent,
     RegisterComponent,
   ],
   imports: [

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pLF22u6R15OF0/8kFPJySmCAsA1Cwa2AYZccldwFjVHMwKjaUF1zYoZFsasibwU+9AkozfsIXForXZCmx0ufKQ==",
+  "dgSpecHash": "Aa2S95i9TV3sOwcNXgQ1QPFKwQTYOFs3JYJ8eYnprDQ2riTTNhlsoteNM28cHJhh4BML0BpZoskjYYUkKnPEgQ==",
   "success": true,
   "projectFilePath": "D:\\JobApplication\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj",
   "expectedPackageFiles": [
@@ -107,6 +107,7 @@
     "C:\\Users\\Daniil\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\Daniil\\.nuget\\packages\\system.linq.dynamic.core\\1.0.24\\system.linq.dynamic.core.1.0.24.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",

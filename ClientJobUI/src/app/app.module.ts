@@ -25,6 +25,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
+import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
+import { CategoryChildComponentComponent } from './category-child-component/category-child-component.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import {MatRadioModule} from '@angular/material/radio';
     JobComponent,
     LogInComponent,
     RegisterComponent,
+    SidebarNavComponent,
+    CategoryChildComponentComponent,
   ],
   imports: [
     BrowserModule,

@@ -167,6 +167,7 @@ D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckl
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
@@ -190,7 +191,6 @@ D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolutio
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Repository.pdb
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Services.pdb
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Domain.pdb
-D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cs
 D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.RazorTargetAssemblyInfo.cache
 D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csproj.CopyComplete
 D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticwebassets\JobSolution.API.StaticWebAssets.Manifest.cache

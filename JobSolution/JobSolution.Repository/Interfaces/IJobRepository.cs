@@ -1,5 +1,7 @@
-﻿using JobSolution.Domain.Entities;
+﻿using AutoMapper;
+using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
+using JobSolution.Infrastructure.Pagination;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
@@ -19,5 +21,6 @@ namespace JobSolution.Repository.Interfaces
         Task Add(Job job);
         Task<bool> SaveAll();
         Task<Job> GetByIdWithInclude(int id, params Expression<Func<Job, object>>[] includeProperties);
+        Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper);
     }
 }

@@ -19,10 +19,9 @@ namespace JobSolution.API.Profile
             CreateMap<Student, StudentDTO>();
             CreateMap<StudentDTO, Student>();
             CreateMap<Job, StudentJobDTO>();
+            CreateMap<Job, JobGridRowDTO>().ForMember(x => x.Category, y => y.MapFrom(x => x.Category.Category))
+                                           .ForMember(x => x.Employer, y => y.MapFrom(z => z.Employer.Email));    
 
-                //.ForMember(x => x.Employer, y => y.MapFrom(z => z.AuthorName)).ForMember(x => x.Category, y => y.MapFrom(z => z.CategoryName));
-                
-           
         }
     }
 }

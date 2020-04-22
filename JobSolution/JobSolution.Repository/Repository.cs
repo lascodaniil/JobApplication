@@ -1,5 +1,7 @@
 ﻿using JobSolution.Domain.Entities;
 using JobSolution.Infrastructure.Database;
+using JobSolution.Infrastructure.Extensions;
+using JobSolution.Infrastructure.Pagination;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -56,6 +58,8 @@ namespace JobSolution.Repository
             _jobDbContext.Entry(entity).State = EntityState.Modified;
             await _jobDbContext.SaveChangesAsync();
         }
+
+
 
         //public  IQueryable<TEntity> GetAllWithInclude<TEntity>( params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
         //{

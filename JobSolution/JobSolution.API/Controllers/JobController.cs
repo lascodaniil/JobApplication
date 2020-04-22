@@ -1,12 +1,16 @@
 ﻿using AutoMapper;
 using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
+using JobSolution.Infrastructure.Pagination;
 using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Routing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
 
 namespace JobSolution.API.Controllers
@@ -77,6 +81,22 @@ namespace JobSolution.API.Controllers
                 return Ok();
             }
             return BadRequest();
+        }
+
+        [HttpGet]
+        [Route("Category/{category}")]
+        [AllowAnonymous]
+        public async Task<IList<JobDTO>> GetJobsByCategory(string category)
+        {
+           return await _jobService.GetJobsByCategory(category);
+        }
+
+
+        [HttpPost("GetObjectTest")]
+        public async Task<IActionResult> GetPageForTable([FromBody]  PagedRequest pagedRequest)
+        {
+            var result =await  _jobService.GetPagedData(pagedRequest, _mapper);
+            return Ok(result);   
         }
     }
 }

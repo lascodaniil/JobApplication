@@ -7,6 +7,8 @@ using System.Linq;
 using System.Collections.Generic;
 using JobSolution.Repository;
 using JobSolution.DTO.DTO;
+using JobSolution.Infrastructure.Pagination;
+using AutoMapper;
 
 namespace JobSolution.Services.Interfaces
 {
@@ -17,6 +19,7 @@ namespace JobSolution.Services.Interfaces
         Task Add(JobDTO JobDTO);
         Task Update(JobDTO JobDTO);
         Task Remove(int JobId);
-
+        Task<IList<JobDTO>> GetJobsByCategory(string Category);
+        Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper);
     }
 }

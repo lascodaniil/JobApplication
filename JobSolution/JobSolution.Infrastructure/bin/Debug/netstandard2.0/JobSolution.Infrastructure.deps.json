@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "JobSolution.Infrastructure/1.0.0": {
         "dependencies": {
+          "AutoMapper": "9.0.0",
           "JobSolution.Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.2.0",
@@ -20,10 +21,23 @@
           "Microsoft.IdentityModel.Tokens": "6.5.0",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.3",
-          "System.IdentityModel.Tokens.Jwt": "6.5.0"
+          "System.IdentityModel.Tokens.Jwt": "6.5.0",
+          "System.Linq.Dynamic.Core": "1.0.24"
         },
         "runtime": {
           "JobSolution.Infrastructure.dll": {}
+        }
+      },
+      "AutoMapper/9.0.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.0.0"
+          }
         }
       },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
@@ -1055,6 +1069,17 @@
           }
         }
       },
+      "System.Linq.Dynamic.Core/1.0.24": {
+        "dependencies": {
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Linq.Dynamic.Core.dll": {
+            "assemblyVersion": "1.0.23.0",
+            "fileVersion": "1.0.23.0"
+          }
+        }
+      },
       "System.Linq.Expressions/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -1767,6 +1792,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xCqvoxT4HIrNY/xlXG9W+BA/awdrhWvMTKTK/igkGSRbhOhpl3Q8O8Gxlhzjc9JsYqE7sS6AxgyuUUvZ6R5/Bw==",
+      "path": "automapper/9.0.0",
+      "hashPath": "automapper.9.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",
@@ -2488,6 +2520,13 @@
       "sha512": "sha512-5DbqIUpsDp0dFftytzuMmc0oeMdQwjcP/EWxsksIz/w1TcFRkZ3yKKz0PqiYFMmEwPSWw+qNVqD7PJ889JzHbw==",
       "path": "system.linq/4.3.0",
       "hashPath": "system.linq.4.3.0.nupkg.sha512"
+    },
+    "System.Linq.Dynamic.Core/1.0.24": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kT9KuogF9yF0t7XQAr27aHpEgEXdUpIyp7HMHkVSWFq3toMmRZWnz7TgWX8fzq/k9+3B/UkKqn7BD6ybmcN8Xg==",
+      "path": "system.linq.dynamic.core/1.0.24",
+      "hashPath": "system.linq.dynamic.core.1.0.24.nupkg.sha512"
     },
     "System.Linq.Expressions/4.3.0": {
       "type": "package",

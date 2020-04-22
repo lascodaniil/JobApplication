@@ -33,15 +33,15 @@ namespace JobSolution.API.Controllers
         //    return NotFound();
         //}
 
-        [HttpGet("GetStudentsJob/{id}")]
-        [AllowAnonymous]
+        [HttpGet("JobStudent/{id}")]
+        [Authorize(Roles ="Employer")]
         public async Task<IActionResult> GetAllStudentsJobs(int id)
         {
             var AllStudentJobs = await _studentService.GetAllJobsStudent(id);
             return Ok(AllStudentJobs);
         }
 
-        [HttpGet("GetStudent/{id}")]
+        [HttpGet("Student/{id}")]
         [AllowAnonymous]
         public async Task<IActionResult> GetAllStudent(int id)
         {

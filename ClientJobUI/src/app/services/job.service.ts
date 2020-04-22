@@ -23,4 +23,8 @@ export class JobService {
   getJobById(id:number){
     return this.http.get<Job>(`${urlJob}/${id}`);
   }
+
+  getJobsByCategory(category: string){
+    return this. http.get<Job>(`${urlJob}/${category}`);
+  }
 }

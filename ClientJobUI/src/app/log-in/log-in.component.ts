@@ -23,9 +23,7 @@ export class LogInComponent implements OnInit {
   form:FormGroup;
   token: string;
   constructor(private activatedRoute : ActivatedRoute,
-    private router: Router,
-    private http: HttpClient, private builder:FormBuilder, private authService : AuthService) {
-       
+    private router: Router,private http: HttpClient, private builder:FormBuilder, private authService : AuthService) {
     }
 
   ngOnInit(): void {
@@ -37,10 +35,10 @@ export class LogInComponent implements OnInit {
 
   login() : void {
     this.authService.login(this.form.value.userName, this.form.value.passWord)
-    .subscribe(x=>{this.token=x.accessToken; this.authService.tokenObject = this.token; console.log(this.authService.tokenObject); localStorage.setItem('accessToken', this.authService.tokenObject) }) 
-      
+    .subscribe(x=>{this.token=x.accessToken; this.authService.tokenObject = this.token; ; localStorage.setItem('accessToken', this.authService.tokenObject) }) 
   }
-
   
-
 }
+
+
+

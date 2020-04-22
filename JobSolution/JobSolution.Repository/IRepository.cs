@@ -1,4 +1,5 @@
 ﻿using JobSolution.Domain.Entities;
+using JobSolution.Infrastructure.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,5 @@ namespace JobSolution.Repository
         Task Update(T entity);
         Task Remove(int Id);
         Task SaveAll();
-        //Task<TEntity> GetByIdWithInclude<TEntity>(int id, params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity;
     }
 }

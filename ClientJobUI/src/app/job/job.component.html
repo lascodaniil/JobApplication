@@ -11,7 +11,10 @@
 </mat-grid-list> -->
 
 
-<!-- <div fxLayout="row | wrap" fxLayoutAlign="center center" class="container">
+
+
+
+<div fxLayout="row | wrap" fxLayoutAlign="center center" class="container">
 <div *ngFor="let job of allJobs">   
     <mat-card  class="mat-elevation-z5">  
         <mat-card-title>{{job.title}}</mat-card-title>
@@ -21,17 +24,16 @@
         <mat-card-actions></mat-card-actions>
     </mat-card>
 </div>
-</div>    -->
+</div>    
 
-
-
- <div fxLayout="row | wrap">
-        <div class="col-sm-4 pt-4" *ngFor="let job of allJobs">
-            <mat-card>  
-                <mat-card-title>{{job.title}}</mat-card-title>
-                <mat-card-content>{{job.city}}</mat-card-content>
-                <img mat-card-image src="{{job.base64Photo}}">
-                <mat-card-actions></mat-card-actions>
-            </mat-card>
-        </div>
-</div>
+ 
+    <!-- <div fxLayout="row | wrap"> 
+            <div class="col-sm-4 pt-4" *ngFor="let job of allJobs">
+                <mat-card>  
+                    <mat-card-title>{{job.title}}</mat-card-title>
+                    <mat-card-content>{{job.city}}</mat-card-content>
+                    <img mat-card-image src="{{job.base64Photo}}">
+                    <mat-card-actions></mat-card-actions>
+                </mat-card>
+            </div>
+    </div>   -->

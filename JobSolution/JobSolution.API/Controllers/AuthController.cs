@@ -24,12 +24,11 @@ namespace JobSolution.API.Controllers
     [Route("[controller]")]
     public class AuthController : ControllerBase
     {
-
+            
         private readonly AuthOptions _authOptions;
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
-
 
         public AuthController(IOptions<AuthOptions> authOption, SignInManager<User> signInManager, UserManager<User> userManager)
         {
@@ -104,8 +103,5 @@ namespace JobSolution.API.Controllers
             var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
             return Ok(new { AccessToken = encodedToken });
         }
-        
-
-
     }
 }

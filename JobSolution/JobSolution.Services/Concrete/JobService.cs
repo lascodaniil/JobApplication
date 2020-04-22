@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
+using JobSolution.Infrastructure.Pagination;
 using JobSolution.Repository;
 using JobSolution.Repository.Interfaces;
 using JobSolution.Services.Interfaces;
@@ -64,7 +65,16 @@ namespace JobSolution.Services.Concrete
             await _jobRepository.Delete(JobId);
         }
 
-      
+        public async Task<IList<JobDTO>> GetJobsByCategory(string category)
+        {
+            var result = await GetAll();
+            return result.Where(x => x.CategoryName == category).ToList();
+        }
+
+        public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper) 
+        {
+            return await _jobRepository.GetPagedData(pagedRequest, mapper);
+        }
 
 
 
@@ -101,9 +111,6 @@ namespace JobSolution.Services.Concrete
         //    //    CategoryId = x.CategoryId,
         //    //    EmployerId = x.EmployerId,
         //    //}).ToList();
-
-
-
 
 
 

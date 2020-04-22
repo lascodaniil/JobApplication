@@ -19,7 +19,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using JobSolution.Domain;
 using JobSolution.Infrastructure;
-using JobSolution.Infrastructure.WebAuth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

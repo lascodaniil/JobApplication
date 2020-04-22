@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GdldIJoT33pPoMS3qsEF5Gi3X/+PJxdoKdQeYWbCXeJ6bQxyTa/QYFfKCnl5fzMw0wLIWV2kiAFNoS2tX5FlWg==",
+  "dgSpecHash": "ynMaNcMIDFwO8NYY/9AKEAJEiUZ0K2yMC3YHWnK+MPMb8kvdQ8CN7emYlCOH0z6vegyRnaZCRoMRfGYoYZ8jSQ==",
   "success": true,
   "projectFilePath": "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Daniil\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
@@ -107,6 +108,7 @@
     "C:\\Users\\Daniil\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\Daniil\\.nuget\\packages\\system.linq.dynamic.core\\1.0.24\\system.linq.dynamic.core.1.0.24.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",

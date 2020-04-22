@@ -1,0 +1,15 @@
+<mat-nav-list>
+    <img class="circle_image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="">
+    <mat-card-title >
+      <p class=""></p>
+    </mat-card-title>
+  <a mat-list-item routerLink="/Job" ><span class="material-icons">apps</span>Jobs</a>
+  <a mat-list-item  *ngIf="serviceAuth.isLoggedIn() ; else LogInData"><span class="material-icons">exit_to_app</span>LogOut</a>
+  <a mat-list-item  routerLink= "Profile" *ngIf="serviceAuth.isLoggedIn() ; "><span class="material-icons">assignment_ind</span>Profile</a>
+  
+</mat-nav-list>
+
+<ng-template #LogInData>
+    <a mat-list-item routerLink="Login"><span class="material-icons" >account_box</span>LogIn</a>
+   </ng-template>
+  

@@ -25,5 +25,15 @@ export class AuthService {
 
   public getToken(): string {
       return localStorage.getItem('accessToken');
+     
+    }
+
+   public isLoggedIn():boolean{
+      return this.getToken()? true : false;
+    }
+  
+    public logout():boolean{
+      localStorage.removeItem('accessToken');
+      return true;
     }
 }

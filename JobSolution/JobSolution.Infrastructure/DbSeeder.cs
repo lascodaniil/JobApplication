@@ -28,7 +28,7 @@ namespace JobSolution.Infrastructure
         private static async Task CreateUsers(JobDbContext dbContext, RoleManager<Role> roleManager, UserManager<User> userManager)
         {
             string Administrator = "Administrator";
-            string Employee = "Employee";
+            string Student = "Student";
             string Employer = "Employer";
 
             if (!await roleManager.RoleExistsAsync(Administrator))
@@ -36,9 +36,9 @@ namespace JobSolution.Infrastructure
                 await roleManager.CreateAsync(new Role(Administrator));
             }
 
-            if (!await roleManager.RoleExistsAsync(Employee))
+            if (!await roleManager.RoleExistsAsync(Student))
             {
-                await roleManager.CreateAsync(new Role(Employee));
+                await roleManager.CreateAsync(new Role(Student));
             }
             if (!await roleManager.RoleExistsAsync(Employer))
             {
@@ -58,7 +58,7 @@ namespace JobSolution.Infrastructure
             {
                 await userManager.CreateAsync(user_Admin, "password");
                 await userManager.AddToRoleAsync(user_Admin,Administrator);
-                await userManager.AddToRoleAsync(user_Admin,Employee);
+                await userManager.AddToRoleAsync(user_Admin, Student);
                 await userManager.AddToRoleAsync(user_Admin,Employer);
             }
 

@@ -1,6 +1,9 @@
-﻿using JobSolution.Domain.Entities;
+﻿using AutoMapper;
+using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Database;
+using JobSolution.Infrastructure.Extensions;
+using JobSolution.Infrastructure.Pagination;
 using JobSolution.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -23,6 +26,12 @@ namespace JobSolution.Repository.Concrete
              _jobDbContext.Jobs.Remove(Job);
              await _jobDbContext.SaveChangesAsync();
         }
+
+        public async Task<IQueryable<Job>> GetJobs()
+        {
+            return _jobDbContext.Jobs;
+        }
+
 
         public async Task<IQueryable<Job>> GetAllJobs()
         {
@@ -67,6 +76,11 @@ namespace JobSolution.Repository.Concrete
             return entities;
         }
 
+        public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper)
+        {
+            return await _jobDbContext.Set<Job>().CreatePaginatedResultAsync<Job, JobGridRowDTO>(pagedRequest, mapper);
+        }
 
+        
     }
 }

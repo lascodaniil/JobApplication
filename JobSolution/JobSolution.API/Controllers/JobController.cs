@@ -42,7 +42,7 @@ namespace JobSolution.API.Controllers
         {
             if(id > 0)
             {
-                var obj = await _jobService.GetByID(id);
+                var obj = await _jobService.GetByID(id);    
               
                 return Ok(obj);
             }
@@ -92,7 +92,7 @@ namespace JobSolution.API.Controllers
         }
 
 
-        [HttpPost("GetObjectTest")]
+        [HttpPost("PagePerTable")]
         public async Task<IActionResult> GetPageForTable([FromBody]  PagedRequest pagedRequest)
         {
             var result =await  _jobService.GetPagedData(pagedRequest, _mapper);

@@ -37,8 +37,9 @@ namespace JobSolution.API.Controllers
             _userManager = userManager;
         }
 
-        [AllowAnonymous]
+        
         [HttpPost("Login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody]UserForLoginDto userLoginDto)
         {
             var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password,false,false);
@@ -70,8 +71,8 @@ namespace JobSolution.API.Controllers
             return Unauthorized();
         }
 
-        [AllowAnonymous]
         [HttpPost("Register")]
+        [AllowAnonymous]
         public async Task<IActionResult> Add([FromBody]UserRegisterDto userRegisterDto)
         {
             if (userRegisterDto == null) return new StatusCodeResult(500);

@@ -37,6 +37,7 @@ namespace JobSolution.Repository.Concrete
         public async Task<IIncludableQueryable<StudentJob,Job>> GetJobsForStudent(int studentId)
         {
             return _jobDbContext.StudentJobs.Include(x => x.Student).Include(x => x.Job);
+   
         }
 
         public async Task<Student> GetStudent(int Id)

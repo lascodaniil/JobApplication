@@ -1,6 +1,8 @@
 ﻿
+using JobSolution.Domain.Auth;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace JobSolution.Domain.Entities
@@ -15,6 +17,10 @@ namespace JobSolution.Domain.Entities
         public int NumberOfJobs { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public DateTime? RegisterDate { get; private set; } = DateTime.Now;
+
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
         public ICollection<StudentJob> StudentJobs { get; set; }
     }
 }

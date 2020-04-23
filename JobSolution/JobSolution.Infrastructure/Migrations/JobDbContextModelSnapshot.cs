@@ -249,13 +249,26 @@ namespace JobSolution.Infrastructure.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
                         .IsUnique();
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.HasIndex("Username")
+                        .IsUnique()
+                        .HasFilter("[Username] IS NOT NULL");
 
                     b.ToTable("Employers");
                 });
@@ -344,9 +357,15 @@ namespace JobSolution.Infrastructure.Migrations
                     b.Property<string>("University")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("Students");
@@ -425,6 +444,15 @@ namespace JobSolution.Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("JobSolution.Domain.Entities.Employer", b =>
+                {
+                    b.HasOne("JobSolution.Domain.Auth.User", "User")
+                        .WithOne("Employer")
+                        .HasForeignKey("JobSolution.Domain.Entities.Employer", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("JobSolution.Domain.Entities.Job", b =>
                 {
                     b.HasOne("JobSolution.Domain.Entities.Categories", "Category")
@@ -436,6 +464,15 @@ namespace JobSolution.Infrastructure.Migrations
                     b.HasOne("JobSolution.Domain.Entities.Employer", "Employer")
                         .WithMany("Job")
                         .HasForeignKey("EmployerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("JobSolution.Domain.Entities.Student", b =>
+                {
+                    b.HasOne("JobSolution.Domain.Auth.User", "User")
+                        .WithOne("Student")
+                        .HasForeignKey("JobSolution.Domain.Entities.Student", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

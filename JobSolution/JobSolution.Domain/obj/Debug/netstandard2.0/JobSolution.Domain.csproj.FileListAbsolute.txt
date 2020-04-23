@@ -10,9 +10,9 @@ D:\AmdarisProjectDB\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobS
 D:\JobApplication\JobSolution\JobSolution.Domain\bin\Debug\netstandard2.0\JobSolution.Domain.deps.json
 D:\JobApplication\JobSolution\JobSolution.Domain\bin\Debug\netstandard2.0\JobSolution.Domain.dll
 D:\JobApplication\JobSolution\JobSolution.Domain\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
+D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.csprojAssemblyReference.cache
 D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.csproj.CoreCompileInputs.cache
 D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.AssemblyInfoInputs.cache
 D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.AssemblyInfo.cs
 D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.dll
 D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.pdb
-D:\JobApplication\JobSolution\JobSolution.Domain\obj\Debug\netstandard2.0\JobSolution.Domain.csprojAssemblyReference.cache

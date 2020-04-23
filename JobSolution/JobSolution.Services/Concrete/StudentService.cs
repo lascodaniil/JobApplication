@@ -28,7 +28,7 @@ namespace JobSolution.Services.Concrete
             var StudentJobsDTO = StudentsJobs.Where(x => x.StudentId == StudentId)
                 .Select(x => new StudentJobDTO()
                 {
-                    AuthorName = x.Job.Employer.Name,
+                    AuthorName = x.Job.Employer.Username,
                     CategoryName = x.Job.Category.Category,
                     City = x.Job.City,
                     Contact = x.Job.Contact,

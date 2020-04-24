@@ -1,0 +1,68 @@
+    <mat-card class="example-card">
+        <div fxLayout="row | wrap" fxLayoutAlign="center center">
+            <div class="container">
+                <h1>Registration Form</h1>
+                <form novalidate (ngSubmit)="onSubmit(RegisterForm)" #RegisterForm="ngForm">
+                    <div >
+                        <mat-form-field appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input matInput type="text" name="FirstName"  [(ngModel)] = "registeredUser.FirstName"   #FirstName="ngModel" placeholder="Insert your FirstName"  required   ngModel />
+
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Last Name</mat-label>
+                            <input  matInput placeholder="Insert your LastName" #LastNameNgModel="ngModel"  [(ngModel)] = "registeredUser.LastName"  minlength="5" pattern="[A-Za-z]+"  name="lastname" required ngModel  />
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput name="email"   #EmailNgModel="ngModel"  [(ngModel)] = "registeredUser.Email" minlength="5" required ngModel/>
+                            
+                        </mat-form-field>
+                        <ul class="text-danger list-unstyled" *ngIf="EmailNgModel.dirty && EmailNgModel.invalid">
+                            <li *ngIf="EmailNgModel.errors.required">Insert an email address</li>
+                        </ul>
+                    </div>
+
+
+                
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input matInput name="UserName"   #EmailNgModel="ngModel"  [(ngModel)] = "registeredUser.UserName" minlength="5" required ngModel/>
+                        </mat-form-field>
+                       
+                    </div>
+
+
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput type ="password" name="Password"   #EmailNgModel="ngModel"  [(ngModel)] = "registeredUser.Password" minlength="5" required ngModel/>
+                        </mat-form-field>
+                       
+                    </div>
+                    
+                   
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Role</mat-label>
+                            <mat-select  matInput name="email"  [(ngModel)]="registeredUser.RoleFromRegister" name="role" required>
+                                <mat-option *ngFor="let role of roles" [value]="role" required>
+                                    {{role}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <button type="submit" mat-raised-button color="primary" 
+                    [disabled]= "RegisterForm.invalid" >
+                        SEND</button>
+                </form>
+            </div>
+        </div>
+    </mat-card>  
+
+

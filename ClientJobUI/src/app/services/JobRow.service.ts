@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import { PaginatedRequest } from '../model/PaginatedRequest';
 import { PagedResult } from '../model/PagedResult';
 import { Job } from '../model/Job';
+import { JobRow } from '../job/JobRow.model';
 
 
 const urlJob="http://localhost:5000/Job";
@@ -20,15 +21,15 @@ export class JobService {
 
 
   getJobById(id:number){
-    return this.http.get<Job>(`${urlJob}/${id}`);
+    return this.http.get<JobRow>(`${urlJob}/${id}`);
   }
 
   getJobsByCategory(category: string){
-    return this. http.get<Job>(`${urlJob}/${category}`);
+    return this. http.get<JobRow>(`${urlJob}/${category}`);
   }
 
-  getAllJobs(paginatedRequest: PaginatedRequest) : Observable<PagedResult<Job>>{
-    return this.http.post<PagedResult<Job>>(`${urlJob}/PagePerTable`, paginatedRequest);
+  getAllJobs(paginatedRequest: PaginatedRequest) : Observable<PagedResult<JobRow>>{
+    return this.http.post<PagedResult<JobRow>>(`${urlJob}/PagePerTable`, paginatedRequest);
   }
 }
 

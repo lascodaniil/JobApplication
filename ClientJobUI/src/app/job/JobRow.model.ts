@@ -1,4 +1,4 @@
-export class Job{
+export class JobRow{
     constructor(
         public id?:number,
         public Title?:string,

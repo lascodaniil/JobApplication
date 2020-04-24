@@ -1,11 +1,29 @@
 .image{
-    max-width: 40%;
+  width: 100px;
 }
 
-.container{
-    max-width: 100%;
-    margin: auto;
+.container {
+  max-width: 95%;
+  margin: auto;
 }
-mat-card{
-    margin: 10px;
+
+.container__element {
+  margin: 10px 0;
+}
+
+.card-header__container {
+  margin-left: 20px;
+}
+
+.mat-card-header {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+mat-card {
+  margin: 10px;
+}
+
+.action__button {
+  margin: 0 10px;
 }

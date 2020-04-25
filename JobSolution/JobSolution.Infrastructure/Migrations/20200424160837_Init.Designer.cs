@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobSolution.Infrastructure.Migrations
 {
     [DbContext(typeof(JobDbContext))]
-    [Migration("20200423143247_1st")]
-    partial class _1st
+    [Migration("20200424160837_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -243,16 +243,14 @@ namespace JobSolution.Infrastructure.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Contact")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -263,6 +261,9 @@ namespace JobSolution.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("PhoneNumber")
                         .IsUnique();
 
                     b.HasIndex("UserId")
@@ -304,6 +305,9 @@ namespace JobSolution.Infrastructure.Migrations
 
                     b.Property<DateTime?>("PostDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<float>("Salary")
+                        .HasColumnType("real");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -348,8 +352,9 @@ namespace JobSolution.Infrastructure.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<int>("NumberOfJobs")
-                        .HasColumnType("int");
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("RegisterDate")
                         .ValueGeneratedOnAdd()
@@ -365,6 +370,9 @@ namespace JobSolution.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("PhoneNumber")
                         .IsUnique();
 
                     b.HasIndex("UserId")
@@ -490,7 +498,7 @@ namespace JobSolution.Infrastructure.Migrations
                     b.HasOne("JobSolution.Domain.Entities.Student", "Student")
                         .WithMany("StudentJobs")
                         .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

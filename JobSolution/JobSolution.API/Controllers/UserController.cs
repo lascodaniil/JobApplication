@@ -22,16 +22,6 @@ namespace JobSolution.API.Controllers
             _studentService = studentService;
         }
 
-        //[HttpGet("GetProfile/{id}")]
-        //public async Task<IActionResult> GetStudentProfile(int id)
-        //{
-        //    var student = await _studentService.GetUserProfile(id);
-        //    if(student != null)
-        //    {
-        //        return Ok(student);
-        //    }
-        //    return NotFound();
-        //}
 
         [HttpGet("JobStudent/{id}")]
         [Authorize(Roles ="Employer")]

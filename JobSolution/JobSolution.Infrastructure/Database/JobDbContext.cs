@@ -40,7 +40,5 @@ namespace JobSolution.Infrastructure.Database
             modelBuilder.Entity<RoleClaim>().ToTable("RoleClaims", SchemaConsts.Auth);
             modelBuilder.Entity<UserRole>().ToTable("UserRole", SchemaConsts.Auth);
         }
-
-
     }
 }

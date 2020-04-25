@@ -52,7 +52,6 @@ namespace JobSolution.API.Controllers
                 claims.Add(new Claim(ClaimTypes.Role,item ));
             }
 
-
             if (checkPassword.Succeeded)
             {
                 var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
@@ -71,7 +70,7 @@ namespace JobSolution.API.Controllers
             return Unauthorized();
         }
 
-        [HttpPost("Register")]
+        [HttpPost("Registration")]
         [AllowAnonymous]
         public async Task<IActionResult> Add([FromBody]UserRegisterDto userRegisterDto)
         {
@@ -92,6 +91,11 @@ namespace JobSolution.API.Controllers
             await _userManager.CreateAsync(AddUser, userRegisterDto.Password);
             await _userManager.AddToRoleAsync(AddUser, userRegisterDto.RoleFromRegister);
 
+
+            // to complete tables that depends on role
+
+
+            
 
             var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
             var jwtSecurityToken = new JwtSecurityToken(

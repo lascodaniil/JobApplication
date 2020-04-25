@@ -14,6 +14,8 @@ namespace JobSolution.Domain.ConfigFluentAPI
             entity.HasIndex(p => p.Email).IsUnique();
             entity.Property(p => p.Email).HasMaxLength(255).IsRequired();
             entity.HasIndex(p => p.Username).IsUnique();
+            entity.Property(p => p.PhoneNumber).IsRequired();
+            entity.HasIndex(p => p.PhoneNumber).IsUnique();
             entity.HasMany(x => x.Job).WithOne(x => x.Employer).HasForeignKey(x => x.EmployerId).OnDelete(DeleteBehavior.Cascade);
         }
     }

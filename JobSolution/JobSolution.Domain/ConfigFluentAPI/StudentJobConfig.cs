@@ -11,7 +11,6 @@ namespace JobSolution.Domain.ConfigFluentAPI
         public void Configure(EntityTypeBuilder<StudentJobConfig> entity)
         {
 
-
         }
     }
 }

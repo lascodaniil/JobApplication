@@ -1,5 +1,7 @@
 ﻿
 
+using JobSolution.Domain.Auth;
+
 namespace JobSolution.Domain.Entities
 {
     public class StudentJob : BaseEntity

@@ -1,5 +1,6 @@
 ﻿using JobSolution.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 
 namespace JobSolution.Domain.Auth
 {

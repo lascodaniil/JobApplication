@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JobSolution.Infrastructure.Migrations
 {
-    public partial class _1st : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -98,8 +98,7 @@ namespace JobSolution.Infrastructure.Migrations
                     Username = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 255, nullable: false),
                     City = table.Column<string>(nullable: true),
-                    Contact = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -125,7 +124,7 @@ namespace JobSolution.Infrastructure.Migrations
                     Email = table.Column<string>(maxLength: 255, nullable: false),
                     University = table.Column<string>(nullable: true),
                     Base64Photo = table.Column<string>(nullable: true),
-                    NumberOfJobs = table.Column<int>(nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: false),
                     DateOfBirth = table.Column<DateTime>(nullable: false),
                     RegisterDate = table.Column<DateTime>(nullable: true, defaultValueSql: "(GETDATE())"),
                     UserId = table.Column<int>(nullable: false)
@@ -249,7 +248,8 @@ namespace JobSolution.Infrastructure.Migrations
                     Contact = table.Column<string>(maxLength: 255, nullable: false),
                     PostDate = table.Column<DateTime>(nullable: true),
                     EndDate = table.Column<DateTime>(nullable: true),
-                    Base64Photo = table.Column<string>(nullable: true)
+                    Base64Photo = table.Column<string>(nullable: true),
+                    Salary = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -290,14 +290,19 @@ namespace JobSolution.Infrastructure.Migrations
                         name: "FK_StudentJobs_Students_StudentId",
                         column: x => x.StudentId,
                         principalTable: "Students",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employers_Email",
                 table: "Employers",
                 column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Employers_PhoneNumber",
+                table: "Employers",
+                column: "PhoneNumber",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -337,6 +342,12 @@ namespace JobSolution.Infrastructure.Migrations
                 name: "IX_Students_Email",
                 table: "Students",
                 column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Students_PhoneNumber",
+                table: "Students",
+                column: "PhoneNumber",
                 unique: true);
 
             migrationBuilder.CreateIndex(

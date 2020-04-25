@@ -15,6 +15,7 @@ namespace JobSolution.Domain.Entities
         public DateTime? PostDate { get; set; } // 01.01.2020
         public DateTime? EndDate { get; set; } // 01.02.2020
         public string Base64Photo { get; set; } 
+        public float Salary { get; set; }
         public Categories Category { get; set; }// education, real estate
         public ICollection<StudentJob> StudentJobs { get; set; }
     }

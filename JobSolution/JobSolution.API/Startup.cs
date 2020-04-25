@@ -28,6 +28,7 @@ using JobSolution.Infrastructure.Extensions;
 using JobSolution.Repository;
 using JobSolution.Repository.Interfaces;
 using JobSolution.Repository.Concrete;
+using JobSolution.Infrastructure.Seed;
 
 namespace JobSolution.API
 {
@@ -118,16 +119,16 @@ namespace JobSolution.API
             });
 
 
-            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            {
-                var dbContext = serviceScope.ServiceProvider.GetService<JobDbContext>();
-                var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
-                var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
+            //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    var dbContext = serviceScope.ServiceProvider.GetService<JobDbContext>();
+            //    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();D:\JobApplication\JobSolution\JobSolution.Domain\Entities\Categories.cs
+            //    var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
 
-                dbContext.Database.Migrate();
-                DbSeeder.Seed(dbContext, roleManager, userManager);
-
-            }
+            //    dbContext.Database.Migrate();
+            //    DbSeeder.Seed(dbContext, roleManager, userManager);
+            //    dbContext.SaveChanges();
+            //}
         }
     }
 }

@@ -12,7 +12,7 @@ namespace JobSolution.Infrastructure.Pagination
             RequestFilters = new RequestFilters();
         }
 
-        public int PageIndex { get; set; }
+        public int PageIndex { get; set; } // current page
 
         public int PageSize { get; set; }
 

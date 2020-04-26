@@ -14,7 +14,6 @@ namespace JobSolution.Domain.ConfigFluentAPI
             
             entity.Property(p => p.Title).HasMaxLength(255).IsRequired();
             entity.Property(p => p.Contact).HasMaxLength(255).IsRequired();
-            entity.HasMany(x => x.StudentJobs).WithOne(x => x.Job).HasForeignKey(x => x.JobId);
 
         }
     }

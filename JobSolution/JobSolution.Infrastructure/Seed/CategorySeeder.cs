@@ -11,7 +11,7 @@ namespace JobSolution.Infrastructure.Seed
 {
     public class CategorySeeder
     {
-        public static void CreateCategories(JobDbContext dbContext)
+        public static void CreateCategories(AppDbContext dbContext)
         {
             var Category1 = new Categories()
             {

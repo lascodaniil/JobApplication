@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JobSolution.Infrastructure.Migrations
 {
-    public partial class Init : Migration
+    public partial class _1st : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -90,22 +90,32 @@ namespace JobSolution.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Employers",
+                name: "Jobs",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(maxLength: 255, nullable: false),
+                    CategoryId = table.Column<int>(nullable: false),
+                    Title = table.Column<string>(maxLength: 255, nullable: false),
                     City = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: false),
+                    Contact = table.Column<string>(maxLength: 255, nullable: false),
+                    PostDate = table.Column<DateTime>(nullable: true),
+                    EndDate = table.Column<DateTime>(nullable: true),
+                    Base64Photo = table.Column<string>(nullable: true),
+                    Salary = table.Column<float>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employers", x => x.Id);
+                    table.PrimaryKey("PK_Jobs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Employers_Users_UserId",
+                        name: "FK_Jobs_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Jobs_Users_UserId",
                         column: x => x.UserId,
                         principalSchema: "Auth",
                         principalTable: "Users",
@@ -114,26 +124,26 @@ namespace JobSolution.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Students",
+                name: "Profiles",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(maxLength: 255, nullable: false),
-                    LastName = table.Column<string>(maxLength: 255, nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 255, nullable: false),
                     University = table.Column<string>(nullable: true),
                     Base64Photo = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: false),
-                    DateOfBirth = table.Column<DateTime>(nullable: false),
-                    RegisterDate = table.Column<DateTime>(nullable: true, defaultValueSql: "(GETDATE())"),
-                    UserId = table.Column<int>(nullable: false)
+                    UserId = table.Column<int>(nullable: false),
+                    DateOfBirth = table.Column<DateTime>(nullable: true),
+                    RegisterDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Students", x => x.Id);
+                    table.PrimaryKey("PK_Profiles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Students_Users_UserId",
+                        name: "FK_Profiles_Users_UserId",
                         column: x => x.UserId,
                         principalSchema: "Auth",
                         principalTable: "Users",
@@ -235,124 +245,31 @@ namespace JobSolution.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Jobs",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployerId = table.Column<int>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false),
-                    Title = table.Column<string>(maxLength: 255, nullable: false),
-                    City = table.Column<string>(nullable: true),
-                    Contact = table.Column<string>(maxLength: 255, nullable: false),
-                    PostDate = table.Column<DateTime>(nullable: true),
-                    EndDate = table.Column<DateTime>(nullable: true),
-                    Base64Photo = table.Column<string>(nullable: true),
-                    Salary = table.Column<float>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Jobs", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Jobs_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Jobs_Employers_EmployerId",
-                        column: x => x.EmployerId,
-                        principalTable: "Employers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "StudentJobs",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    StudentId = table.Column<int>(nullable: false),
-                    JobId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StudentJobs", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_StudentJobs_Jobs_JobId",
-                        column: x => x.JobId,
-                        principalTable: "Jobs",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_StudentJobs_Students_StudentId",
-                        column: x => x.StudentId,
-                        principalTable: "Students",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Employers_Email",
-                table: "Employers",
-                column: "Email",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Employers_PhoneNumber",
-                table: "Employers",
-                column: "PhoneNumber",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Employers_UserId",
-                table: "Employers",
-                column: "UserId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Employers_Username",
-                table: "Employers",
-                column: "Username",
-                unique: true,
-                filter: "[Username] IS NOT NULL");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Jobs_CategoryId",
                 table: "Jobs",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Jobs_EmployerId",
+                name: "IX_Jobs_UserId",
                 table: "Jobs",
-                column: "EmployerId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StudentJobs_JobId",
-                table: "StudentJobs",
-                column: "JobId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_StudentJobs_StudentId",
-                table: "StudentJobs",
-                column: "StudentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Students_Email",
-                table: "Students",
+                name: "IX_Profiles_Email",
+                table: "Profiles",
                 column: "Email",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Students_PhoneNumber",
-                table: "Students",
+                name: "IX_Profiles_PhoneNumber",
+                table: "Profiles",
                 column: "PhoneNumber",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Students_UserId",
-                table: "Students",
+                name: "IX_Profiles_UserId",
+                table: "Profiles",
                 column: "UserId",
                 unique: true);
 
@@ -406,7 +323,10 @@ namespace JobSolution.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "StudentJobs");
+                name: "Jobs");
+
+            migrationBuilder.DropTable(
+                name: "Profiles");
 
             migrationBuilder.DropTable(
                 name: "RoleClaims",
@@ -429,20 +349,11 @@ namespace JobSolution.Infrastructure.Migrations
                 schema: "Auth");
 
             migrationBuilder.DropTable(
-                name: "Jobs");
-
-            migrationBuilder.DropTable(
-                name: "Students");
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Roles",
                 schema: "Auth");
-
-            migrationBuilder.DropTable(
-                name: "Categories");
-
-            migrationBuilder.DropTable(
-                name: "Employers");
 
             migrationBuilder.DropTable(
                 name: "Users",

@@ -4,16 +4,14 @@ using JobSolution.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JobSolution.Infrastructure.Migrations
 {
-    [DbContext(typeof(JobDbContext))]
-    [Migration("20200424160837_Init")]
-    partial class Init
+    [DbContext(typeof(AppDbContext))]
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -233,49 +231,6 @@ namespace JobSolution.Infrastructure.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("JobSolution.Domain.Entities.Employer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("PhoneNumber")
-                        .IsUnique();
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.HasIndex("Username")
-                        .IsUnique()
-                        .HasFilter("[Username] IS NOT NULL");
-
-                    b.ToTable("Employers");
-                });
-
             modelBuilder.Entity("JobSolution.Domain.Entities.Job", b =>
                 {
                     b.Property<int>("Id")
@@ -297,9 +252,6 @@ namespace JobSolution.Infrastructure.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<int>("EmployerId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
@@ -314,16 +266,19 @@ namespace JobSolution.Infrastructure.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("EmployerId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Jobs");
                 });
 
-            modelBuilder.Entity("JobSolution.Domain.Entities.Student", b =>
+            modelBuilder.Entity("JobSolution.Domain.Entities.Profile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -334,7 +289,6 @@ namespace JobSolution.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DateOfBirth")
-                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -343,23 +297,17 @@ namespace JobSolution.Infrastructure.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("RegisterDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("(GETDATE())");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("University")
                         .HasColumnType("nvarchar(max)");
@@ -378,29 +326,7 @@ namespace JobSolution.Infrastructure.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Students");
-                });
-
-            modelBuilder.Entity("JobSolution.Domain.Entities.StudentJob", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("JobId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("JobId");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("StudentJobs");
+                    b.ToTable("Profiles");
                 });
 
             modelBuilder.Entity("JobSolution.Domain.Auth.RoleClaim", b =>
@@ -454,15 +380,6 @@ namespace JobSolution.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("JobSolution.Domain.Entities.Employer", b =>
-                {
-                    b.HasOne("JobSolution.Domain.Auth.User", "User")
-                        .WithOne("Employer")
-                        .HasForeignKey("JobSolution.Domain.Entities.Employer", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("JobSolution.Domain.Entities.Job", b =>
                 {
                     b.HasOne("JobSolution.Domain.Entities.Categories", "Category")
@@ -471,34 +388,19 @@ namespace JobSolution.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobSolution.Domain.Entities.Employer", "Employer")
-                        .WithMany("Job")
-                        .HasForeignKey("EmployerId")
+                    b.HasOne("JobSolution.Domain.Auth.User", "User")
+                        .WithMany("Jobs")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("JobSolution.Domain.Entities.Student", b =>
+            modelBuilder.Entity("JobSolution.Domain.Entities.Profile", b =>
                 {
                     b.HasOne("JobSolution.Domain.Auth.User", "User")
-                        .WithOne("Student")
-                        .HasForeignKey("JobSolution.Domain.Entities.Student", "UserId")
+                        .WithOne("Profile")
+                        .HasForeignKey("JobSolution.Domain.Entities.Profile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("JobSolution.Domain.Entities.StudentJob", b =>
-                {
-                    b.HasOne("JobSolution.Domain.Entities.Job", "Job")
-                        .WithMany("StudentJobs")
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("JobSolution.Domain.Entities.Student", "Student")
-                        .WithMany("StudentJobs")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

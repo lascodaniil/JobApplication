@@ -56,12 +56,9 @@ namespace JobSolution.API
             });
 
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            services.AddDbContext<JobDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IJobRepository, JobRepository>();
-            services.AddTransient<IStudentRepository, StudentRepository>();
             services.AddTransient<IJobService, JobService>();
-            services.AddTransient<IStudentService, StudentService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddIdentity<User, Role>(opts =>
             {
@@ -70,7 +67,7 @@ namespace JobSolution.API
                 opts.Password.RequireLowercase = false;
                 opts.Password.RequireUppercase = false;
                 opts.Password.RequireDigit = false;
-            }).AddEntityFrameworkStores<JobDbContext>().AddRoles<Role>();
+            }).AddEntityFrameworkStores<AppDbContext>().AddRoles<Role>();
 
 
             var authOptions = services.ConfigureAuthOptions(Configuration);
@@ -80,7 +77,6 @@ namespace JobSolution.API
             {
                 options.Filters.Add(new AuthorizeFilter());
             });
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -121,8 +117,8 @@ namespace JobSolution.API
 
             //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             //{
-            //    var dbContext = serviceScope.ServiceProvider.GetService<JobDbContext>();
-            //    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();D:\JobApplication\JobSolution\JobSolution.Domain\Entities\Categories.cs
+            //    var dbContext = serviceScope.ServiceProvider.GetService<AppDbContext>();
+            //    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
             //    var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
 
             //    dbContext.Database.Migrate();

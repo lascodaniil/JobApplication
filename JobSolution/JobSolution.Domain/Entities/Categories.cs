@@ -7,5 +7,4 @@ namespace JobSolution.Domain.Entities
         public string Category { get; set; }
         public ICollection<Job> Jobs { get; set; }
     }
-
 }

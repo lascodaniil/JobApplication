@@ -12,20 +12,19 @@ namespace JobSolution.Infrastructure.Database
 {
     public class DbSeeder
     {
-        public static void Seed(JobDbContext dbContext, RoleManager<Role> roleManager, UserManager<User> userManager)
+        public static void Seed(AppDbContext dbContext, RoleManager<Role> roleManager, UserManager<User> userManager)
         {
-           // CategorySeeder.CreateCategories(dbContext); 
-           // CreateUsers(dbContext, roleManager, userManager).GetAwaiter().GetResult();
-            //DbSeedUser.PopulateUser(dbContext, roleManager, userManager).GetAwaiter().GetResult();
+            CreateUsers(dbContext, roleManager, userManager).GetAwaiter().GetResult();
+            CategorySeeder.CreateCategories(dbContext); 
+            DbSeedUser.PopulateUser(dbContext, roleManager, userManager).GetAwaiter().GetResult();
 
-           // DbSeedUser.PopulateEmployer(dbContext, roleManager, userManager).GetAwaiter().GetResult();
-            DbSeedUser.PopulateJobs(dbContext, roleManager, userManager);
-            //DbSeedUser.StudentJobs(dbContext);
+            DbSeedUser.PopulateJobs(dbContext, roleManager, userManager).GetAwaiter().GetResult();
+            //DbSeedUser.StudentJobs(dbContext); it's not necessary at this moment
 
             dbContext.SaveChanges();
         }
 
-        private static async Task CreateUsers(JobDbContext dbContext, RoleManager<Role> roleManager, UserManager<User> userManager)
+        private static async Task CreateUsers(AppDbContext dbContext, RoleManager<Role> roleManager, UserManager<User> userManager)
         {
             string AdministratorRole = "Administrator";
             string StudentRole = "Student";
@@ -52,34 +51,27 @@ namespace JobSolution.Infrastructure.Database
                 SecurityStamp = Guid.NewGuid().ToString()
             };
 
+            var UserProfile = new Profile()
+            {
+                FirstName = "Admin",
+                LastName = "Admin",
+                Email = "admin@admin.com",
+                RegisterDate = DateTime.Now,
+                University = "",
+                PhoneNumber= "0000000000",
+                UserId = 1
+            };
+
+
             if (await userManager.FindByEmailAsync(user_Admin.Email) == null)
             {
                 await userManager.CreateAsync(user_Admin, "password");
                 await userManager.AddToRoleAsync(user_Admin, AdministratorRole);
                 await userManager.AddToRoleAsync(user_Admin, StudentRole);
                 await userManager.AddToRoleAsync(user_Admin, EmployerRole);
-
-                var User = new Student()
-                {
-                    Email = "admin@admin.com",
-                    LastName = "Admin",
-                    FirstName = "Admin",
-                    DateOfBirth = DateTime.Now,
-                    PhoneNumber = "00000000000",
-                    UserId = 1
-                };
-
-                var Employer = new Employer()
-                {
-                    UserId = 1,
-                    Email = "admin@admin.com",
-                    City = "Chisinau",
-                    PhoneNumber = "060288321"
-                };
-
-                dbContext.Students.Add(User);
-                dbContext.Employers.Add(Employer);
-                
+            
+                dbContext.Profiles.Add(UserProfile);
+            
             }
         }
     }

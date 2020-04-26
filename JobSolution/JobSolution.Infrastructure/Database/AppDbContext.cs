@@ -7,28 +7,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JobSolution.Infrastructure.Database
 {
-    public class JobDbContext : IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
+    public class AppDbContext : IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
-        public JobDbContext(DbContextOptions<JobDbContext> dbContextOptions)  :base(dbContextOptions){ }
+        public AppDbContext(DbContextOptions<AppDbContext> dbContextOptions)  :base(dbContextOptions){ }
 
-
-        public DbSet<Employer> Employers { get; set; }
         public DbSet<Categories> Categories { get; set; }
         public DbSet<Job> Jobs { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<StudentJob> StudentJobs { get; set; }
-        public DbSet<User> Users { get; set; }
-
+        public DbSet<Profile> Profiles { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new EmployerConfig());
+            modelBuilder.ApplyConfiguration(new ProfileConfig());
             modelBuilder.ApplyConfiguration(new JobConfig());
-            modelBuilder.ApplyConfiguration(new StudentConfig());
+            modelBuilder.ApplyConfiguration(new UserConfig());
             ApplyIdentityMapConfiguration(modelBuilder);
         }
-
 
         private void ApplyIdentityMapConfiguration(ModelBuilder modelBuilder)
         {

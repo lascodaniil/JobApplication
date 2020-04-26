@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JobSolution.Services.Interfaces
 {
-    public interface IStudentService
+    public interface IUserService
     {
         Task<IList<StudentJobDTO>> GetAllJobsStudent(int StudentId);
         Task<StudentDTO> GetStudent(int StudentId);

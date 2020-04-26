@@ -28,13 +28,15 @@ namespace JobSolution.API.Controllers
         private readonly AuthOptions _authOptions;
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
+        private readonly AppDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public AuthController(IOptions<AuthOptions> authOption, SignInManager<User> signInManager, UserManager<User> userManager)
+        public AuthController(IOptions<AuthOptions> authOption, SignInManager<User> signInManager, UserManager<User> userManager, AppDbContext dbContext)
         {
             _authOptions = authOption.Value;
             _signInManager = signInManager;
             _userManager = userManager;
+            _dbContext = dbContext;
         }
 
         
@@ -91,12 +93,6 @@ namespace JobSolution.API.Controllers
             await _userManager.CreateAsync(AddUser, userRegisterDto.Password);
             await _userManager.AddToRoleAsync(AddUser, userRegisterDto.RoleFromRegister);
 
-
-            // to complete tables that depends on role
-
-
-            
-
             var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
             var jwtSecurityToken = new JwtSecurityToken(
                  issuer: _authOptions.Issuer,
@@ -107,6 +103,22 @@ namespace JobSolution.API.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
             return Ok(new { AccessToken = encodedToken });
+        }
+
+        [Authorize(Roles="Student")]
+        [HttpPost("GetUserProfile")]
+        public async Task<IActionResult> GetUserProfile([FromBody]UserForLoginDto userLoginDto)
+        {
+            var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password, false, false);
+            var user = await _userManager.FindByNameAsync(userLoginDto.Username);
+            var role = await _userManager.GetRolesAsync(user);
+            if (checkPassword.Succeeded)
+            {
+               var StudentProfile = _dbContext.Profiles.Where(x => x.UserId == user.Id);
+                return Ok(StudentProfile);
+               
+            }
+            return null;
         }
     }
 }

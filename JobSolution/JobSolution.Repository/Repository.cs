@@ -14,49 +14,49 @@ namespace JobSolution.Repository
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
-        protected readonly JobDbContext _jobDbContext;
+        protected readonly AppDbContext _dbContext;
 
-        public Repository(JobDbContext jobDbContext)
+        public Repository(AppDbContext jobDbContext)
         {
-            _jobDbContext = jobDbContext;
+            _dbContext = jobDbContext;
             
         }
 
         public async Task Add(T entity)
         {
-            _jobDbContext.Set<T>().Add(entity);
-            await _jobDbContext.SaveChangesAsync();
+            _dbContext.Set<T>().Add(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<T>> GetAll()
         {
-            return await _jobDbContext.Set<T>().ToListAsync();
+            return await _dbContext.Set<T>().ToListAsync();
         }
 
         public async Task<T> GetByID(int id)
         {
-            return await _jobDbContext.Set<T>().FindAsync(id);
+            return await _dbContext.Set<T>().FindAsync(id);
         }
 
         public async Task Remove(int Id)
         {
-            var temporaryEntity = await _jobDbContext.Set<T>().FindAsync(Id);
+            var temporaryEntity = await _dbContext.Set<T>().FindAsync(Id);
             if (temporaryEntity != null)
             {
-                _jobDbContext.Set<T>().Remove(temporaryEntity);
-                await _jobDbContext.SaveChangesAsync();
+                _dbContext.Set<T>().Remove(temporaryEntity);
+                await _dbContext.SaveChangesAsync();
             }
         }
 
         public async Task SaveAll()
         {
-            await _jobDbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task Update(T entity)
         {
-            _jobDbContext.Entry(entity).State = EntityState.Modified;
-            await _jobDbContext.SaveChangesAsync();
+            _dbContext.Entry(entity).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
         }
 
 

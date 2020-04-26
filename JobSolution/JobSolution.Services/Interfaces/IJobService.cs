@@ -16,8 +16,8 @@ namespace JobSolution.Services.Interfaces
     {
         Task<IList<JobDTO>> GetAll();
         Task<JobDTO> GetByID(int JobId);
-        Task Add(JobDTO JobDTO);
-        Task Update(JobDTO JobDTO);
+        Task Add(JobForPostdDTO JobDTO);
+        Task Update(JobForPostdDTO JobDTO,int id);
         Task Remove(int JobId);
         Task<IList<JobDTO>> GetJobsByCategory(string Category);
         Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper);

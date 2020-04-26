@@ -12,15 +12,18 @@ namespace JobSolution.API.Profile
     {   
         public AutoMapperProfile()
         {
+           CreateMap<Job, JobDTO>().ForMember(x => x.CategroyName, y => y.MapFrom(z => z.Category.Category))
+                .ForMember(x => x.UserName, y => y.MapFrom(y => y.User.Email)).ForMember(x=>x.ProfileId, y=>y.MapFrom(y=>y.UserId));
+           
+           
+           CreateMap<Job, JobGridRowDTO>().ForMember(x => x.Category, y => y.MapFrom(x => x.Category.Category))
+                                       .ForMember(x => x.Employer, y => y.MapFrom(z => z.User.Email));
+
+
             CreateMap<JobDTO, Job>();
-            CreateMap<Job, JobDTO>();
-            CreateMap<User, UserForLoginDto>();
-            CreateMap<UserForLoginDto, User>();
-            CreateMap<Student, StudentDTO>();
-            CreateMap<StudentDTO, Student>();
-            CreateMap<Job, StudentJobDTO>();
-            CreateMap<Job, JobGridRowDTO>().ForMember(x => x.Category, y => y.MapFrom(x => x.Category.Category))
-                                           .ForMember(x => x.Employer, y => y.MapFrom(z => z.Employer.Email));    
+
+
+            CreateMap<JobForPostdDTO, Job>().ForMember(x => x.Base64Photo, y => y.MapFrom(y => y.Base64Photo));
 
         }
     }

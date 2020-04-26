@@ -16,18 +16,17 @@ namespace JobSolution.API.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly IStudentService _studentService;
-        public UserController(IStudentService studentService)
+        private readonly IUserService _userService;
+        public UserController(IUserService studentService)
         {
-            _studentService = studentService;
+            _userService = studentService;
         }
-
 
         [HttpGet("JobStudent/{id}")]
         [Authorize(Roles ="Employer")]
         public async Task<IActionResult> GetAllStudentsJobs(int id)
         {
-            var AllStudentJobs = await _studentService.GetAllJobsStudent(id);
+            var AllStudentJobs = await _userService.GetAllJobsStudent(id);
             return Ok(AllStudentJobs);
         }
 
@@ -35,13 +34,8 @@ namespace JobSolution.API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetAllStudent(int id)
         {
-            var student = await _studentService.GetStudent(id);
+            var student = await _userService.GetStudent(id);
             return Ok(student);
         }
-
-
-
-
-
     }
 }

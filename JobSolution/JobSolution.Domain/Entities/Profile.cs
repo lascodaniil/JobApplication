@@ -1,5 +1,4 @@
-﻿
-using JobSolution.Domain.Auth;
+﻿using JobSolution.Domain.Auth;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +6,7 @@ using System.Text;
 
 namespace JobSolution.Domain.Entities
 {
-    public class Student : BaseEntity
+    public class Profile : BaseEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -15,12 +14,10 @@ namespace JobSolution.Domain.Entities
         public string University { get; set; }
         public string Base64Photo { get; set; }
         public string PhoneNumber { get; set; }
-        public DateTime? DateOfBirth { get; set; }
-        public DateTime? RegisterDate { get; private set; } = DateTime.Now;
-
-        [ForeignKey("User")]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
-        public ICollection<StudentJob> StudentJobs { get; set; }
-    }
+        public User User { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public DateTime? RegisterDate { get; set; } = DateTime.Now;
+
+    }      
 }

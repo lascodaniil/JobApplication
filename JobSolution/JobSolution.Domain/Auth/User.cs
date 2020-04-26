@@ -6,8 +6,7 @@ namespace JobSolution.Domain.Auth
 {
     public class User : IdentityUser<int>
     {
-
-        public virtual Employer Employer{ get; set; }
-        public virtual Student Student { get; set; }
+        public virtual Profile Profile{ get; set; }
+        public virtual ICollection<Job> Jobs { get; set; }
     }
 }

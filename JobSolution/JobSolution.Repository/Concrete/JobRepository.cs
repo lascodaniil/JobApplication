@@ -18,45 +18,46 @@ namespace JobSolution.Repository.Concrete
 {
     public class JobRepository : Repository<Job>, IJobRepository
     {
-        public JobRepository(JobDbContext context) : base(context) { }
+        public JobRepository(AppDbContext context) : base(context) { }
         public async Task Delete(int JobId)
         {
-            var Job = await _jobDbContext.Jobs.FirstOrDefaultAsync(x => x.Id == JobId);
+            var Job = await _dbContext.Jobs.FirstOrDefaultAsync(x => x.Id == JobId);
 
-             _jobDbContext.Jobs.Remove(Job);
-             await _jobDbContext.SaveChangesAsync();
+            _dbContext.Jobs.Remove(Job);
+             await _dbContext.SaveChangesAsync();
         }
 
         public async Task<IQueryable<Job>> GetJobs()
         {
-            return _jobDbContext.Jobs;
+            return _dbContext.Jobs;
         }
-
 
         public async Task<IQueryable<Job>> GetAllJobs()
         {
-            return _jobDbContext.Jobs.Include(x => x.Employer).Include(x => x.Category).AsQueryable();
+            return _dbContext.Jobs.Include(x => x.Category).AsQueryable();
         }
 
         public async Task<Job> GetJobByID(int JobId)
         {
-            return await _jobDbContext.Jobs.FirstOrDefaultAsync(x => x.Id == JobId);
+            return await _dbContext.Jobs.FirstOrDefaultAsync(x => x.Id == JobId);
         }
         
-        public async Task Update(Job job)
+        public async Task Update(Job job,int id)
         {
-             _jobDbContext.Jobs.Update(job);
-            await _jobDbContext.SaveChangesAsync();
+
+           _dbContext.Jobs.Update(job);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task Add(Job job)
         {
-            _jobDbContext.Jobs.Add(job);
-            await _jobDbContext.SaveChangesAsync();
+            _dbContext.Jobs.Add(job);
+            await _dbContext.SaveChangesAsync();
         }
+
         public async Task<bool> SaveAll()
         {
-            return await _jobDbContext.SaveChangesAsync() > 0;
+            return await _dbContext.SaveChangesAsync() > 0;
         }
 
 
@@ -68,7 +69,7 @@ namespace JobSolution.Repository.Concrete
 
         private IQueryable<Job> IncludeProperties(params Expression<Func<Job, object>>[] includeProperties) 
         {
-            IQueryable<Job> entities = _jobDbContext.Set<Job>();
+            IQueryable<Job> entities = _dbContext.Set<Job>();
             foreach (var includeProperty in includeProperties)
             {
                 entities = entities.Include(includeProperty);
@@ -78,9 +79,7 @@ namespace JobSolution.Repository.Concrete
 
         public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper)
         {
-            return await _jobDbContext.Set<Job>().CreatePaginatedResultAsync<Job, JobGridRowDTO>(pagedRequest, mapper);
+            return await _dbContext.Set<Job>().CreatePaginatedResultAsync<Job, JobGridRowDTO>(pagedRequest, mapper);
         }
-
-        
     }
 }

@@ -40,20 +40,14 @@ namespace JobSolution.API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
-            if(id > 0)
-            {
-                var obj = await _jobService.GetByID(id);    
-              
-                return Ok(obj);
-            }
-            return null;
+            var obj = await _jobService.GetByID(id);
+            return Ok(obj);
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Post([FromBody] JobDTO jobDTO)
+        public async Task<IActionResult> Post([FromBody] JobForPostdDTO jobDTO)
         {
-            
             if (ModelState.IsValid)
             {
                 await _jobService.Add(jobDTO);
@@ -71,13 +65,13 @@ namespace JobSolution.API.Controllers
         }
 
 
-        [HttpPut("Update")]
+        [HttpPut("Update/{id}")]
         [AllowAnonymous]
-        public async Task<IActionResult> Update([FromBody]JobDTO job)
+        public async Task<IActionResult> Update([FromBody]JobForPostdDTO job, int id)
         {
             if (ModelState.IsValid)
             {
-                await _jobService.Update(job);
+                await _jobService.Update(job,id);
                 return Ok();
             }
             return BadRequest();
@@ -91,9 +85,8 @@ namespace JobSolution.API.Controllers
            return await _jobService.GetJobsByCategory(category);
         }
 
-
         [HttpPost("PagePerTable")]
-        public async Task<IActionResult> GetPageForTable([FromBody]  PagedRequest pagedRequest)
+        public async Task<IActionResult> GetPageForTable([FromBody] PagedRequest pagedRequest)
         {
             var result =await  _jobService.GetPagedData(pagedRequest, _mapper);
             return Ok(result);   

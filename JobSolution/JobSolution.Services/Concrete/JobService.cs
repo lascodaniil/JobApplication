@@ -23,7 +23,7 @@ namespace JobSolution.Services.Concrete
             _mapper = mapper;
         }
 
-        public async Task Add(JobDTO entity)
+        public async Task Add(JobForPostdDTO entity)
         {
             var jobDTO = _mapper.Map<Job>(entity);
             await _jobRepository.Add(jobDTO);
@@ -33,18 +33,7 @@ namespace JobSolution.Services.Concrete
         public async Task<IList<JobDTO>> GetAll()
         {
             var Jobs = await _jobRepository.GetAllJobs();
-            var JobsListDTO = Jobs.Select(x => new JobDTO
-            {
-                EmployerEmail = x.Employer.Email,
-                CategoryName = x.Category.Category,
-                Base64Photo = x.Base64Photo,
-                Title=x.Title,
-                City=x.City,
-                Contact=x.Contact,
-                Id=x.Id,
-                EmployerId=x.Id,
-                CategoryId = x.CategoryId
-            }).ToList();    
+            var JobsListDTO = _mapper.Map<IQueryable<Job>, IList<JobDTO>>(Jobs);   
 
             return JobsListDTO;
         }
@@ -55,9 +44,16 @@ namespace JobSolution.Services.Concrete
             return _mapper.Map<JobDTO>(toReturn);
         }
 
-        public async Task Update(JobDTO job) {
+        public async Task Update(JobForPostdDTO job, int id) {
 
-            await _jobRepository.Update(_mapper.Map<Job>(job));
+            //var Job = await GetByID(id);
+            //Job.Base64Photo = job.Base64Photo;
+            //Job.City = job.City;
+            //Job.EndDate = job.StopDate;
+
+            var mapperObj = _mapper.Map<Job>(job);
+           
+            await _jobRepository.Update(mapperObj, id);
            
         }
         public async Task Remove(int JobId) {
@@ -67,59 +63,15 @@ namespace JobSolution.Services.Concrete
 
         public async Task<IList<JobDTO>> GetJobsByCategory(string category)
         {
-            var result = await GetAll();
-            return result.Where(x => x.CategoryName == category).ToList();
+            //var result = await GetAll();
+            //return result.Where(x => x.CategoryName == category).ToList();
+            return null;
         }
 
         public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper) 
         {
             return await _jobRepository.GetPagedData(pagedRequest, mapper);
         }
-
-
-
-        //public async Task<IQueryable<StudentJobDTO>> GetAllJobsStudent(int StudentId)
-        //{
-        //    var StudentsJobs = await _studentRepository.GetJobsForStudent(StudentId);
-        //    var StudentJobsDTO = StudentsJobs.Where(x => x.StudentId == StudentId)
-        //        .Select(x => new StudentJobDTO()
-        //        {
-        //            AuthorName = x.Job.Author.FirstName,
-        //            CategoryName = x.Job.Category.Category,
-        //            City = x.Job.City,
-        //            Contact = x.Job.Contact,
-        //            Title = x.Job.Title,
-        //            PostDate = x.Job.PostDate
-        //        }).AsQueryable();
-
-        //    return StudentJobsDTO;
-        //}
-
-
-
-        //public async Task<IList<JobDTO>> GetAll()
-        //{
-        //    IQueryable<Job> JobsList = await  _jobRepository.GetAllJobs();
-        //    //var JobListDTO = JobsList.Select(x => new JobDTO()
-        //    //{
-        //    //    City = x.City,
-        //    //    EmployerEmail = x.Employer.Email,
-        //    //    Title = x.Title,
-        //    //    Contact = x.Contact,
-        //    //    CategoryName = x.Category.Category,
-        //    //    Base64Photo = x.Base64Photo,
-        //    //    CategoryId = x.CategoryId,
-        //    //    EmployerId = x.EmployerId,
-        //    //}).ToList();
-
-
-
-        //      return JobListDTO;
-        //}
-
-
-
-
 
     }
 }

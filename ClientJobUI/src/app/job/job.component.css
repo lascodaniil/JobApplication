@@ -20,10 +20,25 @@
     flex-direction: row-reverse;
 }
 
-mat-card {
-    margin: 25px 0 0;
-}
-
 .action__button {
     margin: 0 10px;
+}
+
+.jop-post {
+  width: 33.33%;
+  float: left;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.jobs-results {
+  display: inline-block;
+}
+
+.jop-post:nth-child(3n+1) {
+  padding-left: 0;
+}
+
+.jop-post:nth-child(3n) {
+  padding-right: 0;
 }

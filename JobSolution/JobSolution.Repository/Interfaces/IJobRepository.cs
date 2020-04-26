@@ -16,7 +16,7 @@ namespace JobSolution.Repository.Interfaces
     {
         Task<IQueryable<Job>> GetAllJobs();
         Task<Job> GetJobByID(int JobId);
-        Task Update(Job job, int id);
+        Task Update(Job job);
         Task Delete(int job);
         Task Add(Job job);
         Task<bool> SaveAll();

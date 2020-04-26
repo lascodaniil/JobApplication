@@ -199,3 +199,5 @@ D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticweba
 D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.dll
 D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.pdb
 D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.genruntimeconfig.cache
+D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll

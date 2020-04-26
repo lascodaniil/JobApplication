@@ -3592,7 +3592,8 @@
         "dependencies": {
           "JobSolution.DTO": "1.0.0",
           "JobSolution.Domain": "1.0.0",
-          "JobSolution.Infrastructure": "1.0.0"
+          "JobSolution.Infrastructure": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
         },
         "compile": {
           "bin/placeholder/JobSolution.Repository.dll": {}

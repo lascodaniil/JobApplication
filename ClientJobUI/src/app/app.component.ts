@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ToolBarService} from './services/toolbar.service.service';
 
 
 @Component({
@@ -6,6 +7,15 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'ClientJobUI';
+export class AppComponent implements OnInit {
+  title = 'Job App';
+  constructor(private toolBarService: ToolBarService) {
+  }
+
+  ngOnInit() {
+    this.toolBarService.getTitle().subscribe((title: string) => {
+      this.title = title;
+    });
+  }
+
 }

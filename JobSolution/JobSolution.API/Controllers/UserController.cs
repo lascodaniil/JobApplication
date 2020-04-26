@@ -17,25 +17,7 @@ namespace JobSolution.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UserController(IUserService studentService)
-        {
-            _userService = studentService;
-        }
 
-        [HttpGet("JobStudent/{id}")]
-        [Authorize(Roles ="Employer")]
-        public async Task<IActionResult> GetAllStudentsJobs(int id)
-        {
-            var AllStudentJobs = await _userService.GetAllJobsStudent(id);
-            return Ok(AllStudentJobs);
-        }
 
-        [HttpGet("Student/{id}")]
-        [AllowAnonymous]
-        public async Task<IActionResult> GetAllStudent(int id)
-        {
-            var student = await _userService.GetStudent(id);
-            return Ok(student);
-        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using JobSolution.Domain.Entities;
+﻿using JobSolution.Domain;
+using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
@@ -11,14 +12,21 @@ namespace JobSolution.Repository.Interfaces
 {
     public interface IProfileRepository 
     {
-    //    Task<IIncludableQueryable<ProfileJobs, Job>> GetJobsForStudent(int studentId);
-    //    Task<IList<Student>> GetAllStudents();
-    //    Task<Student> GetStudent(int id);
-    //    Task Update(Student student);
-    //    Task Delete(Student stundetDTO);
-    //    Task<bool> SaveAll();
+        Task<IList<StudentProfileDTO>> GetStudentProfile(UserForLoginDto credentialsDTO);
+        Task<IList<EmployerPofileDTO>> GetEmployerProfile(UserForLoginDto credentialsDTO);
 
-    //    //Task<IList<Job>> GetByIdWithInclude(int id, params Expression<Func<Job, object>>[] includeProperties);
+
+
 
     }
 }
+
+
+//    Task<IIncludableQueryable<ProfileJobs, Job>> GetJobsForStudent(int studentId);
+//    Task<IList<Student>> GetAllStudents();
+//    Task<Student> GetStudent(int id);
+//    Task Update(Student student);
+//    Task Delete(Student stundetDTO);
+//    Task<bool> SaveAll();
+
+//    //Task<IList<Job>> GetByIdWithInclude(int id, params Expression<Func<Job, object>>[] includeProperties);

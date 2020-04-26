@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\JobSolution.Domain\JobSolution.Domain.csproj" />
     <ProjectReference Include="..\JobSolution.DTO\JobSolution.DTO.csproj" />
     <ProjectReference Include="..\JobSolution.Infrastructure\JobSolution.Infrastructure.csproj" />

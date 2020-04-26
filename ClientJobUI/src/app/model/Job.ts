@@ -1,10 +1,11 @@
 export interface Job {
-    Id:number;
-    Title:string;
-    Category:string;
-    Employer :string;
-    PublishedOn : Date;
-    FinishedOn:Date;
-    Base64Photo:string;
-    Contact: string;
+  id: number;
+  title: string;
+  category: string;
+  employer: string;
+  publishedOn: Date;
+  finishedOn: Date;
+  base64Photo?: string;
+  contact?: string;
+  actions?: boolean;
 }

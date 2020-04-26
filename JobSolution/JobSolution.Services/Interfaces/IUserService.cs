@@ -10,8 +10,7 @@ namespace JobSolution.Services.Interfaces
 {
     public interface IUserService
     {
-        Task<IList<StudentJobDTO>> GetAllJobsStudent(int StudentId);
-        Task<StudentDTO> GetStudent(int StudentId);
+        
 
     }
 }

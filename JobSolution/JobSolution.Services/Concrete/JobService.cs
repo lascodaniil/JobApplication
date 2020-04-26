@@ -46,10 +46,16 @@ namespace JobSolution.Services.Concrete
 
         public async Task Update(JobForPostdDTO job, int id) {
 
-            var _Job = await GetByID(id);
-            var mappedObject = _mapper.Map<Job>(job);
-            
-            await _jobRepository.Update(mappedObject, id);
+            var dbentity = await _jobRepository.GetJobByID(id);
+            dbentity.Base64Photo = job.Base64Photo;
+            dbentity.CategoryId = job.CategoryId;
+            dbentity.Contact = job.Contact;
+            dbentity.EndDate = job.StopDate;
+            dbentity.Id = id;
+            dbentity.UserId = job.UserId;
+            dbentity.Title = job.Title;
+            dbentity.Salary = job.Salary;
+            await _jobRepository.Update(dbentity);
         
         }
         public async Task Remove(int JobId) {
@@ -59,9 +65,9 @@ namespace JobSolution.Services.Concrete
 
         public async Task<IList<JobDTO>> GetJobsByCategory(string category)
         {
-            //var result = await GetAll();
-            //return result.Where(x => x.CategoryName == category).ToList();
-            return null;
+            var result = await GetAll();
+            return result.Where(x => x.CategroyName == category).ToList();
+          
         }
 
         public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper) 

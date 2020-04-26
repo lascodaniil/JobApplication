@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { JobService } from '../services/job.service';
-import { FormControl } from '@angular/forms';
-import { PaginatedRequest } from '../model/PaginatedRequest';
-import { Job } from '../model/Job';
+import {Component, OnInit} from '@angular/core';
+import {JobService} from '../services/job.service';
+import {FormControl} from '@angular/forms';
+import {PaginatedRequest} from '../model/PaginatedRequest';
+import {JobRowRequest} from '../model/JobRowRequest';
+import {AuthService} from '../services/auth.service';
+import {ToolBarService} from '../services/toolbar.service.service';
 
 
 @Component({
@@ -12,27 +14,30 @@ import { Job } from '../model/Job';
 })
 
 export class JobComponent implements OnInit {
-  pageOptions = [5, 10, 25, 100];
+  pageOptions = [1, 2, 3, 4, 5];
   filter = {} as PaginatedRequest;
-  allJobs: Job[];
-  lenght : number;
+  actions = false;
+  allJobs: JobRowRequest[];
 
-  sortedData: Job[] = this.allJobs;
-  searchInput : FormControl;
-  constructor(private jobService: JobService) { }
+  constructor(private jobService: JobService,
+              private authService: AuthService,
+              private toolBarService: ToolBarService) {
+  }
 
   ngOnInit() {
-    this.filter.pageSize = this.pageOptions[1];
+    this.toolBarService.setTitle('Jobs');
+    this.filter.pageSize = this.pageOptions[4];
+    this.actions = this.authService.isLoggedIn();
     this.loadJobs();
   }
 
-  onFiltered( filter : PaginatedRequest) {
+  onFiltered(filter: PaginatedRequest) {
     this.filter = Object.assign(this.filter, filter);
     this.loadJobs();
   }
 
   loadJobs() {
-    this.jobService.getAllJobs(this.filter).subscribe( data => { 
+    this.jobService.getAllJobPaginated(this.filter).subscribe(data => {
       this.allJobs = data.items;
     });
   }

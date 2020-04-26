@@ -60,22 +60,5 @@ namespace JobSolution.Repository
         }
 
 
-
-        //public  IQueryable<TEntity> GetAllWithInclude<TEntity>( params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
-        //{
-        //   var query = IncludeProperties(includeProperties);
-        //    return  query;
-        //}
-
-        //private IQueryable<TEntity> IncludeProperties<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
-        //{
-        //   IQueryable<TEntity> entities = _jobDbContext.Set<TEntity>();
-        //   foreach (var includeProperty in includeProperties)
-        //   {
-        //        entities = entities.Include(includeProperty);
-        //   }
-        //    return entities;
-        //}
-
     }
 }

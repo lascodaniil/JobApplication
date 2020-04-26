@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder} from '@angular/forms';
-import { NgForm } from "@angular/forms";
-import { RegisterUserModel } from '../Interfaces/RegisterUserModel';
-import { AuthService } from '../services/auth.service';
-
-
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormBuilder} from '@angular/forms';
+import {NgForm} from '@angular/forms';
+import {RegisterUserModel} from '../Interfaces/RegisterUserModel';
+import {AuthService} from '../services/auth.service';
+import {ToolBarService} from '../services/toolbar.service.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,23 +14,32 @@ import { AuthService } from '../services/auth.service';
 })
 export class RegistrationFormComponent implements OnInit {
 
-  roles: string[]=["Employer","Student"]; 
-  
-  constructor(private authService  :AuthService) { }
-  SelectedRole : string;
+  roles: string[] = ['Employer', 'Student'];
+
+  constructor(private authService: AuthService,
+              private router: Router,
+              private toolBarService: ToolBarService) {
+  }
+
+  SelectedRole: string;
   registeredUser = new RegisterUserModel();
   token: string;
-  onSubmit(form){
-      console.log(this.registeredUser);
-      this.register();
+
+  onSubmit(form) {
+    this.register();
   }
 
   ngOnInit(): void {
-    
+    this.toolBarService.setTitle('Register');
   }
 
-  register(){
-     this.authService.registration(this.registeredUser)
-     .subscribe(x=>{this.token=x.accessToken;this.authService.tokenObject=this.token; console.log(this.token);localStorage.setItem('accessToken', this.authService.tokenObject)}); 
+  register() {
+    this.authService.registration(this.registeredUser)
+      .subscribe(data => {
+        this.token = data.accessToken;
+        this.authService.tokenObject = this.token;
+        localStorage.setItem('accessToken', this.authService.tokenObject);
+        this.router.navigate(['/profile']);
+      });
   }
 }

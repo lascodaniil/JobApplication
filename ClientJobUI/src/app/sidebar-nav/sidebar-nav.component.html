@@ -1,14 +1,16 @@
 <mat-nav-list>
-    <mat-card-title >
-      <p class=""></p>
-    </mat-card-title>
-  <a mat-list-item routerLink="Job" ><span class="material-icons">apps</span>Jobs</a>
-  <a mat-list-item  *ngIf="serviceAuth.isLoggedIn() ; else LogInData" (click)="serviceAuth.logout()"><span class="material-icons">exit_to_app</span>LogOut</a>
-  <a mat-list-item  routerLink= "Profile" *ngIf="serviceAuth.isLoggedIn();"><span class="material-icons">assignment_ind</span>Profile</a>
-  
+  <mat-card-title>
+    <p class=""></p>
+  </mat-card-title>
+  <a mat-list-item routerLink="jobs"><span class="material-icons">apps</span>Jobs</a>
+  <a mat-list-item *ngIf="!serviceAuth.isLoggedIn()" routerLink="register"><span class="material-icons">account_box</span>Register</a>
+  <a mat-list-item *ngIf="serviceAuth.isLoggedIn() ; else LogInData" (click)="serviceAuth.logout()"><span
+    class="material-icons">exit_to_app</span>LogOut</a>
+  <a mat-list-item routerLink="profile" *ngIf="serviceAuth.isLoggedIn();"><span
+    class="material-icons">assignment_ind</span>Profile</a>
 </mat-nav-list>
 
 <ng-template #LogInData>
-    <a mat-list-item routerLink="SignIn"><span class="material-icons" >account_box</span>LogIn</a>
-   </ng-template>
-  
+  <a mat-list-item routerLink="sign-in"><span class="material-icons">account_box</span>LogIn</a>
+</ng-template>
+

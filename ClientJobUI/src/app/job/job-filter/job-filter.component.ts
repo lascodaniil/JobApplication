@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { PaginatedRequest } from 'src/app/model/PaginatedRequest';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {PaginatedRequest} from 'src/app/model/PaginatedRequest';
 
 @Component({
   selector: 'app-job-filter',
@@ -14,14 +14,16 @@ export class JobFilterComponent {
 
   filter = {} as PaginatedRequest;
 
-  @Output() 
+  @Output()
   onFiltered = new EventEmitter<PaginatedRequest>();
-  constructor() {}
+
+  constructor() {
+  }
 
   filterByAttribute = (columnNameForSorting, order) => {
     this.filter.columnNameForSorting = columnNameForSorting;
-    this.orderingOptions[order]  = this.orderingOptions[order] == 'asc' ? 'desc' : 'asc';
+    this.orderingOptions[order] = this.orderingOptions[order] == 'asc' ? 'desc' : 'asc';
     this.filter.sortDirection = this.orderingOptions[order];
     this.onFiltered.emit(this.filter);
-  }
+  };
 }

@@ -46,15 +46,11 @@ namespace JobSolution.Services.Concrete
 
         public async Task Update(JobForPostdDTO job, int id) {
 
-            //var Job = await GetByID(id);
-            //Job.Base64Photo = job.Base64Photo;
-            //Job.City = job.City;
-            //Job.EndDate = job.StopDate;
-
-            var mapperObj = _mapper.Map<Job>(job);
-           
-            await _jobRepository.Update(mapperObj, id);
-           
+            var _Job = await GetByID(id);
+            var mappedObject = _mapper.Map<Job>(job);
+            
+            await _jobRepository.Update(mappedObject, id);
+        
         }
         public async Task Remove(int JobId) {
             

@@ -34,6 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { JobFilterComponent } from './job/job-filter/job-filter.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { JobFilterComponent } from './job/job-filter/job-filter.component';
    RegistrationFormComponent,
    SignInComponent,
    JobFilterComponent,
+   HomeComponent,
   ],
   imports: [
     BrowserModule,

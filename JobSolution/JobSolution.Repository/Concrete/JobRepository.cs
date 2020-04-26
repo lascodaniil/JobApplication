@@ -42,7 +42,7 @@ namespace JobSolution.Repository.Concrete
             return await _dbContext.Jobs.FirstOrDefaultAsync(x => x.Id == JobId);
         }
         
-        public async Task Update(Job job,int id)
+        public async Task Update(Job job)
         {
 
            _dbContext.Jobs.Update(job);

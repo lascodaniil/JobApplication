@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using JobSolution.Domain.Auth;
 using JobSolution.Domain.Entities;
 using JobSolution.Infrastructure.Pagination;
 using Microsoft.EntityFrameworkCore;
@@ -16,22 +17,30 @@ namespace JobSolution.Infrastructure.Extensions
     {
 
 
-        public async static Task<PaginatedResult<TDto>> CreatePaginatedResultAsync<TEntity, TDto>(this IQueryable<TEntity> query, PagedRequest pagedRequest, IMapper mapper)
+        public async static Task<PaginatedResult<TDto>> CreatePaginatedResultAsync<TEntity, TDto>(this IQueryable<TEntity> query, PagedRequest pagedRequest, IMapper mapper, int userId =0)
             where TEntity : BaseEntity
             where TDto : class
         {
+            
             query = query.ApplyFilters(pagedRequest);
+            query = query.Paginate(pagedRequest);
+
+
+            if(userId > 0)
+            {
+                query = query.Where(x => x.Id == userId);
+            }
+
 
             var total = await query.CountAsync();
 
-            query = query.Paginate(pagedRequest);
+
 
             var projectionResult = query.ProjectTo<TDto>(mapper.ConfigurationProvider);
 
             projectionResult = projectionResult.Sort(pagedRequest);
 
             var listResult = await projectionResult.ToListAsync();
-
             return new PaginatedResult<TDto>()
             {
                 Items = listResult,

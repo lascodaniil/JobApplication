@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using JobSolution.Domain.Auth;
 using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Pagination;
 using JobSolution.Repository;
 using JobSolution.Repository.Interfaces;
 using JobSolution.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,17 +18,22 @@ namespace JobSolution.Services.Concrete
     {
         private readonly IJobRepository _jobRepository;
         private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _context;
 
-        public JobService(IJobRepository jobRepository, IMapper mapper)
+        public JobService(IJobRepository jobRepository, IMapper mapper, IHttpContextAccessor context)
         {
             _jobRepository = jobRepository;
             _mapper = mapper;
+            _context = context;
         }
 
         public async Task Add(JobForPostdDTO entity)
         {
-            var jobDTO = _mapper.Map<Job>(entity);
-            await _jobRepository.Add(jobDTO);
+
+            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value); 
+            var job = _mapper.Map<Job>(entity);
+            job.UserId = UserId;
+            await _jobRepository.Add(job);
             _jobRepository.SaveAll();
         }
 
@@ -37,22 +44,24 @@ namespace JobSolution.Services.Concrete
 
             return JobsListDTO;
         }
-
         public async Task<JobDTO> GetByID(int id)
         {
             var toReturn = await _jobRepository.GetJobByID(id);
             return _mapper.Map<JobDTO>(toReturn);
         }
-
+        
         public async Task Update(JobForPostdDTO job, int id) {
 
+            var userId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
             var dbentity = await _jobRepository.GetJobByID(id);
+            
             dbentity.Base64Photo = job.Base64Photo;
             dbentity.CategoryId = job.CategoryId;
+            dbentity.CityId = job.CityId;
             dbentity.Contact = job.Contact;
             dbentity.EndDate = job.StopDate;
             dbentity.Id = id;
-            dbentity.UserId = job.UserId;
+            dbentity.UserId = userId;
             dbentity.Title = job.Title;
             dbentity.Salary = job.Salary;
             await _jobRepository.Update(dbentity);
@@ -66,7 +75,7 @@ namespace JobSolution.Services.Concrete
         public async Task<IList<JobDTO>> GetJobsByCategory(string category)
         {
             var result = await GetAll();
-            return result.Where(x => x.CategroyName == category).ToList();
+            return result.Where(x => x.CategoryName == category).ToList();
           
         }
 
@@ -75,5 +84,11 @@ namespace JobSolution.Services.Concrete
             return await _jobRepository.GetPagedData(pagedRequest, mapper);
         }
 
+        public async Task<PaginatedResult<JobGridRowDTO>> GetJobsForEmployer(PagedRequest pagedRequest, IMapper mapper)
+        {
+            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
+            var result = await _jobRepository.GetPagedData(pagedRequest, mapper, UserId);
+            return  result;
+        }
     }
 }

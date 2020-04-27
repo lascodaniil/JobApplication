@@ -140,80 +140,79 @@ namespace JobSolution.Infrastructure.Seed
         }
 
 
+        //public static async Task PopulateJobs(AppDbContext dbContext, RoleManager<Role> roleManager, UserManager<User> userManager)
+        //{
+        //    var Job_1 = new Job()
+        //    {
+        //        CategoryId = 1,
+        //        UserId = 4,
+        //        Title = "Internship Programe",
+        //        CityId = 1,
+        //        PostDate = new DateTime(2020, 4, 1),
+        //        EndDate = new DateTime(2020, 7, 1),
+        //        Base64Photo = "",
+        //        Contact = "060277321",
+        //        Salary = 0
+        //    };
+        //    dbContext.Jobs.Add(Job_1);
 
-        public static async Task PopulateJobs(AppDbContext dbContext, RoleManager<Role> roleManager, UserManager<User> userManager)
-        {
-            var Job_1 = new Job()
-            {
-                CategoryId = 1,
-                UserId = 4,
-                Title = "Internship Programe",
-                City = "Chisinau",
-                PostDate = new DateTime(2020, 4, 1),
-                EndDate = new DateTime(2020, 7, 1),
-                Base64Photo = "",
-                Contact = "060277321",
-                Salary = 0
-            };
-            dbContext.Jobs.Add(Job_1);
+        //    var Job_2 = new Job()
+        //    {
+        //        CategoryId = 1,
+        //        UserId = 4,
+        //        Title = ".NET Developer",
+        //        CityId = 2,
+        //        PostDate = new DateTime(2020, 2, 1),
+        //        EndDate = new DateTime(2020, 5, 31),
+        //        Base64Photo = "",
+        //        Contact = "0602678972",
+        //        Salary = 15
+        //    };
+        //    dbContext.Jobs.Add(Job_2);
 
-            var Job_2 = new Job()
-            {
-                CategoryId = 1,
-                UserId = 4,
-                Title = ".NET Developer",
-                City = "Orhei",
-                PostDate = new DateTime(2020, 2, 1),
-                EndDate = new DateTime(2020, 5, 31),
-                Base64Photo = "",
-                Contact = "0602678972",
-                Salary = 15
-            };
-            dbContext.Jobs.Add(Job_2);
+        //    var Job_3 = new Job()
+        //    {
+        //        CategoryId = 4,
+        //        UserId = 3,
+        //        Title = "Sales Manager ",
+        //        CityId = 3,
+        //        PostDate = new DateTime(2020, 1, 1),
+        //        EndDate = new DateTime(2020, 9, 11),
+        //        Base64Photo = "",
+        //        Contact = "0603457665",
+        //        Salary = 5
+        //    };
+        //    dbContext.Jobs.Add(Job_3);
 
-            var Job_3 = new Job()
-            {
-                CategoryId = 4,
-                UserId = 3,
-                Title = "Sales Manager ",
-                City = "Balti",
-                PostDate = new DateTime(2020, 1, 1),
-                EndDate = new DateTime(2020, 9, 11),
-                Base64Photo = "",
-                Contact = "0603457665",
-                Salary = 5
-            };
-            dbContext.Jobs.Add(Job_3);
-
-            var Job_4 = new Job()
-            {
-                CategoryId = 3,
-                UserId = 6,
-                Title = "Service Auto",
-                City = "Balti",
-                PostDate = new DateTime(2020, 2, 14),
-                EndDate = new DateTime(2020, 7, 11),
-                Base64Photo = "",
-                Contact = "060345765",
-                Salary = 10
-            };
-            dbContext.Jobs.Add(Job_4);
+        //    var Job_4 = new Job()
+        //    {
+        //        CategoryId = 3,
+        //        UserId = 6,
+        //        Title = "Service Auto",
+        //        CityId = 3,
+        //        PostDate = new DateTime(2020, 2, 14),
+        //        EndDate = new DateTime(2020, 7, 11),
+        //        Base64Photo = "",
+        //        Contact = "060345765",
+        //        Salary = 10
+        //    };
+        //    dbContext.Jobs.Add(Job_4);
 
 
-            var Job_5 = new Job()
-            {
-                CategoryId = 2,
-                UserId = 5,
-                Title = "English Teacher",
-                City = "Balti",
-                PostDate = new DateTime(2020, 2, 14),
-                EndDate = new DateTime(2020, 7, 11),
-                Base64Photo = "",
-                Contact = "060353453765",
-                Salary = 5
-            };
-            dbContext.Jobs.Add(Job_5);
-        }
+        //    var Job_5 = new Job()
+        //    {
+        //        CategoryId = 2,
+        //        UserId = 5,
+        //        Title = "English Teacher",
+        //        CityId = 2,
+        //        PostDate = new DateTime(2020, 2, 14),
+        //        EndDate = new DateTime(2020, 7, 11),
+        //        Base64Photo = "",
+        //        Contact = "060353453765",
+        //        Salary = 5
+        //    };
+        //    dbContext.Jobs.Add(Job_5);
+        //}
 
         public static void StudentJobs(AppDbContext dbContext)
         {

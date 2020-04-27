@@ -12,6 +12,7 @@ namespace JobSolution.Infrastructure.Database
         public AppDbContext(DbContextOptions<AppDbContext> dbContextOptions)  :base(dbContextOptions){ }
 
         public DbSet<Categories> Categories { get; set; }
+        public DbSet<Cities> Cities { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         

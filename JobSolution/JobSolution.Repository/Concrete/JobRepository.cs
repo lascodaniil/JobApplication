@@ -34,7 +34,7 @@ namespace JobSolution.Repository.Concrete
 
         public async Task<IQueryable<Job>> GetAllJobs()
         {
-            return _dbContext.Jobs.Include(x => x.Category).AsQueryable();
+            return _dbContext.Jobs.Include(x => x.Category).Include(x=>x.Cities).Include(x=>x.User).AsQueryable();
         }
 
         public async Task<Job> GetJobByID(int JobId)
@@ -76,10 +76,14 @@ namespace JobSolution.Repository.Concrete
             }
             return entities;
         }
-
         public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper)
         {
             return await _dbContext.Set<Job>().CreatePaginatedResultAsync<Job, JobGridRowDTO>(pagedRequest, mapper);
+        }
+
+        public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper, int UserId)
+        {
+            return await _dbContext.Set<Job>().CreatePaginatedResultAsync<Job, JobGridRowDTO>(pagedRequest, mapper, UserId);
         }
     }
 }

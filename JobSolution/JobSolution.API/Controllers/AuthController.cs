@@ -5,7 +5,10 @@ using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Configuration;
 using JobSolution.Infrastructure.Database;
+using JobSolution.Infrastructure.Extensions;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -32,7 +35,7 @@ namespace JobSolution.API.Controllers
         private readonly AppDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public AuthController(IOptions<AuthOptions> authOption, SignInManager<User> signInManager, UserManager<User> userManager, AppDbContext dbContext)
+        public AuthController(IOptions<AuthOptions> authOption, SignInManager<User> signInManager , IHttpContextAccessor context,UserManager<User> userManager, AppDbContext dbContext)
         {
             _authOptions = authOption.Value;
             _signInManager = signInManager;
@@ -54,6 +57,9 @@ namespace JobSolution.API.Controllers
             {
                 claims.Add(new Claim(ClaimTypes.Role,item ));
             }
+
+            claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email)); 
+            claims.Add(new Claim("UserId", user.Id.ToString()));
 
             if (checkPassword.Succeeded)
             {
@@ -98,7 +104,7 @@ namespace JobSolution.API.Controllers
             var jwtSecurityToken = new JwtSecurityToken(
                  issuer: _authOptions.Issuer,
                  audience: _authOptions.Audience,
-                 claims: new List<Claim>() { new Claim(ClaimTypes.Role, userRegisterDto.RoleFromRegister)},
+                 claims: new List<Claim>() { new Claim(ClaimTypes.Role, userRegisterDto.RoleFromRegister), new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())}, 
                  expires: DateTime.Now.AddDays(30),
                  signingCredentials: signinCredentials) ; 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -107,39 +113,38 @@ namespace JobSolution.API.Controllers
         }
 
 
-        [Authorize(Roles = "Student")]
-        [HttpPost("GetUserProfile")]
-        public async Task<IActionResult> GetUserProfile([FromBody]UserForLoginDto userLoginDto)
-        {
-            var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password, false, false);
-            var user = await _userManager.FindByNameAsync(userLoginDto.Username);
-            var role = await _userManager.GetRolesAsync(user);
-            if (checkPassword.Succeeded)
-            {
-                var StudentProfile = _dbContext.Profiles.Where(x => x.UserId == user.Id);
-               var StudentProfileDTO =  _mapper.Map<StudentProfileDTO>(StudentProfile);
-                return Ok(StudentProfileDTO);
+        //[Authorize(Roles = "Student")]
+        //[HttpPost("GetUserProfile")]
+        //public async Task<IActionResult> GetUserProfile([FromBody]UserForLoginDto userLoginDto)
+        //{
 
-            }
-            return NoContent();
-        }
+        //    var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password, false, false);
+        //    var user = await _userManager.FindByNameAsync(userLoginDto.Username);
+        //    var role = await _userManager.GetRolesAsync(user);
+        //    if (checkPassword.Succeeded)
+        //    {
+        //        var StudentProfile = _dbContext.Profiles.Where(x => x.UserId == user.Id);
+        //        var StudentProfileDTO =  _mapper.Map<StudentProfileDTO>(StudentProfile.FirstOrDefault()); 
+        //        return Ok(StudentProfile);
+        //    }
+        //    return NoContent();
+        //}
+        
+        //[Authorize(Roles = "Employer")]
+        //[HttpPost("GetEmployerProfile")]
+        //public async Task<IActionResult> GetEmployerProfile([FromBody]UserForLoginDto userLoginDto)
+        //{
+        //    var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password, false, false);
+        //    var user = await _userManager.FindByNameAsync(userLoginDto.Username);
+        //    var role = await _userManager.GetRolesAsync(user);
+        //    if (checkPassword.Succeeded)
+        //    {
+        //        var EmployerProfile = _dbContext.Profiles.Where(x => x.UserId == user.Id);
+        //        var EmployerProfileDTO = _mapper.Map<EmployerPofileDTO>(EmployerProfile);
+        //        return Ok(EmployerProfile);
 
-        [Authorize(Roles = "Employer")]
-        [HttpPost("GetEmployerProfile")]
-        public async Task<IActionResult> GetEmployerProfile([FromBody]UserForLoginDto userLoginDto)
-        {
-            var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password, false, false);
-            var user = await _userManager.FindByNameAsync(userLoginDto.Username);
-            var role = await _userManager.GetRolesAsync(user);
-            if (checkPassword.Succeeded)
-            {
-                var EmployerProfile = _dbContext.Profiles.Where(x => x.UserId == user.Id);
-              //  var EmployerProfileDTO = _mapper.Map<EmployerPofileDTO>(EmployerProfile);
-                return Ok(EmployerProfile);
-
-            }
-            return NoContent();
-        }
-
+        //    }
+        //    return NoContent();
+        //}
     }
 }

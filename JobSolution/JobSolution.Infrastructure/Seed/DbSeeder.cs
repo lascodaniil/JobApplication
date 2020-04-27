@@ -14,11 +14,11 @@ namespace JobSolution.Infrastructure.Database
     {
         public static void Seed(AppDbContext dbContext, RoleManager<Role> roleManager, UserManager<User> userManager)
         {
+            CategorySeeder.CreateCategories(dbContext);
+            CategorySeeder.CreateCities(dbContext);
             CreateUsers(dbContext, roleManager, userManager).GetAwaiter().GetResult();
-            CategorySeeder.CreateCategories(dbContext); 
             DbSeedUser.PopulateUser(dbContext, roleManager, userManager).GetAwaiter().GetResult();
-
-            DbSeedUser.PopulateJobs(dbContext, roleManager, userManager).GetAwaiter().GetResult();
+           // DbSeedUser.PopulateJobs(dbContext, roleManager, userManager).GetAwaiter().GetResult();
             //DbSeedUser.StudentJobs(dbContext); it's not necessary at this moment
 
             dbContext.SaveChanges();

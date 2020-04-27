@@ -38,5 +38,34 @@ namespace JobSolution.Infrastructure.Seed
             dbContext.Categories.Add(Category3);
             dbContext.Categories.Add(Category4);
         }
+
+
+        public static void CreateCities(AppDbContext dbContext)
+        {
+            var City1 = new Cities()
+            {
+                City = "Chisinau"
+            };
+
+            var City2 = new Cities()
+            {
+                City = "Ialoveni"
+            };
+            var City3 = new Cities()
+            {
+                City = "Balti"
+            };
+            var City4 = new Cities()
+            {
+                City = "Orhei"
+            };
+
+
+            dbContext.Cities.Add(City1);
+            dbContext.Cities.Add(City2);
+            dbContext.Cities.Add(City3);
+            dbContext.Cities.Add(City4);
+
+        }
     }
 }

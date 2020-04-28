@@ -16,10 +16,30 @@ namespace JobSolution.API.Profile
                                            .ForMember(x => x.Employer, y => y.MapFrom(z => z.User.Email))
                                            .ForMember(x => x.City, y => y.MapFrom(z => z.Cities.City))
                                            .ForMember(x => x.JobId, y => y.MapFrom(x => x.Id));
+
+            
+            CreateMap<JobDTO, JobGridRowDTO>().ForMember(x => x.Category, y => y.MapFrom(x => x.CategoryName))
+                                           .ForMember(x => x.Employer, y => y.MapFrom(z => z.UserName))
+                                           .ForMember(x => x.City, y => y.MapFrom(z => z.City))
+                                           .ForMember(x => x.JobId, y => y.MapFrom(x => x.Id));
+
+
+
+
+            CreateMap<JobGridRowDTO, Job>();
+
             CreateMap<Job, JobDTO>()
                .ForMember(x => x.CategoryName, y => y.MapFrom(z => z.Category.Category))
                .ForMember(x => x.UserName, y => y.MapFrom(y => y.User.Email))
                .ForMember(x => x.City, y => y.MapFrom(y => y.Cities.City));
+
+
+            CreateMap<JobDTO, JobForPostdDTO>();
+                
+
+
+
+
 
             CreateMap<JobDTO, Job>();
             CreateMap<JobForPostdDTO, Job>().ForMember(x => x.Base64Photo, y => y.MapFrom(y => y.Base64Photo))

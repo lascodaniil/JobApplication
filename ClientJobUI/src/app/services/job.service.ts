@@ -25,7 +25,7 @@ export class JobService {
 
 
   getJobById(id: number) {
-    return this.http.get<Job>(`${urlJob}/${id}`);
+    return this.http.get<JobForPostDTO>(`${urlJob}/Table/${id}`);
   }
 
   getAllJobsByUserId(UserId: number) {
@@ -52,8 +52,16 @@ export class JobService {
     return  this.http.get<City[]>(`${urlJob}/City`);
   }
 
-  addNewJob(job: JobForPostDTO): Observable<any> {
+  addjob(job: JobForPostDTO): Observable<any> {
     return  this.http.post(`${urlJob}`, job);
   }
+
+  deleteJob(id: number): Observable<any>{
+    return  this.http.delete(`${urlJob}/${id}`);
+  };
+
+  editJob(job: JobForPostDTO,id: number): Observable<any>{
+    return  this.http.put(`${urlJob}/Update/${id}`, job);
+  };
 }
 

@@ -68,7 +68,16 @@ namespace JobSolution.API.Controllers
             return Ok(obj);
         }
 
-        
+        [HttpGet("Table/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetTableItem(int id)
+        {
+            var obj = await _jobService.GetByID(id);
+            var finalResult = _mapper.Map<JobForPostdDTO>(obj);
+            return Ok(obj);
+        }
+
+
         [HttpPost]
         [Authorize(Roles ="Employer")]
         public async Task<IActionResult> Post([FromBody] JobForPostdDTO jobDTO)
@@ -91,7 +100,6 @@ namespace JobSolution.API.Controllers
         }
 
         [HttpPut("Update/{id}")]
-        [Authorize(Roles ="Employer")]
         public async Task<IActionResult> Update([FromBody]JobForPostdDTO job, int id)
         {
             if (ModelState.IsValid)

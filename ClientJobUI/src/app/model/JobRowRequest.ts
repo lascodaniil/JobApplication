@@ -1,13 +1,13 @@
 export interface JobRowRequest {
-    Id: number;
-    Title: string;
-    Category: string;
-    CategoryId:number;
-    CityId: number;
-    Employer:string;
-    PublishedOn: Date;
-    FinishedOn: Date;
-    Base64Photo: string;
-    Contact: string;
-    City: string;
+    id: number;
+    title: string;
+    category: string;
+    categoryId:number;
+    cityId: number;
+    employer:string;
+    publishedOn: Date;
+    finishedOn: Date;
+    base64Photo: string;
+    contact: string;
+    city: string;
 }

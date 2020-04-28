@@ -3,7 +3,7 @@ import {JobService} from '../services/job.service';
 import {PaginatedRequest} from '../model/PaginatedRequest';
 import {ToolBarService} from '../services/toolbar.service.service';
 import {JobDTO} from '../model/JobDTO';
-import {AddJobComponent} from './add-job/add-job.component';
+import {UpdateJobComponent} from './update-job/update-job.component';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {JobRowRequest} from '../model/JobRowRequest';
 import {Category} from '../model/Category';
@@ -49,7 +49,6 @@ export class UserProfileComponent implements OnInit {
   loadUserJobs() {
     this.jobService.getAllJobPaginatedUser(this.filter).subscribe(data => {
       this.employerJobs = data.items;
-      console.log(data.items);
     });
   }
 
@@ -62,11 +61,13 @@ export class UserProfileComponent implements OnInit {
     this.loadUserJobs();
   }
 
-  openDialog() {
-    this.dialogRef = this.dialog.open(AddJobComponent, {
+  onUpdate(action: string, id?: number) {
+    this.dialogRef = this.dialog.open(UpdateJobComponent, {
       data: {
         categories: this.jobsCategories,
-        cities: this.jobsCities
+        cities: this.jobsCities,
+        id: id ? id : null,
+        action : action
       }
     });
 
@@ -74,4 +75,14 @@ export class UserProfileComponent implements OnInit {
       this.loadUserJobs();
     });
   }
+
+
+  onDelete(id: number){
+       this.jobService.deleteJob(id).subscribe(() => {
+         this.loadUserJobs(); console.log('stergere'); });
+  }
+
+
+
+
 }

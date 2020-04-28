@@ -13,7 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {JobService} from './services/job.service';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {AuthService} from './services/auth.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './helpers/AuthInterceptor';
@@ -34,9 +34,8 @@ import {SignInComponent} from './sign-in/sign-in.component';
 import {JobFilterComponent} from './job/job-filter/job-filter.component';
 import {HomeComponent} from './home/home.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
-import {AddJobComponent} from './user-profile/add-job/add-job.component';
-import {EditJobComponent} from './user-profile/edit-job/edit-job.component';
-import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dialog';
+import {UpdateJobComponent} from './user-profile/update-job/update-job.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -49,13 +48,11 @@ import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dia
     JobFilterComponent,
     HomeComponent,
     UserProfileComponent,
-    AddJobComponent,
-    EditJobComponent,
+    UpdateJobComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
@@ -68,7 +65,6 @@ import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dia
     FlexLayoutModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule,
     LayoutModule,
     MatSidenavModule,
     MatIconModule,

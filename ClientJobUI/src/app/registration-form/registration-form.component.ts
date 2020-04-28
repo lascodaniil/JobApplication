@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormBuilder} from '@angular/forms';
-import {NgForm} from '@angular/forms';
 import {RegisterUserModel} from '../Interfaces/RegisterUserModel';
 import {AuthService} from '../services/auth.service';
 import {ToolBarService} from '../services/toolbar.service.service';
@@ -21,11 +19,10 @@ export class RegistrationFormComponent implements OnInit {
               private toolBarService: ToolBarService) {
   }
 
-  SelectedRole: string;
-  registeredUser = new RegisterUserModel();
+  registeredUser = {} as RegisterUserModel;
   token: string;
 
-  onSubmit(form) {
+  onSubmit() {
     this.register();
   }
 

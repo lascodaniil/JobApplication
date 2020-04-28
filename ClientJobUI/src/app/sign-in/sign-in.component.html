@@ -2,33 +2,32 @@
   <div fxLayout="row | wrap" fxLayoutAlign="center center">
     <div class="container">
       <h1>Login Page</h1>
-      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="example-form" novalidate>
-        <table class="example-full-width" cellspacing="0">
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <table class="example-full-width">
           <tr>
             <td>
               <div class="form-group">
-                <mat-form-field appearance="outline">
-                  <input formControlName="userName" matInput placeholder="Username">
-                  <span
-                    *ngIf="(formGroup.get('userName').touched || formGroup.get('userName').dirty) && formGroup.get('userName').errors?.required "></span>
+                <mat-form-field >
+                  <input [(ngModel)]="userName"  matInput
+                         name="userName"
+                         placeholder="Username" required>
                 </mat-form-field>
               </div>
-
             </td>
           </tr>
           <tr>
             <td>
               <div class="form-group">
-                <mat-form-field appearance="outline">
-                  <input formControlName="passWord" matInput placeholder="Password" type="password">
-                  <span
-                    *ngIf="(formGroup.get('passWord').touched || formGroup.get('passWord').dirty) && formGroup.get('passWord').errors?.required "></span>
+                <mat-form-field>
+                  <input [(ngModel)]="password" matInput
+                         name="password"
+                         placeholder="Password" type="password" required>
                 </mat-form-field>
               </div>
             </td>
           </tr>
         </table>
-        <button type="submit" mat-raised-button color="primary" [disabled]="formGroup.invalid">
+        <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">
           LOG IN
         </button>
       </form>

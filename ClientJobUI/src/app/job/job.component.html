@@ -13,9 +13,6 @@
             <img mat-card-lg-image src="{{job.base64Photo}}" alt="post_image">
             <mat-card-subtitle>{{job.contact}}</mat-card-subtitle>
             <mat-card-subtitle>{{job.city}}</mat-card-subtitle>
-            <mat-card-subtitle>{{job.employerEmail}}</mat-card-subtitle>
-            <mat-card-subtitle>{{job.PostDate}}</mat-card-subtitle>
-            <mat-card-subtitle>{{job.EndDate}}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-actions *ngIf="this.actions">
             <button mat-icon-button color="warn" class="action__button">
@@ -33,8 +30,9 @@
     </div>
   </div>
 
-  <mat-paginator [length]="100"
-                 [pageSize]="10"
-                 [pageSizeOptions]="this.pageOptions">
+  <mat-paginator
+    [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="this.pageOptions">
   </mat-paginator>
 </mat-list>

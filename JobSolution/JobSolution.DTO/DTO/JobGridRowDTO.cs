@@ -18,5 +18,6 @@ namespace JobSolution.DTO.DTO
         public DateTime FinishOn { get; set; }
         public string Base64Photo { get; set; }
         public string Contact { get; set; }
+        public float Salary { get; set; }
     }
 }

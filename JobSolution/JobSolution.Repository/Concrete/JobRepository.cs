@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using JobSolution.Domain.Auth;
 using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Database;
@@ -83,7 +84,9 @@ namespace JobSolution.Repository.Concrete
 
         public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper, int UserId)
         {
-            return await _dbContext.Set<Job>().CreatePaginatedResultAsync<Job, JobGridRowDTO>(pagedRequest, mapper, UserId);
+
+            var result = _dbContext.Set<Job>().Where(x => x.UserId == UserId).CreatePaginatedResultAsync<Job, JobGridRowDTO>(pagedRequest, mapper, UserId);
+            return await result;
         }
     }
 }

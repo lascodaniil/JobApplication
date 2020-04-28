@@ -19,16 +19,9 @@ namespace JobSolution.Repository.Concrete
     {   
         public ProfileRepository(AppDbContext context) : base(context){ }
 
-        public Task<IList<EmployerPofileDTO>> GetEmployerProfile([FromBody]UserForLoginDto credentialsDTO)
+        public async Task<Profile> GetAuthUserProfile(int UserId)
         {
-
-              return null;
-        }
-    
-
-        public Task<IList<StudentProfileDTO>> GetStudentProfile(UserForLoginDto credentialsDTO)
-        {
-            throw new NotImplementedException();
+            return await _dbContext.Profiles.FirstOrDefaultAsync(x => x.Id == UserId);
         }
     }
 }

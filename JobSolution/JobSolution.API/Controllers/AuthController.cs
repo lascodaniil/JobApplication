@@ -29,41 +29,12 @@ namespace JobSolution.API.Controllers
     public class AuthController : ControllerBase
     {
             
-        
+        private readonly AuthOptions _authOptions;
+        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly AppDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-
-        //[Authorize(Roles = "Student")]
-        //[HttpPost("GetUserProfile")]
-        //public async Task<IActionResult> GetUserProfile([FromBody]UserForLoginDto userLoginDto)
-        //{
-
-        //    var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password, false, false);
-        //    var user = await _userManager.FindByNameAsync(userLoginDto.Username);
-        //    var role = await _userManager.GetRolesAsync(user);
-        //    if (checkPassword.Succeeded)
-        //    {
-        //        var StudentProfile = _dbContext.Profiles.Where(x => x.UserId == user.Id);
-        //        var StudentProfileDTO =  _mapper.Map<StudentProfileDTO>(StudentProfile.FirstOrDefault()); 
-        //        return Ok(StudentProfile);
-        //    }
-        //    return NoContent();
-        //}
-        
-        //[Authorize(Roles = "Employer")]
-        //[HttpPost("GetEmployerProfile")]
-        //public async Task<IActionResult> GetEmployerProfile([FromBody]UserForLoginDto userLoginDto)
-        //{
-        //    var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password, false, false);
-        //    var user = await _userManager.FindByNameAsync(userLoginDto.Username);
-        //    var role = await _userManager.GetRolesAsync(user);
-        //    if (checkPassword.Succeeded)
-        //    {
-        //        var EmployerProfile = _dbContext.Profiles.Where(x => x.UserId == user.Id);
-        //        var EmployerProfileDTO = _mapper.Map<EmployerPofileDTO>(EmployerProfile);
-        //        return Ok(EmployerProfile);
-
-        //    }
-        //    return NoContent();
-        //}
+       
     }
 }

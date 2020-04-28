@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace JobSolution.Services.Interfaces
 {
-    public interface IUserService
+    public interface IProfileService
     {
-
-        string GetUserId();
+        Task<StudentProfileDTO> GetAuthStudentProfile();
+        Task<EmployerProfileDTO> GetAuthEmployerPofiles();
 
     }
 }

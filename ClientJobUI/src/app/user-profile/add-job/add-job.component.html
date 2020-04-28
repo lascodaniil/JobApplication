@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Add Job</h1>
+<div mat-dialog-content>
+  <button mat-raised-button color="warn">Upload Image</button>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input [(ngModel)]="this.newJob.title" matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <mat-select [(value)]="this.newJob.categoryId">
+      <mat-option
+        *ngFor="let category of categories"
+        [value]="category.id">
+        {{category.category}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>City</mat-label>
+    <mat-select [(value)]="this.newJob.cityId">
+      <mat-option
+        *ngFor="let city of cities"
+        [value]="city.id">
+        {{city.city}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Salary</mat-label>
+    <input [(ngModel)]="this.newJob.salary" type="number" matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Contact</mat-label>
+    <input [(ngModel)]="this.newJob.contact" type="number" matInput>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onJobAdd()">Add Job</button>
+</div>

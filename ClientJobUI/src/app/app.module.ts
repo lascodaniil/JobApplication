@@ -34,6 +34,9 @@ import {SignInComponent} from './sign-in/sign-in.component';
 import {JobFilterComponent} from './job/job-filter/job-filter.component';
 import {HomeComponent} from './home/home.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
+import {AddJobComponent} from './user-profile/add-job/add-job.component';
+import {EditJobComponent} from './user-profile/edit-job/edit-job.component';
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -46,6 +49,8 @@ import {UserProfileComponent} from './user-profile/user-profile.component';
     JobFilterComponent,
     HomeComponent,
     UserProfileComponent,
+    AddJobComponent,
+    EditJobComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +78,7 @@ import {UserProfileComponent} from './user-profile/user-profile.component';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatDialogModule,
     MatMenuModule,
     MatFormFieldModule
   ],

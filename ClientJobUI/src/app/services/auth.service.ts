@@ -11,8 +11,12 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-export class TokenParam {
+export class AuthServiceResponse {
   public accessToken: string;
+}
+
+export class UserCredentials {
+   public  email: string;
 }
 
 @Injectable({
@@ -24,12 +28,12 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  login(username: string, password: string): Observable<TokenParam> {
-    return this.http.post<TokenParam>(URL_LOG, {Username: username, Password: password}, httpOptions);
+  login(username: string, password: string): Observable<AuthServiceResponse> {
+    return this.http.post<AuthServiceResponse>(URL_LOG, {Username: username, Password: password}, httpOptions);
   }
 
   registration(register: RegisterUserModel) {
-    return this.http.post<TokenParam>(URL_REGISTER, register, httpOptions);
+    return this.http.post<AuthServiceResponse>(URL_REGISTER, register, httpOptions);
   }
 
   public getToken(): string {

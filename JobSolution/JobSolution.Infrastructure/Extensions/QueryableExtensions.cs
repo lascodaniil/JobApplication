@@ -23,21 +23,10 @@ namespace JobSolution.Infrastructure.Extensions
         {
             
             query = query.ApplyFilters(pagedRequest);
-            query = query.Paginate(pagedRequest);
-
-
-            if(userId > 0)
-            {
-                query = query.Where(x => x.Id == userId);
-            }
-
-
             var total = await query.CountAsync();
-
-
-
+            query = query.Paginate(pagedRequest);
+            
             var projectionResult = query.ProjectTo<TDto>(mapper.ConfigurationProvider);
-
             projectionResult = projectionResult.Sort(pagedRequest);
 
             var listResult = await projectionResult.ToListAsync();

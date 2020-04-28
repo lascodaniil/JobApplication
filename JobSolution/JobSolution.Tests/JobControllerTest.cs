@@ -20,30 +20,30 @@
 //    public class JobControllerTest
 //    {
 
-//        //public List<Job> jobList = new List<Job>() {
-//        //    new Job(){ Id=1, AuthorId=1, CategoryId=1, City="Chisinau"},
-//        //    new Job(){ Id=2, AuthorId=2, CategoryId=2, City="Orhei"},
-//        //    new Job(){ Id=3, AuthorId=3, CategoryId=3, City="Iasi"},
-//        //    new Job(){ Id=4, AuthorId=1, CategoryId=4, City="Orhei"},
-//        //    new Job(){ Id=5, AuthorId=1, CategoryId=5, City="Balti"},
+//        public List<Job> jobList = new List<Job>() {
+//            new Job(){ Id=1, AuthorId=1, CategoryId=1, City="Chisinau"},
+//            new Job(){ Id=2, AuthorId=2, CategoryId=2, City="Orhei"},
+//            new Job(){ Id=3, AuthorId=3, CategoryId=3, City="Iasi"},
+//            new Job(){ Id=4, AuthorId=1, CategoryId=4, City="Orhei"},
+//            new Job(){ Id=5, AuthorId=1, CategoryId=5, City="Balti"},
 
-//        //};
+//        };
 
 
 //        [Fact]
 //        public void GetAllJobsOkTest()
 //        {
-//            // Arrange
+//             Arrange
 //            var mockRepository = new Mock<IJobService>();
 //            var mockIMapper = new Mock<IMapper>();
 //            var controller = new JobController(mockRepository.Object, mockIMapper.Object);
-            
-//            // Act
+
+//             Act
 //            Task<IActionResult> ActionResult = controller.GetAll();
 //            OkObjectResult contentResult = (OkObjectResult)ActionResult.Result;
 
-//            // Assert
-//           // mockRepository.Setup(x => x.GetAll()).ReturnsAsync(new List<Job>() { });
+//             Assert
+//             mockRepository.Setup(x => x.GetAll()).ReturnsAsync(new List<Job>() { });
 //            mockRepository.Verify(x => x.GetAll(), Times.Once);
 //            Assert.NotNull(contentResult);
 //            Assert.Equal(200, contentResult.StatusCode);
@@ -53,19 +53,19 @@
 //        [Fact]
 //        public void DeleteUncorrectIdTest()
 //        {
-//            //Arrange
+//            Arrange
 //            var mockRepository = new Mock<IJobService>();
 //            var mockIMapper = new Mock<IMapper>();
 //            var controller = new JobController(mockRepository.Object, mockIMapper.Object);
 //            int id = -5; // value
 
-//            //Act
+//            Act
 //            mockRepository.Setup(x => x.Remove(id));
 
 //            Task<IActionResult> ActionResult = controller.Delete(id);
 //            NotFoundResult contentResult = (NotFoundResult)ActionResult.Result;
 
-//            //Assert
+//            Assert
 //            Assert.NotNull(contentResult);
 //            Assert.Equal(404, contentResult.StatusCode);
 //            mockRepository.Verify(x => x.Remove(id), Times.Never());
@@ -75,19 +75,19 @@
 //        [Fact]
 //        public void GetByIdTest()
 //        {
-//            //Arrange
+//            Arrange
 //            var mockRepository = new Mock<IJobService>();
 //            var mockIMapper = new Mock<IMapper>();
 //            var controller = new JobController(mockRepository.Object, mockIMapper.Object);
 //            int id = 1;
 
-//            //mockRepository.Setup(x => x.GetByID(id)).ReturnsAsync(new Job());
-            
-//            //Check
+//            mockRepository.Setup(x => x.GetByID(id)).ReturnsAsync(new Job());
+
+//            Check
 //            Task<IActionResult> ActionResult = controller.GetById(id);
 //            OkObjectResult contentResult = (OkObjectResult)ActionResult.Result;
 
-//            //Assert
+//            Assert
 //            Assert.NotNull(contentResult);
 //            Assert.Equal(200, contentResult.StatusCode);
 //        }
@@ -96,19 +96,19 @@
 //        [Fact]
 //        public void DeleteCorrectIdTest()
 //        {
-//            //Arrange
-//            var mockRepository = new Mock<IJobService>()  ;
+//            Arrange
+//            var mockRepository = new Mock<IJobService>();
 //            var mockIMapper = new Mock<IMapper>();
 //            var controller = new JobController(mockRepository.Object, mockIMapper.Object);
 //            int id = 10000; // value bigger the base contains or correct value
 
-//            //Check
+//            Check
 //            Task<IActionResult> ActionResult = controller.Delete(id);
 //            try
 //            {
 //                NotFoundResult contentResult = (NotFoundResult)ActionResult.Result;
 
-//                //Assert
+//                Assert
 
 //                mockRepository.Setup(x => x.Remove(id)).Returns(Task.CompletedTask);
 
@@ -119,7 +119,7 @@
 //            {
 //                OkObjectResult contentResult = (OkObjectResult)ActionResult.Result;
 
-//                //Assert
+//                Assert
 
 //                mockRepository.Setup(x => x.Remove(id)).Returns(Task.CompletedTask);
 //                Assert.NotNull(contentResult);
@@ -131,11 +131,11 @@
 //        [Fact]
 //        public void PostCorrectModelTest()
 //        {
-            
+
 //            var mockRepository = new Mock<IJobService>().Object;
 //            var mockIMapper = new Mock<IMapper>().Object;
 //            var controller = new JobController(mockRepository, mockIMapper);
-//            var sendValue = new JobDTO() 
+//            var sendValue = new JobDTO()
 //            {
 //                Title = "test title",
 //                City = "test city",
@@ -144,9 +144,9 @@
 //                CategoryId = 1
 //            };
 
-            
-//          //  Task<IActionResult> ActionResult = controller.Post(sendValue);
-//           // OkResult contentResult = (OkResult)ActionResult.Result;
+
+//              Task<IActionResult> ActionResult = controller.Post(sendValue);
+//             OkResult contentResult = (OkResult)ActionResult.Result;
 
 //            Assert.NotNull(contentResult);
 //            Assert.Equal(200, contentResult.StatusCode);
@@ -155,7 +155,7 @@
 //        [Fact]
 //        public void UpdateCorrectModelTest()
 //        {
-         
+
 //            var mockRepository = new Mock<IJobService>().Object;
 //            var mockIMapper = new Mock<IMapper>().Object;
 //            var controller = new JobController(mockRepository, mockIMapper);
@@ -169,7 +169,7 @@
 //                Id = 0
 //            };
 
-          
+
 //            Task<IActionResult> ActionResult = controller.Update(sendValue);
 //            OkResult contentResult = (OkResult)ActionResult.Result;
 
@@ -181,11 +181,11 @@
 
 //        public void UpdateUnсorrectModelTest()
 //        {
-            
+
 //            var mockRepository = new Mock<IJobService>();
 //            var mockIMapper = new Mock<IMapper>();
 //            var controller = new JobController(mockRepository.Object, mockIMapper.Object);
-//            var sendValue = new JobDTO() 
+//            var sendValue = new JobDTO()
 //            {
 //                Title = "test title not in table",
 //                City = "test city not in table",
@@ -195,7 +195,7 @@
 //                Id = 114
 //            };
 
-//           // Task<IActionResult> ActionResult = controller.Update(sendValue);
+//             Task<IActionResult> ActionResult = controller.Update(sendValue);
 
 //            try
 //            {
@@ -206,7 +206,7 @@
 //            }
 //            catch (Exception ex)
 //            {
-                
+
 //                OkResult contentResult = (OkResult)ActionResult.Result;
 
 //                Assert.NotNull(contentResult);

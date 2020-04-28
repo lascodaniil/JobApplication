@@ -18,11 +18,24 @@ namespace JobSolution.API.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly IUserService _userService;
-        private readonly IHttpContextAccessor context;
-        public UserController(IUserService userService)
+        private readonly IProfileService _userService;
+        public UserController(IProfileService userService)
         {
             _userService = userService; 
+        }
+        
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> StudentProfile()
+        {
+            return  Ok( await _userService.GetAuthStudentProfile()); 
+        }
+        
+        [HttpGet("EmployerProfile")]
+        [Authorize]
+        public async Task<IActionResult> EmployerProfile()
+        {
+            return Ok(await _userService.GetAuthEmployerPofiles());
         }
     }
 }

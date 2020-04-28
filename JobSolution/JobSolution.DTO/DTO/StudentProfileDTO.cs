@@ -12,5 +12,4 @@ namespace JobSolution.DTO.DTO
         public string Univeristy { get; set; }
         public string Base64Photo { get; set; }
     }
-
 }

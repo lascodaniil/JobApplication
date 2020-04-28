@@ -6,8 +6,9 @@ using System.Text;
 
 namespace JobSolution.DTO.DTO
 {
-    public class JobDTO 
+    public class JobDTO : BaseEntity
     {
+       
         public int UserId { get; set; }
         public int CityId { get; set; }
         public int CategoryId { get; set; }

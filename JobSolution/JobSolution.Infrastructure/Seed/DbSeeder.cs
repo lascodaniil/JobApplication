@@ -18,9 +18,7 @@ namespace JobSolution.Infrastructure.Database
             CategorySeeder.CreateCities(dbContext);
             CreateUsers(dbContext, roleManager, userManager).GetAwaiter().GetResult();
             DbSeedUser.PopulateUser(dbContext, roleManager, userManager).GetAwaiter().GetResult();
-           // DbSeedUser.PopulateJobs(dbContext, roleManager, userManager).GetAwaiter().GetResult();
-            //DbSeedUser.StudentJobs(dbContext); it's not necessary at this moment
-
+            DbSeedUser.PopulateJobs(dbContext, roleManager, userManager).GetAwaiter().GetResult();
             dbContext.SaveChanges();
         }
 

@@ -7,7 +7,7 @@ namespace JobSolution.DTO.DTO
 {
     public class JobGridRowDTO 
     {
-        public int UserId { get; set; }
+        public int JobId { get; set; }
         public string Title { get; set; }
         public int CategoryId { get; set; }
         public int CityId { get; set; }

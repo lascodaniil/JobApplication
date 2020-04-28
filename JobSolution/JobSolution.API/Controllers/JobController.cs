@@ -24,14 +24,32 @@ namespace JobSolution.API.Controllers
     public class JobController : ControllerBase
     {
         private readonly IJobService _jobService;
+        private readonly ICategoryService _categoryService;
+        private readonly ICityService _cityService;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _context;
-        public JobController(IJobService repositoryJob, IMapper mapper, IHttpContextAccessor context)
+        public JobController(IJobService repositoryJob, ICategoryService categoryService,ICityService cityService , IMapper mapper, IHttpContextAccessor context)
         {
+            _cityService = cityService;
+            _categoryService = categoryService;
             _jobService = repositoryJob;
             _mapper = mapper;
             _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
 
+        [HttpGet("Categories")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetCategries()
+        {
+            return Ok(await _categoryService.GetCategories());
+        }
+
+
+        [HttpGet("City")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetCities()
+        {
+            return Ok(await _cityService.GetCities());
         }
 
         [HttpGet]
@@ -50,23 +68,7 @@ namespace JobSolution.API.Controllers
             return Ok(obj);
         }
 
-        [HttpGet("GetEmployerList")]
-        [Authorize(Roles ="Admin")]
-        public async Task<IActionResult> GetAllUsersByEmployer()
-        {
-            int userId=0;
-            if (_context.HttpContext.User.Claims.Count() > 0)
-            {
-                if (!String.IsNullOrEmpty(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value))
-                {
-                    userId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
-                }
-            }
-            var ressult =  _jobService.GetAll().Result.Where(x => x.UserId == userId); 
-            return Ok(ressult);
-        }
-
-
+        
         [HttpPost]
         [Authorize(Roles ="Employer")]
         public async Task<IActionResult> Post([FromBody] JobForPostdDTO jobDTO)
@@ -108,7 +110,6 @@ namespace JobSolution.API.Controllers
             return await _jobService.GetJobsByCategory(category);
         }
 
-
         [HttpPost("PagePerTableForEmployer")]
         [Authorize(Roles = "Employer")]
         public async Task<IActionResult> GetPageForTableEmployer([FromBody] PagedRequest pagedRequest)
@@ -117,14 +118,11 @@ namespace JobSolution.API.Controllers
             return Ok(result);
         }
 
-
-
         [HttpPost("PagePerTable")]
         public async Task<IActionResult> GetPageForTable([FromBody] PagedRequest pagedRequest)
         {
             var result = await _jobService.GetPagedData(pagedRequest, _mapper);
             return Ok(result);
         }
-
     }
 }

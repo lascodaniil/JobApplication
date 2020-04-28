@@ -46,7 +46,6 @@ namespace JobSolution.API
             services.AddCors(options => options.AddPolicy("Cors", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
             services.AddSwaggerGen(options =>
             {
-
                 options.SwaggerDoc("v1",
                     new Microsoft.OpenApi.Models.OpenApiInfo
                     {
@@ -59,6 +58,13 @@ namespace JobSolution.API
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IJobRepository, JobRepository>();
             services.AddTransient<IJobService, JobService>();
+            services.AddTransient<IProfileRepository, ProfileRepository>();
+            services.AddTransient<IProfileService, ProfileService>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<ICategoryService, CategoryServices>();
+            services.AddTransient<ICityRepository, CityRepository>();
+            services.AddTransient<ICityService, CityService>();
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddIdentity<User, Role>(opts =>
             {

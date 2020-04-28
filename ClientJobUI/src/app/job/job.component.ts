@@ -38,7 +38,7 @@ export class JobComponent implements OnInit {
 
   loadJobs() {
     this.jobService.getAllJobPaginated(this.filter).subscribe(data => {
-      this.allJobs = data.items;
+      this.allJobs = data.items; console.log(this.allJobs);
     });
   }
 }

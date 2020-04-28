@@ -15,15 +15,13 @@ namespace JobSolution.API.Profile
             CreateMap<Job, JobDTO>().ForMember(x => x.PublishedOn, y => y.MapFrom(z => z.PostDate))
                                     .ForMember(x => x.FinishedOn, y => y.MapFrom(z => z.EndDate))
                                     .ForMember(x => x.Category, y => y.MapFrom(z => z.Category.Category))
-                                    .ForMember(x => x.JobId, y => y.MapFrom(z => z.Id));
-
-
+                                    .ForMember(x => x.JobId, y => y.MapFrom(z => z.Id))
+                                    .ForMember(x => x.Employer, y => y.MapFrom(x => x.User.Profile.FirstName+ " " + x.User.Profile.LastName));
+            
             CreateMap<JobDTO, Job>().ForMember(x => x.PostDate, y => y.MapFrom(z => z.PublishedOn))
                                     .ForMember(x => x.EndDate, y => y.MapFrom(z => z.FinishedOn))
                                     .ForMember(x => x.Category, y => y.Ignore());
-                                    
-
-
+            
 
             CreateMap<Categories, CategoryDTO>()
                 .ForMember(x => x.Category, y => y.MapFrom(x => x.Category));

@@ -1,37 +1,33 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {PaginatedRequest} from '../model/PaginatedRequest';
-import {PagedResult} from '../model/PagedResult';
-import {JobRowRequest} from '../model/JobRowRequest';
-import {Category} from '../model/Category';
-import {JobForPostDTO} from '../model/JobForPostDTO';
-import {City} from '../model/City';
-
+import {PaginatedRequest} from '../models/PaginatedRequest';
+import {JobDTO} from '../models/JobDTO';
+import {PagedResult} from '../models/PagedResult';
+import {Category} from '../models/Category';
+import {City} from '../models/City';
 
 const urlJob = 'http://localhost:5000/Job';
-
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class JobService {
 
   constructor(private http: HttpClient) {
 
   }
-
-
   getJobById(id: number) {
-    return this.http.get<JobForPostDTO>(`${urlJob}/Table/${id}`);
+    return this.http.get<JobDTO>(`${urlJob}/${id}`);
   }
 
-  getAllJobPaginated(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobRowRequest>> {
-    return this.http.post<PagedResult<JobRowRequest>>(`${urlJob}/PagePerTable`, paginatedRequest);
+  getAllJobPaginated(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobDTO>> {
+    return this.http.post<PagedResult<JobDTO>>(`${urlJob}/PagePerTable`, paginatedRequest);
   }
 
-  getAllJobPaginatedUser(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobRowRequest>> {
-    return this.http.post<PagedResult<JobRowRequest>>(`${urlJob}/PagePerTableForEmployer`, paginatedRequest);
+  getAllJobPaginatedUser(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobDTO>> {
+    return this.http.post<PagedResult<JobDTO>>(`${urlJob}/PagePerTableForEmployer`, paginatedRequest);
   }
 
   getCategories(): Observable<Category[]>{
@@ -42,7 +38,7 @@ export class JobService {
     return  this.http.get<City[]>(`${urlJob}/City`);
   }
 
-  addjob(job: JobForPostDTO): Observable<any> {
+  addjob(job: JobDTO): Observable<any> {
     return  this.http.post(`${urlJob}`, job);
   }
 
@@ -50,8 +46,7 @@ export class JobService {
     return  this.http.delete(`${urlJob}/${id}`);
   };
 
-  editJob(job: JobForPostDTO,id: number): Observable<any>{
+  editJob(job: JobDTO,id: number): Observable<any>{
     return  this.http.put(`${urlJob}/Update/${id}`, job);
   };
 }
-

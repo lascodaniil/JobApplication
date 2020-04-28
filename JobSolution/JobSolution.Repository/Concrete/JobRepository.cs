@@ -35,7 +35,7 @@ namespace JobSolution.Repository.Concrete
 
         public async Task<IQueryable<Job>> GetAllJobs()
         {
-            return _dbContext.Jobs.Include(x => x.Category).Include(x=>x.Cities).Include(x=>x.User).AsQueryable();
+            return _dbContext.Jobs.Include(x => x.Category).Include(x=>x.Cities).Include(x=>x.User).Include(x=>x.User.Profile).AsQueryable();
         }
 
         public async Task<Job> GetJobByID(int JobId)

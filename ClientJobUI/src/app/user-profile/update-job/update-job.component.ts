@@ -1,10 +1,10 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef,} from '@angular/material/dialog';
 import {JobService} from '../../services/job.service';
-import {Category} from '../../model/Category';
-import {AddJobData} from '../../model/AddJobData';
-import {JobForPostDTO} from '../../model/JobForPostDTO';
-import {City} from '../../model/City';
+import {Category} from '../../models/Category';
+import {City} from '../../models/City';
+import {JobDTO} from '../../models/JobDTO';
+import {AddJobData} from '../../models/AddJobData';
 
 
 @Component({
@@ -15,7 +15,7 @@ import {City} from '../../model/City';
 export class UpdateJobComponent implements OnInit {
   categories: Category[];
   cities: City[];
-  job = {} as JobForPostDTO;
+  job = {} as JobDTO;
 
   constructor(
     private jobService: JobService,
@@ -27,7 +27,7 @@ export class UpdateJobComponent implements OnInit {
     this.categories = this.jobData.categories;
     this.cities = this.jobData.cities;
     if (this.jobData.id) {
-      this.jobService.getJobById(this.jobData.id).subscribe((job: JobForPostDTO) => {
+      this.jobService.getJobById(this.jobData.id).subscribe((job: JobDTO) => {
         this.job = job;
       });
     }

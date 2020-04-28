@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {JobService} from '../services/job.service';
-import {FormControl} from '@angular/forms';
-import {PaginatedRequest} from '../model/PaginatedRequest';
-import {JobRowRequest} from '../model/JobRowRequest';
 import {AuthService} from '../services/auth.service';
 import {ToolBarService} from '../services/toolbar.service.service';
+import {JobDTO} from '../models/JobDTO';
+import {PaginatedRequest} from '../models/PaginatedRequest';
 
 
 @Component({
@@ -17,7 +16,7 @@ export class JobComponent implements OnInit {
   pageOptions = [1, 2, 3, 4, 5];
   filter = {} as PaginatedRequest;
   actions = false;
-  allJobs: JobRowRequest[];
+  allJobs: JobDTO[];
 
   constructor(private jobService: JobService,
               private authService: AuthService,

@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {JobService} from '../services/job.service';
-import {PaginatedRequest} from '../model/PaginatedRequest';
 import {ToolBarService} from '../services/toolbar.service.service';
 import {UpdateJobComponent} from './update-job/update-job.component';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {JobRowRequest} from '../model/JobRowRequest';
-import {Category} from '../model/Category';
-import {City} from '../model/City';
+import {PaginatedRequest} from '../models/PaginatedRequest';
+import {Category} from '../models/Category';
+import {City} from '../models/City';
+import {JobDTO} from '../models/JobDTO';
+
 
 @Component({
   selector: 'app-user-profile',
@@ -20,7 +21,7 @@ export class UserProfileComponent implements OnInit {
   dialogRef: MatDialogRef<any>;
   jobsCategories = [] as Category[];
   jobsCities = [] as City[];
-  employerJobs = [] as JobRowRequest[];
+  employerJobs = [] as JobDTO[];
 
   paginationOptions = {
     pageSizeOptions: [25, 50, 100, 250],

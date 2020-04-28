@@ -1,5 +1,5 @@
 import {AfterContentInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {PaginatedRequest} from 'src/app/model/PaginatedRequest';
+import {PaginatedRequest} from '../../models/PaginatedRequest';
 
 @Component({
   selector: 'app-job-filter',
@@ -13,7 +13,6 @@ export class JobFilterComponent {
   };
 
   filter = {} as PaginatedRequest;
-
   @Output()
   onFiltered = new EventEmitter<PaginatedRequest>();
 

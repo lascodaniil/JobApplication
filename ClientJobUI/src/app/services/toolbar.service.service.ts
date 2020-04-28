@@ -16,4 +16,3 @@ export class ToolBarService {
     return this.title.asObservable();
   }
 }
-

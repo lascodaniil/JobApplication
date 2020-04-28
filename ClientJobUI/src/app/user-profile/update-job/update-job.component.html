@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{jobData.action === 'edit' ? 'Edit' : 'Add'}} Job</h1>
+<h1 mat-dialog-title>{{jobData.id ? 'Edit' : 'Add'}} Job</h1>
 <div mat-dialog-content>
   <button mat-raised-button color="warn">Upload Image</button>
   <mat-form-field>
@@ -34,6 +34,6 @@
     <input required [(ngModel)]="this.job.contact" type="number" matInput>
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="jobData.id ? onJobEdit(job, jobData.id) : onJobAdd()">
-    {{jobData.action === 'edit' ? 'Update' : 'Add'}} Job
+    {{jobData.id ? 'Update' : 'Add'}} Job
   </button>
 </div>

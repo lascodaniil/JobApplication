@@ -21,8 +21,7 @@ namespace JobSolution.Repository.Interfaces
         Task Add(Job job);
         Task<bool> SaveAll();
         Task<Job> GetByIdWithInclude(int id, params Expression<Func<Job, object>>[] includeProperties);
-        Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper);
-        Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper, int UserId);
-
+        Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper);
+        Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper, int UserId);
     }
 }

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {JobService} from '../services/job.service';
 import {PaginatedRequest} from '../model/PaginatedRequest';
 import {ToolBarService} from '../services/toolbar.service.service';
-import {JobDTO} from '../model/JobDTO';
 import {UpdateJobComponent} from './update-job/update-job.component';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {JobRowRequest} from '../model/JobRowRequest';
@@ -61,13 +60,12 @@ export class UserProfileComponent implements OnInit {
     this.loadUserJobs();
   }
 
-  onUpdate(action: string, id?: number) {
+  onUpdate(id?: number) {
     this.dialogRef = this.dialog.open(UpdateJobComponent, {
       data: {
         categories: this.jobsCategories,
         cities: this.jobsCities,
-        id: id ? id : null,
-        action : action
+        id: id ? id : null
       }
     });
 
@@ -76,13 +74,8 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-
   onDelete(id: number){
        this.jobService.deleteJob(id).subscribe(() => {
          this.loadUserJobs(); console.log('stergere'); });
   }
-
-
-
-
 }

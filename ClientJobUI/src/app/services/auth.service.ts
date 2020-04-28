@@ -15,10 +15,6 @@ export class AuthServiceResponse {
   public accessToken: string;
 }
 
-export class UserCredentials {
-   public  email: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })

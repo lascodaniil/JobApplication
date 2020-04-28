@@ -1,7 +1,5 @@
 <div class="mat-elevation-z8">
 
-
-
   <table mat-table [dataSource]="employerJobs" class="user-data-table">
     <ng-container matColumnDef="Id">
       <th mat-header-cell *matHeaderCellDef> No.</th>
@@ -23,7 +21,6 @@
       <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
     </ng-container>
 
-
     <ng-container matColumnDef="City">
       <th mat-header-cell *matHeaderCellDef> Contact</th>
       <td mat-cell *matCellDef="let element"> {{element.city}} </td>
@@ -31,13 +28,13 @@
 
     <ng-container matColumnDef="Actions">
       <th mat-header-cell *matHeaderCellDef>
-        <button mat-icon-button color="primary" (click)="onUpdate('add')">
+        <button mat-icon-button color="primary" (click)="onUpdate()">
           <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
         </button>
       </th>
 
       <td mat-cell *matCellDef="let element">
-        <button mat-icon-button (click)="onUpdate('edit', element.jobId)">
+        <button mat-icon-button (click)="onUpdate(element.jobId)">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
         <button mat-icon-button (click)="onDelete(element.jobId)">

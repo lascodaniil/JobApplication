@@ -27,9 +27,8 @@ namespace JobSolution.Services.Concrete
             _context = context;
         }
 
-        public async Task Add(JobForPostdDTO entity)
+        public async Task Add(JobDTO entity)
         {
-
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value); 
             var job = _mapper.Map<Job>(entity);
             job.UserId = UserId;
@@ -50,7 +49,7 @@ namespace JobSolution.Services.Concrete
             return _mapper.Map<JobDTO>(toReturn);
         }
         
-        public async Task Update(JobForPostdDTO job, int id) {
+        public async Task Update(JobDTO job, int id) {
 
             var userId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
             var dbentity = await _jobRepository.GetJobByID(id);
@@ -59,7 +58,7 @@ namespace JobSolution.Services.Concrete
             dbentity.CategoryId = job.CategoryId;
             dbentity.CityId = job.CityId;
             dbentity.Contact = job.Contact;
-            dbentity.EndDate = job.StopDate;
+            dbentity.EndDate = job.FinishedOn;
             dbentity.Id = id;
             dbentity.UserId = userId;
             dbentity.Title = job.Title;
@@ -75,20 +74,21 @@ namespace JobSolution.Services.Concrete
         public async Task<IList<JobDTO>> GetJobsByCategory(string category)
         {
             var result = await GetAll();
-            return result.Where(x => x.CategoryName == category).ToList();
+            return result.Where(x => x.Category == category).ToList();
           
         }
 
-        public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper) 
+        public async Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper) 
         {
             return await _jobRepository.GetPagedData(pagedRequest, mapper);
         }
 
-        public async Task<PaginatedResult<JobGridRowDTO>> GetJobsForEmployer(PagedRequest pagedRequest, IMapper mapper)
+        public async Task<PaginatedResult<JobDTO>> GetJobsForEmployer(PagedRequest pagedRequest, IMapper mapper)
         {
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
             var result = await _jobRepository.GetPagedData(pagedRequest, mapper, UserId);
             return  result;
         }
+
     }
 }

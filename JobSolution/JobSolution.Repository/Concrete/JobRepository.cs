@@ -77,15 +77,15 @@ namespace JobSolution.Repository.Concrete
             }
             return entities;
         }
-        public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper)
+        public async Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper)
         {
-            return await _dbContext.Set<Job>().CreatePaginatedResultAsync<Job, JobGridRowDTO>(pagedRequest, mapper);
+            return await _dbContext.Set<Job>().CreatePaginatedResultAsync<Job, JobDTO>(pagedRequest, mapper);
         }
 
-        public async Task<PaginatedResult<JobGridRowDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper, int UserId)
+        public async Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper, int UserId)
         {
 
-            var result = _dbContext.Set<Job>().Where(x => x.UserId == UserId).CreatePaginatedResultAsync<Job, JobGridRowDTO>(pagedRequest, mapper, UserId);
+            var result = _dbContext.Set<Job>().Where(x => x.UserId == UserId).CreatePaginatedResultAsync<Job, JobDTO>(pagedRequest, mapper, UserId);
             return await result;
         }
     }

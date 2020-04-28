@@ -3,9 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PaginatedRequest} from '../model/PaginatedRequest';
 import {PagedResult} from '../model/PagedResult';
-import {Job} from '../model/Job';
 import {JobRowRequest} from '../model/JobRowRequest';
-import {JobDTO} from '../model/JobDTO';
 import {Category} from '../model/Category';
 import {JobForPostDTO} from '../model/JobForPostDTO';
 import {City} from '../model/City';
@@ -26,14 +24,6 @@ export class JobService {
 
   getJobById(id: number) {
     return this.http.get<JobForPostDTO>(`${urlJob}/Table/${id}`);
-  }
-
-  getAllJobsByUserId(UserId: number) {
-    return this.http.get<JobDTO>(`${urlJob}/${UserId}`);
-  }
-
-  getJobsByCategory(category: string) {
-    return this.http.get<Job>(`${urlJob}/${category}`);
   }
 
   getAllJobPaginated(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobRowRequest>> {

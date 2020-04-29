@@ -17,6 +17,7 @@ export class UpdateJobComponent implements OnInit {
   cities: City[];
   job = {} as JobDTO;
   imagePath : string;
+  imageFile:any;
   constructor(
     private jobService: JobService,
     @Inject(MAT_DIALOG_DATA) public jobData: AddJobData,
@@ -34,13 +35,26 @@ export class UpdateJobComponent implements OnInit {
   }
 
   onJobAdd() {
-
-    console.log(this.imagePath);
-    let a = this.imagePath.split('fakepath\\');
-    console.log(a[0]);
+// debugger
+    console.log(this.job.base64Photo);
+    this.job.base64Photo = this.imageFile !=undefined?this.imageFile : '';
     this.jobService.addjob(this.job).subscribe(() => {
       this.dialogRef.close();
     });
+  }
+
+  handelFileInput(event:any){
+    if (event.target.files) {
+      const filesAmount = event.target.files.length;
+      for (let i = 0; i < filesAmount; i++) {
+          const reader = new FileReader();
+          reader.onload = (event: any) => {
+            this.imageFile = event.target.result;
+          };
+          reader.readAsDataURL(event.target.files[i]);
+      }
+    }
+
   }
 
   onJobEdit(job, id) {

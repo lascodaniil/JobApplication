@@ -1,43 +1,39 @@
 <h1 mat-dialog-title>{{jobData.id ? 'Edit' : 'Add'}} Job</h1>
 <div mat-dialog-content>
-  <button mat-raised-button color="warn" >
+    <button mat-raised-button color="warn">
     <span>Upload</span>
-    <input type="file" [(ngModel)]="this.job.base64Photo" />
+    <input type="file" (change)="handelFileInput($event)" [(ngModel)]="this.job.base64Photo" />
   </button>
 
-  <mat-form-field>
-    <mat-label>Title</mat-label>
-    <input [(ngModel)]="this.job.title" required matInput>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Category</mat-label>
-    <mat-select [(ngModel)]="this.job.categoryId" required>
-      <mat-option
-        *ngFor="let category of categories"
-        [value]="category.id">
-        {{category.category}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>City</mat-label>
-    <mat-select [(ngModel)]="this.job.cityId" required>
-      <mat-option
-        *ngFor="let city of cities"
-        [value]="city.id">
-        {{city.city}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Salary</mat-label>
-    <input [(ngModel)]="this.job.salary" type="number" matInput>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Contact</mat-label>
-    <input required [(ngModel)]="this.job.contact" type="number" matInput>
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="jobData.id ? onJobEdit(job, jobData.id) : onJobAdd()">
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input [(ngModel)]="this.job.title" required matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select [(ngModel)]="this.job.categoryId" required>
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+                {{category.category}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>City</mat-label>
+        <mat-select [(ngModel)]="this.job.cityId" required>
+            <mat-option *ngFor="let city of cities" [value]="city.id">
+                {{city.city}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Salary</mat-label>
+        <input [(ngModel)]="this.job.salary" type="number" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Contact</mat-label>
+        <input required [(ngModel)]="this.job.contact" type="number" matInput>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="jobData.id ? onJobEdit(job, jobData.id) : onJobAdd()">
     {{jobData.id ? 'Update' : 'Add'}} Job
   </button>
 </div>

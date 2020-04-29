@@ -1,4 +1,4 @@
-export interface City {
+export interface CityDTO {
   cityId:number;
   city:string;
 }

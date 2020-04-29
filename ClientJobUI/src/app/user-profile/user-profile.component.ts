@@ -4,9 +4,9 @@ import {ToolBarService} from '../services/toolbar.service.service';
 import {UpdateJobComponent} from './update-job/update-job.component';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {PaginatedRequest} from '../models/PaginatedRequest';
-import {Category} from '../models/Category';
-import {City} from '../models/City';
-import {JobDTO} from '../models/JobDTO';
+import {CategoryDTO} from '../models/DTO/CategoryDTO';
+import {CityDTO} from '../models/DTO/CityDTO';
+import {JobDTO} from '../models/DTO/JobDTO';
 
 
 @Component({
@@ -19,8 +19,8 @@ export class UserProfileComponent implements OnInit {
   displayedColumns: string[] = ['Id', 'Title', 'Category', 'Contact','City', 'Publish Date', 'Finish Date' ,'Actions'];
   filter = {} as PaginatedRequest;
   dialogRef: MatDialogRef<any>;
-  jobsCategories = [] as Category[];
-  jobsCities = [] as City[];
+  jobsCategories = [] as CategoryDTO[];
+  jobsCities = [] as CityDTO[];
   employerJobs = [] as JobDTO[];
 
   paginationOptions = {

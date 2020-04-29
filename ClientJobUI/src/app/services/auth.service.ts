@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {RegisterUserModel} from '../Interfaces/RegisterUserModel';
 import {Router} from '@angular/router';
-import {EmployerProfileDTO} from '../models/EmployerProfileDTO';
+import {EmployerProfileDTO} from '../models/DTO/EmployerProfileDTO';
 
 const URL_LOG = 'http://localhost:5000/Auth/Login';
 const URL_REGISTER = 'http://localhost:5000/Auth/Registration';

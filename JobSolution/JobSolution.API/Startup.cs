@@ -64,6 +64,8 @@ namespace JobSolution.API
             services.AddTransient<ICategoryService, CategoryServices>();
             services.AddTransient<ICityRepository, CityRepository>();
             services.AddTransient<ICityService, CityService>();
+            services.AddTransient<IAdvertServices, AdvertServices>();
+            services.AddTransient<IAdvertRepository, AdvertRepository>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddIdentity<User, Role>(opts =>

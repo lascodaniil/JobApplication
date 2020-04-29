@@ -1,8 +1,8 @@
-import {Category} from './Category';
-import {City} from './City';
+import {CategoryDTO} from './DTO/CategoryDTO';
+import {CityDTO} from './DTO/CityDTO';
 
 export interface AddJobData {
-  categories: Category[];
-  cities: City[];
+  categories: CategoryDTO[];
+  cities: CityDTO[];
   id?: number;
 }

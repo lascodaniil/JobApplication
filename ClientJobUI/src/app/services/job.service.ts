@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PaginatedRequest} from '../models/PaginatedRequest';
-import {JobDTO} from '../models/JobDTO';
+import {JobDTO} from '../models/DTO/JobDTO';
 import {PagedResult} from '../models/PagedResult';
-import {Category} from '../models/Category';
-import {City} from '../models/City';
+import {CategoryDTO} from '../models/DTO/CategoryDTO';
+import {CityDTO} from '../models/DTO/CityDTO';
 
 const urlJob = 'http://localhost:5000/Job';
 
@@ -30,12 +30,12 @@ export class JobService {
     return this.http.post<PagedResult<JobDTO>>(`${urlJob}/PagePerTableForEmployer`, paginatedRequest);
   }
 
-  getCategories(): Observable<Category[]>{
-    return  this.http.get<Category[]>(`${urlJob}/Categories`);
+  getCategories(): Observable<CategoryDTO[]>{
+    return  this.http.get<CategoryDTO[]>(`${urlJob}/Categories`);
   }
 
-  getCity(): Observable<City[]>{
-    return  this.http.get<City[]>(`${urlJob}/City`);
+  getCity(): Observable<CityDTO[]>{
+    return  this.http.get<CityDTO[]>(`${urlJob}/City`);
   }
 
   addjob(job: JobDTO): Observable<any> {

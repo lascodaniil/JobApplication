@@ -16,9 +16,9 @@ namespace JobSolution.Repository
     {
         protected readonly AppDbContext _dbContext;
 
-        public Repository(AppDbContext jobDbContext)
+        public Repository(AppDbContext dbContext)
         {
-            _dbContext = jobDbContext;
+            _dbContext = dbContext;
             
         }
 

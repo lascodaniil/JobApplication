@@ -2,7 +2,7 @@
 <div mat-dialog-content>
     <button mat-raised-button color="warn">
     <span>Upload</span>
-    <input type="file" (change)="handelFileInput($event)" [(ngModel)]="this.job.base64Photo" />
+    <input type="file"  [(ngModel)]="this.job.base64Photo" />
   </button>
 
     <mat-form-field>
@@ -10,7 +10,7 @@
         <input [(ngModel)]="this.job.title" required matInput>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Category</mat-label>
+        <mat-label>CategoryDTO</mat-label>
         <mat-select [(ngModel)]="this.job.categoryId" required>
             <mat-option *ngFor="let category of categories" [value]="category.id">
                 {{category.category}}
@@ -18,7 +18,7 @@
         </mat-select>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>City</mat-label>
+        <mat-label>CityDTO</mat-label>
         <mat-select [(ngModel)]="this.job.cityId" required>
             <mat-option *ngFor="let city of cities" [value]="city.id">
                 {{city.city}}

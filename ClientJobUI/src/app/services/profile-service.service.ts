@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import {AuthService, AuthServiceResponse} from './auth.service';
 import {Observable} from 'rxjs';
 import {getToken} from 'codelyzer/angular/styles/cssLexer';
-import {EmployerProfileDTO} from '../models/EmployerProfileDTO';
+import {EmployerProfileDTO} from '../models/DTO/EmployerProfileDTO';
 
 
 const URL_PROFILE ="http://localhost:5000/User/";

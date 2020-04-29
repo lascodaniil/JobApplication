@@ -118,6 +118,7 @@ D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
@@ -130,6 +131,7 @@ D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
@@ -199,5 +201,3 @@ D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticweba
 D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.dll
 D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.pdb
 D:\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.genruntimeconfig.cache
-D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
-D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll

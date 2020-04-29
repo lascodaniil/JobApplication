@@ -216,6 +216,48 @@ namespace JobSolution.Infrastructure.Migrations
                     b.ToTable("UserRoles","Auth");
                 });
 
+            modelBuilder.Entity("JobSolution.Domain.Entities.Advert", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Contact")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PostDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<float>("Salary")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Adverts");
+                });
+
             modelBuilder.Entity("JobSolution.Domain.Entities.Categories", b =>
                 {
                     b.Property<int>("Id")
@@ -397,6 +439,27 @@ namespace JobSolution.Infrastructure.Migrations
             modelBuilder.Entity("JobSolution.Domain.Auth.UserToken", b =>
                 {
                     b.HasOne("JobSolution.Domain.Auth.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("JobSolution.Domain.Entities.Advert", b =>
+                {
+                    b.HasOne("JobSolution.Domain.Entities.Categories", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JobSolution.Domain.Entities.Cities", "Cities")
+                        .WithMany()
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JobSolution.Domain.Auth.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

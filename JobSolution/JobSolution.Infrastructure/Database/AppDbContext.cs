@@ -15,6 +15,7 @@ namespace JobSolution.Infrastructure.Database
         public DbSet<Cities> Cities { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Advert> Adverts { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

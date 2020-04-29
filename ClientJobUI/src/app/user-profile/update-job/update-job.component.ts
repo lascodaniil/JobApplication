@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef,} from '@angular/material/dialog';
 import {JobService} from '../../services/job.service';
-import {Category} from '../../models/Category';
-import {City} from '../../models/City';
-import {JobDTO} from '../../models/JobDTO';
+import {CategoryDTO} from '../../models/DTO/CategoryDTO';
+import {CityDTO} from '../../models/DTO/CityDTO';
+import {JobDTO} from '../../models/DTO/JobDTO';
 import {AddJobData} from '../../models/AddJobData';
 
 
@@ -13,11 +13,12 @@ import {AddJobData} from '../../models/AddJobData';
   styleUrls: ['update-job.component.css'],
 })
 export class UpdateJobComponent implements OnInit {
-  categories: Category[];
-  cities: City[];
+  categories: CategoryDTO[];
+  cities: CityDTO[];
   job = {} as JobDTO;
   imagePath : string;
   imageFile:any;
+  imageExtension:string;
   constructor(
     private jobService: JobService,
     @Inject(MAT_DIALOG_DATA) public jobData: AddJobData,
@@ -35,26 +36,10 @@ export class UpdateJobComponent implements OnInit {
   }
 
   onJobAdd() {
-// debugger
     console.log(this.job.base64Photo);
-    this.job.base64Photo = this.imageFile !=undefined?this.imageFile : '';
     this.jobService.addjob(this.job).subscribe(() => {
       this.dialogRef.close();
     });
-  }
-
-  handelFileInput(event:any){
-    if (event.target.files) {
-      const filesAmount = event.target.files.length;
-      for (let i = 0; i < filesAmount; i++) {
-          const reader = new FileReader();
-          reader.onload = (event: any) => {
-            this.imageFile = event.target.result;
-          };
-          reader.readAsDataURL(event.target.files[i]);
-      }
-    }
-
   }
 
   onJobEdit(job, id) {
@@ -64,6 +49,4 @@ export class UpdateJobComponent implements OnInit {
       this.dialogRef.close();
     });
   }
-
-
 }

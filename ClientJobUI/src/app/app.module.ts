@@ -37,6 +37,7 @@ import {UserProfileComponent} from './user-profile/user-profile.component';
 import {UpdateJobComponent} from './user-profile/update-job/update-job.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ProfileInfoComponent } from './user-profile/profile-info/profile-info.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { ProfileInfoComponent } from './user-profile/profile-info/profile-info.c
     UserProfileComponent,
     UpdateJobComponent,
     ProfileInfoComponent,
+    StudentProfileComponent,
   ],
   imports: [
     BrowserModule,

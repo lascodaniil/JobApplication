@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {JobService} from '../services/job.service';
 import {AuthService} from '../services/auth.service';
 import {ToolBarService} from '../services/toolbar.service.service';
-import {JobDTO} from '../models/JobDTO';
+import {JobDTO} from '../models/DTO/JobDTO';
 import {PaginatedRequest} from '../models/PaginatedRequest';
 
 

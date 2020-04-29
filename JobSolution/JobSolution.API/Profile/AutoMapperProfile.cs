@@ -23,6 +23,16 @@ namespace JobSolution.API.Profile
                                     .ForMember(x => x.EndDate, y => y.MapFrom(z => z.FinishedOn))
                                     .ForMember(x => x.Category, y => y.Ignore());
 
+            CreateMap<Advert, AdvertDTO>().ForMember(x => x.AdvertId, y => y.MapFrom(y => y.Id))
+                                          .ForMember(x => x.City, y => y.MapFrom(z => z.Cities.City))
+                                          .ForMember(x => x.Category, y => y.MapFrom(z => z.Category.Category))
+                                          .ForMember(x => x.City, y => y.MapFrom(z => z.Cities.City));
+                                          
+
+
+            CreateMap<AdvertDTO, Advert>().ForMember(x => x.Id, y => y.MapFrom(x => x.AdvertId))
+                .ForMember(x => x.Category, y => y.Ignore());
+
 
 
             CreateMap<JobSolution.Domain.Entities.Profile, StudentProfileDTO>()

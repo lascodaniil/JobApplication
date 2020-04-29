@@ -14,8 +14,9 @@ namespace JobSolution.DTO.DTO
         public string Category { get; set; }
         public string Employer { get; set; }
         public string City { get; set; }
-        public DateTime PublishedOn { get; set; }
-        public DateTime FinishedOn { get; set; }
+        public DateTime? PublishedOn { get; set; }
+        public DateTime? FinishedOn { get; set; }
+        public DateTime? EnrolledDate { get; set; }
         public string Base64Photo { get; set; }
         public string Contact { get; set; }
         public float Salary { get; set; }

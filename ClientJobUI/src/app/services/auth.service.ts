@@ -3,9 +3,11 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {RegisterUserModel} from '../Interfaces/RegisterUserModel';
 import {Router} from '@angular/router';
+import {EmployerProfileDTO} from '../models/EmployerProfileDTO';
 
 const URL_LOG = 'http://localhost:5000/Auth/Login';
 const URL_REGISTER = 'http://localhost:5000/Auth/Registration';
+const URL_PROFILE ="http://localhost:5000/User";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -28,6 +30,10 @@ export class AuthService {
     return this.http.post<AuthServiceResponse>(URL_LOG, {Username: username, Password: password}, httpOptions);
   }
 
+  getProfileUser(): Observable<EmployerProfileDTO> {
+    return this.http.get<EmployerProfileDTO>(`${URL_PROFILE}/EmployerProfile`);
+  }
+
   registration(register: RegisterUserModel) {
     return this.http.post<AuthServiceResponse>(URL_REGISTER, register, httpOptions);
   }
@@ -45,4 +51,6 @@ export class AuthService {
     this.router.navigate(['/sign-in']);
     return true;
   }
+
+
 }

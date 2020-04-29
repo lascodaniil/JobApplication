@@ -14,6 +14,7 @@ namespace JobSolution.Domain.Entities
         public string Description { get; set; }
         public DateTime? PostDate { get; set; } = DateTime.Now; 
         public DateTime? EndDate { get; set; } 
+        public DateTime? EnrolledDate { get; set; }
         public string Base64Photo { get; set; } 
         public float Salary { get; set; }
         [ForeignKey("Cities")]

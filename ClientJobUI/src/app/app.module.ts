@@ -36,6 +36,7 @@ import {HomeComponent} from './home/home.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {UpdateJobComponent} from './user-profile/update-job/update-job.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ProfileInfoComponent } from './user-profile/profile-info/profile-info.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     HomeComponent,
     UserProfileComponent,
     UpdateJobComponent,
+    ProfileInfoComponent,
   ],
   imports: [
     BrowserModule,

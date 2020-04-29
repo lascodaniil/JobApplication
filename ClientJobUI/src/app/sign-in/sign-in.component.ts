@@ -28,7 +28,11 @@ export class SignInComponent {
         this.token = data.accessToken;
         this.auth.tokenObject = this.token;
         localStorage.setItem('accessToken', this.auth.tokenObject);
-        this.router.navigate(['/profile']);
+       // this.router.navigate(['/profile']);
       });
+    this.auth.getProfileUser().subscribe( data  => {
+      console.log(data);
+      this.router.navigate(['/profile']);
+    });
   }
 }

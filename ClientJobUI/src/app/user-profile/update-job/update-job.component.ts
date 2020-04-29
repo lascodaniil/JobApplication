@@ -16,7 +16,7 @@ export class UpdateJobComponent implements OnInit {
   categories: Category[];
   cities: City[];
   job = {} as JobDTO;
-
+  imagePath : string;
   constructor(
     private jobService: JobService,
     @Inject(MAT_DIALOG_DATA) public jobData: AddJobData,
@@ -34,6 +34,10 @@ export class UpdateJobComponent implements OnInit {
   }
 
   onJobAdd() {
+
+    console.log(this.imagePath);
+    let a = this.imagePath.split('fakepath\\');
+    console.log(a[0]);
     this.jobService.addjob(this.job).subscribe(() => {
       this.dialogRef.close();
     });
@@ -41,8 +45,11 @@ export class UpdateJobComponent implements OnInit {
 
   onJobEdit(job, id) {
     console.log(job, id);
+    console.log(this.imagePath);
     this.jobService.editJob(job, id).subscribe(() => {
       this.dialogRef.close();
     });
   }
+
+
 }

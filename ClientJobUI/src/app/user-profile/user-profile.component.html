@@ -1,3 +1,4 @@
+<!--<app-profile-info></app-profile-info>-->
 <div class="mat-elevation-z8">
 
   <table mat-table [dataSource]="employerJobs" class="user-data-table">
@@ -22,8 +23,18 @@
     </ng-container>
 
     <ng-container matColumnDef="City">
-      <th mat-header-cell *matHeaderCellDef> Contact</th>
+      <th mat-header-cell *matHeaderCellDef> City</th>
       <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Publish Date">
+      <th mat-header-cell *matHeaderCellDef>Publish Date</th>
+      <td mat-cell *matCellDef="let element"> {{element.publishedOn | date:'MM/dd/yyyy'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Finish Date">
+      <th mat-header-cell *matHeaderCellDef>Finish Date</th>
+      <td mat-cell *matCellDef="let element"> {{element.finishedOn | date:'MM/dd/yyyy'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="Actions">

@@ -16,7 +16,7 @@ import {JobDTO} from '../models/JobDTO';
 })
 
 export class UserProfileComponent implements OnInit {
-  displayedColumns: string[] = ['Id', 'Title', 'Category', 'Contact', 'Actions'];
+  displayedColumns: string[] = ['Id', 'Title', 'Category', 'Contact','City', 'Publish Date', 'Finish Date' ,'Actions'];
   filter = {} as PaginatedRequest;
   dialogRef: MatDialogRef<any>;
   jobsCategories = [] as Category[];
@@ -30,8 +30,8 @@ export class UserProfileComponent implements OnInit {
   };
 
   constructor(private jobService: JobService,
-              private toolBarService: ToolBarService,
-              public dialog: MatDialog) {
+               private toolBarService: ToolBarService,
+               public dialog: MatDialog) {
   }
 
   ngOnInit() {

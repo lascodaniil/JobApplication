@@ -10,7 +10,7 @@
         <input [(ngModel)]="this.job.title" required matInput>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>CategoryDTO</mat-label>
+        <mat-label>Category</mat-label>
         <mat-select [(ngModel)]="this.job.categoryId" required>
             <mat-option *ngFor="let category of categories" [value]="category.id">
                 {{category.category}}
@@ -18,9 +18,9 @@
         </mat-select>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>CityDTO</mat-label>
+        <mat-label>City</mat-label>
         <mat-select [(ngModel)]="this.job.cityId" required>
-            <mat-option *ngFor="let city of cities" [value]="city.id">
+            <mat-option *ngFor="let city of cities" [value]="city.cityId">
                 {{city.city}}
             </mat-option>
         </mat-select>

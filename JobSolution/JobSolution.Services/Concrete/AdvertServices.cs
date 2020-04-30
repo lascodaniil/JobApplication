@@ -72,6 +72,7 @@ namespace JobSolution.Services.Concrete
             dbentity.Id = id;
             dbentity.UserId = userId;
             dbentity.Title = advertDTO.Title;
+            dbentity.Description = advertDTO.Description;
             await _advertRepository.Update(dbentity);
         }
 

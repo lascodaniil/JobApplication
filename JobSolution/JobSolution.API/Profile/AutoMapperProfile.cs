@@ -26,7 +26,8 @@ namespace JobSolution.API.Profile
             CreateMap<Advert, AdvertDTO>().ForMember(x => x.AdvertId, y => y.MapFrom(y => y.Id))
                                           .ForMember(x => x.City, y => y.MapFrom(z => z.Cities.City))
                                           .ForMember(x => x.Category, y => y.MapFrom(z => z.Category.Category))
-                                          .ForMember(x => x.City, y => y.MapFrom(z => z.Cities.City));
+                                          .ForMember(x => x.City, y => y.MapFrom(z => z.Cities.City))
+                                          .ForMember(x => x.PublishedOn, y => y.MapFrom(z => z.PostDate));
                                           
 
 

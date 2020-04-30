@@ -35,10 +35,10 @@ import {JobFilterComponent} from './job/job-filter/job-filter.component';
 import {HomeComponent} from './home/home.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {UpdateJobComponent} from './user-profile/update-job/update-job.component';
-import {MatDialogModule} from '@angular/material/dialog';
 import { ProfileInfoComponent } from './user-profile/profile-info/profile-info.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
-
+import { PopUpComponent } from './student-profile/pop-up/pop-up.component';
+import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -53,6 +53,7 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
     UpdateJobComponent,
     ProfileInfoComponent,
     StudentProfileComponent,
+    PopUpComponent,
   ],
   imports: [
     BrowserModule,

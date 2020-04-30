@@ -76,7 +76,7 @@ namespace JobSolution.API.Controllers
             return BadRequest();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{advertId}")]
         public async Task<IActionResult> Delete(int advertId)
         {
             await _advertService.Remove(advertId);

@@ -16,7 +16,6 @@
             <mat-label>Last Name</mat-label>
             <input matInput placeholder="Insert your LastName"
                    [(ngModel)]="registeredUser.LastName"
-                   minlength="5"
                    pattern="[A-Za-z]+"
                    name="lastname"
                    required/>
@@ -27,7 +26,6 @@
             <mat-label>Email</mat-label>
             <input matInput name="email"
                    [(ngModel)]="registeredUser.Email"
-                   minlength="5"
                    required/>
           </mat-form-field>
         </div>
@@ -36,7 +34,6 @@
             <mat-label>Username</mat-label>
             <input matInput name="UserName"
                    [(ngModel)]="registeredUser.UserName"
-                   minlength="5"
                    required/>
           </mat-form-field>
         </div>

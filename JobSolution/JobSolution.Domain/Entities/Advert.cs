@@ -12,7 +12,7 @@ namespace JobSolution.Domain.Entities
         public string Title { get; set; }
         public string Contact { get; set; }
         public string Description { get; set; }
-        public DateTime? PostDate { get; set; } = DateTime.Now;
+        public DateTime PostDate { get; set; } = DateTime.Now;
         public float Salary { get; set; }
         [ForeignKey("Cities")]
         public int CityId { get; set; }

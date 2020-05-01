@@ -52,6 +52,7 @@ namespace JobSolution.API.Controllers
         }
 
         [HttpPut("Update/{advertId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> Update([FromBody]AdvertDTO advert, int advertId)
         {
             if (ModelState.IsValid)

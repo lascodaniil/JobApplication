@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {JobService} from '../services/job.service';
-import {AuthService} from '../services/auth.service';
-import {ToolBarService} from '../services/toolbar.service.service';
-import {JobDTO} from '../models/DTO/JobDTO';
-import {PaginatedRequest} from '../models/PaginatedRequest';
+import {JobService} from '../_services/job.service';
+import {AuthService} from '../_services/auth.service';
+import {ToolBarService} from '../_services/toolbar.service.service';
+import {JobDTO} from '../_models/DTO/JobDTO';
+import {PaginatedRequest} from '../_models/PaginatedRequest';
 
 
 @Component({
@@ -37,7 +37,7 @@ export class JobComponent implements OnInit {
 
   loadJobs() {
     this.jobService.getAllJobPaginated(this.filter).subscribe(data => {
-      this.allJobs = data.items; console.log(this.allJobs);
+      this.allJobs = data.items;
     });
   }
 }

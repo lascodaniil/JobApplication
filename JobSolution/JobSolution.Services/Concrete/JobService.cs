@@ -32,6 +32,7 @@ namespace JobSolution.Services.Concrete
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value); 
             var job = _mapper.Map<Job>(entity);
             job.UserId = UserId;
+            job.PostDate = DateTime.Now;
             await _jobRepository.Add(job);
             _jobRepository.SaveAll();
         }

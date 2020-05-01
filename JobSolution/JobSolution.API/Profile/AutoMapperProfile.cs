@@ -28,11 +28,12 @@ namespace JobSolution.API.Profile
                                           .ForMember(x => x.Category, y => y.MapFrom(z => z.Category.Category))
                                           .ForMember(x => x.City, y => y.MapFrom(z => z.Cities.City))
                                           .ForMember(x => x.PublishedOn, y => y.MapFrom(z => z.PostDate));
-                                          
+
 
 
             CreateMap<AdvertDTO, Advert>().ForMember(x => x.Id, y => y.MapFrom(x => x.AdvertId))
                 .ForMember(x => x.Category, y => y.Ignore());
+                
 
 
 

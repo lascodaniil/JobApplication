@@ -11,35 +11,36 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {JobService} from './services/job.service';
+import {JobService} from './_services/job.service';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
-import {AuthService} from './services/auth.service';
+import {AuthService} from './_services/auth.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {AuthInterceptor} from './helpers/AuthInterceptor';
+import {AuthInterceptor} from './_helpers/AuthInterceptor';
 import {LayoutModule} from '@angular/cdk/layout';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
-import {SidebarNavComponent} from './sidebar-nav/sidebar-nav.component';
+import {SidebarNavComponent} from './sidebar/sidebar-nav.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
-import {RegistrationFormComponent} from './registration-form/registration-form.component';
+import {RegistrationFormComponent} from './registration/registration-form.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {SignInComponent} from './sign-in/sign-in.component';
 import {JobFilterComponent} from './job/job-filter/job-filter.component';
-import {HomeComponent} from './home/home.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {UpdateJobComponent} from './user-profile/update-job/update-job.component';
 import { ProfileInfoComponent } from './user-profile/profile-info/profile-info.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { PopUpComponent } from './student-profile/pop-up/pop-up.component';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-
+import { UpdateAdvertComponent } from './student-profile/update-advert/update-advert.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,12 +49,12 @@ import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/materia
     RegistrationFormComponent,
     SignInComponent,
     JobFilterComponent,
-    HomeComponent,
     UserProfileComponent,
     UpdateJobComponent,
     ProfileInfoComponent,
     StudentProfileComponent,
     PopUpComponent,
+    UpdateAdvertComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +82,9 @@ import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/materia
     MatPaginatorModule,
     MatDialogModule,
     MatMenuModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     {

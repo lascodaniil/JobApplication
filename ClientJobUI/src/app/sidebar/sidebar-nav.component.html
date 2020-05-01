@@ -1,0 +1,13 @@
+<mat-nav-list>
+  <mat-card-title>
+    <p class=""></p>
+  </mat-card-title>
+  <a mat-list-item routerLink="jobs"><span class="material-icons">apps</span>Jobs</a>
+  <a mat-list-item *ngIf="serviceAuth.isLoggedIn();" (click)="serviceAuth.logout()">
+    <span class="material-icons">exit_to_app</span>LogOut</a>
+  <a mat-list-item routerLink="profile" *ngIf="serviceAuth.isLoggedIn();">
+    <span class="material-icons">assignment_ind</span>
+    Profile
+  </a>
+</mat-nav-list>
+

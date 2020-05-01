@@ -1,5 +1,5 @@
 import {AfterContentInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {PaginatedRequest} from '../../models/PaginatedRequest';
+import {PaginatedRequest} from '../../_models/PaginatedRequest';
 
 @Component({
   selector: 'app-job-filter',

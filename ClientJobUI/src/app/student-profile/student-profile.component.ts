@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {AdvertService} from '../services/advert.service';
-import {AdvertDTO} from '../models/DTO/AdvertDTO';
+import {AdvertService} from '../_services/advert.service';
+import {AdvertDTO} from '../_models/DTO/AdvertDTO';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {PopUpComponent} from './pop-up/pop-up.component';
+import {UpdateAdvertComponent} from './update-advert/update-advert.component';
 
 @Component({
   selector: 'app-student-profile',
@@ -16,7 +17,7 @@ export class StudentProfileComponent implements OnInit {
   dialogRef: MatDialogRef<any>;
 
   ngOnInit(): void {
-    this.advertService.getPostedAdverts().subscribe(data =>{this.adverts = data; console.log(data);})
+    this.advertService.getPostedAdverts().subscribe(data =>{this.adverts = data;})
   }
 
   onClick(advert : AdvertDTO ){
@@ -27,13 +28,16 @@ export class StudentProfileComponent implements OnInit {
     })
   }
 
-  onDelete(advert : AdvertDTO ,id: number){
+  onDelete(id: number){
      this.advertService.deleteAdvert(id).subscribe();
   }
 
-
-
-
-
+  onUpdate(advert: AdvertDTO){
+    this.dialogRef = this.dialog.open(UpdateAdvertComponent , {
+      data : {
+        advertObject : advert
+      }
+    })
+  }
 }
 

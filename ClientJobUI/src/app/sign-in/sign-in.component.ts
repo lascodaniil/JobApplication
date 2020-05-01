@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {AuthService} from '../services/auth.service';
-import {ToolBarService} from '../services/toolbar.service.service';
+import {AuthService} from '../_services/auth.service';
+import {ToolBarService} from '../_services/toolbar.service.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -28,11 +28,7 @@ export class SignInComponent {
         this.token = data.accessToken;
         this.auth.tokenObject = this.token;
         localStorage.setItem('accessToken', this.auth.tokenObject);
-       // this.router.navigate(['/profile']);
+        this.router.navigate(['/profile']);
       });
-    this.auth.getProfileUser().subscribe( data  => {
-      console.log(data);
-      this.router.navigate(['/profile']);
-    });
   }
 }

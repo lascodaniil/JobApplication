@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {JobService} from '../services/job.service';
-import {ToolBarService} from '../services/toolbar.service.service';
+import {JobService} from '../_services/job.service';
+import {ToolBarService} from '../_services/toolbar.service.service';
 import {UpdateJobComponent} from './update-job/update-job.component';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {PaginatedRequest} from '../models/PaginatedRequest';
-import {CategoryDTO} from '../models/DTO/CategoryDTO';
-import {CityDTO} from '../models/DTO/CityDTO';
-import {JobDTO} from '../models/DTO/JobDTO';
+import {PaginatedRequest} from '../_models/PaginatedRequest';
+import {CategoryDTO} from '../_models/DTO/CategoryDTO';
+import {CityDTO} from '../_models/DTO/CityDTO';
+import {JobDTO} from '../_models/DTO/JobDTO';
 
 
 @Component({
@@ -75,8 +75,7 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  onDelete(id: number){
-       this.jobService.deleteJob(id).subscribe(() => {
-         this.loadUserJobs(); console.log('stergere'); });
+   onDelete(id: number){
+       this.jobService.deleteJob(id).subscribe(() => { this.loadUserJobs(); });
   }
 }

@@ -152,7 +152,8 @@ namespace JobSolution.Infrastructure.Seed
                 EndDate = new DateTime(2020, 7, 1),
                 Base64Photo = "",
                 Contact = "060277321",
-                Salary = 0
+                Salary = 0,
+                TypeJobId = 1
             };
             dbContext.Jobs.Add(Job_1);
 
@@ -166,7 +167,8 @@ namespace JobSolution.Infrastructure.Seed
                 EndDate = new DateTime(2020, 5, 31),
                 Base64Photo = "",
                 Contact = "0602678972",
-                Salary = 15
+                Salary = 15,
+                TypeJobId = 2
             };
             dbContext.Jobs.Add(Job_2);
 
@@ -180,7 +182,8 @@ namespace JobSolution.Infrastructure.Seed
                 EndDate = new DateTime(2020, 9, 11),
                 Base64Photo = "",
                 Contact = "0603457665",
-                Salary = 5
+                Salary = 5,
+                TypeJobId = 1
             };
             dbContext.Jobs.Add(Job_3);
 
@@ -194,7 +197,8 @@ namespace JobSolution.Infrastructure.Seed
                 EndDate = new DateTime(2020, 7, 11),
                 Base64Photo = "",
                 Contact = "060345765",
-                Salary = 10
+                Salary = 10,
+                TypeJobId = 3
             };
             dbContext.Jobs.Add(Job_4);
 
@@ -209,11 +213,11 @@ namespace JobSolution.Infrastructure.Seed
                 EndDate = new DateTime(2020, 7, 11),
                 Base64Photo = "",
                 Contact = "060353453765",
-                Salary = 5
+                Salary = 5,
+                TypeJobId = 2
             };
             dbContext.Jobs.Add(Job_5);
         }
 
-      
     }
 }

@@ -15,18 +15,17 @@ import {PaginatedRequest} from '../_models/PaginatedRequest';
 export class JobComponent implements OnInit {
   pageOptions = [1, 2, 3, 4, 5];
   filter = {} as PaginatedRequest;
-  actions = false;
   allJobs: JobDTO[];
 
+
   constructor(private jobService: JobService,
-              private authService: AuthService,
+              public authService: AuthService,
               private toolBarService: ToolBarService) {
   }
 
   ngOnInit() {
     this.toolBarService.setTitle('Jobs');
-    this.filter.pageSize = this.pageOptions[4];
-    this.actions = this.authService.isLoggedIn();
+    this.filter.pageSize = 100;
     this.loadJobs();
   }
 
@@ -38,6 +37,7 @@ export class JobComponent implements OnInit {
   loadJobs() {
     this.jobService.getAllJobPaginated(this.filter).subscribe(data => {
       this.allJobs = data.items;
+      console.log(this.allJobs);
     });
   }
 }

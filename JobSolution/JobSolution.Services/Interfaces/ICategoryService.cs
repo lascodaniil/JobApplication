@@ -10,4 +10,5 @@ namespace JobSolution.Services.Interfaces
     {
         Task<IList<CategoryDTO>> GetCategories();
     }
+
 }

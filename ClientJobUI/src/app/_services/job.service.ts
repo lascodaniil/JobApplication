@@ -6,8 +6,11 @@ import {JobDTO} from '../_models/DTO/JobDTO';
 import {PagedResult} from '../_models/PagedResult';
 import {CategoryDTO} from '../_models/DTO/CategoryDTO';
 import {CityDTO} from '../_models/DTO/CityDTO';
+import {JobType} from '../_models/jobType';
 
 const urlJob = 'http://localhost:5000/Job';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +30,7 @@ export class JobService {
   }
 
   getAllJobPaginatedUser(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobDTO>> {
-    return this.http.post<PagedResult<JobDTO>>(`${urlJob}/PagePerTableForEmployer`, paginatedRequest);
+    return this.http.post<PagedResult<JobDTO>>(`${urlJob}/Profile`, paginatedRequest);
   }
 
   getCategories(): Observable<CategoryDTO[]>{
@@ -42,6 +45,11 @@ export class JobService {
     return  this.http.post(`${urlJob}`, job);
   }
 
+  AddJobFormData(formData : any) : Observable<any> {
+    return  this.http.post(`${urlJob}/Post`, formData);
+  }
+
+
   deleteJob(id: number): Observable<any>{
     return  this.http.delete(`${urlJob}/${id}`);
   };
@@ -49,4 +57,13 @@ export class JobService {
   editJob(job: JobDTO,id: number): Observable<any>{
     return  this.http.put(`${urlJob}/Update/${id}`, job);
   };
+
+  getJobsByType(id:number) : Observable<JobType>{
+    return  this.http.get<JobType>(`${urlJob}/Type/${id}`);
+  }
+
+  getJobsTypes() : Observable<JobType[]>{
+    return  this.http.get<JobType[]>(`${urlJob}/Types`);
+  }
+
 }

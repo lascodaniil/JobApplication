@@ -26,6 +26,7 @@ namespace JobSolution.API.Controllers
 
     [ApiController]
     [Route("[controller]")]
+    [AllowAnonymous]
     public class AuthController : ControllerBase
     {
             
@@ -35,7 +36,7 @@ namespace JobSolution.API.Controllers
         private readonly AppDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public AuthController(IOptions<AuthOptions> authOption, SignInManager<User> signInManager, IHttpContextAccessor context, UserManager<User> userManager, AppDbContext dbContext)
+        public AuthController(IOptions<AuthOptions> authOption, SignInManager<User> signInManager, UserManager<User> userManager, AppDbContext dbContext)
         {
             _authOptions = authOption.Value;
             _signInManager = signInManager;
@@ -45,7 +46,6 @@ namespace JobSolution.API.Controllers
 
 
         [HttpPost("Login")]
-        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody]UserForLoginDto userLoginDto)
         {
             var checkPassword = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password, false, false);
@@ -53,14 +53,15 @@ namespace JobSolution.API.Controllers
             var role = await _userManager.GetRolesAsync(user);
 
             var claims = new List<Claim>();
+            claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
+            claims.Add(new Claim("UserId", user.Id.ToString()));
+
             foreach (var item in role)
             {
                 claims.Add(new Claim(ClaimTypes.Role, item));
             }
 
-            claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
-            claims.Add(new Claim("UserId", user.Id.ToString()));
-
+            
             if (checkPassword.Succeeded)
             {
                 var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
@@ -75,12 +76,10 @@ namespace JobSolution.API.Controllers
                 var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
                 return Ok(new { AccessToken = encodedToken });
             }
-
             return Unauthorized();
         }
 
         [HttpPost("Registration")]
-        [AllowAnonymous]
         public async Task<IActionResult> Add([FromBody]UserRegisterDto userRegisterDto)
         {
             if (userRegisterDto == null) return new StatusCodeResult(500);

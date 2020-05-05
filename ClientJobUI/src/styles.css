@@ -17,3 +17,13 @@ body {
 .cdk-overlay-pane {
   max-width: 55vw !important;
 }
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.mat-card .container {
+  width: auto;
+}

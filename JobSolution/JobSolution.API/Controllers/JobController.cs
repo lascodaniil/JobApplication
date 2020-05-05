@@ -6,10 +6,12 @@ using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.VisualBasic;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,23 +26,23 @@ namespace JobSolution.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [AllowAnonymous]
     public class JobController : ControllerBase
     {
         private readonly IJobService _jobService;
+        private readonly IStudentJobService _studentJobService;
         private readonly ICategoryService _categoryService;
         private readonly ICityService _cityService;
+        private readonly ITypeJobService _typeJobService;
         private readonly IMapper _mapper;
-        private readonly IHttpContextAccessor _context;
 
-        public JobController(IJobService repositoryJob, ICategoryService categoryService, ICityService cityService, IMapper mapper, IHttpContextAccessor context)
+        public JobController(IJobService repositoryJob, IStudentJobService studentJobService,ICategoryService categoryService, ICityService cityService, ITypeJobService typeJobService, IMapper mapper)
         {
             _cityService = cityService;
             _categoryService = categoryService;
             _jobService = repositoryJob;
             _mapper = mapper;
-
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _studentJobService = studentJobService;
+            _typeJobService = typeJobService;
         }
 
         [HttpGet("Categories")]
@@ -63,33 +65,66 @@ namespace JobSolution.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             var JobsFromRepo = _jobService.GetAll().Result.ToList();
+           
             return Ok(JobsFromRepo);
         }
 
         [HttpGet("{id}")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
             var obj = await _jobService.GetByID(id);
             return Ok(obj);
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Employer")]
-        public async Task<IActionResult> Post([FromBody] JobDTO jobDTO)
+        [HttpGet("Type/{TypeId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetByType([FromRoute]int TypeId)
         {
-               if (ModelState.IsValid)
-                {
-                    await _jobService.Add(jobDTO);
+            var jobsType = await _jobService.GetByType(TypeId);
+            return Ok(jobsType);
+        }
 
-                    return Ok();
-                }
-           
+        [HttpGet("Types")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetTypes()
+        {
+            var jobs = await  _typeJobService.GetTypeJobs();
+            return Ok(jobs);
+        }
+
+
+        //[HttpPost]
+        //[Authorize(Roles ="Employer")]
+        //public async Task<IActionResult> Post([FromBody] JobDTO jobDTO)
+        //{
+        //    var claims = User.Claims.Select(claims => new { claims.Type, claims.Value }).ToArray();
+        //    if (ModelState.IsValid)
+        //    {
+        //        await _jobService.Add(jobDTO);
+
+        //        return Ok();
+        //    }
+
+        //    return BadRequest();
+        //}
+
+
+
+        [HttpPost("Post")]
+        [Authorize(Roles = "Employer")]
+        public async Task<IActionResult> Postt()
+        {
+            if (ModelState.IsValid)
+            {
+                await _jobService.Add();
+
+                return Ok();
+            }
+
             return BadRequest();
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
         [Authorize(Roles = "Employer")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -98,12 +133,13 @@ namespace JobSolution.API.Controllers
         }
 
         [HttpPut("Update/{id}")]
+        [Authorize(Roles ="Employer")]
         public async Task<IActionResult> Update([FromBody]JobDTO job, int id)
         {
             if (ModelState.IsValid)
             {
                 await _jobService.Update(job, id);
-                return Ok();
+                return Ok("Saved");
             }
             return BadRequest();
         }
@@ -116,7 +152,7 @@ namespace JobSolution.API.Controllers
             return await _jobService.GetJobsByCategory(category);
         }
 
-        [HttpPost("PagePerTableForEmployer")]
+        [HttpPost("Profile")]
         [Authorize(Roles = "Employer")]
         public async Task<IActionResult> GetPageForTableEmployer([FromBody] PagedRequest pagedRequest)
         {
@@ -124,13 +160,38 @@ namespace JobSolution.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("PagePerTable")]
-        public async Task<IActionResult> GetPageForTable([FromBody] PagedRequest pagedRequest)
+        [HttpPost("Profile/Student")]
+        [Authorize(Roles = "Student")]
+        public async Task<IActionResult> GetPageForTableStudent([FromBody] PagedRequest pagedRequest)
         {
-            var result = await _jobService.GetPagedData(pagedRequest, _mapper);
+            var result = await _jobService.GetJobsForStudent(pagedRequest, _mapper);
             return Ok(result);
         }
 
-       
+        [HttpPost("PagePerTable")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetPageForTable([FromBody] PagedRequest pagedRequest)
+        {
+            var result = await _jobService.GetPagedData(pagedRequest, _mapper);
+
+            return Ok(result);
+        }   
+
+
+        [HttpPost("Subscribe/{jobId}")]
+        [Authorize(Roles = "Student")]
+        public async Task<IActionResult> Subscribe([FromRoute]int jobId)
+        {
+            await _studentJobService.Add(jobId);
+            return Ok();
+        }
+
+        [HttpPost("Unsubscribe/{jobId}")]
+        [Authorize(Roles = "Student")]
+        public async Task<IActionResult> Unsubscribe([FromBody]int jobId)
+        {
+            await _studentJobService.Delete(jobId);
+            return Ok();
+        }
     }
 }

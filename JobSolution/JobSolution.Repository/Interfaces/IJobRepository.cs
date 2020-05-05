@@ -23,5 +23,6 @@ namespace JobSolution.Repository.Interfaces
         Task<Job> GetByIdWithInclude(int id, params Expression<Func<Job, object>>[] includeProperties);
         Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper);
         Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper, int UserId);
+        Task<PaginatedResult<JobDTO>> GetPagedDataStudent(PagedRequest pagedRequest, IMapper mapper, int UserId);
     }
 }

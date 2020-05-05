@@ -42,3 +42,12 @@
 .jop-post:nth-child(3n) {
   padding-right: 0;
 }
+
+.category{
+  padding: 10px;
+}
+
+.field_length{
+  width: 80%;
+  position: center;
+}

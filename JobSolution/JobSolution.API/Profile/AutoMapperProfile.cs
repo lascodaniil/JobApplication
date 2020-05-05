@@ -17,7 +17,9 @@ namespace JobSolution.API.Profile
                                     .ForMember(x => x.Category, y => y.MapFrom(z => z.Category.Category))
                                     .ForMember(x => x.JobId, y => y.MapFrom(z => z.Id))
                                     .ForMember(x => x.Employer, y => y.MapFrom(x => x.User.Profile.FirstName + " " + x.User.Profile.LastName))
-                                    .ForMember(x => x.City, y => y.MapFrom(x => x.Cities.City));
+                                    .ForMember(x => x.City, y => y.MapFrom(x => x.Cities.City))
+                                    .ForMember(x=>x.TypeJob , y=>y.MapFrom(x=>x.TypeJob.Name));
+                                    
             
             CreateMap<JobDTO, Job>().ForMember(x => x.PostDate, y => y.MapFrom(z => z.PublishedOn))
                                     .ForMember(x => x.EndDate, y => y.MapFrom(z => z.FinishedOn))
@@ -29,12 +31,10 @@ namespace JobSolution.API.Profile
                                           .ForMember(x => x.City, y => y.MapFrom(z => z.Cities.City))
                                           .ForMember(x => x.PublishedOn, y => y.MapFrom(z => z.PostDate));
 
-
-
             CreateMap<AdvertDTO, Advert>().ForMember(x => x.Id, y => y.MapFrom(x => x.AdvertId))
                 .ForMember(x => x.Category, y => y.Ignore());
-                
 
+            CreateMap<TypeJob, TypeJobDTO>();
 
 
             CreateMap<JobSolution.Domain.Entities.Profile, StudentProfileDTO>()

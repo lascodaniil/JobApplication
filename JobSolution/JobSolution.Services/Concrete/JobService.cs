@@ -1,47 +1,101 @@
 ﻿using AutoMapper;
-using JobSolution.Domain.Auth;
 using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Pagination;
-using JobSolution.Repository;
 using JobSolution.Repository.Interfaces;
 using JobSolution.Services.Interfaces;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace JobSolution.Services.Concrete
 {
-    public class JobService : IJobService
+    public class JobService : IJobService 
     {
         private readonly IJobRepository _jobRepository;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _context;
+        private IHostingEnvironment _hostingEnvironment;
 
-        public JobService(IJobRepository jobRepository, IMapper mapper, IHttpContextAccessor context)
+
+        public JobService(IJobRepository jobRepository, IMapper mapper, IHttpContextAccessor context, IHostingEnvironment hostingEnvironment)
         {
             _jobRepository = jobRepository;
             _mapper = mapper;
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
         }
 
-        public async Task Add(JobDTO entity)
+        public async Task Add()
         {
-            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value); 
-            var job = _mapper.Map<Job>(entity);
+            var entity = new JobDTO();
+            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
+            var job = new Job();
+            try
+            {
+                foreach (var key in _context.HttpContext.Request.Form.Keys)
+                {
+                    entity = JsonConvert.DeserializeObject<JobDTO>(_context.HttpContext.Request.Form[key]);
+                    job = _mapper.Map<Job>(entity);
+                    var file = _context.HttpContext.Request.Form.Files.Count > 0 ? _context.HttpContext.Request.Form.Files[0] : null;
+                    if (file != null)
+                    {
+                        
+                        string folderName = "Upload";
+                        string webRootPath = _hostingEnvironment.WebRootPath;
+                        if (string.IsNullOrWhiteSpace(webRootPath))
+                        {
+                            webRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+                        }
+                        string newPath = Path.Combine(webRootPath, folderName);
+
+                        if (!Directory.Exists(newPath))
+                        {
+                            Directory.CreateDirectory(newPath);
+                        }
+                        if (file.Length > 0)
+                        {
+                            string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                            string fullPath = Path.Combine(newPath, fileName);
+                            job.Base64Photo = fullPath;
+                            using (var stream = new FileStream(fullPath, FileMode.Create))
+                            {
+                                file.CopyTo(stream);
+                            }
+                        }
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
+
+
+            
             job.UserId = UserId;
             job.PostDate = DateTime.Now;
+
             await _jobRepository.Add(job);
             _jobRepository.SaveAll();
+
         }
 
         public async Task<IList<JobDTO>> GetAll()
         {
             var Jobs = await _jobRepository.GetAllJobs();
-            var JobsListDTO = _mapper.Map<IQueryable<Job>, IList<JobDTO>>(Jobs);   
-
+            var JobsListDTO = _mapper.Map<IQueryable<Job>, IList<JobDTO>>(Jobs);
+            foreach (var item in JobsListDTO)
+            {
+                byte[] b = File.ReadAllBytes(item.Base64Photo);
+                item.Base64Photo = "data:image/png;base64,"+Convert.ToBase64String(b);
+            }
             return JobsListDTO;
         }
         public async Task<JobDTO> GetByID(int id)
@@ -81,7 +135,23 @@ namespace JobSolution.Services.Concrete
 
         public async Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper) 
         {
-            return await _jobRepository.GetPagedData(pagedRequest, mapper);
+            var result = await _jobRepository.GetPagedData(pagedRequest, mapper);
+            foreach (var item in result.Items)
+            {
+                try
+                {
+
+                    byte[] b = System.IO.File.ReadAllBytes(item.Base64Photo);
+                    item.Base64Photo = "data:image/png;base64," + Convert.ToBase64String(b);
+                }
+                catch
+                {
+
+                }
+            }
+
+            return result;
+
         }
 
         public async Task<PaginatedResult<JobDTO>> GetJobsForEmployer(PagedRequest pagedRequest, IMapper mapper)
@@ -91,5 +161,23 @@ namespace JobSolution.Services.Concrete
             return  result;
         }
 
+        public async Task<PaginatedResult<JobDTO>> GetJobsForStudent(PagedRequest pagedRequest, IMapper mapper)
+        {
+            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
+            var result = await _jobRepository.GetPagedDataStudent(pagedRequest, mapper, UserId);
+            return result;
+        }
+
+        public async Task<IList<JobDTO>> GetByType(int TypeId)
+        {
+            var AllJobs = await _jobRepository.GetAllJobs();
+
+
+            var JobsListDTO = AllJobs.Where(x=>x.TypeJobId==TypeId);
+
+            var result = _mapper.Map<IQueryable<Job>, IList<JobDTO>>(JobsListDTO);
+
+            return result;
+        }
     }
 }

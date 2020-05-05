@@ -1,6 +1,7 @@
 ﻿using JobSolution.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace JobSolution.DTO.DTO
@@ -10,6 +11,7 @@ namespace JobSolution.DTO.DTO
         public int JobId { get; set; }
         public int CategoryId { get; set; }
         public int CityId { get; set; }
+        public int TypeJobId { get; set; }
         public string Title { get; set; }
         public string Category { get; set; }
         public string Employer { get; set; }
@@ -21,5 +23,6 @@ namespace JobSolution.DTO.DTO
         public string Contact { get; set; }
         public float Salary { get; set; }
         public string Description { get; set; }
+        public string TypeJob { get; set; }
     }
 }

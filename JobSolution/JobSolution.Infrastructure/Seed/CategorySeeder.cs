@@ -67,5 +67,29 @@ namespace JobSolution.Infrastructure.Seed
             dbContext.Cities.Add(City4);
 
         }
+
+        public static void CategoryJob(AppDbContext dbContext)
+        {
+            var Type1 = new TypeJob()
+            {
+                Name = "Full Time"
+            };
+
+            var Type2 = new TypeJob()
+            {
+                Name = "Remote"
+            };
+            var Type3 = new TypeJob()
+            {
+                Name = "Part Time"
+            };
+         
+
+
+            dbContext.TypeJobs.Add(Type1);
+            dbContext.TypeJobs.Add(Type2);
+            dbContext.TypeJobs.Add(Type3);
+
+        }
     }
 }

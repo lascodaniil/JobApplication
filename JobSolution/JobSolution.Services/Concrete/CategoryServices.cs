@@ -27,4 +27,11 @@ namespace JobSolution.Services.Concrete
             return _mapper.Map<IQueryable<Categories>, IList<CategoryDTO>>(await _categoryRepository.GetCategories());
         }
     }
+
+
+
+
+
+
+
 }

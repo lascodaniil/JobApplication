@@ -67,6 +67,12 @@ namespace JobSolution.API
             services.AddTransient<IAdvertServices, AdvertServices>();
             services.AddTransient<IAdvertRepository, AdvertRepository>();
 
+            services.AddTransient<IStudentJobService, StudentJobService>();
+            services.AddTransient<IStudentJobRepository, StudentJobRepository>();
+            services.AddTransient<IJobTypeRepository, TypeJobRepository>();
+            services.AddTransient<ITypeJobService, TypeJobServices>();
+
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddIdentity<User, Role>(opts =>
             {
@@ -75,12 +81,12 @@ namespace JobSolution.API
                 opts.Password.RequireLowercase = false;
                 opts.Password.RequireUppercase = false;
                 opts.Password.RequireDigit = false;
-            }).AddEntityFrameworkStores<AppDbContext>().AddRoles<Role>();
+            }).AddEntityFrameworkStores<AppDbContext>().AddRoleManager<RoleManager<Role>>();
 
 
             var authOptions = services.ConfigureAuthOptions(Configuration);
-            
             services.AddJwtAuthentication(authOptions);
+            
             services.AddControllers(options =>
             {
                 options.Filters.Add(new AuthorizeFilter());
@@ -89,7 +95,6 @@ namespace JobSolution.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             app.UseCors("Cors");
             app.UseSwagger();
             app.UseSwaggerUI(options => {
@@ -99,6 +104,7 @@ namespace JobSolution.API
 
             app.UseDeveloperExceptionPage();
             app.UseRouting();
+
             app.UseAuthentication();
             app.UseAuthorization();
 

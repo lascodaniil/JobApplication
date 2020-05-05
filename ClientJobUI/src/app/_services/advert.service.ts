@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {AdvertDTO} from '../_models/DTO/AdvertDTO';
 
 
@@ -15,7 +15,14 @@ export class AdvertService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getPostedAdverts(): Observable<AdvertDTO[]>{
+  popUp = new Subject();
+
+  onPopup(){
+    return this.popUp.asObservable();
+  }
+
+
+  getAdverts(): Observable<AdvertDTO[]>{
     return this.http.get<AdvertDTO[]>(`${URL_ADVERT}`);
   }
 
@@ -37,9 +44,4 @@ export class AdvertService {
   deleteAdvert(id : number) : Observable<any>{
     return  this.http.delete(`${URL_ADVERT}/${id}`);
   }
-
-
-
-
-
 }

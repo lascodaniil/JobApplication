@@ -93,6 +93,8 @@ D:\AmdarisProjectDB\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Newtonso
 D:\AmdarisProjectDB\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csproj.CoreCompileInputs.cache
 D:\AmdarisProjectDB\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cs
 D:\AmdarisProjectDB\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cache
+D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\appsettings.json
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -169,7 +171,6 @@ D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Run
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
-D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
@@ -177,7 +178,6 @@ D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\u
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
-D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Domain.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.DTO.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.dll

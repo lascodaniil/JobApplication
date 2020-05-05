@@ -20,20 +20,14 @@ namespace JobSolution.API.Controllers
         private readonly ICategoryService _categoryService;
         private readonly ICityService _cityService;
         private readonly IMapper _mapper;
-        private readonly IHttpContextAccessor _context;
 
-
-        public AdvertController(IAdvertServices advertServices, ICategoryService categoryService, ICityService cityService, IMapper mapper, IHttpContextAccessor context)
+        public AdvertController(IAdvertServices advertServices, ICategoryService categoryService, ICityService cityService, IMapper mapper)
         {
             _advertService = advertServices;
             _categoryService = categoryService; ;
             _cityService = cityService;
             _mapper = mapper;
-            _context = context;
-
-            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
-
 
         [HttpGet]
         [AllowAnonymous]
@@ -78,6 +72,7 @@ namespace JobSolution.API.Controllers
         }
 
         [HttpDelete("{advertId}")]
+        [Authorize(Roles ="Student")]
         public async Task<IActionResult> Delete(int advertId)
         {
             await _advertService.Remove(advertId);

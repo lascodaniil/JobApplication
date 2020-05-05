@@ -1,0 +1,44 @@
+<section class="mat-typography">
+  <div class="container">
+    <h1 class="main-heading">
+      Find your dream jobs
+    </h1>
+    <div class="search-container">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Search your job..." [matAutocomplete]="auto" [formControl]="searchControl">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of searchResults | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="jobs-types">
+      <div class="jop-post-type">
+        <mat-card>
+          <mat-card-title>Full time</mat-card-title>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Ab animi atque delectus distinctio doloremque eos eum. </p>
+          <button mat-raised-button color="accent">View all Jobs</button>
+        </mat-card>
+      </div>
+      <div class="jop-post-type">
+        <mat-card>
+          <mat-card-title>Full time</mat-card-title>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Ab animi atque delectus distinctio doloremque eos eum. </p>
+          <button mat-raised-button color="accent">View all Jobs</button>
+        </mat-card>
+      </div>
+      <div class="jop-post-type">
+        <mat-card>
+          <mat-card-title>Full time</mat-card-title>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Ab animi atque delectus distinctio doloremque eos eum. </p>
+          <button mat-raised-button color="accent">View all Jobs</button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
+

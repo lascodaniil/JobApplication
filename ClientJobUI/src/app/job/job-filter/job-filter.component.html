@@ -5,7 +5,7 @@
         <mat-icon>subject</mat-icon>
         <b> Search</b>
       </mat-placeholder>
-      <input matInput>
+      <input matInput type="text" placeholder="" >
     </mat-form-field>
     <span class="title-spacer"></span>
     <button mat-icon-button>
@@ -19,6 +19,8 @@
 
 <mat-card class="mat-elevation-z3">
     <th mat-sort-header="Title" (click)="this.filterByAttribute('title','titleOrder')">Title </th>
-    <th mat-sort-header="CityDTO" (click)="this.filterByAttribute('city','titleOrder')">City</th>
-    <th mat-sort-header="CategoryDTO" (click)="this.filterByAttribute('category','categoryOrder')">Category</th>
+    <th mat-sort-header="City" (click)="this.filterByAttribute('city','titleOrder')">City</th>
+    <th mat-sort-header="Category" (click)="this.filterByAttribute('category','categoryOrder')">Category</th>
 </mat-card>
+
+

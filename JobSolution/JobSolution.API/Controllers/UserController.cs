@@ -21,16 +21,16 @@ namespace JobSolution.API.Controllers
         private readonly IProfileService _userService;
         public UserController(IProfileService userService)
         {
-            _userService = userService; 
+            _userService = userService;
         }
-        
+
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> StudentProfile()
         {
-            return  Ok( await _userService.GetAuthStudentProfile()); 
+            return Ok(await _userService.GetAuthStudentProfile());
         }
-        
+
         [HttpGet("EmployerProfile")]
         [Authorize]
         public async Task<IActionResult> EmployerProfile()

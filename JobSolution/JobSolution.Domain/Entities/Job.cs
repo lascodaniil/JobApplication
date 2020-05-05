@@ -23,5 +23,9 @@ namespace JobSolution.Domain.Entities
         public Categories Category { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
+        [ForeignKey("TypeJob")]
+        public int TypeJobId { get; set; }
+        public TypeJob TypeJob { get; set; }
+
     }
 }

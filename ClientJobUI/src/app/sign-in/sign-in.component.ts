@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../_services/auth.service';
 import {ToolBarService} from '../_services/toolbar.service.service';
+import decode from  'jwt-decode';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,11 +14,13 @@ export class SignInComponent {
   userName: string;
   password: string;
   token: string;
+  decodedToken : any;
 
   constructor(private activatedRouter: ActivatedRoute,
               private router: Router,
               private toolBarService: ToolBarService,
-              private http: HttpClient, private auth: AuthService) {
+              private http: HttpClient, private auth: AuthService,
+              ) {
     this.toolBarService.setTitle('Login');
   }
 
@@ -28,7 +30,12 @@ export class SignInComponent {
         this.token = data.accessToken;
         this.auth.tokenObject = this.token;
         localStorage.setItem('accessToken', this.auth.tokenObject);
+        this.decodedToken = decode(this.auth.getToken());
+        console.log(this.decodedToken);
+        var role = this.decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+        this.auth.role = role;
+        console.log(this.auth.role);
         this.router.navigate(['/profile']);
       });
-  }
+    }
 }

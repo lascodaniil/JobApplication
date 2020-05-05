@@ -16,6 +16,7 @@ namespace JobSolution.Infrastructure.Database
         {
             CategorySeeder.CreateCategories(dbContext);
             CategorySeeder.CreateCities(dbContext);
+            CategorySeeder.CategoryJob(dbContext);
             CreateUsers(dbContext, roleManager, userManager).GetAwaiter().GetResult();
             DbSeedUser.PopulateUser(dbContext, roleManager, userManager).GetAwaiter().GetResult();
             DbSeedUser.PopulateJobs(dbContext, roleManager, userManager).GetAwaiter().GetResult();

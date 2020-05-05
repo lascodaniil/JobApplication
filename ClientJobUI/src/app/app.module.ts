@@ -35,12 +35,17 @@ import {JobFilterComponent} from './job/job-filter/job-filter.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {UpdateJobComponent} from './user-profile/update-job/update-job.component';
 import { ProfileInfoComponent } from './user-profile/profile-info/profile-info.component';
-import { StudentProfileComponent } from './student-profile/student-profile.component';
-import { PopUpComponent } from './student-profile/pop-up/pop-up.component';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { UpdateAdvertComponent } from './student-profile/update-advert/update-advert.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {PopUpComponent} from './user-profile/pop-up/pop-up.component';
+import { AdvertComponent } from './advert/advert.component';
+import { PopUpAdvertComponent } from './advert/pop-up-advert/pop-up-advert.component';
+import { UpdateAdvertComponent } from './advert/update-advert/update-advert.component';
+import { ReactiveFormsModule} from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,40 +57,44 @@ import {MatNativeDateModule} from '@angular/material/core';
     UserProfileComponent,
     UpdateJobComponent,
     ProfileInfoComponent,
-    StudentProfileComponent,
     PopUpComponent,
+    AdvertComponent,
+    PopUpAdvertComponent,
     UpdateAdvertComponent,
+    HomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatToolbarModule,
-    MatCardModule,
-    HttpClientModule,
-    MatGridListModule,
-    MatButtonModule,
-    FlexLayoutModule,
-    MatInputModule,
-    FormsModule,
-    LayoutModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatCardModule,
-    MatRadioModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatMenuModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatNativeDateModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCheckboxModule,
+        MatSelectModule,
+        MatToolbarModule,
+        MatCardModule,
+        HttpClientModule,
+        MatGridListModule,
+        MatButtonModule,
+        FlexLayoutModule,
+        MatInputModule,
+        FormsModule,
+        LayoutModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatCardModule,
+        MatRadioModule,
+        MatTableModule,
+        MatSortModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        MatMenuModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

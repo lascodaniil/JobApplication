@@ -18,6 +18,7 @@ namespace JobSolution.Infrastructure.Extensions
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    
                 }).AddJwtBearer(options =>
                 {
                     options.RequireHttpsMetadata = false;
@@ -45,6 +46,5 @@ namespace JobSolution.Infrastructure.Extensions
                 var authOptions = authOptionsConfigurationSection.Get<AuthOptions>();
                 return authOptions;
             }
-        }
-    
+     }
 }

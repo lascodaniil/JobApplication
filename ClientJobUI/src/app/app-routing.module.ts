@@ -4,10 +4,11 @@ import {JobComponent} from './job/job.component';
 import {RegistrationFormComponent} from './registration/registration-form.component';
 import {SignInComponent} from './sign-in/sign-in.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
+import {HomeComponent} from './home/home.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'jobs', pathMatch: 'full'},
+  {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'jobs', component: JobComponent},
   {path: 'register', component: RegistrationFormComponent},
   {path: 'profile', component: UserProfileComponent},

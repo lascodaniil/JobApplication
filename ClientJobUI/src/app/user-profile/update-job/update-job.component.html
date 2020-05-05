@@ -12,15 +12,23 @@
   <mat-form-field>
     <mat-label>Category</mat-label>
     <mat-select [(ngModel)]="this.job.categoryId" required>
-      <mat-option *ngFor="let category of categories" [value]="category.id">
+      <mat-option *ngFor="let category of this.jobData.categories" [value]="category.id">
         {{category.category}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Job Type</mat-label>
+    <mat-select [(ngModel)]="this.job.typeJobId" required>
+      <mat-option *ngFor="let jobType of this.jobData.jobTypes" [value]="jobType.id">
+        {{jobType.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>City</mat-label>
     <mat-select [(ngModel)]="this.job.cityId" required>
-      <mat-option *ngFor="let city of cities" [value]="city.id">
+      <mat-option *ngFor="let city of this.jobData.cities" [value]="city.id">
         {{city.city}}
       </mat-option>
     </mat-select>

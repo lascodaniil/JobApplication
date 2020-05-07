@@ -95,5 +95,14 @@ namespace JobSolution.Repository.Concrete
             var result = _dbContext.Set<Job>().Where(x => studentJobs.Contains(x.Id)).CreatePaginatedResultAsync<Job, JobDTO>(pagedRequest, mapper, UserId);
             return await result;
         }
+
+        public async Task<PaginatedResult<JobDTO>> GetPagedDataByType(PagedRequest pagedRequest, IMapper mapper, int typeId)
+        {
+            var result = _dbContext.Set<Job>().Where(x => x.TypeJobId == typeId).CreatePaginatedResultAsync<Job, JobDTO>(pagedRequest, mapper, typeId);
+
+            return await result;
+        }
+
+
     }
 }

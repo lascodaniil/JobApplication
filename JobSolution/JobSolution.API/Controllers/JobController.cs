@@ -76,11 +76,11 @@ namespace JobSolution.API.Controllers
             return Ok(obj);
         }
 
-        [HttpGet("Type/{TypeId}")]
+        [HttpPost("Type/{TypeId}")]
         [AllowAnonymous]
-        public async Task<IActionResult> GetByType([FromRoute]int TypeId)
+        public async Task<IActionResult> GetByType([FromBody] PagedRequest pagedRequest, int TypeId)
         {
-            var jobsType = await _jobService.GetByType(TypeId);
+            var jobsType = await _jobService.GetJobsByType(pagedRequest,_mapper, TypeId);
             return Ok(jobsType);
         }
 
@@ -91,22 +91,6 @@ namespace JobSolution.API.Controllers
             var jobs = await  _typeJobService.GetTypeJobs();
             return Ok(jobs);
         }
-
-
-        //[HttpPost]
-        //[Authorize(Roles ="Employer")]
-        //public async Task<IActionResult> Post([FromBody] JobDTO jobDTO)
-        //{
-        //    var claims = User.Claims.Select(claims => new { claims.Type, claims.Value }).ToArray();
-        //    if (ModelState.IsValid)
-        //    {
-        //        await _jobService.Add(jobDTO);
-
-        //        return Ok();
-        //    }
-
-        //    return BadRequest();
-        //}
 
 
 
@@ -134,11 +118,11 @@ namespace JobSolution.API.Controllers
 
         [HttpPut("Update/{id}")]
         [Authorize(Roles ="Employer")]
-        public async Task<IActionResult> Update([FromBody]JobDTO job, int id)
+        public async Task<IActionResult> Update([FromRoute]int id)
         {
             if (ModelState.IsValid)
             {
-                await _jobService.Update(job, id);
+                await _jobService.Update(id);
                 return Ok("Saved");
             }
             return BadRequest();

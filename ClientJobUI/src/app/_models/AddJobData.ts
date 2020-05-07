@@ -1,6 +1,6 @@
 import {CategoryDTO} from './DTO/CategoryDTO';
 import {CityDTO} from './DTO/CityDTO';
-import {JobType} from './jobType';
+import {JobType} from './JobType';
 
 export interface AddJobData {
   categories: CategoryDTO[];

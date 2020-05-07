@@ -17,12 +17,13 @@ namespace JobSolution.Services.Interfaces
         Task<IList<JobDTO>> GetAll();
         Task<JobDTO> GetByID(int JobId);
         Task Add(/*JobDTO JobDTO*/);
-        Task Update(JobDTO JobDTO,int id);
+        Task Update(int id);
         Task Remove(int JobId);
         Task<IList<JobDTO>> GetByType(int TypeId);
         Task<IList<JobDTO>> GetJobsByCategory(string Category);
         Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper);
         Task<PaginatedResult<JobDTO>> GetJobsForEmployer(PagedRequest pagedRequest, IMapper mapper);
         Task<PaginatedResult<JobDTO>> GetJobsForStudent(PagedRequest pagedRequest, IMapper mapper);
+        Task<PaginatedResult<JobDTO>> GetJobsByType(PagedRequest pagedRequest, IMapper mapper, int typeId);
     }
 }

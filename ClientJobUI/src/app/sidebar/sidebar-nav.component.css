@@ -45,3 +45,7 @@ body {
     margin-left: 0 !important;
     flex: 1 1 auto;
 }
+.mat-list-item {
+  color: white;
+  padding-left: 15px;
+}

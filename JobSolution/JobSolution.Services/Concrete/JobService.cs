@@ -93,8 +93,16 @@ namespace JobSolution.Services.Concrete
             var JobsListDTO = _mapper.Map<IQueryable<Job>, IList<JobDTO>>(Jobs);
             foreach (var item in JobsListDTO)
             {
-                byte[] b = File.ReadAllBytes(item.Base64Photo);
-                item.Base64Photo = "data:image/png;base64,"+Convert.ToBase64String(b);
+                try
+                {
+
+                    byte[] b = File.ReadAllBytes(item.Base64Photo);
+                    item.Base64Photo = "data:image/png;base64," + Convert.ToBase64String(b);
+                }
+                catch
+                {
+
+                }
             }
             return JobsListDTO;
         }
@@ -104,21 +112,62 @@ namespace JobSolution.Services.Concrete
             return _mapper.Map<JobDTO>(toReturn);
         }
         
-        public async Task Update(JobDTO job, int id) {
+        public async Task Update(int id) {
 
-            var userId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
-            var dbentity = await _jobRepository.GetJobByID(id);
-            
-            dbentity.Base64Photo = job.Base64Photo;
-            dbentity.CategoryId = job.CategoryId;
-            dbentity.CityId = job.CityId;
-            dbentity.Contact = job.Contact;
-            dbentity.EndDate = job.FinishedOn;
-            dbentity.Id = id;
-            dbentity.UserId = userId;
-            dbentity.Title = job.Title;
-            dbentity.Salary = job.Salary;
-            await _jobRepository.Update(dbentity);
+            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
+            var dbjob = await _jobRepository.GetJobByID(id);
+            JobDTO job = null;
+
+            try
+            {
+                foreach (var key in _context.HttpContext.Request.Form.Keys)
+                {
+                    job = JsonConvert.DeserializeObject<JobDTO>(_context.HttpContext.Request.Form[key]);
+                    var file = _context.HttpContext.Request.Form.Files.Count > 0 ? _context.HttpContext.Request.Form.Files[0] : null;
+                    if (file != null)
+                    {
+
+                        string folderName = "Upload";
+                        string webRootPath = _hostingEnvironment.WebRootPath;
+                        if (string.IsNullOrWhiteSpace(webRootPath))
+                        {
+                            webRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+                        }
+                        string newPath = Path.Combine(webRootPath, folderName);
+
+                        if (!Directory.Exists(newPath))
+                        {
+                            Directory.CreateDirectory(newPath);
+                        }
+                        if (file.Length > 0)
+                        {
+                            string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                            string fullPath = Path.Combine(newPath, fileName);
+                            dbjob.Base64Photo = fullPath;
+                            using (var stream = new FileStream(fullPath, FileMode.Create))
+                            {
+                                file.CopyTo(stream);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+
+           
+            dbjob.TypeJobId = job.TypeJobId;
+            dbjob.CityId = job.CityId;
+            dbjob.Contact = job.Contact;
+            dbjob.EndDate = job.FinishedOn;
+            dbjob.Id = id;
+            dbjob.UserId = UserId;
+            dbjob.Title = job.Title;
+            dbjob.Salary = job.Salary;
+            dbjob.CategoryId = job.CategoryId;
+            await _jobRepository.Update(dbjob);
         
         }
         public async Task Remove(int JobId) {
@@ -179,5 +228,12 @@ namespace JobSolution.Services.Concrete
 
             return result;
         }
+
+        public async Task<PaginatedResult<JobDTO>> GetJobsByType(PagedRequest pagedRequest, IMapper mapper, int typeId)
+        {
+            var result = await _jobRepository.GetPagedDataByType(pagedRequest, mapper, typeId);
+            return result;
+        }
+
     }
 }

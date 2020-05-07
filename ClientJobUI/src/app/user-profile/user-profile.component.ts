@@ -13,7 +13,7 @@ import {AuthService} from '../_services/auth.service';
 import {FormControl} from '@angular/forms';
 import {Filter} from '../_models/Filter';
 import {FilterLogicalOperators} from '../_models/FilterLogicalOperators';
-import {JobType} from '../_models/jobType';
+import {JobType} from '../_models/JobType';
 
 
 @Component({

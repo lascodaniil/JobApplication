@@ -45,6 +45,7 @@ import { UpdateAdvertComponent } from './advert/update-advert/update-advert.comp
 import { ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
         MatDatepickerModule,
         MatNativeDateModule,
         ReactiveFormsModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+      NgxPermissionsModule.forRoot()
     ],
   providers: [
     {

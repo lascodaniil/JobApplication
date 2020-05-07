@@ -6,7 +6,7 @@ import {CityDTO} from '../../_models/DTO/CityDTO';
 import {JobDTO} from '../../_models/DTO/JobDTO';
 import {AddJobData} from '../../_models/AddJobData';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
-import {JobType} from '../../_models/jobType';
+import {JobType} from '../../_models/JobType';
 
 
 @Component({
@@ -18,6 +18,7 @@ export class UpdateJobComponent implements OnInit {
   job = {} as JobDTO;
   uploadFileName: string;
   profileImage: File = null;
+
   constructor(
     private jobService: JobService,
     @Inject(MAT_DIALOG_DATA) public jobData: AddJobData,
@@ -45,7 +46,12 @@ export class UpdateJobComponent implements OnInit {
   }
 
   onJobEdit(job, id) {
-    this.jobService.editJob(job, id).subscribe(() => {
+    let formData: FormData = new FormData();
+    formData.append('profileImage', this.profileImage);
+    var postData = JSON.stringify(this.job);
+    formData.append("postData",postData );
+
+    this.jobService.editJob(formData, id).subscribe(() => {
       this.dialogRef.close();
     });
   }

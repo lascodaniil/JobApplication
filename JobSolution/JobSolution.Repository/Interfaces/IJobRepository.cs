@@ -24,5 +24,6 @@ namespace JobSolution.Repository.Interfaces
         Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper);
         Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper, int UserId);
         Task<PaginatedResult<JobDTO>> GetPagedDataStudent(PagedRequest pagedRequest, IMapper mapper, int UserId);
+        Task<PaginatedResult<JobDTO>> GetPagedDataByType(PagedRequest pagedRequest, IMapper mapper, int typeId);
     }
 }

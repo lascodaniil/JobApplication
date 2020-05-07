@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../_services/auth.service';
 import {ToolBarService} from '../_services/toolbar.service.service';
 import decode from  'jwt-decode';
+import {NgxPermissionsService} from 'ngx-permissions';
 
 @Component({
   selector: 'app-sign-in',
@@ -20,6 +21,7 @@ export class SignInComponent {
               private router: Router,
               private toolBarService: ToolBarService,
               private http: HttpClient, private auth: AuthService,
+              private permissionService :NgxPermissionsService
               ) {
     this.toolBarService.setTitle('Login');
   }
@@ -30,12 +32,18 @@ export class SignInComponent {
         this.token = data.accessToken;
         this.auth.tokenObject = this.token;
         localStorage.setItem('accessToken', this.auth.tokenObject);
-        this.decodedToken = decode(this.auth.getToken());
-        console.log(this.decodedToken);
-        var role = this.decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
-        this.auth.role = role;
-        console.log(this.auth.role);
+         this.decodedToken = decode(this.auth.getToken());
+         var role = this.decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+         this.auth.role = role;
+        const permission = [];
+
+        permission.push(this.auth.role);
+        console.log(permission);
+
+
         this.router.navigate(['/profile']);
+
+        this.permissionService.loadPermissions(permission);
       });
     }
 }

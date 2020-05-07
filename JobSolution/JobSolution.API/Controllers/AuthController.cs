@@ -108,7 +108,7 @@ namespace JobSolution.API.Controllers
                  signingCredentials: signinCredentials);
             var tokenHandler = new JwtSecurityTokenHandler();
             var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
-            return Ok(new { AccessToken = encodedToken });
+            return  Ok(new { AccessToken = encodedToken });
         }
     }
 }

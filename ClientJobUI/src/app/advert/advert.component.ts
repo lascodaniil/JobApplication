@@ -15,6 +15,9 @@ import {CityDTO} from '../_models/DTO/CityDTO';
 })
 export class AdvertComponent implements OnInit {
 
+  AllAdverts = {} as AdvertDTO[];
+  columnsToDisplay = ['Title','Category', 'City', 'PublishedOn','Contact', 'Description'];
+
   constructor(private advertService: AdvertService,public dialog: MatDialog, private jobService: JobService) { }
   adverts = [] as AdvertDTO[];
   dialogRef: MatDialogRef<any>;

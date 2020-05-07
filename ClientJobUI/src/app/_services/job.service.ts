@@ -6,7 +6,7 @@ import {JobDTO} from '../_models/DTO/JobDTO';
 import {PagedResult} from '../_models/PagedResult';
 import {CategoryDTO} from '../_models/DTO/CategoryDTO';
 import {CityDTO} from '../_models/DTO/CityDTO';
-import {JobType} from '../_models/jobType';
+import {JobType} from '../_models/JobType';
 
 const urlJob = 'http://localhost:5000/Job';
 
@@ -21,6 +21,12 @@ export class JobService {
   constructor(private http: HttpClient) {
 
   }
+
+  getAllJobs() : Observable<JobDTO[]>{
+    return this.http.get<JobDTO[]>(`${urlJob}`);
+  }
+
+
   getJobById(id: number) {
     return this.http.get<JobDTO>(`${urlJob}/${id}`);
   }
@@ -54,8 +60,8 @@ export class JobService {
     return  this.http.delete(`${urlJob}/${id}`);
   };
 
-  editJob(job: JobDTO,id: number): Observable<any>{
-    return  this.http.put(`${urlJob}/Update/${id}`, job);
+  editJob(formData: any,id: number): Observable<any>{
+    return  this.http.put(`${urlJob}/Update/${id}`, formData);
   };
 
   getJobsByType(id:number) : Observable<JobType>{

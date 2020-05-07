@@ -34,18 +34,18 @@ import {SignInComponent} from './sign-in/sign-in.component';
 import {JobFilterComponent} from './job/job-filter/job-filter.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {UpdateJobComponent} from './user-profile/update-job/update-job.component';
-import { ProfileInfoComponent } from './user-profile/profile-info/profile-info.component';
-import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {ProfileInfoComponent} from './user-profile/profile-info/profile-info.component';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {PopUpComponent} from './user-profile/pop-up/pop-up.component';
-import { AdvertComponent } from './advert/advert.component';
-import { PopUpAdvertComponent } from './advert/pop-up-advert/pop-up-advert.component';
-import { UpdateAdvertComponent } from './advert/update-advert/update-advert.component';
-import { ReactiveFormsModule} from '@angular/forms';
-import { HomeComponent } from './home/home.component';
+import {AdvertComponent} from './advert/advert.component';
+import {PopUpAdvertComponent} from './advert/pop-up-advert/pop-up-advert.component';
+import {UpdateAdvertComponent} from './advert/update-advert/update-advert.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HomeComponent} from './home/home.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {NgxPermissionsModule} from 'ngx-permissions';
+import { ViewJobComponent } from './home/view-job/view-job.component';
 
 @NgModule({
   declarations: [
@@ -63,40 +63,40 @@ import {NgxPermissionsModule} from 'ngx-permissions';
     PopUpAdvertComponent,
     UpdateAdvertComponent,
     HomeComponent,
+    ViewJobComponent,
   ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatCheckboxModule,
-        MatSelectModule,
-        MatToolbarModule,
-        MatCardModule,
-        HttpClientModule,
-        MatGridListModule,
-        MatButtonModule,
-        FlexLayoutModule,
-        MatInputModule,
-        FormsModule,
-        LayoutModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatListModule,
-        MatCardModule,
-        MatRadioModule,
-        MatTableModule,
-        MatSortModule,
-        MatPaginatorModule,
-        MatDialogModule,
-        MatMenuModule,
-        MatFormFieldModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        ReactiveFormsModule,
-        MatAutocompleteModule,
-      NgxPermissionsModule.forRoot()
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatCardModule,
+    HttpClientModule,
+    MatGridListModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatInputModule,
+    FormsModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatCardModule,
+    MatRadioModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

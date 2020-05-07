@@ -1,9 +1,8 @@
 <div matSort class="mat-elevation-z8" >
   <mat-form-field appearance="outline" class = "search-box" >
     <mat-label>Search the job</mat-label>
-    <input matInput [formControl]="searchInput" (keydown)="onSearch($event)" placeholder="Placeholder">
+    <input matInput [formControl]="searchInput" (keyup)="createFilterFromSearchInput()" placeholder="Placeholder">
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="createFilterFromSearchInput();"> Find Jobs</button>
 
   <table mat-table [dataSource]="employerJobs" class="user-data-table">
     <ng-container matColumnDef="Id">
@@ -74,4 +73,8 @@
 </div>
 
 
+<br>
+<br>
+<br>
+<br>
 <app-advert></app-advert>

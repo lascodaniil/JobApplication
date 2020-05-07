@@ -82,10 +82,6 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  onSearch(event) {
-    event.key === 'Enter' && this.createFilterFromSearchInput();
-  }
-
   onPaginatorChange(pagination) {
 
     this.filter = {

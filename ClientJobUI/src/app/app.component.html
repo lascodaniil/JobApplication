@@ -9,6 +9,9 @@
         <button mat-button routerLink="/">
           Home
         </button>
+        <button mat-button routerLink="/jobs">
+          All jobs
+        </button>
         <button mat-button routerLink="sign-in">
           <span class="material-icons">account_box</span>
           Login
@@ -30,6 +33,9 @@
             </button>
             <button mat-menu-item>
               Settings
+            </button>
+            <button mat-menu-item (click)="authService.logout()">
+              LogOut
             </button>
           </mat-menu>
         </div>

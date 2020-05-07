@@ -13,8 +13,8 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-export class AuthServiceResponse {
-  public accessToken: string;
+export interface AuthServiceResponse {
+  accessToken: string;
 }
 
 @Injectable({
@@ -22,7 +22,6 @@ export class AuthServiceResponse {
 })
 export class AuthService {
   public tokenObject: string = '';
-  public role : string;
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -52,11 +51,4 @@ export class AuthService {
     this.router.navigate(['/sign-in']);
     return true;
   }
-  public isStudent() :boolean{
-    if(this.role === 'Student '){
-      return  true;
-    }
-    return  false;
-  }
-
 }

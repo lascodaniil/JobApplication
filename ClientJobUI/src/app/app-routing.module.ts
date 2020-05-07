@@ -10,6 +10,7 @@ import {HomeComponent} from './home/home.component';
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'jobs', component: JobComponent},
+  {path: 'jobs/:id', component: JobComponent},
   {path: 'register', component: RegistrationFormComponent},
   {path: 'profile', component: UserProfileComponent},
   {path: 'sign-in', component: SignInComponent}

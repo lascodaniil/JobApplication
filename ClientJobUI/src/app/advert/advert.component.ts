@@ -7,6 +7,7 @@ import {UpdateAdvertComponent} from './update-advert/update-advert.component';
 import {JobService} from '../_services/job.service';
 import {CategoryDTO} from '../_models/DTO/CategoryDTO';
 import {CityDTO} from '../_models/DTO/CityDTO';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-advert',
@@ -19,6 +20,8 @@ export class AdvertComponent implements OnInit {
   columnsToDisplay = ['Title','Category', 'City', 'PublishedOn','Contact', 'Description'];
 
   constructor(private advertService: AdvertService,public dialog: MatDialog, private jobService: JobService) { }
+
+  searchInput = new FormControl('');
   adverts = [] as AdvertDTO[];
   dialogRef: MatDialogRef<any>;
   Categories = [] as CategoryDTO[];

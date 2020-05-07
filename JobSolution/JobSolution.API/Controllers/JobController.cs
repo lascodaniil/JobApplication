@@ -70,6 +70,7 @@ namespace JobSolution.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
             var obj = await _jobService.GetByID(id);

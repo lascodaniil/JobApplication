@@ -64,8 +64,8 @@ export class JobService {
     return  this.http.put(`${urlJob}/Update/${id}`, formData);
   };
 
-  getJobsByType(id:number) : Observable<JobType>{
-    return  this.http.get<JobType>(`${urlJob}/Type/${id}`);
+  getJobsByType(filter: PaginatedRequest,id:number) : Observable<PagedResult<JobDTO>>{
+    return  this.http.post<PagedResult<JobDTO>>(`${urlJob}/Type/${id}`, filter);
   }
 
   getJobsTypes() : Observable<JobType[]>{

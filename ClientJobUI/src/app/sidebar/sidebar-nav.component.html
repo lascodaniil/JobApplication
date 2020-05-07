@@ -7,10 +7,5 @@
     <span class="material-icons" style="color: white">assignment_ind</span>
     Profile
   </a>
-  <a mat-list-item mat-list-item *ngxPermissionsOnly="[ 'Student']"><span class="material-icons">post_add</span>Add advert</a>
-  <a mat-list-item *ngIf="serviceAuth.isLoggedIn();" (click)="serviceAuth.logout()">
-    <span class="material-icons" style="color: white">exit_to_app</span>LogOut</a>
-
-
+  <a mat-list-item><span class="material-icons">post_add</span>Add advert</a>
 </mat-nav-list>
-

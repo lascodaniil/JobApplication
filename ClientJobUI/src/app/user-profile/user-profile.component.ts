@@ -150,5 +150,4 @@ export class UserProfileComponent implements OnInit {
     });
     console.log(this.filter);
   }
-
 }

@@ -12,7 +12,7 @@ namespace JobSolution.Domain.Entities
         public string LastName { get; set; }
         public string Email { get; set; }
         public string University { get; set; }
-        public string Base64Photo { get; set; }
+        public string ImagePath { get; set; }
         public string PhoneNumber { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }

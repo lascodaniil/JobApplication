@@ -73,18 +73,8 @@ namespace JobSolution.Services.Interfaces
 
         }
 
-        Task<IActionResult> IAuthService.GetToken()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 
 
-
-
-    public interface IAuthService
-    {
-        Task<IActionResult> AddUser(UserRegisterDto userForLoginDto);
-        Task<IActionResult> GetToken();
-    }
 }

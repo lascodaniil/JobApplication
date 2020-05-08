@@ -1,3 +1,7 @@
+<div>
+  <h3>Enrolled Jobs</h3>
+</div>
+
 <div matSort class="mat-elevation-z8" >
   <mat-form-field appearance="outline" class = "search-box" >
     <mat-label>Search the job</mat-label>
@@ -40,8 +44,6 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact</th>
       <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
     </ng-container>
-
-<!--    *ngxPermissionsOnly="['Employer', 'Student']"-->
 
     <ng-container matColumnDef="Actions"  >
       <th mat-header-cell *matHeaderCellDef mat-sort-header>

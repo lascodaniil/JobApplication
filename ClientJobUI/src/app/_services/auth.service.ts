@@ -38,6 +38,10 @@ export class AuthService {
     return this.http.post<AuthServiceResponse>(URL_REGISTER, register, httpOptions);
   }
 
+  registrationFormData(register: any) : Observable<any>{
+    return this.http.post<AuthServiceResponse>(URL_REGISTER, register);
+  }
+
   public getToken(): string {
     return localStorage.getItem('accessToken');
   }

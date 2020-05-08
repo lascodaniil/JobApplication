@@ -15,7 +15,7 @@ namespace JobSolution.Domain.Entities
         public DateTime? PostDate { get; set; } = DateTime.Now; 
         public DateTime? EndDate { get; set; } 
         public DateTime? EnrolledDate { get; set; }
-        public string Base64Photo { get; set; } 
+        public string ImagePath { get; set; } 
         public float Salary { get; set; }
         [ForeignKey("Cities")]
         public int CityId { get; set; }
@@ -26,6 +26,7 @@ namespace JobSolution.Domain.Entities
         [ForeignKey("TypeJob")]
         public int TypeJobId { get; set; }
         public TypeJob TypeJob { get; set; }
+        public bool Marked { get; set; }
 
     }
 }

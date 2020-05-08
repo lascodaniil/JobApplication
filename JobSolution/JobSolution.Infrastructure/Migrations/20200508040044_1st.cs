@@ -167,11 +167,12 @@ namespace JobSolution.Infrastructure.Migrations
                     PostDate = table.Column<DateTime>(nullable: true),
                     EndDate = table.Column<DateTime>(nullable: true),
                     EnrolledDate = table.Column<DateTime>(nullable: true),
-                    Base64Photo = table.Column<string>(nullable: true),
+                    ImagePath = table.Column<string>(nullable: true),
                     Salary = table.Column<float>(nullable: false),
                     CityId = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
-                    TypeJobId = table.Column<int>(nullable: false)
+                    TypeJobId = table.Column<int>(nullable: false),
+                    Marked = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -213,7 +214,7 @@ namespace JobSolution.Infrastructure.Migrations
                     LastName = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 255, nullable: false),
                     University = table.Column<string>(nullable: true),
-                    Base64Photo = table.Column<string>(nullable: true),
+                    ImagePath = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
                     DateOfBirth = table.Column<DateTime>(nullable: true),
@@ -325,33 +326,6 @@ namespace JobSolution.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "JobStudents",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    JobId = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_JobStudents", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_JobStudents_Jobs_JobId",
-                        column: x => x.JobId,
-                        principalTable: "Jobs",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_JobStudents_Users_UserId",
-                        column: x => x.UserId,
-                        principalSchema: "Auth",
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Adverts_CategoryId",
                 table: "Adverts",
@@ -385,16 +359,6 @@ namespace JobSolution.Infrastructure.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Jobs_UserId",
                 table: "Jobs",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_JobStudents_JobId",
-                table: "JobStudents",
-                column: "JobId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_JobStudents_UserId",
-                table: "JobStudents",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -468,7 +432,7 @@ namespace JobSolution.Infrastructure.Migrations
                 name: "Adverts");
 
             migrationBuilder.DropTable(
-                name: "JobStudents");
+                name: "Jobs");
 
             migrationBuilder.DropTable(
                 name: "Profiles");
@@ -494,13 +458,6 @@ namespace JobSolution.Infrastructure.Migrations
                 schema: "Auth");
 
             migrationBuilder.DropTable(
-                name: "Jobs");
-
-            migrationBuilder.DropTable(
-                name: "Roles",
-                schema: "Auth");
-
-            migrationBuilder.DropTable(
                 name: "Categories");
 
             migrationBuilder.DropTable(
@@ -508,6 +465,10 @@ namespace JobSolution.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "TypeJobs");
+
+            migrationBuilder.DropTable(
+                name: "Roles",
+                schema: "Auth");
 
             migrationBuilder.DropTable(
                 name: "Users",

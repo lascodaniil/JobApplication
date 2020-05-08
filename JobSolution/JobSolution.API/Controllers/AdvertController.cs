@@ -29,14 +29,7 @@ namespace JobSolution.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> GetAll()
-        {
-            return Ok(_advertService.GetAll().Result.ToList()); 
-        }
-
-
+       
         [HttpGet("{advertId}")]
         [AllowAnonymous]
         public async Task<IActionResult> GetById(int advertId)

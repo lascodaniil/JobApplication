@@ -23,6 +23,7 @@ export class RegistrationFormComponent implements OnInit {
   token: string;
 
   onSubmit() {
+    console.log(this.registeredUser);
     this.register();
   }
 

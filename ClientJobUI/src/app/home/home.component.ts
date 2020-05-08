@@ -58,6 +58,4 @@ export class HomeComponent implements OnInit {
     const filterValue = value.toLowerCase();
     return this.AllJobs.filter(job => job.title.toLowerCase().indexOf(filterValue) === 0);
   }
-
-
 }

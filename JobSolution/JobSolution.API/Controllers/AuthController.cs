@@ -99,15 +99,39 @@ namespace JobSolution.API.Controllers
             await _userManager.CreateAsync(AddUser, userRegisterDto.Password);
             await _userManager.AddToRoleAsync(AddUser, userRegisterDto.RoleFromRegister);
 
+
+            var Profile = new JobSolution.Domain.Entities.Profile
+            {
+                
+                FirstName = userRegisterDto.FirstName,
+                LastName = userRegisterDto.LastName,
+                Email = userRegisterDto.Email,
+                University = "",
+                ImagePath="",
+                PhoneNumber = userRegisterDto.PhoneNumber,
+                UserId = _userManager.FindByEmailAsync(AddUser.Email).Result.Id,
+
+            };
+
+            _dbContext.Profiles.Add(Profile);
+            _dbContext.SaveChanges();
+
+
+
             var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
             var jwtSecurityToken = new JwtSecurityToken(
                  issuer: _authOptions.Issuer,
                  audience: _authOptions.Audience,
-                 claims: new List<Claim>() { new Claim(ClaimTypes.Role, userRegisterDto.RoleFromRegister), new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) },
+                 claims: new List<Claim>() { new Claim(ClaimTypes.Role, userRegisterDto.RoleFromRegister), new Claim(ClaimTypes.NameIdentifier, Profile.UserId.ToString()) },
                  expires: DateTime.Now.AddDays(30),
                  signingCredentials: signinCredentials);
             var tokenHandler = new JwtSecurityTokenHandler();
             var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
+
+
+
+
+
             return  Ok(new { AccessToken = encodedToken });
         }
     }

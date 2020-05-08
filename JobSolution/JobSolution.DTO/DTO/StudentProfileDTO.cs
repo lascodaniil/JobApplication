@@ -10,6 +10,6 @@ namespace JobSolution.DTO.DTO
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Univeristy { get; set; }
-        public string Base64Photo { get; set; }
+        public string ImagePath { get; set; }
     }
 }

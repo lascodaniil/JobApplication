@@ -29,19 +29,17 @@ namespace JobSolution.API.Controllers
     public class JobController : ControllerBase
     {
         private readonly IJobService _jobService;
-        private readonly IStudentJobService _studentJobService;
         private readonly ICategoryService _categoryService;
         private readonly ICityService _cityService;
         private readonly ITypeJobService _typeJobService;
         private readonly IMapper _mapper;
 
-        public JobController(IJobService repositoryJob, IStudentJobService studentJobService,ICategoryService categoryService, ICityService cityService, ITypeJobService typeJobService, IMapper mapper)
+        public JobController(IJobService repositoryJob,ICategoryService categoryService, ICityService cityService, ITypeJobService typeJobService, IMapper mapper)
         {
             _cityService = cityService;
             _categoryService = categoryService;
             _jobService = repositoryJob;
             _mapper = mapper;
-            _studentJobService = studentJobService;
             _typeJobService = typeJobService;
         }
 
@@ -160,23 +158,6 @@ namespace JobSolution.API.Controllers
             var result = await _jobService.GetPagedData(pagedRequest, _mapper);
 
             return Ok(result);
-        }   
-
-
-        [HttpPost("Subscribe/{jobId}")]
-        [Authorize(Roles = "Student")]
-        public async Task<IActionResult> Subscribe([FromRoute]int jobId)
-        {
-            await _studentJobService.Add(jobId);
-            return Ok();
-        }
-
-        [HttpPost("Unsubscribe/{jobId}")]
-        [Authorize(Roles = "Student")]
-        public async Task<IActionResult> Unsubscribe([FromBody]int jobId)
-        {
-            await _studentJobService.Delete(jobId);
-            return Ok();
         }
     }
 }

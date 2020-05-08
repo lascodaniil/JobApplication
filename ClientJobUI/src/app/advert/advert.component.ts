@@ -8,6 +8,8 @@ import {JobService} from '../_services/job.service';
 import {CategoryDTO} from '../_models/DTO/CategoryDTO';
 import {CityDTO} from '../_models/DTO/CityDTO';
 import {FormControl} from '@angular/forms';
+import {PaginatedRequest} from '../_models/PaginatedRequest';
+import {log} from 'util';
 
 @Component({
   selector: 'app-advert',
@@ -16,23 +18,28 @@ import {FormControl} from '@angular/forms';
 })
 export class AdvertComponent implements OnInit {
 
-  AllAdverts = {} as AdvertDTO[];
-  columnsToDisplay = ['Title','Category', 'City', 'PublishedOn','Contact', 'Description'];
-
+  columnsToDisplay = ['Title','Category', 'City','Contact', 'PublishedOn','Description', 'Actions'];
+  searchInput = new FormControl('');
+  filter = {} as PaginatedRequest;
   constructor(private advertService: AdvertService,public dialog: MatDialog, private jobService: JobService) { }
 
-  searchInput = new FormControl('');
   adverts = [] as AdvertDTO[];
   dialogRef: MatDialogRef<any>;
   Categories = [] as CategoryDTO[];
   Cities = [] as CityDTO[];
+
+
   ngOnInit(): void {
+
+    this.jobService.getCategories().subscribe(data =>{this.Categories = data;});
+    this.jobService.getCity().subscribe(data =>{this.Cities = data;});
+
+
         this.advertService.onPopup().subscribe((id:number) =>{
           this.onDelete(id);
-
         });
-        this.jobService.getCategories().subscribe(data =>{this.Categories = data;});
-        this.jobService.getCity().subscribe(data =>{this.Cities = data;});
+          // ascult evenimentul ???
+        this.advertService.onAddAdvert().subscribe(() => {this.loadAdverts();});
         this.loadAdverts();
   }
 
@@ -44,14 +51,14 @@ export class AdvertComponent implements OnInit {
     this.advertService.deleteAdvert(id).subscribe();
   }
 
-  openPopUp(id :number){
+  openPopUp(id :number, AddName : string){
     this.dialogRef = this.dialog.open(PopUpAdvertComponent, {
       data: {
-        id: id ? id : null
+        id: id ? id : null,
+        name : AddName
       }
     });
   }
-
 
   onUpdate(id: number) {
     this.dialogRef = this.dialog.open(UpdateAdvertComponent, {
@@ -59,7 +66,9 @@ export class AdvertComponent implements OnInit {
         id: id ? id : null,
         categories : this.Categories,
         cities: this.Cities
-      }
+      },
+
     });
+    console.log(this.adverts);
   }
 }

@@ -5,6 +5,7 @@ import {CategoryDTO} from '../../_models/DTO/CategoryDTO';
 import {CityDTO} from '../../_models/DTO/CityDTO';
 import {AdvertDTO} from '../../_models/DTO/AdvertDTO';
 import {AdvertService} from '../../_services/advert.service';
+import {JobService} from '../../_services/job.service';
 
 @Component({
   selector: 'app-update-advert',
@@ -18,19 +19,19 @@ export class UpdateAdvertComponent implements OnInit {
   advert = {} as AdvertDTO;
 
   constructor(@Inject(MAT_DIALOG_DATA) public advertData: AdvertData,
-              public dialogRef: MatDialogRef<UpdateAdvertComponent>, private advertService : AdvertService) { }
+              public dialogRef: MatDialogRef<UpdateAdvertComponent>, private advertService : AdvertService,
+              public  jobService : JobService){}
 
   ngOnInit(): void {
-    this.categories = this.advertData.categories;
-    this.cities = this.advertData.cities;
+    this.jobService.getCategories().subscribe(data => {this.categories = data});
+    this.jobService.getCity().subscribe(data =>{this.cities = data});
+        this.advertService.getPostedAdvert(this.advertData.id).subscribe(data => {this.advert = data, console.log(this.advert);});
+  }
 
-      this.advertService.getPostedAdvert(this.advertData.id).subscribe(data => {this.advert = data});
-
-    }
-
-    onUpdateAdvert(advert ,id) {
-    this.advertService.putAdvert(advert, id).subscribe(() => {
-      this.dialogRef.close();
-    });
-    }
+  AddAdvert(advert){
+    console.log(this.advert);
+    this.advertService.postStudentAdverts(this.advert).subscribe();
+    this.advertService.popUp.next();
+    this.dialogRef.close();
+  }
 }

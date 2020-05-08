@@ -21,6 +21,7 @@ namespace JobSolution.Services.Interfaces
         Task Remove(int JobId);
         Task<IList<JobDTO>> GetByType(int TypeId);
         Task<IList<JobDTO>> GetJobsByCategory(string Category);
+        Task Subscribe(int JobId);
         Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper);
         Task<PaginatedResult<JobDTO>> GetJobsForEmployer(PagedRequest pagedRequest, IMapper mapper);
         Task<PaginatedResult<JobDTO>> GetJobsForStudent(PagedRequest pagedRequest, IMapper mapper);

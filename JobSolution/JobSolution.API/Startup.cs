@@ -66,11 +66,11 @@ namespace JobSolution.API
             services.AddTransient<ICityService, CityService>();
             services.AddTransient<IAdvertServices, AdvertServices>();
             services.AddTransient<IAdvertRepository, AdvertRepository>();
-
-            services.AddTransient<IStudentJobService, StudentJobService>();
-            services.AddTransient<IStudentJobRepository, StudentJobRepository>();
             services.AddTransient<IJobTypeRepository, TypeJobRepository>();
             services.AddTransient<ITypeJobService, TypeJobServices>();
+
+            services.AddTransient<IAuthRepository, AuthRepository>();
+            services.AddTransient<IAuthService, AuthService>();
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

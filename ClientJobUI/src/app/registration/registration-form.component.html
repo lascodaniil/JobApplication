@@ -3,7 +3,8 @@
     <div class="container">
       <h1>Create your Account</h1>
       <form (ngSubmit)="onSubmit()" #RegisterForm="ngForm">
-        <div>
+
+          <div>
           <mat-form-field >
             <mat-label>First Name</mat-label>
             <input matInput type="text" name="FirstName"
@@ -37,19 +38,30 @@
                    required/>
           </mat-form-field>
         </div>
+
+        <div>
+          <mat-form-field>
+            <mat-label>Phonenumber</mat-label>
+            <input matInput name="Contact"
+                   [(ngModel)]="registeredUser.PhoneNumber"
+                   required/>
+          </mat-form-field>
+        </div>
+
+
         <div>
           <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput type="password" [(ngModel)]="registeredUser.Password"
+            <input matInput type="password" name ="PassWord" [(ngModel)]="registeredUser.Password"
                    minlength="5" required/>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
             <mat-label>Role</mat-label>
-            <mat-select
+            <mat-select name="RoleFromRegister"
               [(ngModel)]="registeredUser.RoleFromRegister" required>
-              <mat-option *ngFor="let role of roles" [value]="role">
+              <mat-option *ngFor="let role of roles" [value]="role" >
                 {{role}}
               </mat-option>
             </mat-select>
@@ -63,3 +75,8 @@
     </div>
   </div>
 </mat-card>
+
+
+
+
+

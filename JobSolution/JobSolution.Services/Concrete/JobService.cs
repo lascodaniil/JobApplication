@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using JobSolution.Domain.Auth;
 using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Pagination;
@@ -21,7 +22,7 @@ namespace JobSolution.Services.Concrete
         private readonly IJobRepository _jobRepository;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _context;
-        private IHostingEnvironment _hostingEnvironment;
+        private readonly IHostingEnvironment _hostingEnvironment;
 
 
         public JobService(IJobRepository jobRepository, IMapper mapper, IHttpContextAccessor context, IHostingEnvironment hostingEnvironment)
@@ -63,7 +64,7 @@ namespace JobSolution.Services.Concrete
                         {
                             string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
                             string fullPath = Path.Combine(newPath, fileName);
-                            job.Base64Photo = fullPath;
+                            job.ImagePath = fullPath;
                             using (var stream = new FileStream(fullPath, FileMode.Create))
                             {
                                 file.CopyTo(stream);
@@ -96,8 +97,8 @@ namespace JobSolution.Services.Concrete
                 try
                 {
 
-                    byte[] b = File.ReadAllBytes(item.Base64Photo);
-                    item.Base64Photo = "data:image/png;base64," + Convert.ToBase64String(b);
+                    byte[] b = File.ReadAllBytes(item.ImagePath);
+                    item.ImagePath = "data:image/png;base64," + Convert.ToBase64String(b);
                 }
                 catch
                 {
@@ -143,7 +144,7 @@ namespace JobSolution.Services.Concrete
                         {
                             string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
                             string fullPath = Path.Combine(newPath, fileName);
-                            dbjob.Base64Photo = fullPath;
+                            dbjob.ImagePath = fullPath;
                             using (var stream = new FileStream(fullPath, FileMode.Create))
                             {
                                 file.CopyTo(stream);
@@ -190,8 +191,8 @@ namespace JobSolution.Services.Concrete
                 try
                 {
 
-                    byte[] b = System.IO.File.ReadAllBytes(item.Base64Photo);
-                    item.Base64Photo = "data:image/png;base64," + Convert.ToBase64String(b);
+                    byte[] b = System.IO.File.ReadAllBytes(item.ImagePath);
+                    item.ImagePath = "data:image/png;base64," + Convert.ToBase64String(b);
                 }
                 catch
                 {
@@ -235,5 +236,13 @@ namespace JobSolution.Services.Concrete
             return result;
         }
 
+        public async Task Subscribe(int JobId)
+        {
+            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
+            var Alljobs = await _jobRepository.GetAllJobs();
+            var job = Alljobs.Where(x => x.UserId == UserId && x.Id == JobId).FirstOrDefault();
+            var temp = job.Marked;
+            job.Marked = true ? false : true;
+        }
     }
 }

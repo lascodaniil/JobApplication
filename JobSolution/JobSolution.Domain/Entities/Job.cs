@@ -27,6 +27,5 @@ namespace JobSolution.Domain.Entities
         public int TypeJobId { get; set; }
         public TypeJob TypeJob { get; set; }
         public bool Marked { get; set; }
-
     }
 }

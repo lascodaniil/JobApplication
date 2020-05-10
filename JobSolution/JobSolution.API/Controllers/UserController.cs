@@ -26,28 +26,14 @@ namespace JobSolution.API.Controllers
             _jobService = jobService;
         }
 
-        [HttpGet]
+        [HttpGet("Profile")]
         [Authorize]
-        public async Task<IActionResult> StudentProfile()
+        public async Task<IActionResult> UserProfile()
         {
-            return Ok(await _userService.GetAuthStudentProfile());
+            return Ok(await _userService.GetAuthProfile());
         }
 
-        [HttpGet("EmployerProfile")]
-        [Authorize]
-        public async Task<IActionResult> EmployerProfile()
-        {
-            return Ok(await _userService.GetAuthEmployerPofiles());
-        }
-
-
-        [HttpPost("Subscribe/{jobId}")]
-        [Authorize(Roles ="Employer" )]
-        public async Task<IActionResult> Subscribe([FromRoute] int jobId)
-        {
-            await _jobService.Subscribe(jobId);
-            return Ok();
-        }
+      
 
     }
 }

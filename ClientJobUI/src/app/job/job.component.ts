@@ -34,6 +34,7 @@ export class JobComponent implements OnInit {
     this.toolBarService.setTitle('Jobs');
     this.filter.pageSize = 100;
     this.jobsTypeId ? this.loadJobsByTypeId(this.jobsTypeId) : this.loadJobs();
+
   }
 
   onFiltered(filter: PaginatedRequest) {
@@ -41,16 +42,28 @@ export class JobComponent implements OnInit {
     this.loadJobs();
   }
 
+  onSearch(requestFilters) {
+    this.filter.requestFilters = requestFilters;
+    this.loadJobs();
+  }
+
   loadJobsByTypeId(id: number) {
-    this.jobService.getJobsByType(this.filter, id).subscribe( data => {
+    this.jobService.getJobsByType(this.filter, id).subscribe(data => {
       this.allJobs = data.items;
     });
   }
 
   loadJobs() {
     this.jobService.getAllJobPaginated(this.filter).subscribe(data => {
-      this.allJobs = data.items;
+      this.allJobs = data.items.map((item) => {
+        item.imagePath = item.imagePath !== ''
+          ? item.imagePath
+          : 'https://www.northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png';
+        return item;
+      });
+      console.log(this.allJobs);
     });
   }
+
 }
 

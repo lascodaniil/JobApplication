@@ -11,7 +11,7 @@ import {AdvertDTO} from '../../_models/DTO/AdvertDTO';
 })
 export class PopUpAdvertComponent{
 
-  advert: AdvertDTO;
+
   constructor(private advertServ : AdvertService,
               @Inject(MAT_DIALOG_DATA) public AdvertData: {id:number, title:string},
               public dialogRef: MatDialogRef<PopUpAdvertComponent>,) { }

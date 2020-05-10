@@ -1,7 +1,7 @@
-export interface EmployerProfileDTO{
+export interface ProfileDTO{
   id:number;
   email:number;
-  base64Photo : string;
+  imagePath : string;
   registrationDate :Date;
   phoneNumber:string;
   fullName:string;

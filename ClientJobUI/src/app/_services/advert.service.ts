@@ -20,16 +20,22 @@ export class AdvertService {
   }
 
   popUp = new Subject();
+  added = new Subject();
 
   onPopup() {
     return this.popUp.asObservable();
   }
 
   onAddAdvert() {
-    return this.popUp.asObservable();
+    return this.added.asObservable();
+  }
+
+  getAdvertForStudent(filter: PaginatedRequest) : Observable<PagedResult<AdvertDTO>>{
+    return  this.http.post<PagedResult<AdvertDTO>>(`${URL_ADVERT}/Student/Adverts`, filter);
   }
 
   postStudentAdverts(advert: AdvertDTO): Observable<any> {
+    console.log("serviciu apelat");
     return this.http.post(`${URL_ADVERT}`, advert);
   }
 

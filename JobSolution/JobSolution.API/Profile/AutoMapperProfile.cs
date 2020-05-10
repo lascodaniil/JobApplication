@@ -37,18 +37,13 @@ namespace JobSolution.API.Profile
 
             CreateMap<TypeJob, TypeJobDTO>();
 
-
-            CreateMap<JobSolution.Domain.Entities.Profile, StudentProfileDTO>()
+            CreateMap<JobSolution.Domain.Entities.Profile, ProfileDTO>()
                 .ForMember(x => x.ImagePath, y => y.MapFrom(z => z.ImagePath))
-                .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
-                .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName));
-
-            CreateMap<JobSolution.Domain.Entities.Profile, EmployerProfileDTO>()
-                .ForMember(x => x.Base64Photo, y => y.MapFrom(z => z.ImagePath))
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.PhoneNumber, y => y.MapFrom(z => z.PhoneNumber))
                 .ForMember(x => x.RegistrationDate, y => y.MapFrom(x => x.RegisterDate))
-                .ForMember(x => x.FullName, y => y.MapFrom(x => x.FirstName + " " + x.LastName));
+                .ForMember(x => x.FullName, y => y.MapFrom(x => x.FirstName + " " + x.LastName))
+                .ForMember(x=>x.DateOfBirth, y=>y.MapFrom(x=>x.DateOfBirth));
 
 
 

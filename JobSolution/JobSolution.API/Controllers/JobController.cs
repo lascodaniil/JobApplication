@@ -95,7 +95,7 @@ namespace JobSolution.API.Controllers
 
         [HttpPost("Post")]
         [Authorize(Roles = "Employer")]
-        public async Task<IActionResult> Postt()
+        public async Task<IActionResult> Post()
         {
             if (ModelState.IsValid)
             {
@@ -122,7 +122,7 @@ namespace JobSolution.API.Controllers
             if (ModelState.IsValid)
             {
                 await _jobService.Update(id);
-                return Ok("Saved");
+                return Ok();
             }
             return BadRequest();
         }
@@ -159,5 +159,25 @@ namespace JobSolution.API.Controllers
 
             return Ok(result);
         }
+
+
+        [HttpGet("Added/{jobId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> AddedJobStudent([FromRoute]int jobId)
+        {
+            await  _jobService.AddedJobByStudent(jobId);
+            return Ok();
+        }
+
+        [HttpDelete("Student/Delete/{id}")]
+        [Authorize(Roles ="Student")]
+        public async Task<IActionResult> DeleteStudentJobs(int id)
+        {
+             await _jobService.DeleteJobStudent(id);
+            return Ok();
+        }
+
+
+
     }
 }

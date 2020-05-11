@@ -33,8 +33,16 @@ namespace JobSolution.Services.Concrete
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
             var UserProfile = await _profileRepository.GetAuthUserProfile(UserId);
 
-            byte[] b = File.ReadAllBytes(UserProfile.ImagePath);
-            UserProfile.ImagePath = "data:image/png;base64," + Convert.ToBase64String(b);
+            try
+            {
+
+                byte[] b = File.ReadAllBytes(UserProfile.ImagePath);
+                UserProfile.ImagePath = "data:image/png;base64," + Convert.ToBase64String(b);
+            }
+            catch
+            {
+
+            }
 
             return _mapper.Map<ProfileDTO>(UserProfile);         
         }

@@ -71,6 +71,10 @@ namespace JobSolution.API
 
             services.AddTransient<IAuthRepository, AuthRepository>();
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IStudentJobService, StudentJobService>();
+            services.AddTransient<IStudentJobRepository, StudentJobRepository>();
+
+
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

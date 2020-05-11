@@ -32,15 +32,21 @@ namespace JobSolution.API.Controllers
         private readonly ICategoryService _categoryService;
         private readonly ICityService _cityService;
         private readonly ITypeJobService _typeJobService;
+        private readonly IStudentJobService _studentJobService;
         private readonly IMapper _mapper;
 
-        public JobController(IJobService repositoryJob,ICategoryService categoryService, ICityService cityService, ITypeJobService typeJobService, IMapper mapper)
+        public JobController(IJobService repositoryJob,ICategoryService categoryService, 
+            ICityService cityService, 
+            ITypeJobService typeJobService,
+            IStudentJobService studentJobService,
+            IMapper mapper)
         {
             _cityService = cityService;
             _categoryService = categoryService;
             _jobService = repositoryJob;
             _mapper = mapper;
             _typeJobService = typeJobService;
+            _studentJobService = studentJobService;
         }
 
         [HttpGet("Categories")]

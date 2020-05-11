@@ -20,10 +20,15 @@ namespace JobSolution.API.Controllers
     {
         private readonly IProfileService _userService;
         private readonly IJobService _jobService;
-        public UserController(IProfileService userService, IJobService jobService)
+        private readonly IStudentJobService _studentJobService;
+        public UserController(IProfileService userService, 
+            IJobService jobService,
+            IStudentJobService studentJobService
+            )
         {
             _userService = userService;
             _jobService = jobService;
+            _studentJobService = studentJobService;
         }
 
         [HttpGet("Profile")]

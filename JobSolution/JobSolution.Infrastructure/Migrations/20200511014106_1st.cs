@@ -171,8 +171,7 @@ namespace JobSolution.Infrastructure.Migrations
                     Salary = table.Column<float>(nullable: false),
                     CityId = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
-                    TypeJobId = table.Column<int>(nullable: false),
-                    Marked = table.Column<bool>(nullable: false)
+                    TypeJobId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -326,6 +325,33 @@ namespace JobSolution.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "StudentJobs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(nullable: true),
+                    JobId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StudentJobs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_StudentJobs_Jobs_JobId",
+                        column: x => x.JobId,
+                        principalTable: "Jobs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_StudentJobs_Users_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "Auth",
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Adverts_CategoryId",
                 table: "Adverts",
@@ -380,6 +406,16 @@ namespace JobSolution.Infrastructure.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_StudentJobs_JobId",
+                table: "StudentJobs",
+                column: "JobId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StudentJobs_UserId",
+                table: "StudentJobs",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RoleClaims_RoleId",
                 schema: "Auth",
                 table: "RoleClaims",
@@ -432,10 +468,10 @@ namespace JobSolution.Infrastructure.Migrations
                 name: "Adverts");
 
             migrationBuilder.DropTable(
-                name: "Jobs");
+                name: "Profiles");
 
             migrationBuilder.DropTable(
-                name: "Profiles");
+                name: "StudentJobs");
 
             migrationBuilder.DropTable(
                 name: "RoleClaims",
@@ -458,6 +494,13 @@ namespace JobSolution.Infrastructure.Migrations
                 schema: "Auth");
 
             migrationBuilder.DropTable(
+                name: "Jobs");
+
+            migrationBuilder.DropTable(
+                name: "Roles",
+                schema: "Auth");
+
+            migrationBuilder.DropTable(
                 name: "Categories");
 
             migrationBuilder.DropTable(
@@ -465,10 +508,6 @@ namespace JobSolution.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "TypeJobs");
-
-            migrationBuilder.DropTable(
-                name: "Roles",
-                schema: "Auth");
 
             migrationBuilder.DropTable(
                 name: "Users",

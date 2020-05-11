@@ -318,9 +318,6 @@ namespace JobSolution.Infrastructure.Migrations
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Marked")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime?>("PostDate")
                         .HasColumnType("datetime2");
 
@@ -400,6 +397,28 @@ namespace JobSolution.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Profiles");
+                });
+
+            modelBuilder.Entity("JobSolution.Domain.Entities.StudentJobs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("JobId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("JobId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("StudentJobs");
                 });
 
             modelBuilder.Entity("JobSolution.Domain.Entities.TypeJob", b =>
@@ -523,6 +542,19 @@ namespace JobSolution.Infrastructure.Migrations
                         .HasForeignKey("JobSolution.Domain.Entities.Profile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("JobSolution.Domain.Entities.StudentJobs", b =>
+                {
+                    b.HasOne("JobSolution.Domain.Entities.Job", "Job")
+                        .WithMany("StudentJobs")
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JobSolution.Domain.Auth.User", "User")
+                        .WithMany("StudentJobs")
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

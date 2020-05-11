@@ -18,8 +18,7 @@ namespace JobSolution.API.Profile
                                     .ForMember(x => x.JobId, y => y.MapFrom(z => z.Id))
                                     .ForMember(x => x.Employer, y => y.MapFrom(x => x.User.Profile.FirstName + " " + x.User.Profile.LastName))
                                     .ForMember(x => x.City, y => y.MapFrom(x => x.Cities.City))
-                                    .ForMember(x=>x.TypeJob , y=>y.MapFrom(x=>x.TypeJob.Name))
-                                    .ForMember(x=>x.Marked , y=>y.MapFrom(x=>x.Marked));
+                                    .ForMember(x => x.TypeJob, y => y.MapFrom(x => x.TypeJob.Name));
                                     
             
             CreateMap<JobDTO, Job>().ForMember(x => x.PostDate, y => y.MapFrom(z => z.PublishedOn))

@@ -37,6 +37,7 @@
     <ProjectReference Include="..\JobSolution.Infrastructure\JobSolution.Infrastructure.csproj" />
     <ProjectReference Include="..\JobSolution.Repository\JobSolution.Repository.csproj" />
     <ProjectReference Include="..\JobSolution.Services\JobSolution.Services.csproj" />
+    <ProjectReference Include="..\JobSolution.SignalR\JobSolution.SignalR.csproj" />
   </ItemGroup>
 
 

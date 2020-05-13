@@ -57,8 +57,8 @@ namespace JobSolution.Services.Interfaces
                 foreach (var key in _context.HttpContext.Request.Form.Keys)
                 {
                     userRegisterDto = JsonConvert.DeserializeObject<UserRegisterDto>(_context.HttpContext.Request.Form[key]);
-            
                     var file = _context.HttpContext.Request.Form.Files.Count > 0 ? _context.HttpContext.Request.Form.Files[0] : null;
+
                     if (file != null)
                     {
 
@@ -113,12 +113,14 @@ namespace JobSolution.Services.Interfaces
 
             await _userManager.CreateAsync(CreateUserToAdd, userRegisterDto.Password);
             await _userManager.AddToRoleAsync(CreateUserToAdd, userRegisterDto.RoleFromRegister);
+
             var AddUser = new User()
             {
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = userRegisterDto.UserName,
                 Email = userRegisterDto.Email
             };
+
             var Profile = new JobSolution.Domain.Entities.Profile
             {
 
@@ -134,13 +136,16 @@ namespace JobSolution.Services.Interfaces
             _dbContext.SaveChanges();
 
             var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
+            
             var jwtSecurityToken = new JwtSecurityToken(
                  issuer: _authOptions.Issuer,
                  audience: _authOptions.Audience,
                  claims: new List<Claim>() { new Claim(ClaimTypes.Role, userRegisterDto.RoleFromRegister), new Claim(ClaimTypes.NameIdentifier, Profile.UserId.ToString()) },
                  expires: DateTime.Now.AddDays(30),
                  signingCredentials: signinCredentials);
+
             var tokenHandler = new JwtSecurityTokenHandler();
+            
             var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
 
 
@@ -158,6 +163,7 @@ namespace JobSolution.Services.Interfaces
             var claims = new List<Claim>();
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
             claims.Add(new Claim("UserId", user.Id.ToString()));
+            
 
             foreach (var item in role)
             {

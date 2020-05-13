@@ -52,7 +52,7 @@ export class UpdateJobComponent implements OnInit {
       this.dialogRef.close();
     });
   }
-
+  
   onUploadImage(file) {
     this.profileImage = <File>file.target.files[0];
     this.uploadFileName = file.target.files[0].type.indexOf("image") !== -1 ? file.target.files[0].name : '';

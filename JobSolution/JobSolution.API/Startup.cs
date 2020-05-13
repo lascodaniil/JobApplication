@@ -18,10 +18,6 @@ using JobSolution.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using JobSolution.Domain;
-using JobSolution.Infrastructure;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using JobSolution.Domain.Auth;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using JobSolution.Infrastructure.Extensions;
@@ -30,6 +26,7 @@ using JobSolution.Repository.Interfaces;
 using JobSolution.Repository.Concrete;
 using JobSolution.Infrastructure.Seed;
 using JobSolution.SignalR.Concrete;
+using JobSolution.Infrastructure.Middleware;
 
 namespace JobSolution.API
 {
@@ -43,6 +40,7 @@ namespace JobSolution.API
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddMvc();
             services.AddSignalR();
             services.AddCors(options => options.AddPolicy("Cors", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
@@ -108,6 +106,7 @@ namespace JobSolution.API
                 options.RoutePrefix = "swagger";
             });
 
+            app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseDeveloperExceptionPage();
             app.UseRouting();
 
@@ -137,16 +136,16 @@ namespace JobSolution.API
             });
 
 
-            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            {
-                var dbContext = serviceScope.ServiceProvider.GetService<AppDbContext>();
-                var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
-                var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
+            //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    var dbContext = serviceScope.ServiceProvider.GetService<AppDbContext>();
+            //    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
+            //    var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
 
-                dbContext.Database.Migrate();
-                DbSeeder.Seed(dbContext, roleManager, userManager);
-                dbContext.SaveChanges();
-            }
+            //    dbContext.Database.Migrate();
+            //    DbSeeder.Seed(dbContext, roleManager, userManager);
+            //    dbContext.SaveChanges();
+            //}
         }
     }
 }

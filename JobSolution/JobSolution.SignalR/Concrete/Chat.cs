@@ -22,7 +22,8 @@ namespace JobSolution.SignalR.Concrete
 
         public async Task<bool> IsEmployer(int employerId, string jwt)
         {
-            JwtSecurityToken token
+            JwtSecurityToken token = new JwtSecurityToken(jwt);
+            return false;
         }
 
         public Task JoinRoom(int employerId, string jwtToken)

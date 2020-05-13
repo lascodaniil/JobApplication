@@ -40,7 +40,7 @@ namespace JobSolution.Repository.Concrete
 
         public async Task<Job> GetJobByID(int JobId)
         {
-            return await _dbContext.Jobs.FirstOrDefaultAsync(x => x.Id == JobId);
+            return await _dbContext.Jobs.Include(x => x.Category).Include(x => x.Cities).Include(x => x.User).Include(x => x.User.Profile).Include(x => x.TypeJob).FirstOrDefaultAsync(x => x.Id == JobId);
         }
         
         public async Task Update(Job job)

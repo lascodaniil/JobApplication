@@ -3,13 +3,9 @@ using JobSolution.DTO.DTO;
 using JobSolution.Repository.Interfaces;
 using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace JobSolution.Services.Concrete
@@ -35,16 +31,18 @@ namespace JobSolution.Services.Concrete
 
             try
             {
-
                 byte[] b = File.ReadAllBytes(UserProfile.ImagePath);
                 UserProfile.ImagePath = "data:image/png;base64," + Convert.ToBase64String(b);
             }
-            catch
-            {
-
-            }
-
+            catch { }
             return _mapper.Map<ProfileDTO>(UserProfile);         
+        }
+
+
+        public async Task UpdateProfile()
+        {
+            ProfileDTO profileDTO = new ProfileDTO();
+            JobSolution.Domain.Entities.Profile userProfile = new Domain.Entities.Profile();
         }
     }
 }

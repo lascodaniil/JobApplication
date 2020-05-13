@@ -25,6 +25,7 @@ namespace JobSolution.Infrastructure.Database
             modelBuilder.ApplyConfiguration(new ProfileConfig());
             modelBuilder.ApplyConfiguration(new JobConfig());
             modelBuilder.ApplyConfiguration(new UserConfig());
+         //   modelBuilder.Entity<StudentJobs>().HasKey(x => new { x.Id, x.UserId, x.JobId });
             ApplyIdentityMapConfiguration(modelBuilder);
         }
 

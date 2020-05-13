@@ -26,14 +26,9 @@ export class JobService {
     return this.http.get<JobDTO[]>(`${urlJob}`);
   }
 
-
   getJobById(id: number) {
     return this.http.get<JobDTO>(`${urlJob}/${id}`);
   }
-
-
-
-
   getAllJobPaginated(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobDTO>> {
     return this.http.post<PagedResult<JobDTO>>(`${urlJob}/PagePerTable`, paginatedRequest);
   }
@@ -79,5 +74,13 @@ export class JobService {
   getJobsTypes() : Observable<JobType[]>{
     return  this.http.get<JobType[]>(`${urlJob}/Types`);
   }
+
+  deleteEnrolledJobForStudent(id:number) : Observable<any>{
+    return  this.http.delete(`${urlJob}/Student/Delete/${id}`);
+  }
+  addJobStudent(id:number) : Observable<any>{
+    return  this.http.get(`${urlJob}/Added/${id}`);
+  }
+
 
 }

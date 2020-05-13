@@ -29,6 +29,7 @@ using JobSolution.Repository;
 using JobSolution.Repository.Interfaces;
 using JobSolution.Repository.Concrete;
 using JobSolution.Infrastructure.Seed;
+using JobSolution.SignalR.Concrete;
 
 namespace JobSolution.API
 {
@@ -43,6 +44,7 @@ namespace JobSolution.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSignalR();
             services.AddCors(options => options.AddPolicy("Cors", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
             services.AddSwaggerGen(options =>
             {
@@ -114,6 +116,8 @@ namespace JobSolution.API
 
             app.UseEndpoints(endpoints =>
             {
+
+                endpoints.MapHub<Chat>("/work");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
@@ -133,16 +137,16 @@ namespace JobSolution.API
             });
 
 
-            //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            //{
-            //    var dbContext = serviceScope.ServiceProvider.GetService<AppDbContext>();
-            //    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
-            //    var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var dbContext = serviceScope.ServiceProvider.GetService<AppDbContext>();
+                var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
+                var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
 
-            //    dbContext.Database.Migrate();
-            //    DbSeeder.Seed(dbContext, roleManager, userManager);
-            //    dbContext.SaveChanges();
-            //}
+                dbContext.Database.Migrate();
+                DbSeeder.Seed(dbContext, roleManager, userManager);
+                dbContext.SaveChanges();
+            }
         }
     }
 }

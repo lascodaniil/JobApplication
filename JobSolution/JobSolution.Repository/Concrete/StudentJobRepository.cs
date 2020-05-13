@@ -38,19 +38,5 @@ namespace JobSolution.Repository.Concrete
             return  _dbContext.StudentJobs.Where(x => x.UserId == UserId).Select(x => x.JobId).ToList();
         }
 
-
-
-        //public  async Task Add(int UserId, int jobId)
-        //{
-        //     _dbContext.JobStudents.Add(new JobStudent { JobId = jobId, UserId = UserId });
-        //    await _dbContext.SaveChangesAsync();
-        //}
-
-        //public async Task Delete(int UserId, int jobId)
-        //{
-        //    var record = await _dbContext.JobStudents.FirstOrDefaultAsync(x => x.UserId == UserId && x.JobId == jobId);
-        //    _dbContext.JobStudents.Remove(record);
-        //    await _dbContext.SaveChangesAsync();
-        //}
     }
 }

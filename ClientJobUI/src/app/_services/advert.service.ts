@@ -35,7 +35,6 @@ export class AdvertService {
   }
 
   postStudentAdverts(advert: AdvertDTO): Observable<any> {
-    console.log("serviciu apelat");
     return this.http.post(`${URL_ADVERT}`, advert);
   }
 
@@ -50,6 +49,9 @@ export class AdvertService {
   deleteAdvert(id: number): Observable<any> {
     return this.http.delete(`${URL_ADVERT}/${id}`);
   }
+
+
+
 
   getAdverts(): Observable<AdvertDTO[]> {
     return this.http.get<AdvertDTO[]>(`${URL_ADVERT}`);

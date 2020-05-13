@@ -16,4 +16,9 @@ export class ProfileServiceService {
   getProfileUser(): Observable<ProfileDTO> {
     return this.http.get<ProfileDTO>(`${URL_PROFILE}/Profile`);
   }
+
+
+
+
+
 }

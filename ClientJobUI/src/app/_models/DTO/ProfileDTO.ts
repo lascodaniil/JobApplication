@@ -5,4 +5,8 @@ export interface ProfileDTO{
   registrationDate :Date;
   phoneNumber:string;
   fullName:string;
+  firstName:string;
+  lastName:string;
+  dateOfBirth:Date;
+  registerDate:Date;
 }

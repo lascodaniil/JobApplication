@@ -246,22 +246,12 @@ namespace JobSolution.Services.Concrete
 
         public async Task AddedJobByStudent(int id)
         {
-            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
-            var job = await _jobRepository.GetJobByID(id);
-
-            var mappedObject =  _mapper.Map<JobDTO>(job);
-            job.Id = 0;
-            job.UserId = UserId;
-            job.EnrolledDate = DateTime.Today;
-            await  _jobRepository.Add(job);
+            await _studentJobService.Add(id);
         }
 
         public async Task DeleteJobStudent(int id)
         {
-            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
-            var job =  _jobRepository.GetAllJobs().Result.Where(x=>x.Id == id && x.UserId == UserId).FirstOrDefault();
-            await  _jobRepository.Delete(job.Id);
+            await _studentJobService.Delete(id);
         }
-
     }
 }

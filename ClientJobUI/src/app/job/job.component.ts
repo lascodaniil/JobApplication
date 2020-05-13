@@ -65,5 +65,9 @@ export class JobComponent implements OnInit {
     });
   }
 
+  subscribe(jobId:number){
+    this.jobService.addJobStudent(jobId).subscribe();
+  }
+
 }
 

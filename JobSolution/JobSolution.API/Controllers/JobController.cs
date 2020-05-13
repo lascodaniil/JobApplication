@@ -168,22 +168,20 @@ namespace JobSolution.API.Controllers
 
 
         [HttpGet("Added/{jobId}")]
-        [AllowAnonymous]
+        [Authorize(Roles ="Student")]
         public async Task<IActionResult> AddedJobStudent([FromRoute]int jobId)
         {
             await  _jobService.AddedJobByStudent(jobId);
             return Ok();
         }
 
-        [HttpDelete("Student/Delete/{id}")]
+        [HttpDelete("Student/Delete/{jobId}")]
         [Authorize(Roles ="Student")]
-        public async Task<IActionResult> DeleteStudentJobs(int id)
+        public async Task<IActionResult> DeleteStudentJobs(int jobId)
         {
-             await _jobService.DeleteJobStudent(id);
+             await _jobService.DeleteJobStudent(jobId);
             return Ok();
         }
-
-
 
     }
 }

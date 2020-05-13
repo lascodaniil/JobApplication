@@ -17,6 +17,7 @@ export class ViewJobComponent implements OnInit {
   ngOnInit(): void {
     this.jobService.getJobById(this.jobData.id).subscribe((job:JobDTO)=> {
       this.job = job;
+      console.log(this.job);
     });
   }
 

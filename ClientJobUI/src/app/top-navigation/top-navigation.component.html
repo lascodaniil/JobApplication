@@ -37,7 +37,7 @@
         <span class="user-thumbnail" [ngStyle]="{'background-image':'url(' + loggedUser.imagePath + ')'}"></span>
       </button>
       <mat-menu #userSettings="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item routerLink="edit" >
           Edit Profile
         </button>
         <button mat-menu-item (click)="authService.logout()">

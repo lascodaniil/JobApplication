@@ -128,7 +128,6 @@ namespace JobSolution.Services.Interfaces
                 PhoneNumber = userRegisterDto.PhoneNumber,
                 University = userRegisterDto.University,
                 UserId = _userManager.FindByEmailAsync(AddUser.Email).Result.Id,
-
             };
 
             _dbContext.Profiles.Add(Profile);

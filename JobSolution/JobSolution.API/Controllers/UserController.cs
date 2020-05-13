@@ -7,9 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace JobSolution.API.Controllers
@@ -38,7 +35,12 @@ namespace JobSolution.API.Controllers
             return Ok(await _userService.GetAuthProfile());
         }
 
-      
 
+        [HttpPut("Update")]
+        [Authorize]
+        public async Task<IActionResult> UpdateProfile()
+        {
+            return null;
+        }
     }
 }

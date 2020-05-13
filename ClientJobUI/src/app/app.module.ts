@@ -48,6 +48,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ViewJobComponent} from './home/view-job/view-job.component';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { TopNavigationComponent } from './top-navigation/top-navigation.componen
     HomeComponent,
     ViewJobComponent,
     TopNavigationComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,

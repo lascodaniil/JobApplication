@@ -1,8 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {AdvertService} from '../../_services/advert.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {AddJobData} from '../../_models/AddJobData';
-import {AdvertDTO} from '../../_models/DTO/AdvertDTO';
 
 @Component({
   selector: 'app-pop-up-advert',

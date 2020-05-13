@@ -42,6 +42,7 @@ namespace JobSolution.Services.Concrete
         {
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
            await  _studentJobRepository.Delete(UserId, jobId);
+            
         }
 
         public Task<IList<int>> GetListId()
@@ -56,6 +57,12 @@ namespace JobSolution.Services.Concrete
             var JobsList = _jobRepository.GetAllJobs().Result.Where(x => x.UserId == UserId);
             var result = _mapper.Map<IQueryable<Job>, IList<JobDTO>>(JobsList);
             return result;
+        }
+
+        public async Task DeleteStudentJobs(int id)
+        {
+            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
+            _studentJobRepository.Delete(UserId,id);
         }
     }
 }

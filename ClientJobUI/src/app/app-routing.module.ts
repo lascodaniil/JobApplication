@@ -5,6 +5,7 @@ import {RegistrationFormComponent} from './registration/registration-form.compon
 import {SignInComponent} from './sign-in/sign-in.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {HomeComponent} from './home/home.component';
+import {EditProfileComponent} from './edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'jobs/:id', component: JobComponent},
   {path: 'register', component: RegistrationFormComponent},
   {path: 'profile', component: UserProfileComponent},
-  {path: 'sign-in', component: SignInComponent}
+  {path: 'sign-in', component: SignInComponent},
+  {path: 'edit', component: EditProfileComponent},
 ];
 
 @NgModule({

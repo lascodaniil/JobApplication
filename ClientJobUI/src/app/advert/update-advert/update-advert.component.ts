@@ -33,7 +33,6 @@ export class UpdateAdvertComponent implements OnInit {
         this.advert = advert;
       });
     }
-
   }
 
   AddAdvert(){

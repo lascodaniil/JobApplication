@@ -12,6 +12,8 @@ namespace JobSolution.DTO.DTO
         public string FullName { get; set; }
         public string University { get; set; }
         public DateTime ? DateOfBirth { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
     }
 }

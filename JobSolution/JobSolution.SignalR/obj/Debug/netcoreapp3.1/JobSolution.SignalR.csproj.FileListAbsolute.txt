@@ -1,0 +1,5 @@
+D:\JobApplication\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.deps.json
+D:\JobApplication\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+D:\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csprojAssemblyReference.cache
+D:\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.AssemblyInfoInputs.cache
+D:\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.AssemblyInfo.cs

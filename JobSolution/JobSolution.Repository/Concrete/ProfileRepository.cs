@@ -21,7 +21,8 @@ namespace JobSolution.Repository.Concrete
 
         public async Task<Profile> GetAuthUserProfile(int UserId)
         {
-            return await _dbContext.Profiles.FirstOrDefaultAsync(x => x.Id == UserId);
+            var User = await _dbContext.Profiles.FirstOrDefaultAsync(x => x.UserId == UserId);
+                return User;
         }
     }
 }

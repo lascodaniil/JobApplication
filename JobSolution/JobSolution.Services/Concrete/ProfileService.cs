@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Repository.Interfaces;
 using JobSolution.Services.Interfaces;
@@ -16,33 +17,28 @@ namespace JobSolution.Services.Concrete
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _context;
 
-        public ProfileService(IProfileRepository profileRepository,IMapper mapper, IHttpContextAccessor context)
+        public ProfileService(IProfileRepository profileRepository, IMapper mapper, IHttpContextAccessor context)
         {
             _profileRepository = profileRepository;
             _mapper = mapper;
             _context = context;
         }
 
-        
+
         public async Task<ProfileDTO> GetAuthProfile()
         {
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
             var UserProfile = await _profileRepository.GetAuthUserProfile(UserId);
-
-            try
-            {
-                byte[] b = File.ReadAllBytes(UserProfile.ImagePath);
-                UserProfile.ImagePath = "data:image/png;base64," + Convert.ToBase64String(b);
-            }
-            catch { }
-            return _mapper.Map<ProfileDTO>(UserProfile);         
+            return _mapper.Map<ProfileDTO>(UserProfile);
         }
 
-
-        public async Task UpdateProfile()
+        public async Task UpdateProfile(UserRegisterDto userRegisterDto)
         {
-            ProfileDTO profileDTO = new ProfileDTO();
-            JobSolution.Domain.Entities.Profile userProfile = new Domain.Entities.Profile();
+            var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
+            
+
+
+
         }
     }
 }

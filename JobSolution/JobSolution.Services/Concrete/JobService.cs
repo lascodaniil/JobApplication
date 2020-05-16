@@ -17,78 +17,76 @@ using System.Threading.Tasks;
 
 namespace JobSolution.Services.Concrete
 {
-    public class JobService : IJobService 
+    public class JobService : IJobService
     {
         private readonly IJobRepository _jobRepository;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _context;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IStudentJobService _studentJobService;
+        private readonly IServiceImage _serviceImage;
 
-        public JobService(IJobRepository jobRepository, 
-            IMapper mapper, IHttpContextAccessor context, 
+        public JobService(IJobRepository jobRepository,
+            IMapper mapper, IHttpContextAccessor context,
             IHostingEnvironment hostingEnvironment,
-            IStudentJobService studentJobService)
+            IStudentJobService studentJobService,
+            IServiceImage serviceImage)
         {
             _jobRepository = jobRepository;
             _mapper = mapper;
             _context = context;
             _hostingEnvironment = hostingEnvironment;
             _studentJobService = studentJobService;
+            _serviceImage = serviceImage;
         }
 
-        public async Task Add()
+        public async Task Add(JobDTO jobDTO)
         {
-            var entity = new JobDTO();
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
-            var job = new Job();
-            try
-            {
-                foreach (var key in _context.HttpContext.Request.Form.Keys)
-                {
-                    entity = JsonConvert.DeserializeObject<JobDTO>(_context.HttpContext.Request.Form[key]);
-                    job = _mapper.Map<Job>(entity);
-                    var file = _context.HttpContext.Request.Form.Files.Count > 0 ? _context.HttpContext.Request.Form.Files[0] : null;
-                    if (file != null)
-                    {
-                        
-                        string folderName = "Upload";
-                        string webRootPath = _hostingEnvironment.WebRootPath;
-                        if (string.IsNullOrWhiteSpace(webRootPath))
-                        {
-                            webRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
-                        }
-                        string newPath = Path.Combine(webRootPath, folderName);
+            Job job = new Job();
+            IFormFile file = jobDTO.Image;
+            string fullPath = null;
+            var imageId = 0;
 
-                        if (!Directory.Exists(newPath))
-                        {
-                            Directory.CreateDirectory(newPath);
-                        }
-                        if (file.Length > 0)
-                        {
-                            string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                            string fullPath = Path.Combine(newPath, fileName);
-                            job.ImagePath = fullPath;
-                            using (var stream = new FileStream(fullPath, FileMode.Create))
-                            {
-                                file.CopyTo(stream);
-                            }
-                        }
+            if (file != null)
+            {
+                string folderName = "Upload";
+                string webRootPath = _hostingEnvironment.WebRootPath;
+                if (string.IsNullOrWhiteSpace(webRootPath))
+                {
+                    webRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+                }
+                string newPath = Path.Combine(webRootPath, folderName);
+
+                if (!Directory.Exists(newPath))
+                {
+                    Directory.CreateDirectory(newPath);
+                }
+                if (file.Length > 0)
+                {
+                    string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                    fullPath = Path.Combine(newPath, fileName);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
                     }
                 }
-            }
-            catch(Exception e)
-            {
-
+                imageId = _serviceImage.GetIdInsertedImage(fullPath);
+                job.ImageId = imageId;
             }
 
 
-            
             job.UserId = UserId;
             job.PostDate = DateTime.Now;
-
+            job.CategoryId = jobDTO.CategoryId;
+            job.CityId = jobDTO.CityId;
+            job.Title = jobDTO.Title;
+            job.Salary = 6564;
+            job.Description = "55443534";
+            job.Contact = "fdsfs";
+            job.TypeJobId = 1;
+        
             await _jobRepository.Add(job);
-            _jobRepository.SaveAll();
 
         }
 
@@ -96,19 +94,6 @@ namespace JobSolution.Services.Concrete
         {
             var Jobs = await _jobRepository.GetAllJobs();
             var JobsListDTO = _mapper.Map<IQueryable<Job>, IList<JobDTO>>(Jobs);
-            foreach (var item in JobsListDTO)
-            {
-                try
-                {
-
-                    byte[] b = File.ReadAllBytes(item.ImagePath);
-                    item.ImagePath = "data:image/png;base64," + Convert.ToBase64String(b);
-                }
-                catch
-                {
-
-                }
-            }
             return JobsListDTO;
         }
         public async Task<JobDTO> GetByID(int id)
@@ -116,67 +101,62 @@ namespace JobSolution.Services.Concrete
             var toReturn = await _jobRepository.GetJobByID(id);
             return _mapper.Map<JobDTO>(toReturn);
         }
-        
-        public async Task Update(int id) {
+
+        public async Task Update(JobDTO jobDTO, int id)
+        {
 
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
-            var dbjob = await _jobRepository.GetJobByID(id);
-            JobDTO job = null;
 
-            try
+            IFormFile file = jobDTO.Image;
+            string fullPath = null;
+            var imageId = 0;
+
+
+            Job job = await _jobRepository.GetJobByID(id);
+
+
+            if (file != null)
             {
-                foreach (var key in _context.HttpContext.Request.Form.Keys)
+                string folderName = "Upload";
+                string webRootPath = _hostingEnvironment.WebRootPath;
+                if (string.IsNullOrWhiteSpace(webRootPath))
                 {
-                    job = JsonConvert.DeserializeObject<JobDTO>(_context.HttpContext.Request.Form[key]);
-                    var file = _context.HttpContext.Request.Form.Files.Count > 0 ? _context.HttpContext.Request.Form.Files[0] : null;
-                    if (file != null)
+                    webRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+                }
+                string newPath = Path.Combine(webRootPath, folderName);
+
+                if (!Directory.Exists(newPath))
+                {
+                    Directory.CreateDirectory(newPath);
+                }
+                if (file.Length > 0)
+                {
+                    string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                    fullPath = Path.Combine(newPath, fileName);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
-
-                        string folderName = "Upload";
-                        string webRootPath = _hostingEnvironment.WebRootPath;
-                        if (string.IsNullOrWhiteSpace(webRootPath))
-                        {
-                            webRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
-                        }
-                        string newPath = Path.Combine(webRootPath, folderName);
-
-                        if (!Directory.Exists(newPath))
-                        {
-                            Directory.CreateDirectory(newPath);
-                        }
-                        if (file.Length > 0)
-                        {
-                            string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                            string fullPath = Path.Combine(newPath, fileName);
-                            dbjob.ImagePath = fullPath;
-                            using (var stream = new FileStream(fullPath, FileMode.Create))
-                            {
-                                file.CopyTo(stream);
-                            }
-                        }
+                        file.CopyTo(stream);
                     }
                 }
-            }
-            catch (Exception e)
-            {
-
+                imageId = _serviceImage.GetIdInsertedImage(fullPath);
+                job.ImageId = imageId;
             }
 
-           
-            dbjob.TypeJobId = job.TypeJobId;
-            dbjob.CityId = job.CityId;
-            dbjob.Contact = job.Contact;
-            dbjob.EndDate = job.FinishedOn;
-            dbjob.Id = id;
-            dbjob.UserId = UserId;
-            dbjob.Title = job.Title;
-            dbjob.Salary = job.Salary;
-            dbjob.CategoryId = job.CategoryId;
-            await _jobRepository.Update(dbjob);
-        
-        }
-        public async Task Remove(int JobId) {
+
+            job.UserId = UserId;
+            job.PostDate = DateTime.Now;
+            job.CategoryId = jobDTO.CategoryId;
+            job.CityId = jobDTO.CityId;
+            job.Title = jobDTO.Title;
+            job.Description = "55443534";
+            job.Contact = "fdsfs";
+            job.TypeJobId = jobDTO.TypeJobId + 1;
             
+            await _jobRepository.Update(job);
+
+        }
+        public async Task Remove(int JobId)
+        {
             await _jobRepository.Delete(JobId);
         }
 
@@ -184,35 +164,19 @@ namespace JobSolution.Services.Concrete
         {
             var result = await GetAll();
             return result.Where(x => x.Category == category).ToList();
-          
         }
 
-        public async Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper) 
+        public async Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper)
         {
             var result = await _jobRepository.GetPagedData(pagedRequest, mapper);
-            foreach (var item in result.Items)
-            {
-                try
-                {
-
-                    byte[] b = System.IO.File.ReadAllBytes(item.ImagePath);
-                    item.ImagePath = "data:image/png;base64," + Convert.ToBase64String(b);
-                }
-                catch
-                {
-
-                }
-            }
-
             return result;
-
         }
 
         public async Task<PaginatedResult<JobDTO>> GetJobsForEmployer(PagedRequest pagedRequest, IMapper mapper)
         {
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
             var result = await _jobRepository.GetPagedData(pagedRequest, mapper, UserId);
-            return  result;
+            return result;
         }
 
         public async Task<PaginatedResult<JobDTO>> GetJobsForStudent(PagedRequest pagedRequest, IMapper mapper)
@@ -227,12 +191,8 @@ namespace JobSolution.Services.Concrete
         public async Task<IList<JobDTO>> GetByType(int TypeId)
         {
             var AllJobs = await _jobRepository.GetAllJobs();
-
-
-            var JobsList = AllJobs.Where(x=>x.TypeJobId==TypeId);
-
+            var JobsList = AllJobs.Where(x => x.TypeJobId == TypeId);
             var result = _mapper.Map<IQueryable<Job>, IList<JobDTO>>(JobsList);
-
             return result;
         }
 
@@ -242,13 +202,10 @@ namespace JobSolution.Services.Concrete
             return result;
         }
 
-        
-
         public async Task AddedJobByStudent(int id)
         {
             await _studentJobService.Add(id);
         }
-
         public async Task DeleteJobStudent(int id)
         {
             await _studentJobService.Delete(id);

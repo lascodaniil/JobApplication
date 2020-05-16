@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,6 +17,7 @@ namespace JobSolution.Domain.Entities
         public string PhoneNumber { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string University { get; set; }
-        
+        public IFormFile Image { get; set; }
+
     }
 }

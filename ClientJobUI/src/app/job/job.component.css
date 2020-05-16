@@ -31,6 +31,10 @@
   padding: 15px;
 }
 
+.jop-post:nth-child(3n+1) {
+  clear: left;
+}
+
 .jobs-results {
   display: inline-block;
   padding-top: 20px;
@@ -69,13 +73,6 @@
 }
 
 
-.post-thumbnail {
-  width: 100%;
-  height: 200px;
-  display: inline-block;
-  background-size: cover;
-  background-position: center center;
-}
 
 ::ng-deep .mat-card-title {
   padding: 0 20px;

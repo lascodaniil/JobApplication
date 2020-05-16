@@ -49,6 +49,10 @@ import {ViewJobComponent} from './home/view-job/view-job.component';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { JobImageComponent } from './job/job-image/job-image.component';
+import { ChatBoxComponent } from './chat-box/chat-box.component';
+import { ProfileImageComponent } from './top-navigation/profile-image/profile-image.component';
+import {AuthGuardService} from "./_services/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -69,6 +73,9 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     ViewJobComponent,
     TopNavigationComponent,
     EditProfileComponent,
+    JobImageComponent,
+    ChatBoxComponent,
+    ProfileImageComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +117,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
       multi: true
     },
     JobService,
+    AuthGuardService,
     AuthService],
   bootstrap: [AppComponent]
 })

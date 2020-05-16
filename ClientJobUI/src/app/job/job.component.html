@@ -8,9 +8,7 @@
           <mat-card-title>{{job.title}}</mat-card-title>
           <div class="job-content">
             <div class="left-content">
-              <span class="post-thumbnail"
-                    [ngStyle]="{'background-image':'url(' + job.imagePath + ')'}">
-              </span>
+          <app-job-image [imageId]="job.imageId"></app-job-image>
             </div>
             <div class="right-content">
               <mat-list>
@@ -23,15 +21,10 @@
           </div>
           <mat-action-list *ngxPermissionsOnly="['Student']">
             <a mat-list-item (click)="subscribe(job.jobId)"><span class="material-icons">add_circle</span></a>
+            <a mat-list-item (click)="onChat(job)">Chat</a>
           </mat-action-list>
         </mat-card>
       </div>
     </div>
   </div>
-
-  <mat-paginator
-    [length]="100"
-    [pageSize]="10"
-    [pageSizeOptions]="this.pageOptions">
-  </mat-paginator>
 </mat-list>

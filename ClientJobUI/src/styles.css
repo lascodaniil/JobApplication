@@ -17,6 +17,7 @@ body {
 .cdk-overlay-pane {
   max-width: 55vw !important;
 }
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -26,4 +27,8 @@ body {
 
 .mat-card .container {
   width: auto;
+}
+
+.mat-menu-panel {
+  width: 90% !important;
 }

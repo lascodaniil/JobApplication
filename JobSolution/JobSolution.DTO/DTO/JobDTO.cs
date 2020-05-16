@@ -1,4 +1,5 @@
 ﻿using JobSolution.Domain.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,10 +20,13 @@ namespace JobSolution.DTO.DTO
         public DateTime? PublishedOn { get; set; }
         public DateTime? FinishedOn { get; set; }
         public DateTime? EnrolledDate { get; set; }
+        public IFormFile Image { get; set; }
         public string ImagePath { get; set; }
         public string Contact { get; set; }
         public float Salary { get; set; }
         public string Description { get; set; }
         public string TypeJob { get; set; }
+        public int? ImageId { get; set; }
+
     }
 }

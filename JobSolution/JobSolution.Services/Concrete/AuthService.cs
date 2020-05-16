@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Claims;
@@ -26,7 +27,7 @@ namespace JobSolution.Services.Interfaces
 {
     public class AuthService : IAuthService
     {
-        private readonly IAuthRepository _authRepository; 
+        private readonly IAuthRepository _authRepository;
         private readonly AuthOptions _authOptions;
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
@@ -35,64 +36,59 @@ namespace JobSolution.Services.Interfaces
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _context;
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IServiceImage _serviceImage;
 
-        public AuthService(AppDbContext dbContext, IAuthRepository authRepository, IOptions<AuthOptions> authOption, SignInManager<User> signInManager, 
-            UserManager<User> userManager, IHttpContextAccessor context, IHostingEnvironment hostingEnvironment)
+        public AuthService(AppDbContext dbContext, IAuthRepository authRepository, IOptions<AuthOptions> authOption, SignInManager<User> signInManager,
+            UserManager<User> userManager, IHttpContextAccessor context, IHostingEnvironment hostingEnvironment,
+             IServiceImage serviceImage)
         {
             _authRepository = authRepository;
             _authOptions = authOption.Value;
             _signInManager = signInManager;
             _userManager = userManager;
             _dbContext = dbContext;
+            _serviceImage = serviceImage;
 
             _context = context;
             _hostingEnvironment = hostingEnvironment;
-        } 
-        public async Task<IActionResult> AddUser()
+        }
+        public async Task<IActionResult> AddUser(UserRegisterDto userRegisterDto)
         {
-            UserRegisterDto userRegisterDto = new UserRegisterDto();
+            UserRegisterDto userRegister = new UserRegisterDto();
             JobSolution.Domain.Entities.Profile userProfile = new Domain.Entities.Profile();
-            try
+
+            IFormFile file = userRegisterDto.Image;
+            string fullPath = null;
+            var imageId = 0;
+
+            if (file != null)
             {
-                foreach (var key in _context.HttpContext.Request.Form.Keys)
+                string folderName = "Profile";
+                string webRootPath = _hostingEnvironment.WebRootPath;
+                if (string.IsNullOrWhiteSpace(webRootPath))
                 {
-                    userRegisterDto = JsonConvert.DeserializeObject<UserRegisterDto>(_context.HttpContext.Request.Form[key]);
-                    var file = _context.HttpContext.Request.Form.Files.Count > 0 ? _context.HttpContext.Request.Form.Files[0] : null;
+                    webRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+                }
+                string newPath = Path.Combine(webRootPath, folderName);
 
-                    if (file != null)
+                if (!Directory.Exists(newPath))
+                {
+                    Directory.CreateDirectory(newPath);
+                }
+                if (file.Length > 0)
+                {
+                    string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                    fullPath = Path.Combine(newPath, fileName);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
-
-                        string folderName = "Profile";
-                        string webRootPath = _hostingEnvironment.WebRootPath;
-                        if (string.IsNullOrWhiteSpace(webRootPath))
-                        {
-                            webRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
-                        }
-                        string newPath = Path.Combine(webRootPath, folderName);
-
-                        if (!Directory.Exists(newPath))
-                        {
-                            Directory.CreateDirectory(newPath);
-                        }
-                        if (file.Length > 0)
-                        {
-                            string fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                            string fullPath = Path.Combine(newPath, fileName);
-                            userProfile.ImagePath = fullPath;
-                            using (var stream = new FileStream(fullPath, FileMode.Create))
-                            {
-                                file.CopyTo(stream);
-                            }
-                        }
+                        file.CopyTo(stream);
                     }
                 }
-            }
-            catch (Exception e)
-            {
-
+                imageId = _serviceImage.GetIdInsertedImage(fullPath);
+                userProfile.ImageId = imageId;
             }
 
-            if(userRegisterDto == null)
+            if (userRegisterDto == null)
             {
                 return new StatusCodeResult(500);
             }
@@ -128,29 +124,28 @@ namespace JobSolution.Services.Interfaces
                 LastName = userRegisterDto.LastName,
                 Email = userRegisterDto.Email,
                 PhoneNumber = userRegisterDto.PhoneNumber,
-                University = userRegisterDto.University,
                 UserId = _userManager.FindByEmailAsync(AddUser.Email).Result.Id,
             };
 
             _dbContext.Profiles.Add(Profile);
             _dbContext.SaveChanges();
 
-            var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
             
+            var signinCredentials = new SigningCredentials(_authOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256);
             var jwtSecurityToken = new JwtSecurityToken(
                  issuer: _authOptions.Issuer,
                  audience: _authOptions.Audience,
-                 claims: new List<Claim>() { new Claim(ClaimTypes.Role, userRegisterDto.RoleFromRegister), new Claim(ClaimTypes.NameIdentifier, Profile.UserId.ToString()) },
+                 claims: new List<Claim>() { new Claim(ClaimTypes.Role, userRegisterDto.RoleFromRegister), new Claim(ClaimTypes.NameIdentifier, Profile.UserId.ToString()), new Claim("UserId", Profile.UserId.ToString()) },
                  expires: DateTime.Now.AddDays(30),
                  signingCredentials: signinCredentials);
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            
+
             var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
 
 
 
-            return  new OkObjectResult(new { AccessToken = encodedToken });
+            return new OkObjectResult(new { AccessToken = encodedToken });
 
         }
 
@@ -163,7 +158,7 @@ namespace JobSolution.Services.Interfaces
             var claims = new List<Claim>();
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
             claims.Add(new Claim("UserId", user.Id.ToString()));
-            
+
 
             foreach (var item in role)
             {
@@ -183,7 +178,7 @@ namespace JobSolution.Services.Interfaces
                 var tokenHandler = new JwtSecurityTokenHandler();
 
                 var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
-                return  new OkObjectResult(new { AccessToken = encodedToken });
+                return new OkObjectResult(new { AccessToken = encodedToken });
             }
             return new UnauthorizedResult();
         }

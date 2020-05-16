@@ -30,10 +30,15 @@ export class RegistrationFormComponent implements OnInit {
 
   onSubmit() {
     let formData: FormData = new FormData();
-    formData.append('profileImage', this.profileImage);
-    var postData = JSON.stringify(this.registeredUser);
-    formData.append("postData",postData );
-    console.log(formData);
+    formData.append('Image', this.profileImage);
+    formData.append('UserName',this.registeredUser.UserName);
+    formData.append('FirstName', this.registeredUser.FirstName);
+    formData.append('LastName', this.registeredUser.LastName);
+    formData.append('Email', this.registeredUser.Email);
+    formData.append('Password', this.registeredUser.Password);
+    formData.append('PhoneNumber', this.registeredUser.PhoneNumber);
+    formData.append('RoleFromRegister',this.registeredUser.RoleFromRegister);
+
     this.register(formData);
   }
 
@@ -43,6 +48,7 @@ export class RegistrationFormComponent implements OnInit {
         this.token = data.accessToken;
         this.authService.tokenObject = this.token;
         localStorage.setItem('accessToken', this.authService.tokenObject);
+        this.authService.setUserRole();
         this.router.navigate(['/profile']);
       });
   }

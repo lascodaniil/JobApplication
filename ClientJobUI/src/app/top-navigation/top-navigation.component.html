@@ -34,10 +34,13 @@
     <div class="user-options" *ngIf="loggedUser.fullName">
       <button mat-button [matMenuTriggerFor]="userSettings">
         {{loggedUser.fullName}}
-        <span class="user-thumbnail" [ngStyle]="{'background-image':'url(' + loggedUser.imagePath + ')'}"></span>
+        <app-profile-image
+          *ngIf="authService.isLoggedIn()"
+          [imageId]="loggedUser.imageId">
+        </app-profile-image>
       </button>
       <mat-menu #userSettings="matMenu">
-        <button mat-menu-item routerLink="edit" >
+        <button mat-menu-item routerLink="edit">
           Edit Profile
         </button>
         <button mat-menu-item (click)="authService.logout()">

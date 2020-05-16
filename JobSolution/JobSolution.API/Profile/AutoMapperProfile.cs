@@ -19,12 +19,15 @@ namespace JobSolution.API.Profile
                                     .ForMember(x => x.Employer, y => y.MapFrom(x => x.User.Profile.FirstName + " " + x.User.Profile.LastName))
                                     .ForMember(x => x.City, y => y.MapFrom(x => x.Cities.City))
                                     .ForMember(x => x.TypeJob, y => y.MapFrom(x => x.TypeJob.Name))
-                                    .ForMember(x=>x.ImagePath,y=>y.MapFrom(x=>x.ImagePath));
-                                    
-            
+                                    .ForMember(x => x.Image, y => y.Ignore())
+                                    .ForMember(x => x.ImagePath, y => y.MapFrom(z => z.Image.Path));
+
+
             CreateMap<JobDTO, Job>().ForMember(x => x.PostDate, y => y.MapFrom(z => z.PublishedOn))
                                     .ForMember(x => x.EndDate, y => y.MapFrom(z => z.FinishedOn))
                                     .ForMember(x => x.Category, y => y.Ignore());
+                                  
+                                    
 
             CreateMap<Advert, AdvertDTO>().ForMember(x => x.AdvertId, y => y.MapFrom(y => y.Id))
                                           .ForMember(x => x.City, y => y.MapFrom(z => z.Cities.City))
@@ -38,13 +41,12 @@ namespace JobSolution.API.Profile
             CreateMap<TypeJob, TypeJobDTO>();
 
             CreateMap<JobSolution.Domain.Entities.Profile, ProfileDTO>()
-                .ForMember(x => x.ImagePath, y => y.MapFrom(z => z.ImagePath))
+                .ForMember(x => x.ImagePath, y => y.MapFrom(z => z.Image.Path))
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.PhoneNumber, y => y.MapFrom(z => z.PhoneNumber))
                 .ForMember(x => x.RegistrationDate, y => y.MapFrom(x => x.RegisterDate))
                 .ForMember(x => x.FullName, y => y.MapFrom(x => x.FirstName + " " + x.LastName))
                 .ForMember(x=>x.DateOfBirth, y=>y.MapFrom(x=>x.DateOfBirth));
-
 
 
             CreateMap<UserRegisterDto, JobSolution.Domain.Entities.Profile>()
@@ -58,7 +60,6 @@ namespace JobSolution.API.Profile
 
             CreateMap<JobSolution.Domain.Entities.Profile, UserRegisterDto>();
                 
-
             CreateMap<Categories, CategoryDTO>()
                 .ForMember(x => x.Category, y => y.MapFrom(x => x.Category));
             CreateMap<Cities, CityDTO>()

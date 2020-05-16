@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {JobService} from '../_services/job.service';
-import {AuthService} from '../_services/auth.service';
 import {ToolBarService} from '../_services/toolbar.service.service';
 import {JobDTO} from '../_models/DTO/JobDTO';
 import {PaginatedRequest} from '../_models/PaginatedRequest';
 import {ActivatedRoute, Params} from '@angular/router';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { ChatService } from '../_services/chat.service';
 
 
 @Component({
@@ -16,7 +14,6 @@ import {map} from 'rxjs/operators';
 })
 
 export class JobComponent implements OnInit {
-  pageOptions = [1, 2, 3, 4, 5];
   jobsTypeId: number;
   filter = {} as PaginatedRequest;
   allJobs: JobDTO[];
@@ -24,7 +21,7 @@ export class JobComponent implements OnInit {
 
   constructor(private jobService: JobService,
               private toolBarService: ToolBarService,
-              route: ActivatedRoute) {
+              route: ActivatedRoute, private chatService: ChatService) {
     route.params.subscribe((params: Params) => {
       this.jobsTypeId = Number(params.id);
     });
@@ -55,19 +52,20 @@ export class JobComponent implements OnInit {
 
   loadJobs() {
     this.jobService.getAllJobPaginated(this.filter).subscribe(data => {
-      this.allJobs = data.items.map((item) => {
-        item.imagePath = item.imagePath !== ''
-          ? item.imagePath
-          : 'https://www.northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png';
-        return item;
-      });
-      console.log(this.allJobs);
+      this.allJobs = data.items;
     });
   }
 
   subscribe(jobId:number){
     this.jobService.addJobStudent(jobId).subscribe();
   }
+
+  onChat(job: JobDTO){
+    this.chatService.newChat(job);
+  }
+
+
+
 
 }
 

@@ -7,3 +7,49 @@ D:\JobApplication\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSol
 D:\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csproj.CoreCompileInputs.cache
 D:\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.dll
 D:\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.deps.json
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csproj.CoreCompileInputs.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.AssemblyInfoInputs.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.AssemblyInfo.cs
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csprojAssemblyReference.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.deps.json
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csprojAssemblyReference.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csproj.CoreCompileInputs.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.AssemblyInfoInputs.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.AssemblyInfo.cs
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csprojAssemblyReference.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csproj.CoreCompileInputs.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.AssemblyInfoInputs.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.AssemblyInfo.cs
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.deps.json
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.Domain.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.Domain.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csproj.CopyComplete
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.deps.json
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.Domain.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\bin\Debug\netcoreapp3.1\JobSolution.Domain.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csprojAssemblyReference.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csproj.CoreCompileInputs.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.AssemblyInfoInputs.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.AssemblyInfo.cs
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.csproj.CopyComplete
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.SignalR\obj\Debug\netcoreapp3.1\JobSolution.SignalR.pdb

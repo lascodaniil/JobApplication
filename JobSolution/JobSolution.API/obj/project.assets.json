@@ -3292,6 +3292,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "JobSolution.Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.SignalR.Core": "1.1.0",
           "System.IdentityModel.Tokens.Jwt": "6.5.0"
         },
@@ -10046,11 +10047,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\JobApplication\\JobSolution\\JobSolution.API\\JobSolution.API.csproj",
+      "projectUniqueName": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.API\\JobSolution.API.csproj",
       "projectName": "JobSolution.API",
-      "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.API\\JobSolution.API.csproj",
+      "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.API\\JobSolution.API.csproj",
       "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
-      "outputPath": "D:\\JobApplication\\JobSolution\\JobSolution.API\\obj\\",
+      "outputPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10066,20 +10067,20 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\JobApplication\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj": {
-              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj"
+            "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj": {
+              "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj"
             },
-            "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj": {
-              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj"
+            "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj"
             },
-            "D:\\JobApplication\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj": {
-              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj"
+            "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj": {
+              "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj"
             },
-            "D:\\JobApplication\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj": {
-              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj"
+            "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj": {
+              "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj"
             },
-            "D:\\JobApplication\\JobSolution\\JobSolution.SignalR\\JobSolution.SignalR.csproj": {
-              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.SignalR\\JobSolution.SignalR.csproj"
+            "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.SignalR\\JobSolution.SignalR.csproj": {
+              "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.SignalR\\JobSolution.SignalR.csproj"
             }
           }
         }

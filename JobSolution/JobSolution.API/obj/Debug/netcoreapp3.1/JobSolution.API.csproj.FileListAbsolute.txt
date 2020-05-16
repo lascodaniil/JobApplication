@@ -311,3 +311,443 @@ D:\JobApplication\JobSolution\JobSolution\JobSolution\JobSolution.API\obj\Debug\
 D:\JobApplication\JobSolution\JobSolution\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.genruntimeconfig.cache
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.SignalR.dll
 D:\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csprojAssemblyReference.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csproj.CoreCompileInputs.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.AssemblyInfoInputs.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.AssemblyInfo.cs
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\appsettings.json
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.exe
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.deps.json
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.runtimeconfig.json
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.runtimeconfig.dev.json
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.NodeServices.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SpaServices.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SpaServices.Extensions.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Configuration.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Console.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySql.Data.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySql.Data.EntityFrameworkCore.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Domain.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.DTO.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Repository.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Services.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.DTO.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Repository.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Services.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Domain.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cs
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.RazorTargetAssemblyInfo.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csproj.CopyComplete
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticwebassets\JobSolution.API.StaticWebAssets.Manifest.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticwebassets\JobSolution.API.StaticWebAssets.xml
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.genruntimeconfig.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\appsettings.json
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.exe
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.deps.json
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.runtimeconfig.json
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.runtimeconfig.dev.json
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.NodeServices.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SpaServices.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SpaServices.Extensions.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Configuration.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Console.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySql.Data.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySql.Data.EntityFrameworkCore.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Domain.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.DTO.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Repository.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Services.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.DTO.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Repository.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Services.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Domain.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csprojAssemblyReference.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csproj.CoreCompileInputs.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cs
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.AssemblyInfoInputs.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.AssemblyInfo.cs
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.RazorTargetAssemblyInfo.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csproj.CopyComplete
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticwebassets\JobSolution.API.StaticWebAssets.Manifest.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticwebassets\JobSolution.API.StaticWebAssets.xml
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.genruntimeconfig.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.NodeServices.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SpaServices.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Configuration.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Console.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySql.Data.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySql.Data.EntityFrameworkCore.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Domain.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.DTO.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Repository.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Services.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.DTO.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Repository.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Services.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Domain.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csprojAssemblyReference.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csproj.CoreCompileInputs.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.AssemblyInfoInputs.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.AssemblyInfo.cs
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.RazorTargetAssemblyInfo.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csproj.CopyComplete
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.exe
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.deps.json
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.runtimeconfig.json
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.runtimeconfig.dev.json
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticwebassets\JobSolution.API.StaticWebAssets.Manifest.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticwebassets\JobSolution.API.StaticWebAssets.xml
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.genruntimeconfig.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.exe
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.deps.json
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.runtimeconfig.json
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.runtimeconfig.dev.json
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.API.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.NodeServices.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SpaServices.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Configuration.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Console.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySql.Data.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySql.Data.EntityFrameworkCore.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Domain.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.DTO.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Repository.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Services.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.SignalR.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.DTO.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Infrastructure.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Repository.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Services.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.SignalR.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\bin\Debug\netcoreapp3.1\JobSolution.Domain.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csprojAssemblyReference.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csproj.CoreCompileInputs.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.AssemblyInfoInputs.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.AssemblyInfo.cs
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.RazorTargetAssemblyInfo.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.csproj.CopyComplete
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticwebassets\JobSolution.API.StaticWebAssets.Manifest.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\staticwebassets\JobSolution.API.StaticWebAssets.xml
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.API\obj\Debug\netcoreapp3.1\JobSolution.API.genruntimeconfig.cache

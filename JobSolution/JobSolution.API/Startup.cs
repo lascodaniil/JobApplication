@@ -36,14 +36,14 @@ namespace JobSolution.API
         {
             Configuration = configuration;
         }
-        
+
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
             services.AddMvc();
             services.AddSignalR();
-            services.AddCors(options => options.AddPolicy("Cors", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+            services.AddCors(options => options.AddPolicy("Cors", builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials()));
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1",
@@ -68,11 +68,12 @@ namespace JobSolution.API
             services.AddTransient<IAdvertRepository, AdvertRepository>();
             services.AddTransient<IJobTypeRepository, TypeJobRepository>();
             services.AddTransient<ITypeJobService, TypeJobServices>();
-
             services.AddTransient<IAuthRepository, AuthRepository>();
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IStudentJobService, StudentJobService>();
             services.AddTransient<IStudentJobRepository, StudentJobRepository>();
+            services.AddTransient<IRepositoryImage, RepositoryImage>();
+            services.AddTransient<IServiceImage, ServiceImage>();
 
 
 
@@ -90,7 +91,7 @@ namespace JobSolution.API
 
             var authOptions = services.ConfigureAuthOptions(Configuration);
             services.AddJwtAuthentication(authOptions);
-            
+
             services.AddControllers(options =>
             {
                 options.Filters.Add(new AuthorizeFilter());
@@ -101,29 +102,31 @@ namespace JobSolution.API
         {
             app.UseCors("Cors");
             app.UseSwagger();
-            app.UseSwaggerUI(options => {
+            app.UseSwaggerUI(options =>
+            {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Job API");
                 options.RoutePrefix = "swagger";
             });
 
-            app.UseMiddleware<ErrorHandlingMiddleware>();
+           // app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseDeveloperExceptionPage();
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
 
+
+
             app.UseEndpoints(endpoints =>
             {
 
-                endpoints.MapHub<Chat>("/work");
+                endpoints.MapHub<Chat>("/chat");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                  );
-               ;
+                ;
             });
-
 
             app.UseSpa(spa =>
             {
@@ -136,16 +139,22 @@ namespace JobSolution.API
             });
 
 
-            //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            //{
-            //    var dbContext = serviceScope.ServiceProvider.GetService<AppDbContext>();
-            //    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
-            //    var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
 
-            //    dbContext.Database.Migrate();
-            //    DbSeeder.Seed(dbContext, roleManager, userManager);
-            //    dbContext.SaveChanges();
-            //}
+                var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
+                var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
+
+                using (var dbContext = serviceScope.ServiceProvider.GetService<AppDbContext>())
+                {
+                    if (!dbContext.Profiles.Any())
+                    {
+                        dbContext.Database.Migrate();
+                        DbSeeder.Seed(dbContext, roleManager, userManager);
+                        dbContext.SaveChanges();
+                    }
+                }
+            }
         }
     }
 }

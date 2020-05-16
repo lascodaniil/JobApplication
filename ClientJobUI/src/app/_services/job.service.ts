@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PaginatedRequest} from '../_models/PaginatedRequest';
 import {JobDTO} from '../_models/DTO/JobDTO';
@@ -50,15 +50,9 @@ export class JobService {
     return  this.http.get<CityDTO[]>(`${urlJob}/City`);
   }
 
-  addjob(job: JobDTO): Observable<any> {
-    return  this.http.post(`${urlJob}`, job);
-  }
-
   AddJobFormData(formData : any) : Observable<any> {
     return  this.http.post(`${urlJob}/Post`, formData);
   }
-
-
   deleteJob(id: number): Observable<any>{
     return  this.http.delete(`${urlJob}/${id}`);
   };
@@ -82,5 +76,8 @@ export class JobService {
     return  this.http.get(`${urlJob}/Added/${id}`);
   }
 
-
+  getImage(id : number) : Observable<Blob>{
+    return  this.http.get(`${urlJob}/Image/${id}`,
+      { responseType: 'blob'});
+  }
 }

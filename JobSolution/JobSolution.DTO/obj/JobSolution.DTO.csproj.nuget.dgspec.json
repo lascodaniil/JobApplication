@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\JobApplication\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj": {}
+    "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj": {}
   },
   "projects": {
-    "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj": {
+    "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
         "projectName": "JobSolution.Domain",
-        "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
+        "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
         "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
-        "outputPath": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -71,14 +71,14 @@
         }
       }
     },
-    "D:\\JobApplication\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj": {
+    "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JobApplication\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj",
+        "projectUniqueName": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj",
         "projectName": "JobSolution.DTO",
-        "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj",
+        "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.DTO\\JobSolution.DTO.csproj",
         "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
-        "outputPath": "D:\\JobApplication\\JobSolution\\JobSolution.DTO\\obj\\",
+        "outputPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.DTO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -94,8 +94,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj": {
-                "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj"
+              "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj": {
+                "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj"
               }
             }
           }

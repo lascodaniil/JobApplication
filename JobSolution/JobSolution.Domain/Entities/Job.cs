@@ -15,17 +15,20 @@ namespace JobSolution.Domain.Entities
         public DateTime? PostDate { get; set; } = DateTime.Now; 
         public DateTime? EndDate { get; set; } 
         public DateTime? EnrolledDate { get; set; }
-        public string ImagePath { get; set; } 
         public float Salary { get; set; }
         [ForeignKey("Cities")]
         public int CityId { get; set; }
         public Cities Cities { get; set; }
+
         public Categories Category { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
         [ForeignKey("TypeJob")]
         public int TypeJobId { get; set; }
         public TypeJob TypeJob { get; set; }
+        [ForeignKey("Image")]
+        public int? ImageId { get; set; }
+        public Image Image { get; set; }
         public virtual ICollection<StudentJobs> StudentJobs { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace JobSolution.Services.Interfaces
     public interface IProfileService
     {
         Task<ProfileDTO> GetAuthProfile();
-        
+        Task UpdateProfile(UserRegisterDto userRegisterDto);
 
     }
 }

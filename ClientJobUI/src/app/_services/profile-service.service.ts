@@ -17,8 +17,9 @@ export class ProfileServiceService {
     return this.http.get<ProfileDTO>(`${URL_PROFILE}/Profile`);
   }
 
-
-
+  updateProfileUser(formData): Observable<any> {
+    return this.http.put(`${URL_PROFILE}/Update`, formData);
+  }
 
 
 }

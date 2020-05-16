@@ -34,3 +34,51 @@ D:\JobApplication\JobSolution\JobSolution\JobSolution\JobSolution.Infrastructure
 D:\JobApplication\JobSolution\JobSolution\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csproj.CopyComplete
 D:\JobApplication\JobSolution\JobSolution\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.dll
 D:\JobApplication\JobSolution\JobSolution\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.deps.json
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Domain.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csprojAssemblyReference.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csproj.CoreCompileInputs.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.AssemblyInfoInputs.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.AssemblyInfo.cs
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csproj.CopyComplete
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.deps.json
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Domain.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csprojAssemblyReference.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csproj.CoreCompileInputs.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.AssemblyInfoInputs.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.AssemblyInfo.cs
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csproj.CopyComplete
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.deps.json
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Domain.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csprojAssemblyReference.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.AssemblyInfo.cs
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csproj.CopyComplete
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.deps.json
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Domain.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csprojAssemblyReference.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.AssemblyInfo.cs
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.csproj.CopyComplete
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Infrastructure\obj\Debug\netstandard2.0\JobSolution.Infrastructure.pdb

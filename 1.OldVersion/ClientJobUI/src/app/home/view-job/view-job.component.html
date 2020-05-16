@@ -1,0 +1,20 @@
+<!--<div class="view-job-popup">-->
+  <mat-card>
+    <mat-card-title>{{job.title}}</mat-card-title>
+    <div class="job-content">
+      <div class="left-content">
+              <span class="post-thumbnail"
+                    [ngStyle]="{'background-image':'url(' + job.imagePath + ')'}">
+              </span>
+      </div>
+      <div class="right-content">
+        <mat-list>
+          <mat-list-item> {{job.category}}</mat-list-item>
+          <mat-list-item> {{job.contact}}</mat-list-item>
+          <mat-list-item> {{job.city}}</mat-list-item>
+          <mat-list-item> {{job.employer}}</mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-card>
+<!--</div>-->

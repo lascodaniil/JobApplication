@@ -13,6 +13,6 @@ export interface JobDTO {
   contact: string;
   salary: string;
   description: string;
-  numberOfApplicants: number;
-  marked:number;// ?? boolean
+  imageId: number;
+
 }

@@ -33,7 +33,7 @@ namespace JobSolution.API.Controllers
         private readonly IAuthService _authService;
         public AuthController(IAuthService authService)
         {
-            
+
             _authService = authService;
         }
 
@@ -44,9 +44,9 @@ namespace JobSolution.API.Controllers
         }
 
         [HttpPost("Registration")]
-        public async Task<IActionResult> Add()
+        public async Task<IActionResult> Add([FromForm] UserRegisterDto userRegisterDto)
         {
-            return await _authService.AddUser();
+            return await _authService.AddUser(userRegisterDto);
         }
     }
 }

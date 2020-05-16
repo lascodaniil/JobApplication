@@ -29,7 +29,7 @@ namespace JobSolution.API.Controllers
             _mapper = mapper;
         }
 
-       
+
         [HttpGet("{advertId}")]
         [AllowAnonymous]
         public async Task<IActionResult> GetById(int advertId)
@@ -58,14 +58,14 @@ namespace JobSolution.API.Controllers
             {
                 await _advertService.Add(advertDTO);
 
-                return Ok();    
+                return Ok();
             }
 
             return BadRequest();
         }
 
         [HttpDelete("{advertId}")]
-        [Authorize(Roles ="Student")]
+        [Authorize(Roles = "Student")]
         public async Task<IActionResult> Delete(int advertId)
         {
             await _advertService.Remove(advertId);

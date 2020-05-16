@@ -41,7 +41,6 @@
     <mat-label>Contact</mat-label>
     <input required [(ngModel)]="this.job.contact" type="number" matInput>
   </mat-form-field>
-
   <mat-form-field>
     <mat-label>Choose a date</mat-label>
     <input matInput [matDatepicker]="picker" [ngModel]="this.job.finishedOn" (dateChange)="addEvent($event)">

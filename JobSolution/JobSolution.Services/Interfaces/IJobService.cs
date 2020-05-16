@@ -16,8 +16,8 @@ namespace JobSolution.Services.Interfaces
     {
         Task<IList<JobDTO>> GetAll();
         Task<JobDTO> GetByID(int JobId);
-        Task Add(/*JobDTO JobDTO*/);
-        Task Update(int id);
+        Task Add(JobDTO JobDTO);
+        Task Update(JobDTO jobDTO, int id);
         Task Remove(int JobId);
         Task<IList<JobDTO>> GetByType(int TypeId);
         Task<IList<JobDTO>> GetJobsByCategory(string Category);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Srlfs510Em87myRct0QgKgUN090t4LzrpM++M6loVGtGWRNwHCkQlzzvkToy1BHyrPFJSa96h8ZWYdyoKQ4JPQ==",
+  "dgSpecHash": "LYZmoeN5WiEp+nUPzeFqgVze2X5syWyNu2KQ6HugSDQ68SxLjKzb1MahoCdz/KHVXWi/IqQi/wH+0lRzzV5xjQ==",
   "success": true,
-  "projectFilePath": "D:\\JobApplication\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj",
+  "projectFilePath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Repository\\JobSolution.Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniil\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

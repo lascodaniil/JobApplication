@@ -288,6 +288,21 @@ namespace JobSolution.Infrastructure.Migrations
                     b.ToTable("Cities");
                 });
 
+            modelBuilder.Entity("JobSolution.Domain.Entities.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("JobSolution.Domain.Entities.Job", b =>
                 {
                     b.Property<int>("Id")
@@ -315,8 +330,8 @@ namespace JobSolution.Infrastructure.Migrations
                     b.Property<DateTime?>("EnrolledDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ImageId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("PostDate")
                         .HasColumnType("datetime2");
@@ -340,6 +355,8 @@ namespace JobSolution.Infrastructure.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("CityId");
+
+                    b.HasIndex("ImageId");
 
                     b.HasIndex("TypeJobId");
 
@@ -366,6 +383,9 @@ namespace JobSolution.Infrastructure.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ImageId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
@@ -389,6 +409,8 @@ namespace JobSolution.Infrastructure.Migrations
 
                     b.HasIndex("Email")
                         .IsUnique();
+
+                    b.HasIndex("ImageId");
 
                     b.HasIndex("PhoneNumber")
                         .IsUnique();
@@ -522,6 +544,10 @@ namespace JobSolution.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("JobSolution.Domain.Entities.Image", "Image")
+                        .WithMany("Jobs")
+                        .HasForeignKey("ImageId");
+
                     b.HasOne("JobSolution.Domain.Entities.TypeJob", "TypeJob")
                         .WithMany()
                         .HasForeignKey("TypeJobId")
@@ -537,6 +563,10 @@ namespace JobSolution.Infrastructure.Migrations
 
             modelBuilder.Entity("JobSolution.Domain.Entities.Profile", b =>
                 {
+                    b.HasOne("JobSolution.Domain.Entities.Image", "Image")
+                        .WithMany("Profile")
+                        .HasForeignKey("ImageId");
+
                     b.HasOne("JobSolution.Domain.Auth.User", "User")
                         .WithOne("Profile")
                         .HasForeignKey("JobSolution.Domain.Entities.Profile", "UserId")

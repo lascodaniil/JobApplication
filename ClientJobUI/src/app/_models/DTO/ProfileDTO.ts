@@ -9,4 +9,5 @@ export interface ProfileDTO{
   lastName:string;
   dateOfBirth:Date;
   registerDate:Date;
+  imageId: number;
 }

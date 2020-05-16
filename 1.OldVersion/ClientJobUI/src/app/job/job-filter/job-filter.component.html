@@ -1,0 +1,13 @@
+<mat-card class="mat-elevation-z3">
+  <mat-form-field appearance="outline" class="search-box">
+    <mat-label>Search the job</mat-label>
+    <input matInput [formControl]="searchInput" (keyup)="onSearch()">
+  </mat-form-field>
+  <table class="filter-options">
+    <th mat-sort-header="Title" (click)="this.filterByAttribute('title','titleOrder')">Title</th>
+    <th mat-sort-header="City" (click)="this.filterByAttribute('city','titleOrder')">City</th>
+    <th mat-sort-header="Category" (click)="this.filterByAttribute('category','categoryOrder')">Category</th>
+  </table>
+</mat-card>
+
+

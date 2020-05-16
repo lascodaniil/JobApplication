@@ -14,6 +14,6 @@ namespace JobSolution.DTO.DTO
         public DateTime ? DateOfBirth { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
+        public int? ImageId { get; set; }
     }
 }

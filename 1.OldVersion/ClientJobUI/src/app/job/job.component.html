@@ -1,0 +1,37 @@
+<mat-list class="container">
+  <div class="jobs-container" matSort>
+    <app-job-filter (onFiltered)="onFiltered($event)" (onSearchChange)="onSearch($event)"></app-job-filter>
+
+    <div class="jobs-results">
+      <div class="jop-post" *ngFor="let job of allJobs">
+        <mat-card>
+          <mat-card-title>{{job.title}}</mat-card-title>
+          <div class="job-content">
+            <div class="left-content">
+              <span class="post-thumbnail"
+                    [ngStyle]="{'background-image':'url(' + job.imagePath + ')'}">
+              </span>
+            </div>
+            <div class="right-content">
+              <mat-list>
+                <mat-list-item> {{job.category}}</mat-list-item>
+                <mat-list-item> {{job.city}}</mat-list-item>
+                <mat-list-item> {{job.contact}}</mat-list-item>
+                <mat-list-item> {{job.employer}}</mat-list-item>
+              </mat-list>
+            </div>
+          </div>
+          <mat-action-list *ngxPermissionsOnly="['Student']">
+            <a mat-list-item (click)="subscribe(job.jobId)"><span class="material-icons">add_circle</span></a>
+          </mat-action-list>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <mat-paginator
+    [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="this.pageOptions">
+  </mat-paginator>
+</mat-list>

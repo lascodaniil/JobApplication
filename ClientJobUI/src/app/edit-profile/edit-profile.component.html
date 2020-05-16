@@ -2,7 +2,8 @@
 <div class="container">
   <h1>Edit you profile account</h1>
   <form  #loginForm="ngForm">
-    <span class="user-thumbnail" [ngStyle]="{'background-image':'url(' + loggedUser.imagePath + ')'}"></span>
+<!--    <span class="user-thumbnail" [ngStyle]="{'background-image':'url(' + loggedUser.imagePath + ')'}"></span>-->
+    <app-profile-image [imageId]="loggedUser.imageId"></app-profile-image>
     <button mat-raised-button class="custom-upload-button">
       <span>Upload Image</span>
       <input type="file" accept='image/*' [(ngModel)]="this.loggedUser.imagePath" (change)="onUploadImage($event)" />

@@ -1,0 +1,40 @@
+<mat-card class="chat-box" *ngIf="jobTitle && isLoggedIn">
+  <mat-card-header class="chat-head" (click)="toggle()">
+    <mat-card-title class="chat_title">
+      <div [ngClass]="isOnline? 'status_circle-online':'status_circle-offline'"></div> {{chatName}}
+      <span style="font-size: 18px; position: absolute; right: 20px;" (click)="onClose()">x</span>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <span style="font-size: 14px; font-style: italic; color: #ffffff;">{{jobTitle}}</span>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <div *ngIf="!isClosed">
+    <mat-card-content class="chat-body">
+
+      <mat-list>
+        <mat-list-item class="pad-top pad-bottom" *ngFor="let item of chats">
+          <h3 matLine class="cursor-pointer"><b>{{item.from}}</b> </h3>
+          <div matLine>
+            <div style="width: 25px; word-break: break-all;">
+              {{item.message}}
+            </div>
+            <span class="tc-grey-500 md-caption"
+                  style="font-size: 10px; font-style: italic;">{{item.date | date: 'short'}}</span>
+          </div>
+        </mat-list-item>
+      </mat-list>
+
+    </mat-card-content>
+    <mat-card-actions class="chat-footer">
+      <mat-divider></mat-divider>
+      <form class="message-form" [formGroup]="inputValue" (ngSubmit)="onSend(inputValue.value)">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter Message</mat-label>
+          <input matInput formControlName="text" autocomplete="off">
+          <mat-icon matSuffix (click)="onSend(inputValue.value)" style="cursor: pointer;">send</mat-icon>
+        </mat-form-field>
+      </form>
+    </mat-card-actions>
+  </div>
+
+</mat-card>

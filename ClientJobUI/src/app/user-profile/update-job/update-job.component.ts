@@ -33,26 +33,35 @@ export class UpdateJobComponent implements OnInit {
 
   onJobAdd() {
     let formData: FormData = new FormData();
-    formData.append('profileImage', this.profileImage);
-    var postData = JSON.stringify(this.job);
-    formData.append("postData",postData );
+    formData.append('Image', this.profileImage);
+    formData.append('CategoryId', `${this.job.categoryId}`);
+    formData.append('title', this.job.title);
+    formData.append('CityId', `${this.job.cityId}`);
+    formData.append('salary', `${this.job.salary}`);
+    formData.append('contact', `${this.job.contact}`);
+    formData.append('finishedOn',(new Date(this.job.finishedOn)).toUTCString());
 
-    this.jobService.AddJobFormData(formData).subscribe(() => {
+      this.jobService.AddJobFormData(formData).subscribe(() => {
       this.dialogRef.close();
     });
+
   }
 
   onJobEdit(job, id) {
     let formData: FormData = new FormData();
-    formData.append('profileImage', this.profileImage);
-    var postData = JSON.stringify(this.job);
-    formData.append("postData",postData );
+    formData.append('Image', this.profileImage);
+    formData.append('CategoryId', `${this.job.categoryId}`);
+    formData.append('title', this.job.title);
+    formData.append('CityId', `${this.job.cityId}`);
+    formData.append('Salary', `${this.job.salary}`);
+    formData.append('Contact', `${this.job.contact}`);
+    formData.append('finishedOn',(new Date(this.job.finishedOn)).toUTCString());
 
     this.jobService.editJob(formData, id).subscribe(() => {
-      this.dialogRef.close();
-    });
+       this.dialogRef.close();
+     });
   }
-  
+
   onUploadImage(file) {
     this.profileImage = <File>file.target.files[0];
     this.uploadFileName = file.target.files[0].type.indexOf("image") !== -1 ? file.target.files[0].name : '';
@@ -61,5 +70,4 @@ export class UpdateJobComponent implements OnInit {
   addEvent(event: MatDatepickerInputEvent<any>){
     this.job.finishedOn= event.value;
   }
-
 }

@@ -31,9 +31,6 @@ export class EditProfileComponent implements OnInit {
 
 
   onUpdateProfile(loggedUser, id){
-
-    }
-
-
-
+   //   this.profileService.updateProfileUser()
+  }
 }

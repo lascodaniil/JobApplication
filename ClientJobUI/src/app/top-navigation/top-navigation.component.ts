@@ -21,17 +21,17 @@ export class TopNavigationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.permissionsService.permissions$.subscribe(() => {
-      this.authService.isLoggedIn() && this.setLoggedUser();
+    this.permissionsService.permissions$.subscribe((permission) => {
+      setTimeout(() => this.authService.isLoggedIn() ? this.setLoggedUser() : this.loggedUser = {} as ProfileDTO)
     });
   }
 
   setLoggedUser() {
     this.profileService.getProfileUser().subscribe(
       user => {
-      if (this.authService.isLoggedIn()) {
-        this.loggedUser = user;
-      }
-    });
+        if (this.authService.isLoggedIn()) {
+          this.loggedUser = user;
+        }
+      });
   }
 }

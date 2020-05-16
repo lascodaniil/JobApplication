@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../_services/auth.service';
 import {ToolBarService} from '../_services/toolbar.service.service';
 import decode from 'jwt-decode';
+import { ChatService } from '../_services/chat.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,7 +19,7 @@ export class SignInComponent {
   constructor(private activatedRouter: ActivatedRoute,
               private router: Router,
               private toolBarService: ToolBarService,
-              private http: HttpClient, private auth: AuthService,
+              private http: HttpClient, private auth: AuthService, private chatService: ChatService
   ) {
     this.toolBarService.setTitle('Login');
   }
@@ -30,6 +31,7 @@ export class SignInComponent {
         this.auth.tokenObject = this.token;
         localStorage.setItem('accessToken', this.auth.tokenObject);
         this.auth.setUserRole();
+        this.chatService.addOnlineUser(); // SignalR chat
         this.router.navigate(['/profile']);
       });
   }

@@ -18,6 +18,8 @@ namespace JobSolution.Domain.Entities
         public User User { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public DateTime? RegisterDate { get; set; } = DateTime.Now;
-
+        [ForeignKey("Image")]
+        public int? ImageId { get; set; }
+        public Image Image { get; set; }
     }      
 }

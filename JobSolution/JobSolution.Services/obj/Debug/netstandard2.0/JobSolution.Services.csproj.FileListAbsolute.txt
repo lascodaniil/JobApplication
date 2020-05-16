@@ -50,3 +50,75 @@ D:\JobApplication\JobSolution\JobSolution\JobSolution\JobSolution.Services\obj\D
 D:\JobApplication\JobSolution\JobSolution\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CopyComplete
 D:\JobApplication\JobSolution\JobSolution\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.dll
 D:\JobApplication\JobSolution\JobSolution\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csprojAssemblyReference.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CoreCompileInputs.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfoInputs.cache
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfo.cs
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.deps.json
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Domain.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.DTO.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Repository.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.DTO.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Repository.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CopyComplete
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.dll
+D:\AMDARIS INTERNSHIP PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.deps.json
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Domain.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.DTO.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Repository.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.DTO.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Repository.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csprojAssemblyReference.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CoreCompileInputs.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfoInputs.cache
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfo.cs
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CopyComplete
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.dll
+D:\AMDARIS_INTERNSHIP_PROJECT\JobApplication\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.deps.json
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Domain.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.DTO.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Repository.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.DTO.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Repository.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csprojAssemblyReference.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CoreCompileInputs.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfoInputs.cache
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfo.cs
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CopyComplete
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.dll
+C:\Users\JL\Desktop\FREELANCER\MONSTER CODE\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.deps.json
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Services.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Domain.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.DTO.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Infrastructure.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Repository.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Domain.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.DTO.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Repository.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\bin\Debug\netstandard2.0\JobSolution.Infrastructure.pdb
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csprojAssemblyReference.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CoreCompileInputs.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfoInputs.cache
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.AssemblyInfo.cs
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.csproj.CopyComplete
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.dll
+C:\Users\Daniil\Desktop\PROJECT_CHAT_FINAL\JobSolution\JobSolution.Services\obj\Debug\netstandard2.0\JobSolution.Services.pdb

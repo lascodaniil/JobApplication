@@ -2,6 +2,8 @@
 using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Pagination;
+using JobSolution.Repository;
+using JobSolution.Repository.Interfaces;
 using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -34,12 +36,16 @@ namespace JobSolution.API.Controllers
         private readonly ITypeJobService _typeJobService;
         private readonly IStudentJobService _studentJobService;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IRepositoryImage _repositoryImage;
 
-        public JobController(IJobService repositoryJob,ICategoryService categoryService, 
-            ICityService cityService, 
+        public JobController(IJobService repositoryJob, ICategoryService categoryService,
+            ICityService cityService,
             ITypeJobService typeJobService,
             IStudentJobService studentJobService,
-            IMapper mapper)
+            IWebHostEnvironment hostingEnvironment,
+            IMapper mapper,
+            IRepositoryImage repositoryImage)
         {
             _cityService = cityService;
             _categoryService = categoryService;
@@ -47,6 +53,8 @@ namespace JobSolution.API.Controllers
             _mapper = mapper;
             _typeJobService = typeJobService;
             _studentJobService = studentJobService;
+            _hostingEnvironment = hostingEnvironment;
+            _repositoryImage = repositoryImage;
         }
 
         [HttpGet("Categories")]
@@ -55,7 +63,6 @@ namespace JobSolution.API.Controllers
         {
             return Ok(await _categoryService.GetCategories());
         }
-
 
         [HttpGet("City")]
         [AllowAnonymous]
@@ -69,7 +76,6 @@ namespace JobSolution.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             var JobsFromRepo = _jobService.GetAll().Result.ToList();
-           
             return Ok(JobsFromRepo);
         }
 
@@ -85,7 +91,7 @@ namespace JobSolution.API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetByType([FromBody] PagedRequest pagedRequest, int TypeId)
         {
-            var jobsType = await _jobService.GetJobsByType(pagedRequest,_mapper, TypeId);
+            var jobsType = await _jobService.GetJobsByType(pagedRequest, _mapper, TypeId);
             return Ok(jobsType);
         }
 
@@ -93,24 +99,22 @@ namespace JobSolution.API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetTypes()
         {
-            var jobs = await  _typeJobService.GetTypeJobs();
+            var jobs = await _typeJobService.GetTypeJobs();
             return Ok(jobs);
         }
 
-
-
         [HttpPost("Post")]
         [Authorize(Roles = "Employer")]
-        public async Task<IActionResult> Post()
+        public async Task<IActionResult> Post([FromForm] JobDTO JobDTO)
         {
+
             if (ModelState.IsValid)
             {
-                await _jobService.Add();
-
+                await _jobService.Add(JobDTO);
                 return Ok();
             }
-
             return BadRequest();
+            
         }
 
         [HttpDelete("{id}")]
@@ -122,12 +126,12 @@ namespace JobSolution.API.Controllers
         }
 
         [HttpPut("Update/{id}")]
-        [Authorize(Roles ="Employer")]
-        public async Task<IActionResult> Update([FromRoute]int id)
+        [Authorize(Roles = "Employer")]
+        public async Task<IActionResult> Update([FromForm] JobDTO jobDTO, [FromRoute]int id)
         {
             if (ModelState.IsValid)
             {
-                await _jobService.Update(id);
+                await _jobService.Update(jobDTO, id);
                 return Ok();
             }
             return BadRequest();
@@ -153,35 +157,54 @@ namespace JobSolution.API.Controllers
         [Authorize(Roles = "Student")]
         public async Task<IActionResult> GetPageForTableStudent([FromBody] PagedRequest pagedRequest)
         {
-            var result = await _jobService.GetJobsForStudent(pagedRequest, _mapper);
-            return Ok(result);
+            if (ModelState.IsValid)
+            {
+                var result = await _jobService.GetJobsForStudent(pagedRequest, _mapper);
+                return Ok(result);
+            }
+                return BadRequest(); 
+            
         }
 
         [HttpPost("PagePerTable")]
         [AllowAnonymous]
         public async Task<IActionResult> GetPageForTable([FromBody] PagedRequest pagedRequest)
         {
-            var result = await _jobService.GetPagedData(pagedRequest, _mapper);
-
-            return Ok(result);
+            if (ModelState.IsValid)
+            {
+                var result = await _jobService.GetPagedData(pagedRequest, _mapper);
+                return Ok(result);
+            }
+            return BadRequest();
+            
         }
 
-
         [HttpGet("Added/{jobId}")]
-        [Authorize(Roles ="Student")]
+        [Authorize(Roles = "Student")]
         public async Task<IActionResult> AddedJobStudent([FromRoute]int jobId)
         {
-            await  _jobService.AddedJobByStudent(jobId);
-            return Ok();
+            if (ModelState.IsValid)
+            {
+                await _jobService.AddedJobByStudent(jobId);
+                return Ok();
+            }
+            return BadRequest();
         }
 
         [HttpDelete("Student/Delete/{jobId}")]
-        [Authorize(Roles ="Student")]
+        [Authorize(Roles = "Student")]
         public async Task<IActionResult> DeleteStudentJobs(int jobId)
         {
-             await _jobService.DeleteJobStudent(jobId);
+            await _jobService.DeleteJobStudent(jobId);
             return Ok();
         }
 
+        [HttpGet("Image/{imageId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetImageStreamById(int imageId)
+        {
+            var stream = await _repositoryImage.GetImageStreamById(imageId);
+            return File(stream, "application/octet-stream");
+        }
     }
 }

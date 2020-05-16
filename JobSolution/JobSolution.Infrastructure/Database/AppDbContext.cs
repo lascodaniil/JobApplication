@@ -18,6 +18,7 @@ namespace JobSolution.Infrastructure.Database
         public DbSet<Advert> Adverts { get; set; }
         public DbSet<TypeJob> TypeJobs { get; set; }
         public DbSet<StudentJobs> StudentJobs { get; set; }
+        public DbSet<Image> Images { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,7 +26,6 @@ namespace JobSolution.Infrastructure.Database
             modelBuilder.ApplyConfiguration(new ProfileConfig());
             modelBuilder.ApplyConfiguration(new JobConfig());
             modelBuilder.ApplyConfiguration(new UserConfig());
-         //   modelBuilder.Entity<StudentJobs>().HasKey(x => new { x.Id, x.UserId, x.JobId });
             ApplyIdentityMapConfiguration(modelBuilder);
         }
 

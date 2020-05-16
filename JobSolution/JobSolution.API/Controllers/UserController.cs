@@ -15,15 +15,14 @@ namespace JobSolution.API.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly IProfileService _userService;
+        private readonly IProfileService _userProfileService;
         private readonly IJobService _jobService;
         private readonly IStudentJobService _studentJobService;
         public UserController(IProfileService userService, 
             IJobService jobService,
-            IStudentJobService studentJobService
-            )
+            IStudentJobService studentJobService)
         {
-            _userService = userService;
+            _userProfileService = userService;
             _jobService = jobService;
             _studentJobService = studentJobService;
         }
@@ -32,15 +31,21 @@ namespace JobSolution.API.Controllers
         [Authorize]
         public async Task<IActionResult> UserProfile()
         {
-            return Ok(await _userService.GetAuthProfile());
+            return Ok(await _userProfileService.GetAuthProfile());
         }
 
 
         [HttpPut("Update")]
         [Authorize]
-        public async Task<IActionResult> UpdateProfile()
+        public async Task<IActionResult> UpdateProfile([FromForm] UserRegisterDto userRegisterDto)
         {
-            return null;
+            if (ModelState.IsValid)
+            {
+                _userProfileService.UpdateProfile(userRegisterDto);
+                return Ok();
+            }
+            return BadRequest();
+
         }
     }
 }

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {RegisterUserModel} from '../Interfaces/RegisterUserModel';
 import {Router} from '@angular/router';
 import {NgxPermissionsService} from 'ngx-permissions';
+import { ChatService } from './chat.service';
 
 const URL_LOG = 'http://localhost:5000/Auth/Login';
 const URL_REGISTER = 'http://localhost:5000/Auth/Registration';
@@ -26,7 +27,7 @@ export class AuthService {
 
   constructor(private http: HttpClient,
               private router: Router,
-              private permissionsService: NgxPermissionsService) {
+              private permissionsService: NgxPermissionsService, private chatService: ChatService) {
     this.isLoggedIn() && this.setUserRole();
   }
 
@@ -61,6 +62,7 @@ export class AuthService {
   }
 
   public logout(): boolean {
+    this.chatService.removeOnlineUser();
     this.permissionsService.flushPermissions();
     localStorage.removeItem('accessToken');
     this.router.navigate(['/sign-in']);

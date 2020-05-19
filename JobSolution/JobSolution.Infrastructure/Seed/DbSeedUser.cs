@@ -42,13 +42,13 @@ namespace JobSolution.Infrastructure.Seed
             }
 
 
-           // ++++++++++++++EMPLOYERS++++++++++++++++++++++++++++ +
-           var User_3 = new User()
-           {
-               UserName = "PROIMOBIL",
-               Email = "proimobil@proimobil.com",
-               SecurityStamp = Guid.NewGuid().ToString()
-           };
+            // ++++++++++++++EMPLOYERS++++++++++++++++++++++++++++ +
+            var User_3 = new User()
+            {
+                UserName = "PROIMOBIL",
+                Email = "proimobil@proimobil.com",
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
 
             if (await userManager.FindByEmailAsync(User_3.Email) == null)
             {

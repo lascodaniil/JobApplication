@@ -57,7 +57,7 @@ namespace JobSolution.Infrastructure.Database
                 Email = "admin@admin.com",
                 RegisterDate = DateTime.Now,
                 University = "",
-                PhoneNumber= "0000000000",
+                PhoneNumber = "0000000000",
                 UserId = 1
             };
 
@@ -68,9 +68,9 @@ namespace JobSolution.Infrastructure.Database
                 await userManager.AddToRoleAsync(user_Admin, AdministratorRole);
                 await userManager.AddToRoleAsync(user_Admin, StudentRole);
                 await userManager.AddToRoleAsync(user_Admin, EmployerRole);
-            
+
                 dbContext.Profiles.Add(UserProfile);
-            
+
             }
         }
     }

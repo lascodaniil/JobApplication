@@ -81,10 +81,10 @@ namespace JobSolution.Services.Concrete
             job.CategoryId = jobDTO.CategoryId;
             job.CityId = jobDTO.CityId;
             job.Title = jobDTO.Title;
-            job.Salary = 6564;
-            job.Description = "55443534";
-            job.Contact = "fdsfs";
-            job.TypeJobId = 1;
+            job.Salary = jobDTO.Salary;
+            job.TypeJobId = jobDTO.TypeJobId;
+            job.EndDate = jobDTO.FinishedOn;
+            job.Contact = jobDTO.Contact;
         
             await _jobRepository.Add(job);
 
@@ -110,8 +110,6 @@ namespace JobSolution.Services.Concrete
             IFormFile file = jobDTO.Image;
             string fullPath = null;
             var imageId = 0;
-
-
             Job job = await _jobRepository.GetJobByID(id);
 
 
@@ -148,10 +146,11 @@ namespace JobSolution.Services.Concrete
             job.CategoryId = jobDTO.CategoryId;
             job.CityId = jobDTO.CityId;
             job.Title = jobDTO.Title;
-            job.Description = "55443534";
-            job.Contact = "fdsfs";
-            job.TypeJobId = jobDTO.TypeJobId + 1;
-            
+            job.Salary = jobDTO.Salary;
+            job.TypeJobId = jobDTO.TypeJobId;
+            job.EndDate = jobDTO.FinishedOn;
+            job.Contact = jobDTO.Contact;
+
             await _jobRepository.Update(job);
 
         }
@@ -209,6 +208,12 @@ namespace JobSolution.Services.Concrete
         public async Task DeleteJobStudent(int id)
         {
             await _studentJobService.Delete(id);
+        }
+
+        public async Task<PaginatedResult<JobDTO>> GetJobsByJobTypeId(PagedRequest pagedRequest, IMapper mapper, int JobTypeId)
+        {
+            var result = await _jobRepository.GetPagedDataByType(pagedRequest, mapper, JobTypeId);
+            return result;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,32 +11,38 @@ namespace JobSolution.Infrastructure.Middleware
 {
     public class ErrorHandlingMiddleware
     {
-        private readonly RequestDelegate next;
-        public ErrorHandlingMiddleware(RequestDelegate next)
+        private readonly RequestDelegate _next;
+        private readonly ILogger _logger;
+
+        public ErrorHandlingMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
         {
-            this.next = next;
+            _next = next;
+            _logger = loggerFactory.CreateLogger<ErrorHandlingMiddleware>();
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task InvokeAsync(HttpContext context)
         {
             try
             {
-                await next(context);
+                await _next(context);
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "An exception has occured");
                 await HandleExceptionAsync(context, ex);
             }
         }
 
         private static Task HandleExceptionAsync(HttpContext context, Exception ex)
         {
-            var code = HttpStatusCode.InternalServerError;
-
-            var result = JsonConvert.SerializeObject(new { error = ex.Message });
             context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)code;
-            return context.Response.WriteAsync(result);
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+            return context.Response.WriteAsync(new ErrorDetails()
+            {
+                StatusCode = context.Response.StatusCode,
+                Message = "Internal Server Error. Please contact the development team"
+            }.ToString());
         }
     }
 }

@@ -26,6 +26,7 @@ export class JobFilterComponent {
     this.orderingOptions[order] = this.orderingOptions[order] == 'asc' ? 'desc' : 'asc';
     this.filter.sortDirection = this.orderingOptions[order];
     this.onFiltered.emit(this.filter);
+
   };
 
   onSearch() {

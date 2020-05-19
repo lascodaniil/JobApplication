@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tnAO/R4qn31cBqmbsmWDI/ssOV4sthbAMF12HZkUW3awvugGCpyINbT0NG1DxibIWn/4QkwVgFBh0sxVF3wj8g==",
+  "dgSpecHash": "8Q4jemENC6nCcDmTsHUDlQ8kMJYnLTKLoLPnD/UOfKcHvJwVMg0Q3qTSt5Ir1tdxVrVhRT2uItV9vrMB3aVJyw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
+  "projectFilePath": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniil\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

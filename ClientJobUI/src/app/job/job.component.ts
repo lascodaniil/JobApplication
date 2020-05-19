@@ -31,21 +31,20 @@ export class JobComponent implements OnInit {
     this.toolBarService.setTitle('Jobs');
     this.filter.pageSize = 100;
     this.jobsTypeId ? this.loadJobsByTypeId(this.jobsTypeId) : this.loadJobs();
-
   }
 
   onFiltered(filter: PaginatedRequest) {
     this.filter = Object.assign(this.filter, filter);
-    this.loadJobs();
+    this.jobsTypeId ? this.loadJobsByTypeId(this.jobsTypeId) : this.loadJobs();
   }
 
   onSearch(requestFilters) {
     this.filter.requestFilters = requestFilters;
-    this.loadJobs();
+    this.jobsTypeId ? this.loadJobsByTypeId(this.jobsTypeId) : this.loadJobs();
   }
 
   loadJobsByTypeId(id: number) {
-    this.jobService.getJobsByType(this.filter, id).subscribe(data => {
+    this.jobService.getAllJobPaginatedByType(this.filter, id).subscribe(data => {
       this.allJobs = data.items;
     });
   }
@@ -63,9 +62,5 @@ export class JobComponent implements OnInit {
   onChat(job: JobDTO){
     this.chatService.newChat(job);
   }
-
-
-
-
 }
 

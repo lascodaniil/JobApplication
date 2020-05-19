@@ -106,6 +106,6 @@ namespace JobSolution.Repository.Concrete
             return await result;
         }
 
-
+        
     }
 }

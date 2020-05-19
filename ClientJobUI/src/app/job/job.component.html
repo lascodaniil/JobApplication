@@ -5,23 +5,29 @@
     <div class="jobs-results">
       <div class="jop-post" *ngFor="let job of allJobs">
         <mat-card>
-          <mat-card-title>{{job.title}}</mat-card-title>
+          <mat-card-title class="job-post-title">{{job.title}}</mat-card-title>
           <div class="job-content">
             <div class="left-content">
-          <app-job-image [imageId]="job.imageId"></app-job-image>
+              <app-job-image [imageId]="job.imageId"></app-job-image>
             </div>
             <div class="right-content">
               <mat-list>
-                <mat-list-item> {{job.category}}</mat-list-item>
-                <mat-list-item> {{job.city}}</mat-list-item>
-                <mat-list-item> {{job.contact}}</mat-list-item>
-                <mat-list-item> {{job.employer}}</mat-list-item>
+                <mat-list-item><span class="material-icons job-spec-icon">category</span> {{job.category}}</mat-list-item>
+                <mat-list-item><span class="material-icons job-spec-icon">place</span> {{job.city}}</mat-list-item>
+                <mat-list-item><span class="material-icons job-spec-icon">call</span> {{job.contact}}</mat-list-item>
+                <mat-list-item><span class="material-icons job-spec-icon">person_pin</span> {{job.employer}}</mat-list-item>
               </mat-list>
             </div>
           </div>
           <mat-action-list *ngxPermissionsOnly="['Student']">
-            <a mat-list-item (click)="subscribe(job.jobId)"><span class="material-icons">add_circle</span></a>
-            <a mat-list-item (click)="onChat(job)">Chat</a>
+            <button mat-mini-fab color="primary"
+                    (click)="onChat(job)">
+              <mat-icon>chat</mat-icon>
+            </button>
+            <button mat-mini-fab color="primary"
+                    (click)="subscribe(job.jobId)">
+              <mat-icon>note_add</mat-icon>
+            </button>
           </mat-action-list>
         </mat-card>
       </div>

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Controllers\JobController.cs~RF111f9a35.TMP" />
     <None Remove="Controllers\JobController.cs~RF1afc5df.TMP" />
     <None Remove="Startup.cs~RFdba4a72.TMP" />
   </ItemGroup>

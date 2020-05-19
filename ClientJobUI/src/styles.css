@@ -32,3 +32,12 @@ body {
 .mat-menu-panel {
   width: 90% !important;
 }
+
+.job-content + .mat-list button {
+  margin-right: 10px !important;
+}
+
+.job-content .mat-list-item-content {
+  padding-right: 0 !important;
+  padding-top: 4px !important;
+}

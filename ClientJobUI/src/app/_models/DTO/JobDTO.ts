@@ -15,4 +15,5 @@ export interface JobDTO {
   description: string;
   imageId: number;
 
+
 }

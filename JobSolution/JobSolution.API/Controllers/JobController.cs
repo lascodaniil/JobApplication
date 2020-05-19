@@ -1,27 +1,14 @@
 ﻿using AutoMapper;
-using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Pagination;
-using JobSolution.Repository;
 using JobSolution.Repository.Interfaces;
 using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.VisualBasic;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Linq.Dynamic.Core;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace JobSolution.API.Controllers
@@ -34,9 +21,7 @@ namespace JobSolution.API.Controllers
         private readonly ICategoryService _categoryService;
         private readonly ICityService _cityService;
         private readonly ITypeJobService _typeJobService;
-        private readonly IStudentJobService _studentJobService;
         private readonly IMapper _mapper;
-        private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly IRepositoryImage _repositoryImage;
 
         public JobController(IJobService repositoryJob, ICategoryService categoryService,
@@ -52,8 +37,6 @@ namespace JobSolution.API.Controllers
             _jobService = repositoryJob;
             _mapper = mapper;
             _typeJobService = typeJobService;
-            _studentJobService = studentJobService;
-            _hostingEnvironment = hostingEnvironment;
             _repositoryImage = repositoryImage;
         }
 
@@ -206,5 +189,18 @@ namespace JobSolution.API.Controllers
             var stream = await _repositoryImage.GetImageStreamById(imageId);
             return File(stream, "application/octet-stream");
         }
-    }
+
+
+        [HttpPost("Types/{JobTypeId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetFilteredJobsByJobType([FromBody] PagedRequest pagedRequest, int JobTypeId)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _jobService.GetJobsByJobTypeId(pagedRequest, _mapper, JobTypeId);
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+    }   
 }

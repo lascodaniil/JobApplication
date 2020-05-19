@@ -83,7 +83,7 @@ namespace JobSolution.Infrastructure.Seed
             {
                 Name = "Part Time"
             };
-         
+
 
 
             dbContext.TypeJobs.Add(Type1);

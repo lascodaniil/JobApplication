@@ -10937,11 +10937,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Tests\\JobSolution.Tests.csproj",
+      "projectUniqueName": "D:\\JobApplication\\JobSolution\\JobSolution.Tests\\JobSolution.Tests.csproj",
       "projectName": "JobSolution.Tests",
-      "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Tests\\JobSolution.Tests.csproj",
+      "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Tests\\JobSolution.Tests.csproj",
       "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Tests\\obj\\",
+      "outputPath": "D:\\JobApplication\\JobSolution\\JobSolution.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10957,11 +10957,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.API\\JobSolution.API.csproj": {
-              "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.API\\JobSolution.API.csproj"
+            "D:\\JobApplication\\JobSolution\\JobSolution.API\\JobSolution.API.csproj": {
+              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.API\\JobSolution.API.csproj"
             },
-            "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj": {
-              "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj"
+            "D:\\JobApplication\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj": {
+              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Services\\JobSolution.Services.csproj"
             }
           }
         }

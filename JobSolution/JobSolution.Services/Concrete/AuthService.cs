@@ -11,16 +11,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace JobSolution.Services.Interfaces
@@ -59,7 +56,7 @@ namespace JobSolution.Services.Interfaces
 
             IFormFile file = userRegisterDto.Image;
             string fullPath = null;
-            var imageId = 0;
+            int? imageId = null;
 
             if (file != null)
             {
@@ -84,6 +81,7 @@ namespace JobSolution.Services.Interfaces
                         file.CopyTo(stream);
                     }
                 }
+
                 imageId = _serviceImage.GetIdInsertedImage(fullPath);
                 userProfile.ImageId = imageId;
             }
@@ -110,21 +108,15 @@ namespace JobSolution.Services.Interfaces
             await _userManager.CreateAsync(CreateUserToAdd, userRegisterDto.Password);
             await _userManager.AddToRoleAsync(CreateUserToAdd, userRegisterDto.RoleFromRegister);
 
-            var AddUser = new User()
-            {
-                SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = userRegisterDto.UserName,
-                Email = userRegisterDto.Email
-            };
 
             var Profile = new JobSolution.Domain.Entities.Profile
             {
-
                 FirstName = userRegisterDto.FirstName,
                 LastName = userRegisterDto.LastName,
                 Email = userRegisterDto.Email,
                 PhoneNumber = userRegisterDto.PhoneNumber,
-                UserId = _userManager.FindByEmailAsync(AddUser.Email).Result.Id,
+                UserId = _userManager.FindByEmailAsync(CreateUserToAdd.Email).Result.Id,
+                ImageId = imageId 
             };
 
             _dbContext.Profiles.Add(Profile);
@@ -135,18 +127,16 @@ namespace JobSolution.Services.Interfaces
             var jwtSecurityToken = new JwtSecurityToken(
                  issuer: _authOptions.Issuer,
                  audience: _authOptions.Audience,
-                 claims: new List<Claim>() { new Claim(ClaimTypes.Role, userRegisterDto.RoleFromRegister), new Claim(ClaimTypes.NameIdentifier, Profile.UserId.ToString()), new Claim("UserId", Profile.UserId.ToString()) },
+                 claims: new List<Claim>() { new Claim(ClaimTypes.Role, userRegisterDto.RoleFromRegister), 
+                         new Claim(ClaimTypes.NameIdentifier, Profile.UserId.ToString()), 
+                         new Claim("UserId", Profile.UserId.ToString()) },
                  expires: DateTime.Now.AddDays(30),
                  signingCredentials: signinCredentials);
 
             var tokenHandler = new JwtSecurityTokenHandler();
 
             var encodedToken = tokenHandler.WriteToken(jwtSecurityToken);
-
-
-
             return new OkObjectResult(new { AccessToken = encodedToken });
-
         }
 
         public async Task<IActionResult> GetToken(UserForLoginDto userLoginDto)

@@ -236,11 +236,18 @@ namespace JobSolution.Infrastructure.Migrations
                     PhoneNumber = table.Column<string>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
                     DateOfBirth = table.Column<DateTime>(nullable: true),
-                    RegisterDate = table.Column<DateTime>(nullable: true)
+                    RegisterDate = table.Column<DateTime>(nullable: true),
+                    ImageId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Profiles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Profiles_Images_ImageId",
+                        column: x => x.ImageId,
+                        principalTable: "Images",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Profiles_Users_UserId",
                         column: x => x.UserId,
@@ -416,6 +423,11 @@ namespace JobSolution.Infrastructure.Migrations
                 table: "Profiles",
                 column: "Email",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Profiles_ImageId",
+                table: "Profiles",
+                column: "ImageId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Profiles_PhoneNumber",

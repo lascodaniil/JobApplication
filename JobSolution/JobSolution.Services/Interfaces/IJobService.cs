@@ -27,5 +27,6 @@ namespace JobSolution.Services.Interfaces
         Task<PaginatedResult<JobDTO>> GetJobsForEmployer(PagedRequest pagedRequest, IMapper mapper);
         Task<PaginatedResult<JobDTO>> GetJobsForStudent(PagedRequest pagedRequest, IMapper mapper);
         Task<PaginatedResult<JobDTO>> GetJobsByType(PagedRequest pagedRequest, IMapper mapper, int typeId);
+        Task<PaginatedResult<JobDTO>> GetJobsByJobTypeId(PagedRequest pagedRequest, IMapper mapper, int JobTypeId);
     }
 }

@@ -7727,11 +7727,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.SignalR\\JobSolution.SignalR.csproj",
+      "projectUniqueName": "D:\\JobApplication\\JobSolution\\JobSolution.SignalR\\JobSolution.SignalR.csproj",
       "projectName": "JobSolution.SignalR",
-      "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.SignalR\\JobSolution.SignalR.csproj",
+      "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.SignalR\\JobSolution.SignalR.csproj",
       "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.SignalR\\obj\\",
+      "outputPath": "D:\\JobApplication\\JobSolution\\JobSolution.SignalR\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7747,8 +7747,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj"
+            "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj": {
+              "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Infrastructure\\JobSolution.Infrastructure.csproj"
             }
           }
         }

@@ -1,71 +1,56 @@
 <div fxLayout="row | wrap" fxLayoutAlign="center center">
-<div class="container">
-  <h1>Edit you profile account</h1>
-  <form  #loginForm="ngForm">
-<!--    <span class="user-thumbnail" [ngStyle]="{'background-image':'url(' + loggedUser.imagePath + ')'}"></span>-->
-    <app-profile-image [imageId]="loggedUser.imageId"></app-profile-image>
-    <button mat-raised-button class="custom-upload-button">
-      <span>Upload Image</span>
-      <input type="file" accept='image/*' [(ngModel)]="this.loggedUser.imagePath" (change)="onUploadImage($event)" />
-    </button>
-    <span class="upload-file-name">{{uploadFileName}}</span>
-    <tr>
-        <td>
-          <div class="form-group">
-            <mat-form-field appearance="outline" class = "search-box" >
-              <mat-label>First Name</mat-label>
-              <input matInput [(ngModel)]="this.loggedUser.firstName" name="First Name"  required>
-            </mat-form-field>
-          </div>
-        </td>
-      </tr>
-    <tr>
-      <td>
-        <div class="form-group">
-          <mat-form-field appearance="outline" class = "search-box" >
-            <mat-label>Last Name</mat-label>
-            <input matInput  [(ngModel)]="this.loggedUser.lastName"  name="Last Name"  required>
-          </mat-form-field>
-        </div>
-      </td>
-    </tr>
+  <div class="container">
+    <h1>Edit you profile account</h1>
+    <form>
+      <app-profile-image [imageId]="loggedUser.imageId"></app-profile-image>
+      <button mat-raised-button class="custom-upload-button">
+        <span>Change Image</span>
+        <input type="file" accept='image/*' [(ngModel)]="this.loggedUser.imagePath" (change)="onUploadImage($event)"/>
+      </button>
 
-    <tr>
-      <td>
-        <div class="form-group">
-          <mat-form-field appearance="outline" class = "search-box" >
-            <mat-label>Email</mat-label>
-            <input matInput [readonly]="true" [(ngModel)]="this.loggedUser.email" name="Email"  required>
-          </mat-form-field>
-        </div>
-      </td>
-    </tr>
+      <br>
 
-    <tr>
-      <td>
-        <div class="form-group">
-          <mat-form-field appearance="outline" class = "search-box" >
-            <mat-label>Phone Number</mat-label>
-            <input matInput [(ngModel)]="this.loggedUser.phoneNumber" name="Phone Number"  required>
-          </mat-form-field>
-        </div>
-      </td>
-    </tr>
+      <span class="upload-file-name">{{uploadFileName}}</span>
 
-    <tr>
-      <td>
-        <div class="form-group">
-          <mat-form-field appearance="outline" class = "search-box" >
-            <mat-label>Birth Date</mat-label>
-            <input matInput [(ngModel)]="this.loggedUser.dateOfBirth " name="Birth Date"  required>
-          </mat-form-field>
-        </div>
-      </td>
-    </tr>
-   <button type="submit" mat-raised-button color="primary"  (click)="onUpdateProfile(this.loggedUser, this.loggedUser.id)" >
-      CHANGE
-    </button>
-  </form>
-</div>
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="search-box">
+          <mat-label>First Name</mat-label>
+          <input matInput [(ngModel)]="this.loggedUser.firstName" name="First Name" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="search-box">
+          <mat-label>Last Name</mat-label>
+          <input matInput [(ngModel)]="this.loggedUser.lastName" name="Last Name" required>
+        </mat-form-field>
+      </div>
+
+
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="search-box">
+          <mat-label>Email</mat-label>
+          <input matInput [readonly]="true" [(ngModel)]="this.loggedUser.email" name="Email" required>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="search-box">
+          <mat-label>Phone Number</mat-label>
+          <input matInput [(ngModel)]="this.loggedUser.phoneNumber" name="Phone Number" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="search-box">
+          <mat-label>Birth Date</mat-label>
+          <input matInput [(ngModel)]="this.loggedUser.dateOfBirth " name="Birth Date" required>
+        </mat-form-field>
+      </div>
+      <button type="submit" mat-raised-button color="primary"
+              (click)="onUpdateProfile(this.loggedUser, this.loggedUser.id)">
+        CHANGE
+      </button>
+    </form>
+  </div>
 </div>
 

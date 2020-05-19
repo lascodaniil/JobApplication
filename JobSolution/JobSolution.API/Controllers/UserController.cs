@@ -1,12 +1,7 @@
-﻿using AutoMapper;
-using JobSolution.Domain.Auth;
-using JobSolution.Domain.Entities;
-using JobSolution.DTO.DTO;
+﻿using JobSolution.Domain.Entities;
 using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace JobSolution.API.Controllers
@@ -41,11 +36,10 @@ namespace JobSolution.API.Controllers
         {
             if (ModelState.IsValid)
             {
-                _userProfileService.UpdateProfile(userRegisterDto);
+                await _userProfileService.UpdateProfile(userRegisterDto);
                 return Ok();
             }
             return BadRequest();
-
         }
     }
 }

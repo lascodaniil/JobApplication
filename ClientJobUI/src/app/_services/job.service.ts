@@ -41,6 +41,9 @@ export class JobService {
     return this.http.post<PagedResult<JobDTO>>(`${urlJob}/Profile/Student`, paginatedRequest);
   }
 
+  getAllJobPaginatedByType(paginatedRequest: PaginatedRequest, typeId :number): Observable<PagedResult<JobDTO>> {
+    return this.http.post<PagedResult<JobDTO>>(`${urlJob}/Types/${typeId}`, paginatedRequest);
+  }
 
   getCategories(): Observable<CategoryDTO[]>{
     return  this.http.get<CategoryDTO[]>(`${urlJob}/Categories`);

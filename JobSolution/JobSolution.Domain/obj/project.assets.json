@@ -2088,11 +2088,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
+      "projectUniqueName": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
       "projectName": "JobSolution.Domain",
-      "projectPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
+      "projectPath": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\JobSolution.Domain.csproj",
       "packagesPath": "C:\\Users\\Daniil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.Domain\\obj\\",
+      "outputPath": "D:\\JobApplication\\JobSolution\\JobSolution.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Daniil\\AppData\\Roaming\\NuGet\\NuGet.Config",

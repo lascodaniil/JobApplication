@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2zQP45xbV75Fp9D/aXBSFRaMjmk/S4x8cLcu6WpCvH8isgQE/pCehZ90lb4+8B/nO5DA32/cUJe5LW++Uaad6A==",
+  "dgSpecHash": "+EtUBSy8SWGWkdcQ1fUHUToakEQS9m8Qyjd35I2LEapFP5pGg8+xq9mZBZpEs7Mibo1RPjoBj8Ff4PVeYRneYg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Daniil\\Desktop\\PROJECT_CHAT_FINAL\\JobSolution\\JobSolution.SignalR\\JobSolution.SignalR.csproj",
+  "projectFilePath": "D:\\JobApplication\\JobSolution\\JobSolution.SignalR\\JobSolution.SignalR.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniil\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Daniil\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

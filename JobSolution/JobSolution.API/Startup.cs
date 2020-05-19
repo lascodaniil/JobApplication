@@ -1,30 +1,20 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using JobSolution.Services.Concrete;
 using JobSolution.Services.Interfaces;
 using JobSolution.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using JobSolution.Domain;
 using JobSolution.Domain.Auth;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using JobSolution.Infrastructure.Extensions;
-using JobSolution.Repository;
 using JobSolution.Repository.Interfaces;
 using JobSolution.Repository.Concrete;
-using JobSolution.Infrastructure.Seed;
 using JobSolution.SignalR.Concrete;
 using JobSolution.Infrastructure.Middleware;
 
@@ -108,7 +98,7 @@ namespace JobSolution.API
                 options.RoutePrefix = "swagger";
             });
 
-           // app.UseMiddleware<ErrorHandlingMiddleware>();
+            app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseDeveloperExceptionPage();
             app.UseRouting();
 
@@ -141,7 +131,6 @@ namespace JobSolution.API
 
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-
                 var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
                 var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
 

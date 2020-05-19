@@ -32,7 +32,6 @@ export class ChatBoxComponent implements OnInit {
     this.inputValue = this.formBuilder.group({
       text: ''
     });
-
   }
 
   ngOnInit(): void {
@@ -51,8 +50,8 @@ export class ChatBoxComponent implements OnInit {
           this.isClosed = false;
           this.chatName = data.student;
         }
-      } else {
-        if (this.loggedUser.fullName === data.student) {
+      } else if (this.loggedUser.fullName === data.student) {
+
           if(this.jobTitle !== data.jobTitle){
             this.chats = [];
           }
@@ -62,12 +61,8 @@ export class ChatBoxComponent implements OnInit {
           this.student = data.student;
           this.isClosed = false;
           this.chatName = data.employer;
-
-        }
       }
       this.isOnline = this.onlineUsers.includes(this.chatName);
-
-
 
     });
 

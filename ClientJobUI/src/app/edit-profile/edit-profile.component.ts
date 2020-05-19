@@ -31,6 +31,11 @@ export class EditProfileComponent implements OnInit {
 
 
   onUpdateProfile(loggedUser, id){
-   //   this.profileService.updateProfileUser()
+    let formData: FormData = new FormData();
+    formData.append('Image', this.profileImage);
+    formData.append("FirstName", this.loggedUser.firstName);
+    formData.append("LastName", this.loggedUser.lastName);
+    formData.append("PhoneNumber", this.loggedUser.phoneNumber);
+    this.profileService.updateProfileUser(formData).subscribe();
   }
 }

@@ -13,5 +13,6 @@ namespace JobSolution.Repository.Interfaces
     public interface IProfileRepository 
     {
         Task<Profile> GetAuthUserProfile(int UserId);
+        Task UpdateProfile(Profile profile);
     }
 }

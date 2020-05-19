@@ -40,6 +40,7 @@ export class UpdateJobComponent implements OnInit {
     formData.append('salary', `${this.job.salary}`);
     formData.append('contact', `${this.job.contact}`);
     formData.append('finishedOn',(new Date(this.job.finishedOn)).toUTCString());
+    formData.append("TypeJobId", `${this.job.typeJobId}`);
 
       this.jobService.AddJobFormData(formData).subscribe(() => {
       this.dialogRef.close();
@@ -53,10 +54,10 @@ export class UpdateJobComponent implements OnInit {
     formData.append('CategoryId', `${this.job.categoryId}`);
     formData.append('title', this.job.title);
     formData.append('CityId', `${this.job.cityId}`);
-    formData.append('Salary', `${this.job.salary}`);
-    formData.append('Contact', `${this.job.contact}`);
+    formData.append('salary', `${this.job.salary}`);
+    formData.append('contact', `${this.job.contact}`);
     formData.append('finishedOn',(new Date(this.job.finishedOn)).toUTCString());
-
+    formData.append("TypeJobId", `${this.job.typeJobId}`);
     this.jobService.editJob(formData, id).subscribe(() => {
        this.dialogRef.close();
      });

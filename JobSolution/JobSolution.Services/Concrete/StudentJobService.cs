@@ -35,7 +35,13 @@ namespace JobSolution.Services.Concrete
         public async Task Add(int jobId)
         {
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
-            await _studentJobRepository.Add(UserId, jobId);
+            var verifiyJobs =  _studentJobRepository.GetAll(UserId).Result.ToList().Select(x=>x.JobId);
+            if (!verifiyJobs.Contains(jobId))
+            {
+                await _studentJobRepository.Add(UserId, jobId);
+
+            }
+
         }
 
         public async Task Delete(int jobId)

@@ -1,20 +1,12 @@
-﻿using JobSolution.Domain;
-using JobSolution.Domain.Entities;
-using JobSolution.DTO.DTO;
+﻿using JobSolution.Domain.Entities;
 using JobSolution.Infrastructure.Database;
 using JobSolution.Repository.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace JobSolution.Repository.Concrete
 {
+
     public class ProfileRepository : Repository<Profile>, IProfileRepository
     {   
         public ProfileRepository(AppDbContext context) : base(context){ }
@@ -23,6 +15,12 @@ namespace JobSolution.Repository.Concrete
         {
             var User = await _dbContext.Profiles.FirstOrDefaultAsync(x => x.UserId == UserId);
                 return User;
+        }
+
+        public async Task UpdateProfile(Profile profile)
+        {
+             _dbContext.Profiles.Update(profile);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

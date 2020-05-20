@@ -16,7 +16,7 @@ import {PaginatedRequest} from '../_models/PaginatedRequest';
 })
 export class AdvertComponent implements OnInit {
 
-  columnsToDisplay = ['Title', 'Category', 'City', 'Contact', 'PublishedOn', 'Description', 'Actions'];
+  columnsToDisplay = ['Title', 'Category', 'City', 'Contact', 'PublishedOn',  'Actions'];
   filter = {} as PaginatedRequest;
 
   constructor(private advertService: AdvertService, public dialog: MatDialog, private jobService: JobService) {

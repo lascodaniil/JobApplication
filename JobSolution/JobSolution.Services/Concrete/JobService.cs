@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using JobSolution.Domain.Auth;
 using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Pagination;
@@ -7,7 +6,6 @@ using JobSolution.Repository.Interfaces;
 using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,7 +38,7 @@ namespace JobSolution.Services.Concrete
             _serviceImage = serviceImage;
         }
 
-        public async Task Add(JobDTO jobDTO)
+        public async Task Add(JobForTableDTO jobDTO)
         {
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
             Job job = new Job();
@@ -90,19 +88,19 @@ namespace JobSolution.Services.Concrete
 
         }
 
-        public async Task<IList<JobDTO>> GetAll()
+        public async Task<IList<JobForTableDTO>> GetAll()
         {
             var Jobs = await _jobRepository.GetAllJobs();
-            var JobsListDTO = _mapper.Map<IQueryable<Job>, IList<JobDTO>>(Jobs);
+            var JobsListDTO = _mapper.Map<IQueryable<Job>, IList<JobForTableDTO>>(Jobs);
             return JobsListDTO;
         }
-        public async Task<JobDTO> GetByID(int id)
+        public async Task<JobForTableDTO> GetByID(int id)
         {
             var toReturn = await _jobRepository.GetJobByID(id);
-            return _mapper.Map<JobDTO>(toReturn);
+            return _mapper.Map<JobForTableDTO>(toReturn);
         }
 
-        public async Task Update(JobDTO jobDTO, int id)
+        public async Task Update(JobForTableDTO jobDTO, int id)
         {
 
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
@@ -159,26 +157,21 @@ namespace JobSolution.Services.Concrete
             await _jobRepository.Delete(JobId);
         }
 
-        public async Task<IList<JobDTO>> GetJobsByCategory(string category)
-        {
-            var result = await GetAll();
-            return result.Where(x => x.Category == category).ToList();
-        }
 
-        public async Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper)
+        public async Task<PaginatedResult<JobForTableDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper)
         {
             var result = await _jobRepository.GetPagedData(pagedRequest, mapper);
             return result;
         }
 
-        public async Task<PaginatedResult<JobDTO>> GetJobsForEmployer(PagedRequest pagedRequest, IMapper mapper)
+        public async Task<PaginatedResult<JobForTableDTO>> GetJobsForEmployer(PagedRequest pagedRequest, IMapper mapper)
         {
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
             var result = await _jobRepository.GetPagedData(pagedRequest, mapper, UserId);
             return result;
         }
 
-        public async Task<PaginatedResult<JobDTO>> GetJobsForStudent(PagedRequest pagedRequest, IMapper mapper)
+        public async Task<PaginatedResult<JobForTableDTO>> GetJobsForStudent(PagedRequest pagedRequest, IMapper mapper)
         {
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
             var ListJobsForStudents = _studentJobService.GetListId();
@@ -187,15 +180,15 @@ namespace JobSolution.Services.Concrete
             return result;
         }
 
-        public async Task<IList<JobDTO>> GetByType(int TypeId)
+        public async Task<IList<JobForTableDTO>> GetByType(int TypeId)
         {
             var AllJobs = await _jobRepository.GetAllJobs();
             var JobsList = AllJobs.Where(x => x.TypeJobId == TypeId);
-            var result = _mapper.Map<IQueryable<Job>, IList<JobDTO>>(JobsList);
+            var result = _mapper.Map<IQueryable<Job>, IList<JobForTableDTO>>(JobsList);
             return result;
         }
 
-        public async Task<PaginatedResult<JobDTO>> GetJobsByType(PagedRequest pagedRequest, IMapper mapper, int typeId)
+        public async Task<PaginatedResult<JobForViewDTO>> GetJobsByType(PagedRequest pagedRequest, IMapper mapper, int typeId)
         {
             var result = await _jobRepository.GetPagedDataByType(pagedRequest, mapper, typeId);
             return result;
@@ -210,10 +203,12 @@ namespace JobSolution.Services.Concrete
             await _studentJobService.Delete(id);
         }
 
-        public async Task<PaginatedResult<JobDTO>> GetJobsByJobTypeId(PagedRequest pagedRequest, IMapper mapper, int JobTypeId)
+        public async Task<PaginatedResult<JobForViewDTO>> GetJobsByJobTypeId(PagedRequest pagedRequest, IMapper mapper, int JobTypeId)
         {
             var result = await _jobRepository.GetPagedDataByType(pagedRequest, mapper, JobTypeId);
             return result;
         }
+
+       
     }
 }

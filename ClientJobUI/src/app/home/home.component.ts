@@ -8,6 +8,7 @@ import {JobDTO} from '../_models/DTO/JobDTO';
 import {UpdateJobComponent} from '../user-profile/update-job/update-job.component';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ViewJobComponent} from './view-job/view-job.component';
+import {JobForViewDTO} from "../_models/DTO/JobForViewDTO";
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,8 @@ export class HomeComponent implements OnInit {
   searchControl = new FormControl();
   jobTypes: JobType[];
   dialogRef: MatDialogRef<any>;
-  filteredOptions: Observable<JobDTO[]>;
-  AllJobs: JobDTO[];
+  filteredOptions: Observable<JobForViewDTO[]>;
+  AllJobs: JobForViewDTO[];
 
 
   constructor(private jobService: JobService,
@@ -51,7 +52,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  private _filter(value: string): JobDTO[] {
+  private _filter(value: string): JobForViewDTO[] {
     this.jobService.getAllJobs().subscribe(data => {
       this.AllJobs = data;
     });

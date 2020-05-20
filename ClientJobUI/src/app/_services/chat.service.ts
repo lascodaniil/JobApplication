@@ -2,12 +2,13 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import { ChatDTO } from '../_models/DTO/ChatDTO';
 import { JobDTO } from '../_models/DTO/JobDTO';
+import {JobForTableDTO} from "../_models/DTO/JobForTableDTO";
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
   messageReceived = new EventEmitter<ChatDTO>();
-  chatReceived = new EventEmitter<JobDTO>();
+  chatReceived = new EventEmitter<JobForTableDTO>();
   connectionEstablished = new EventEmitter<Boolean>();
   onlineUsers = new EventEmitter<string[]>();
   private connectionIsEstablished = false;
@@ -54,7 +55,6 @@ export class ChatService {
         }
       })
       .catch(err => {
-        console.log('Error while establishing connection, retrying...');
         setTimeout(function () { self.startConnection(); }, 5000);
       });
   }
@@ -65,14 +65,12 @@ export class ChatService {
     });
 
     this._hubConnection.on('OnlineUsers', (data: string[]) => {
-      console.log('*****************online users*******************');
-      console.log(data);
       this.onlineUsers.emit(data);
     })
 
   }
 
-  newChat(job: JobDTO) {
+  newChat(job: JobForTableDTO) {
     this.chatReceived.emit(job);
   }
 

@@ -7,5 +7,4 @@ export interface AdvertDTO{
   city: string;
   publishedOn:Date;
   contact:string;
-  description:string;
 }

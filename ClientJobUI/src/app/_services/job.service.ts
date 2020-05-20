@@ -7,6 +7,8 @@ import {PagedResult} from '../_models/PagedResult';
 import {CategoryDTO} from '../_models/DTO/CategoryDTO';
 import {CityDTO} from '../_models/DTO/CityDTO';
 import {JobType} from '../_models/JobType';
+import {JobForViewDTO} from "../_models/DTO/JobForViewDTO";
+import {JobForTableDTO} from "../_models/DTO/JobForTableDTO";
 
 const urlJob = 'http://localhost:5000/Job';
 
@@ -22,27 +24,27 @@ export class JobService {
 
   }
 
-  getAllJobs() : Observable<JobDTO[]>{
+  getAllJobs() : Observable<JobForViewDTO[]>{
     return this.http.get<JobDTO[]>(`${urlJob}`);
   }
 
   getJobById(id: number) {
-    return this.http.get<JobDTO>(`${urlJob}/${id}`);
+    return this.http.get<JobForTableDTO>(`${urlJob}/${id}`);
   }
-  getAllJobPaginated(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobDTO>> {
-    return this.http.post<PagedResult<JobDTO>>(`${urlJob}/PagePerTable`, paginatedRequest);
-  }
-
-  getAllJobPaginatedEmployer(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobDTO>> {
-    return this.http.post<PagedResult<JobDTO>>(`${urlJob}/Profile`, paginatedRequest);
+  getAllJobPaginated(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobForTableDTO>> {
+    return this.http.post<PagedResult<JobForTableDTO>>(`${urlJob}/PagePerTable`, paginatedRequest);
   }
 
-  getAllJobPaginatedStudent(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobDTO>> {
-    return this.http.post<PagedResult<JobDTO>>(`${urlJob}/Profile/Student`, paginatedRequest);
+  getAllJobPaginatedEmployer(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobForTableDTO>> {
+    return this.http.post<PagedResult<JobForTableDTO>>(`${urlJob}/Profile`, paginatedRequest);
   }
 
-  getAllJobPaginatedByType(paginatedRequest: PaginatedRequest, typeId :number): Observable<PagedResult<JobDTO>> {
-    return this.http.post<PagedResult<JobDTO>>(`${urlJob}/Types/${typeId}`, paginatedRequest);
+  getAllJobPaginatedStudent(paginatedRequest: PaginatedRequest): Observable<PagedResult<JobForViewDTO>> {
+    return this.http.post<PagedResult<JobForViewDTO>>(`${urlJob}/Profile/Student`, paginatedRequest);
+  }
+
+  getAllJobPaginatedByType(paginatedRequest: PaginatedRequest, typeId :number): Observable<PagedResult<JobForTableDTO>> {
+    return this.http.post<PagedResult<JobForTableDTO>>(`${urlJob}/Types/${typeId}`, paginatedRequest);
   }
 
   getCategories(): Observable<CategoryDTO[]>{
@@ -63,10 +65,6 @@ export class JobService {
   editJob(job: any,id: number): Observable<any>{
     return  this.http.put(`${urlJob}/Update/${id}`, job);
   };
-
-  getJobsByType(filter: PaginatedRequest,id:number) : Observable<PagedResult<JobDTO>>{
-    return  this.http.post<PagedResult<JobDTO>>(`${urlJob}/Type/${id}`, filter);
-  }
 
   getJobsTypes() : Observable<JobType[]>{
     return  this.http.get<JobType[]>(`${urlJob}/Types`);

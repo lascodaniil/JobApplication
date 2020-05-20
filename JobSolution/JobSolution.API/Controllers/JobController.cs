@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -88,7 +87,7 @@ namespace JobSolution.API.Controllers
 
         [HttpPost("Post")]
         [Authorize(Roles = "Employer")]
-        public async Task<IActionResult> Post([FromForm] JobDTO JobDTO)
+        public async Task<IActionResult> Post([FromForm] JobForTableDTO JobDTO)
         {
 
             if (ModelState.IsValid)
@@ -110,7 +109,7 @@ namespace JobSolution.API.Controllers
 
         [HttpPut("Update/{id}")]
         [Authorize(Roles = "Employer")]
-        public async Task<IActionResult> Update([FromForm] JobDTO jobDTO, [FromRoute]int id)
+        public async Task<IActionResult> Update([FromForm] JobForTableDTO jobDTO, [FromRoute]int id)
         {
             if (ModelState.IsValid)
             {
@@ -120,14 +119,7 @@ namespace JobSolution.API.Controllers
             return BadRequest();
         }
 
-        [HttpGet]
-        [Route("Category/{category}")]
-        [AllowAnonymous]
-        public async Task<IList<JobDTO>> GetJobsByCategory(string category)
-        {
-            return await _jobService.GetJobsByCategory(category);
-        }
-
+      
         [HttpPost("Profile")]
         [Authorize(Roles = "Employer")]
         public async Task<IActionResult> GetPageForTableEmployer([FromBody] PagedRequest pagedRequest)

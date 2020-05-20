@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using JobSolution.Domain.Auth;
 using JobSolution.Domain.Entities;
 using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Database;
@@ -7,12 +6,9 @@ using JobSolution.Infrastructure.Extensions;
 using JobSolution.Infrastructure.Pagination;
 using JobSolution.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace JobSolution.Repository.Concrete
@@ -22,10 +18,10 @@ namespace JobSolution.Repository.Concrete
         public JobRepository(AppDbContext context) : base(context) { }
         public async Task Delete(int JobId)
         {
-            var Job = await _dbContext.Jobs.FirstOrDefaultAsync(x => x.Id == JobId);
+            var Job =  _dbContext.Jobs.FirstOrDefault(x => x.Id == JobId);
 
             _dbContext.Jobs.Remove(Job);
-             await _dbContext.SaveChangesAsync();
+              _dbContext.SaveChanges();
         }
 
         public async Task<IQueryable<Job>> GetJobs()
@@ -52,7 +48,7 @@ namespace JobSolution.Repository.Concrete
 
         public async Task Add(Job job)
         {
-            _dbContext.Jobs.Add(job);
+            _dbContext.Jobs.AddAsync(job);
             await _dbContext.SaveChangesAsync();
         }
 
@@ -77,31 +73,31 @@ namespace JobSolution.Repository.Concrete
             }
             return entities;
         }
-        public async Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper)
+        public async Task<PaginatedResult<JobForTableDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper)
         {
-            return await _dbContext.Set<Job>().CreatePaginatedResultAsync<Job, JobDTO>(pagedRequest, mapper);
+            return await _dbContext.Set<Job>().CreatePaginatedResultAsync<Job, JobForTableDTO>(pagedRequest, mapper);
         }
 
-        public async Task<PaginatedResult<JobDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper, int UserId)
+        public async Task<PaginatedResult<JobForTableDTO>> GetPagedData(PagedRequest pagedRequest, IMapper mapper, int UserId)
         {
-            var result = _dbContext.Set<Job>().Where(x => x.UserId == UserId).CreatePaginatedResultAsync<Job, JobDTO>(pagedRequest, mapper, UserId);
+            var result = _dbContext.Set<Job>().Where(x => x.UserId == UserId).CreatePaginatedResultAsync<Job, JobForTableDTO>(pagedRequest, mapper, UserId);
             
             return await result;
         }
 
-        public async Task<PaginatedResult<JobDTO>> GetPagedDataStudent(PagedRequest pagedRequest, IMapper mapper, int UserId)
+        public async Task<PaginatedResult<JobForTableDTO>> GetPagedDataStudent(PagedRequest pagedRequest, IMapper mapper, int UserId)
 
         {
             var studentJobs = _dbContext.Set<StudentJobs>().Where(x => x.UserId == UserId).Select(x => x.JobId).ToList();
-            var result = _dbContext.Set<Job>().Where(x => studentJobs.Contains(x.Id)).CreatePaginatedResultAsync<Job, JobDTO>(pagedRequest, mapper, UserId);
+            var result = _dbContext.Set<Job>().Where(x => studentJobs.Contains(x.Id)).CreatePaginatedResultAsync<Job, JobForTableDTO>(pagedRequest, mapper, UserId);
             return await result;
 
             
         }
 
-        public async Task<PaginatedResult<JobDTO>> GetPagedDataByType(PagedRequest pagedRequest, IMapper mapper, int typeId)
+        public async Task<PaginatedResult<JobForViewDTO>> GetPagedDataByType(PagedRequest pagedRequest, IMapper mapper, int typeId)
         {
-            var result = _dbContext.Set<Job>().Where(x => x.TypeJobId == typeId).CreatePaginatedResultAsync<Job, JobDTO>(pagedRequest, mapper, typeId);
+            var result = _dbContext.Set<Job>().Where(x => x.TypeJobId == typeId).CreatePaginatedResultAsync<Job, JobForViewDTO>(pagedRequest, mapper, typeId);
 
             return await result;
         }

@@ -1,16 +1,13 @@
-export interface NewJobDTO{
-
+export interface JobForViewDTO {
   jobId: number;
-  categoryId: number;
-  cityId: number;
   title: string;
   category: string;
-  typeJobId: number,
   employer: string;
   city: string;
   publishedOn: Date;
   finishedOn: Date;
-  image: string;
   contact: string;
   salary: string;
+  imageId: number;
+  imagePath :string;
 }

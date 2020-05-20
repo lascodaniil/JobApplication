@@ -1,19 +1,18 @@
 export interface JobDTO {
   jobId: number;
-  categoryId: number;
-  cityId: number;
   title: string;
   category: string;
-  typeJobId: number,
-  employer: string;
   city: string;
+  employer: string;
+  categoryId: number;
+  cityId: number;
+  typeJobId: number;
   publishedOn: Date;
   finishedOn: Date;
   imagePath: string;
   contact: string;
   salary: string;
-  description: string;
   imageId: number;
-
-
 }
+
+

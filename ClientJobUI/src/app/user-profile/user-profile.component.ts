@@ -6,7 +6,6 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {PaginatedRequest} from '../_models/PaginatedRequest';
 import {CategoryDTO} from '../_models/DTO/CategoryDTO';
 import {CityDTO} from '../_models/DTO/CityDTO';
-import {JobDTO} from '../_models/DTO/JobDTO';
 import {PopService} from '../_services/pop.service';
 import {PopUpComponent} from './pop-up/pop-up.component';
 import {FormControl} from '@angular/forms';
@@ -14,6 +13,8 @@ import {Filter} from '../_models/Filter';
 import {FilterLogicalOperators} from '../_models/FilterLogicalOperators';
 import {JobType} from '../_models/JobType';
 import {NgxPermissionsService} from 'ngx-permissions';
+import {JobForViewDTO} from "../_models/DTO/JobForViewDTO";
+import {JobForTableDTO} from "../_models/DTO/JobForTableDTO";
 
 
 @Component({
@@ -26,15 +27,15 @@ import {NgxPermissionsService} from 'ngx-permissions';
 export class UserProfileComponent implements OnInit {
   searchInput = new FormControl('');
   filter = {} as PaginatedRequest;
-  postedJobsColumns: string[] = ['Id', 'Title', 'Category', 'City', 'Publish Date', 'Finish Date', 'Contact', 'Actions'];
-  enrolledJobsColumns = ['Title', 'Category', 'City', 'Contact', 'PublishedOn', 'Description', 'Actions'];
+  postedJobsColumns: string[] = ['Title', 'Category', 'City', 'Publish Date', 'Finish Date', 'Contact', 'Actions'];
+  enrolledJobsColumns = ['Title', 'Category', 'City', 'Contact', 'PublishedOn', 'Actions'];
 
   dialogRef: MatDialogRef<any>;
   jobsCategories = [] as CategoryDTO[];
   jobsCities = [] as CityDTO[];
   jobTypes = [] as JobType[];
-  employerJobs = [] as JobDTO[];
-  studentEnrolledJobs = [] as JobDTO[];
+  employerJobs = [] as JobForTableDTO[];
+  studentEnrolledJobs = [] as JobForViewDTO[];
   sortFilters = [] as Filter[];
 
 
@@ -133,7 +134,6 @@ export class UserProfileComponent implements OnInit {
     this.jobService.deleteJob(id).subscribe(() => {
       this.loadEmployerJobs();
     });
-    // aici este un mic bug, se fac 2 call-uri
     this.jobService.deleteEnrolledJobForStudent(id).subscribe( () => {this.loadStudentJobs(); console.log(id)});
   }
 

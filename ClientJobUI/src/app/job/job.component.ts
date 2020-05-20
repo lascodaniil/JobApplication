@@ -5,6 +5,7 @@ import {JobDTO} from '../_models/DTO/JobDTO';
 import {PaginatedRequest} from '../_models/PaginatedRequest';
 import {ActivatedRoute, Params} from '@angular/router';
 import { ChatService } from '../_services/chat.service';
+import {JobForTableDTO} from "../_models/DTO/JobForTableDTO";
 
 
 @Component({
@@ -16,7 +17,7 @@ import { ChatService } from '../_services/chat.service';
 export class JobComponent implements OnInit {
   jobsTypeId: number;
   filter = {} as PaginatedRequest;
-  allJobs: JobDTO[];
+  allJobs: JobForTableDTO[];
 
 
   constructor(private jobService: JobService,
@@ -59,7 +60,7 @@ export class JobComponent implements OnInit {
     this.jobService.addJobStudent(jobId).subscribe();
   }
 
-  onChat(job: JobDTO){
+  onChat(job: JobForTableDTO){
     this.chatService.newChat(job);
   }
 }

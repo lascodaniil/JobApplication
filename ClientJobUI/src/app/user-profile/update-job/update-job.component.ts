@@ -4,6 +4,8 @@ import {JobService} from '../../_services/job.service';
 import {JobDTO} from '../../_models/DTO/JobDTO';
 import {AddJobData} from '../../_models/AddJobData';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import {JobForViewDTO} from "../../_models/DTO/JobForViewDTO";
+import {JobForTableDTO} from "../../_models/DTO/JobForTableDTO";
 
 
 @Component({
@@ -12,7 +14,7 @@ import {MatDatepickerInputEvent} from '@angular/material/datepicker';
   styleUrls: ['update-job.component.css'],
 })
 export class UpdateJobComponent implements OnInit {
-  job = {} as JobDTO;
+  job = {} as JobForTableDTO;
   uploadFileName: string;
   profileImage: File = null;
 
@@ -24,7 +26,7 @@ export class UpdateJobComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.jobData.id) {
-      this.jobService.getJobById(this.jobData.id).subscribe((job: JobDTO) => {
+      this.jobService.getJobById(this.jobData.id).subscribe((job: JobForTableDTO) => {
         this.job = job;
         this.job.imagePath = '';
       });

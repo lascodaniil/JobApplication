@@ -39,16 +39,8 @@
           <input matInput [(ngModel)]="this.loggedUser.phoneNumber" name="Phone Number" required>
         </mat-form-field>
       </div>
-
-      <div class="form-group">
-        <mat-form-field appearance="outline" class="search-box">
-          <mat-label>Birth Date</mat-label>
-          <input matInput [(ngModel)]="this.loggedUser.dateOfBirth " name="Birth Date" required>
-        </mat-form-field>
-      </div>
-      <button type="submit" mat-raised-button color="primary"
-              (click)="onUpdateProfile(this.loggedUser, this.loggedUser.id)">
-        CHANGE
+    <button type="submit" mat-raised-button color="primary"
+              (click)="onUpdateProfile(this.loggedUser, this.loggedUser.id)">CHANGE
       </button>
     </form>
   </div>

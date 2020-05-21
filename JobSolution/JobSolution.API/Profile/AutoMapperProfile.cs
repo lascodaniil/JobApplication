@@ -58,7 +58,8 @@ namespace JobSolution.API.Profile
                 .ForMember(x=>x.Contact, y=>y.MapFrom(z=>z.Contact))
                 .ForMember(x=>x.FinishedOn, y=>y.MapFrom(z=>z.EndDate))
                 .ForMember(x => x.Image, y => y.Ignore())
-                .ForMember(x => x.ImagePath, y => y.MapFrom(z => z.Image.Path));
+                .ForMember(x => x.ImagePath, y => y.MapFrom(z => z.Image.Path))
+                .ForMember(x=>x.PublishedOn, y=>y.MapFrom(z=>z.PostDate));
 
 
 
@@ -70,7 +71,8 @@ namespace JobSolution.API.Profile
                 .ForMember(x => x.TypeJob, y => y.MapFrom(y => y.TypeJob.Name))
                 .ForMember(x => x.Contact, y => y.MapFrom(z => z.Contact))
                 .ForMember(x => x.FinishedOn, y => y.MapFrom(z => z.EndDate))
-                .ForMember(x => x.ImagePath, y => y.MapFrom(z => z.Image.Path));
+                .ForMember(x => x.ImagePath, y => y.MapFrom(z => z.Image.Path))
+                .ForMember(x => x.PublishedOn, y => y.MapFrom(z => z.PostDate));
 
 
 

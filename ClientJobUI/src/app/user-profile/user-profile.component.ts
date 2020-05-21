@@ -95,6 +95,7 @@ export class UserProfileComponent implements OnInit {
     this.jobService.getAllJobPaginatedEmployer(this.filter).subscribe(data => {
       this.employerJobs = data.items;
       this.paginationOptions.length = data.total;
+
     });
   }
 
@@ -153,6 +154,7 @@ export class UserProfileComponent implements OnInit {
     this.orderingOptions[order] = this.orderingOptions[order] == 'asc' ? 'desc' : 'asc';
     this.filter.sortDirection = this.orderingOptions[order];
     this.loadEmployerJobs();
+    this.loadStudentJobs();
   };
 
   onSearch() {

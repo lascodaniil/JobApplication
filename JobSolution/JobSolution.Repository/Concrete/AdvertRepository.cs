@@ -19,10 +19,10 @@ namespace JobSolution.Repository.Concrete
         public AdvertRepository(AppDbContext context) : base(context) { }
         public async Task Delete(int advertId)
         {
-            var advert = await _dbContext.Adverts.FirstOrDefaultAsync(x => x.Id == advertId);
+            var advert =  _dbContext.Adverts.FirstOrDefault(x => x.Id == advertId);
 
             _dbContext.Adverts.Remove(advert);
-            await _dbContext.SaveChangesAsync();
+             _dbContext.SaveChanges();
         }
 
         public async Task<Advert> GetAdvertByID(int advertId)

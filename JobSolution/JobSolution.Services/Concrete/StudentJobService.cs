@@ -5,6 +5,7 @@ using JobSolution.DTO.DTO;
 using JobSolution.Repository.Interfaces;
 using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -39,9 +40,7 @@ namespace JobSolution.Services.Concrete
             if (!verifiyJobs.Contains(jobId))
             {
                 await _studentJobRepository.Add(UserId, jobId);
-
             }
-
         }
 
         public async Task Delete(int jobId)
@@ -51,10 +50,7 @@ namespace JobSolution.Services.Concrete
             
         }
 
-        public Task<IList<int>> GetListId()
-        {
-            return null;
-        }
+        
 
         public async Task<IList<JobDTO>> GetStudentJobs()
         {

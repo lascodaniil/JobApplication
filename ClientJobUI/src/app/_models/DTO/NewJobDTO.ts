@@ -1,4 +1,4 @@
-export interface NewJobDTO{
+export interface NewJobDTO {
 
   jobId: number;
   categoryId: number;

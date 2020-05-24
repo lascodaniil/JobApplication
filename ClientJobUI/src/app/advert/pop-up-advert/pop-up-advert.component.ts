@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {AdvertService} from '../../_services/advert.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
@@ -7,20 +7,15 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
   templateUrl: './pop-up-advert.component.html',
   styleUrls: ['./pop-up-advert.component.css']
 })
-export class PopUpAdvertComponent{
+export class PopUpAdvertComponent {
 
+  constructor(private advertServ: AdvertService,
+              @Inject(MAT_DIALOG_DATA) public AdvertData: { id: number, title: string },
+              public dialogRef: MatDialogRef<PopUpAdvertComponent>,) {
+  }
 
-  constructor(private advertServ : AdvertService,
-              @Inject(MAT_DIALOG_DATA) public AdvertData: {id:number, title:string},
-              public dialogRef: MatDialogRef<PopUpAdvertComponent>,) { }
-
-  DeleteEvent(){
+  DeleteEvent() {
     this.advertServ.popUp.next(this.AdvertData.id);
     this.dialogRef.close();
   }
-
-
-
-
-
 }

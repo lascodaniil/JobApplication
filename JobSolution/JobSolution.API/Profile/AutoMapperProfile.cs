@@ -26,30 +26,7 @@ namespace JobSolution.API.Profile
 
 
 
-        //      public int CategoryId { get; set; }
-        //public string Title { get; set; }
-        //public string Contact { get; set; }
-        //public string Description { get; set; }
-        //public DateTime? PostDate { get; set; } = DateTime.Now;
-        //public DateTime? EndDate { get; set; }
-        //public DateTime? EnrolledDate { get; set; }
-        //public float Salary { get; set; }
-        //[ForeignKey("Cities")]
-        //public int CityId { get; set; }
-        //public Cities Cities { get; set; }
-
-        //public Categories Category { get; set; }
-        //public int UserId { get; set; }
-        //public User User { get; set; }
-        //[ForeignKey("TypeJob")]
-        //public int TypeJobId { get; set; }
-        //public TypeJob TypeJob { get; set; }
-        //[ForeignKey("Image")]
-        //public int? ImageId { get; set; }
-        //public Image Image { get; set; }
-
-
-        CreateMap<Job, JobForTableDTO>().ForMember(x=>x.JobId, y=>y.MapFrom(z=>z.Id))
+            CreateMap<Job, JobForTableDTO>().ForMember(x=>x.JobId, y=>y.MapFrom(z=>z.Id))
                 .ForMember(x=>x.Title, y=>y.MapFrom(Z=>Z.Title))
                 .ForMember(x=>x.Category, y=>y.MapFrom(y=>y.Category.Category))
                 .ForMember(x=>x.City, y=>y.MapFrom(y=>y.Cities.City))

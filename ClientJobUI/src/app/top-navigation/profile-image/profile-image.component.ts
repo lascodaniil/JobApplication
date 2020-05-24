@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {JobService} from "../../_services/job.service";
 
 @Component({
@@ -8,14 +8,15 @@ import {JobService} from "../../_services/job.service";
 })
 export class ProfileImageComponent implements OnInit {
 
-  constructor(private jobService : JobService) { }
+  @Input() imageId: number;
+  public imageUrl: string;
 
-  @Input() imageId : number;
-  public imageUrl : string;
+  constructor(private jobService: JobService) {
+  }
+
   ngOnInit(): void {
-    console.log('init', this.imageId);
-    if(this.imageId != null){
-      this.jobService.getImage(this.imageId).subscribe(blob=>{
+    if (this.imageId != null) {
+      this.jobService.getImage(this.imageId).subscribe(blob => {
         this.imageUrl = URL.createObjectURL(blob);
       });
     }

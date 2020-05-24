@@ -21,7 +21,7 @@ namespace JobSolution.Repository.Concrete
             var Job =  _dbContext.Jobs.FirstOrDefault(x => x.Id == JobId);
 
             _dbContext.Jobs.Remove(Job);
-              _dbContext.SaveChanges();
+            await  _dbContext.SaveChangesAsync();
         }
 
         public async Task<IQueryable<Job>> GetJobs()

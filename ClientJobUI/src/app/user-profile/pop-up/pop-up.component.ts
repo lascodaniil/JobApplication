@@ -1,5 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {JobService} from '../../_services/job.service';
+import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {AddJobData} from '../../_models/AddJobData';
 import {PopService} from '../../_services/pop.service';
@@ -9,13 +8,14 @@ import {PopService} from '../../_services/pop.service';
   templateUrl: './pop-up.component.html',
   styleUrls: ['./pop-up.component.css']
 })
-export class PopUpComponent  {
+export class PopUpComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public jobData: AddJobData,
               public dialogRef: MatDialogRef<PopUpComponent>,
-              private popupService: PopService) { }
+              private popupService: PopService) {
+  }
 
-    DeleteEvent(){
+  DeleteEvent() {
     this.popupService.popUp.next(this.jobData.id);
     this.dialogRef.close();
   }

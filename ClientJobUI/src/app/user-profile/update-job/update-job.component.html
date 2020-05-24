@@ -1,13 +1,13 @@
 <h1 mat-dialog-title>{{jobData.id ? 'Edit' : 'Add'}} Job</h1>
 <div mat-dialog-content>
-  <button mat-raised-button class="custom-upload-button">
+  <button class="custom-upload-button" mat-raised-button>
     <span>Upload Image</span>
-    <input type="file" accept='image/*' [(ngModel)]="this.job.imagePath" (change)="onUploadImage($event)" />
+    <input (change)="onUploadImage($event)" [(ngModel)]="this.job.imagePath" accept='image/*' type="file"/>
   </button>
   <span class="upload-file-name">{{uploadFileName}}</span>
   <mat-form-field>
     <mat-label>Title</mat-label>
-    <input [(ngModel)]="this.job.title" required matInput>
+    <input [(ngModel)]="this.job.title" matInput required>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Category</mat-label>
@@ -35,21 +35,21 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Salary</mat-label>
-    <input [(ngModel)]="this.job.salary" type="number" matInput>
+    <input [(ngModel)]="this.job.salary" matInput type="number">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Contact</mat-label>
-    <input required [(ngModel)]="this.job.contact" type="number" matInput>
+    <input [(ngModel)]="this.job.contact" matInput required type="number">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker" [ngModel]="this.job.finishedOn" (dateChange)="addEvent($event)">
-    <mat-datepicker-toggle matSuffix [for]="picker">
+    <input (dateChange)="addEvent($event)" [matDatepicker]="picker" [ngModel]="this.job.finishedOn" matInput>
+    <mat-datepicker-toggle [for]="picker" matSuffix>
       <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
     </mat-datepicker-toggle>
     <mat-datepicker #picker [(ngModel)]="this.job.finishedOn" ngDefaultControl></mat-datepicker>
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="jobData.id ? onJobEdit(job, jobData.id) : onJobAdd()">
+  <button (click)="jobData.id ? onJobEdit(job, jobData.id) : onJobAdd()" color="primary" mat-raised-button>
     {{jobData.id ? 'Update' : 'Add'}} Job
   </button>
 </div>

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobSolution.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200519185811_1st")]
+    [Migration("20200524130220_1st")]
     partial class _1st
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

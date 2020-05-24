@@ -2,6 +2,7 @@
 using JobSolution.Domain;
 using JobSolution.Domain.Auth;
 using JobSolution.Domain.Entities;
+using JobSolution.DTO.DTO;
 using JobSolution.Infrastructure.Configuration;
 using JobSolution.Infrastructure.Database;
 using JobSolution.Repository.Interfaces;
@@ -24,14 +25,10 @@ namespace JobSolution.Services.Interfaces
 {
     public class AuthService : IAuthService
     {
-        private readonly IAuthRepository _authRepository;
         private readonly AuthOptions _authOptions;
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
         private readonly AppDbContext _dbContext;
-        private readonly HttpResponseMessage _responseMessage;
-        private readonly IMapper _mapper;
-        private readonly IHttpContextAccessor _context;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IServiceImage _serviceImage;
 
@@ -39,14 +36,11 @@ namespace JobSolution.Services.Interfaces
             UserManager<User> userManager, IHttpContextAccessor context, IHostingEnvironment hostingEnvironment,
              IServiceImage serviceImage)
         {
-            _authRepository = authRepository;
             _authOptions = authOption.Value;
             _signInManager = signInManager;
             _userManager = userManager;
             _dbContext = dbContext;
             _serviceImage = serviceImage;
-
-            _context = context;
             _hostingEnvironment = hostingEnvironment;
         }
         public async Task<IActionResult> AddUser(UserRegisterDto userRegisterDto)

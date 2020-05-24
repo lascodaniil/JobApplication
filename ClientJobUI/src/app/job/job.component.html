@@ -3,7 +3,7 @@
     <app-job-filter (onFiltered)="onFiltered($event)" (onSearchChange)="onSearch($event)"></app-job-filter>
 
     <div class="jobs-results">
-      <div class="jop-post" *ngFor="let job of allJobs">
+      <div *ngFor="let job of allJobs" class="jop-post">
         <mat-card>
           <mat-card-title class="job-post-title">{{job.title}}</mat-card-title>
           <div class="job-content">
@@ -12,20 +12,22 @@
             </div>
             <div class="right-content">
               <mat-list>
-                <mat-list-item><span class="material-icons job-spec-icon">category</span> {{job.category}}</mat-list-item>
+                <mat-list-item><span class="material-icons job-spec-icon">category</span> {{job.category}}
+                </mat-list-item>
                 <mat-list-item><span class="material-icons job-spec-icon">place</span> {{job.city}}</mat-list-item>
                 <mat-list-item><span class="material-icons job-spec-icon">call</span> {{job.contact}}</mat-list-item>
-                <mat-list-item><span class="material-icons job-spec-icon">person_pin</span> {{job.employer}}</mat-list-item>
+                <mat-list-item><span class="material-icons job-spec-icon">person_pin</span> {{job.employer}}
+                </mat-list-item>
               </mat-list>
             </div>
           </div>
           <mat-action-list *ngxPermissionsOnly="['Student']">
-            <button mat-mini-fab color="primary"
-                    (click)="onChat(job)">
+            <button (click)="onChat(job)" color="primary"
+                    mat-mini-fab>
               <mat-icon>chat</mat-icon>
             </button>
-            <button mat-mini-fab color="primary"
-                    (click)="subscribe(job.jobId)">
+            <button (click)="onEnroll(job.jobId)" color="primary"
+                    mat-mini-fab>
               <mat-icon>note_add</mat-icon>
             </button>
           </mat-action-list>

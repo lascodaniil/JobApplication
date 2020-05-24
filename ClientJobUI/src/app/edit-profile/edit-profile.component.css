@@ -2,11 +2,13 @@
 .ng-valid.required {
   border-left: 5px solid #42A948;
 }
+
 .login-component {
   max-width: 500px;
   padding: 55px 0;
   margin: 0 auto;
 }
+
 .user-thumbnail {
   width: 100px;
   height: 100px;
@@ -15,6 +17,7 @@
   margin-left: 8px;
   background-size: cover;
 }
+
 .upload-file-name {
   margin-left: 10px;
 }
@@ -24,7 +27,7 @@
   margin-bottom: 10px;
 }
 
-.custom-upload-button  input {
+.custom-upload-button input {
   position: absolute;
   left: 0;
   top: 0;

@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {JobComponent} from './job/job.component';
 import {RegistrationFormComponent} from './registration/registration-form.component';
 import {SignInComponent} from './sign-in/sign-in.component';

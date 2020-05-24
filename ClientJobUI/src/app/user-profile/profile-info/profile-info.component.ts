@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-profile-info',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

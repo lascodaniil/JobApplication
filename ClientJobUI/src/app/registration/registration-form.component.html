@@ -1,37 +1,37 @@
 <div mat-dialog-content>
-  <button mat-raised-button class="custom-upload-button">
+  <button class="custom-upload-button" mat-raised-button>
     <span>Upload Image</span>
-    <input type="file" accept='image/*' [(ngModel)]="this.registeredUser.ImagePath" (change)="onUploadImage($event)" />
+    <input (change)="onUploadImage($event)" [(ngModel)]="this.registeredUser.ImagePath" accept='image/*' type="file"/>
   </button>
   <span class="upload-file-name">{{uploadFileName}}</span>
   <mat-form-field>
     <mat-label>Username</mat-label>
-    <input [(ngModel)]="this.registeredUser.UserName" required matInput>
+    <input [(ngModel)]="this.registeredUser.UserName" matInput required>
   </mat-form-field>
   <mat-form-field>
     <mat-label>First name</mat-label>
-    <input [(ngModel)]="this.registeredUser.FirstName" required matInput>
+    <input [(ngModel)]="this.registeredUser.FirstName" matInput required>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Last name</mat-label>
-    <input [(ngModel)]="this.registeredUser.LastName" required matInput>
+    <input [(ngModel)]="this.registeredUser.LastName" matInput required>
   </mat-form-field>
 
 
   <mat-form-field>
     <mat-label>Email</mat-label>
-    <input [(ngModel)]="this.registeredUser.Email" required matInput>
+    <input [(ngModel)]="this.registeredUser.Email" matInput required>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Password</mat-label>
-    <input [(ngModel)]="this.registeredUser.Password"  type = "password" required matInput>
+    <input [(ngModel)]="this.registeredUser.Password" matInput required type="password">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Phone number</mat-label>
-    <input [(ngModel)]="this.registeredUser.PhoneNumber" required matInput>
+    <input [(ngModel)]="this.registeredUser.PhoneNumber" matInput required>
   </mat-form-field>
 
 
@@ -44,7 +44,7 @@
     </mat-select>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="onSubmit()">Register
+  <button (click)="onSubmit()" color="primary" mat-raised-button>Register
   </button>
 </div>
 

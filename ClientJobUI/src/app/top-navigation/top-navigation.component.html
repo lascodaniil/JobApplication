@@ -31,8 +31,8 @@
   </ng-container>
 
   <ng-container *ngxPermissionsOnly="['Employer','Student']">
-    <div class="user-options" *ngIf="loggedUser.fullName">
-      <button mat-button [matMenuTriggerFor]="userSettings">
+    <div *ngIf="loggedUser.fullName" class="user-options">
+      <button [matMenuTriggerFor]="userSettings" mat-button>
         {{loggedUser.fullName}}
         <app-profile-image
           *ngIf="authService.isLoggedIn()"
@@ -43,7 +43,7 @@
         <button mat-menu-item routerLink="edit">
           Edit Profile
         </button>
-        <button mat-menu-item (click)="authService.logout()">
+        <button (click)="authService.logout()" mat-menu-item>
           LogOut
         </button>
       </mat-menu>

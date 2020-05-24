@@ -15,7 +15,7 @@ namespace JobSolution.DTO.DTO
         public string Salary { get; set; }
         public DateTime? PublishedOn { get; set; }
         public DateTime? FinishedOn { get; set; }
-        public int ImageId { get; set; }
+        public int? ImageId { get; set; }
         public string ImagePath { get; set; }
         public string TypeJob { get; set; }
 

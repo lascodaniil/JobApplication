@@ -25,7 +25,7 @@ namespace JobSolution.Repository.Concrete
         {
             var entity = _dbContext.StudentJobs.Where(x => x.JobId == jobId && x.UserId == UserId).FirstOrDefault();
             _dbContext.StudentJobs.Remove(entity);
-             _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<IQueryable<StudentJobs>> GetAll(int UserId)

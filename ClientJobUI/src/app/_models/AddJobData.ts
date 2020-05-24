@@ -7,5 +7,5 @@ export interface AddJobData {
   jobTypes: JobType[];
   cities: CityDTO[];
   id?: number;
-  jobTitle : string;
+  jobTitle: string;
 }

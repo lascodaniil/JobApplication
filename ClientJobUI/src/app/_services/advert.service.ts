@@ -1,12 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Observable, Subject} from 'rxjs';
 import {AdvertDTO} from '../_models/DTO/AdvertDTO';
 import {PaginatedRequest} from '../_models/PaginatedRequest';
 import {PagedResult} from '../_models/PagedResult';
-import {JobDTO} from '../_models/DTO/JobDTO';
-
 
 
 const URL_ADVERT = "http://localhost:5000/Advert"
@@ -16,22 +14,13 @@ const URL_ADVERT = "http://localhost:5000/Advert"
 })
 export class AdvertService {
 
+  popUp = new Subject();
+
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  popUp = new Subject();
-  added = new Subject();
-
-  onPopup() {
-    return this.popUp.asObservable();
-  }
-
-  onAddAdvert() {
-    return this.added.asObservable();
-  }
-
-  getAdvertForStudent(filter: PaginatedRequest) : Observable<PagedResult<AdvertDTO>>{
-    return  this.http.post<PagedResult<AdvertDTO>>(`${URL_ADVERT}/Student/Adverts`, filter);
+  getAdvertForStudent(filter: PaginatedRequest): Observable<PagedResult<AdvertDTO>> {
+    return this.http.post<PagedResult<AdvertDTO>>(`${URL_ADVERT}/Student/Adverts`, filter);
   }
 
   postStudentAdverts(advert: AdvertDTO): Observable<any> {
@@ -49,9 +38,6 @@ export class AdvertService {
   deleteAdvert(id: number): Observable<any> {
     return this.http.delete(`${URL_ADVERT}/${id}`);
   }
-
-
-
 
   getAdverts(): Observable<AdvertDTO[]> {
     return this.http.get<AdvertDTO[]>(`${URL_ADVERT}`);

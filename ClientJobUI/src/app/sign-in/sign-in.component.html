@@ -2,13 +2,13 @@
   <div fxLayout="row | wrap" fxLayoutAlign="center center">
     <div class="container">
       <h1>Log into your Account</h1>
-      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
         <table class="example-full-width">
           <tr>
             <td>
               <div class="form-group">
-                <mat-form-field >
-                  <input [(ngModel)]="userName"  matInput
+                <mat-form-field>
+                  <input [(ngModel)]="userName" matInput
                          name="userName"
                          placeholder="Username" required>
                 </mat-form-field>
@@ -21,13 +21,13 @@
                 <mat-form-field>
                   <input [(ngModel)]="password" matInput
                          name="password"
-                         placeholder="Password" type="password" required>
+                         placeholder="Password" required type="password">
                 </mat-form-field>
               </div>
             </td>
           </tr>
         </table>
-        <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">
+        <button [disabled]="loginForm.invalid" color="primary" mat-raised-button type="submit">
           LOG IN
         </button>
       </form>

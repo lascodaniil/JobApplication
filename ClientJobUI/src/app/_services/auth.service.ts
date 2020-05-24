@@ -4,11 +4,10 @@ import {Observable} from 'rxjs';
 import {RegisterUserModel} from '../Interfaces/RegisterUserModel';
 import {Router} from '@angular/router';
 import {NgxPermissionsService} from 'ngx-permissions';
-import { ChatService } from './chat.service';
+import {ChatService} from './chat.service';
 
 const URL_LOG = 'http://localhost:5000/Auth/Login';
 const URL_REGISTER = 'http://localhost:5000/Auth/Registration';
-const URL_PROFILE = 'http://localhost:5000/User';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})

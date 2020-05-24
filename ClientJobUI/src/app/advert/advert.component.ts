@@ -1,7 +1,7 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AdvertDTO} from '../_models/DTO/AdvertDTO';
 import {AdvertService} from '../_services/advert.service';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {PopUpAdvertComponent} from './pop-up-advert/pop-up-advert.component';
 import {UpdateAdvertComponent} from './update-advert/update-advert.component';
 import {JobService} from '../_services/job.service';
@@ -16,17 +16,15 @@ import {PaginatedRequest} from '../_models/PaginatedRequest';
 })
 export class AdvertComponent implements OnInit {
 
-  columnsToDisplay = ['Title', 'Category', 'City', 'Contact', 'PublishedOn',  'Actions'];
+  columnsToDisplay = ['Title', 'Category', 'City', 'Contact', 'PublishedOn', 'Actions'];
   filter = {} as PaginatedRequest;
-
-  constructor(private advertService: AdvertService, public dialog: MatDialog, private jobService: JobService) {
-  }
-
   adverts = [] as AdvertDTO[];
   dialogRef: MatDialogRef<any>;
   Categories = [] as CategoryDTO[];
   Cities = [] as CityDTO[];
 
+  constructor(private advertService: AdvertService, public dialog: MatDialog, private jobService: JobService) {
+  }
 
   ngOnInit(): void {
     this.filter.pageSize = 10;

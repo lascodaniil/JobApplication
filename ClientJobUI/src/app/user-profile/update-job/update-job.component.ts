@@ -1,10 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef,} from '@angular/material/dialog';
 import {JobService} from '../../_services/job.service';
-import {JobDTO} from '../../_models/DTO/JobDTO';
 import {AddJobData} from '../../_models/AddJobData';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
-import {JobForViewDTO} from "../../_models/DTO/JobForViewDTO";
 import {JobForTableDTO} from "../../_models/DTO/JobForTableDTO";
 
 
@@ -21,7 +19,7 @@ export class UpdateJobComponent implements OnInit {
   constructor(
     private jobService: JobService,
     @Inject(MAT_DIALOG_DATA) public jobData: AddJobData,
-    public dialogRef: MatDialogRef<UpdateJobComponent>){
+    public dialogRef: MatDialogRef<UpdateJobComponent>) {
   }
 
   ngOnInit(): void {
@@ -41,10 +39,10 @@ export class UpdateJobComponent implements OnInit {
     formData.append('CityId', `${this.job.cityId}`);
     formData.append('salary', `${this.job.salary}`);
     formData.append('contact', `${this.job.contact}`);
-    formData.append('finishedOn',(new Date(this.job.finishedOn)).toUTCString());
+    formData.append('finishedOn', (new Date(this.job.finishedOn)).toUTCString());
     formData.append("TypeJobId", `${this.job.typeJobId}`);
 
-      this.jobService.AddJobFormData(formData).subscribe(() => {
+    this.jobService.AddJobFormData(formData).subscribe(() => {
       this.dialogRef.close();
     });
 
@@ -58,11 +56,11 @@ export class UpdateJobComponent implements OnInit {
     formData.append('CityId', `${this.job.cityId}`);
     formData.append('salary', `${this.job.salary}`);
     formData.append('contact', `${this.job.contact}`);
-    formData.append('finishedOn',(new Date(this.job.finishedOn)).toUTCString());
+    formData.append('finishedOn', (new Date(this.job.finishedOn)).toUTCString());
     formData.append("TypeJobId", `${this.job.typeJobId}`);
     this.jobService.editJob(formData, id).subscribe(() => {
-       this.dialogRef.close();
-     });
+      this.dialogRef.close();
+    });
   }
 
   onUploadImage(file) {
@@ -70,7 +68,7 @@ export class UpdateJobComponent implements OnInit {
     this.uploadFileName = file.target.files[0].type.indexOf("image") !== -1 ? file.target.files[0].name : '';
   }
 
-  addEvent(event: MatDatepickerInputEvent<any>){
-    this.job.finishedOn= event.value;
+  addEvent(event: MatDatepickerInputEvent<any>) {
+    this.job.finishedOn = event.value;
   }
 }

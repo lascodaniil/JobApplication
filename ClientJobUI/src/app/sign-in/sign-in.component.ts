@@ -3,8 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../_services/auth.service';
 import {ToolBarService} from '../_services/toolbar.service.service';
-import decode from 'jwt-decode';
-import { ChatService } from '../_services/chat.service';
+import {ChatService} from '../_services/chat.service';
 
 @Component({
   selector: 'app-sign-in',

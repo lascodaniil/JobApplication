@@ -1,8 +1,9 @@
-<mat-card class="chat-box" *ngIf="jobTitle && isLoggedIn">
-  <mat-card-header class="chat-head" (click)="toggle()">
+<mat-card *ngIf="jobTitle && isLoggedIn" class="chat-box">
+  <mat-card-header (click)="toggle()" class="chat-head">
     <mat-card-title class="chat_title">
-      <div [ngClass]="isOnline? 'status_circle-online':'status_circle-offline'"></div> {{chatName}}
-      <span style="font-size: 18px; position: absolute; right: 20px;" (click)="onClose()">x</span>
+      <div [ngClass]="isOnline? 'status_circle-online':'status_circle-offline'"></div>
+      {{chatName}}
+      <span (click)="onClose()" style="font-size: 18px; position: absolute; right: 20px;">x</span>
     </mat-card-title>
     <mat-card-subtitle>
       <span style="font-size: 14px; font-style: italic; color: #ffffff;">{{jobTitle}}</span>
@@ -12,8 +13,8 @@
     <mat-card-content class="chat-body">
 
       <mat-list>
-        <mat-list-item class="pad-top pad-bottom" *ngFor="let item of chats">
-          <h3 matLine class="cursor-pointer"><b>{{item.from}}</b> </h3>
+        <mat-list-item *ngFor="let item of chats" class="pad-top pad-bottom">
+          <h3 class="cursor-pointer" matLine><b>{{item.from}}</b></h3>
           <div matLine>
             <div style="width: 25px; word-break: break-all;">
               {{item.message}}
@@ -27,11 +28,11 @@
     </mat-card-content>
     <mat-card-actions class="chat-footer">
       <mat-divider></mat-divider>
-      <form class="message-form" [formGroup]="inputValue" (ngSubmit)="onSend(inputValue.value)">
+      <form (ngSubmit)="onSend(inputValue.value)" [formGroup]="inputValue" class="message-form">
         <mat-form-field class="example-full-width">
           <mat-label>Enter Message</mat-label>
-          <input matInput formControlName="text" autocomplete="off">
-          <mat-icon matSuffix (click)="onSend(inputValue.value)" style="cursor: pointer;">send</mat-icon>
+          <input autocomplete="off" formControlName="text" matInput>
+          <mat-icon (click)="onSend(inputValue.value)" matSuffix style="cursor: pointer;">send</mat-icon>
         </mat-form-field>
       </form>
     </mat-card-actions>

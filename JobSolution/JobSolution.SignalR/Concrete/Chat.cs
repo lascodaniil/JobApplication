@@ -24,17 +24,7 @@ namespace JobSolution.SignalR.Concrete
             _IsEmployerOnlineInGroup = new Dictionary<int, bool>();
         }
 
-        public async Task<bool> IsEmployer(int employerId, string jwt)
-        {
-            JwtSecurityToken token = new JwtSecurityToken(jwt);
-            return false;
-        }
-
-        public Task JoinRoom(int employerId, string jwtToken)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public async Task NewOnlineUser(string jwtToken)
         {
             JwtSecurityToken token = new JwtSecurityToken(jwtToken);
@@ -42,7 +32,6 @@ namespace JobSolution.SignalR.Concrete
 
             int user_id = 0;
 
-            /// Parse user Data fron JWT
             foreach (var item in claims)
             {
                 if (item.Type == "UserId") user_id = Int32.Parse(item.Value);
@@ -67,7 +56,6 @@ namespace JobSolution.SignalR.Concrete
 
             int user_id = 0;
 
-            /// Parse user Data fron JWT
             foreach (var item in claims)
             {
                 if (item.Type == "UserId") user_id = Int32.Parse(item.Value);
@@ -92,7 +80,6 @@ namespace JobSolution.SignalR.Concrete
 
             int user_id = 0;
 
-            /// Parse user Data fron JWT
             foreach (var item in claims)
             {
                 if (item.Type == "UserId") user_id = Int32.Parse(item.Value);
@@ -133,7 +120,6 @@ namespace JobSolution.SignalR.Concrete
 
             string name = string.Empty;
 
-            // Using Db
             using (var scope = _serviceProvider.CreateScope())
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();

@@ -1,27 +1,27 @@
 .image {
-    width: 100px;
+  width: 100px;
 }
 
 .container {
-    max-width: 95%;
-    margin: auto;
+  max-width: 95%;
+  margin: auto;
 }
 
 .container__element {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .card-header__container {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .mat-card-header {
-    display: flex;
-    flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .action__button {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .jop-post {
@@ -49,11 +49,11 @@
   padding-right: 0;
 }
 
-.category{
+.category {
   padding: 10px;
 }
 
-.field_length{
+.field_length {
   width: 80%;
   position: center;
 }
@@ -67,6 +67,7 @@
   width: 50%;
   float: left;
 }
+
 .right-content {
   width: 50%;
   float: left;

@@ -26,8 +26,6 @@ namespace JobSolution.API.Controllers
         public JobController(IJobService repositoryJob, ICategoryService categoryService,
             ICityService cityService,
             ITypeJobService typeJobService,
-            IStudentJobService studentJobService,
-            IWebHostEnvironment hostingEnvironment,
             IMapper mapper,
             IRepositoryImage repositoryImage)
         {

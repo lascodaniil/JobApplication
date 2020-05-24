@@ -1,13 +1,13 @@
 <mat-drawer-container class="app-main-container">
   <mat-drawer
-    mode="side"
-    [opened]="authService.isLoggedIn() && !isHome">
+    [opened]="authService.isLoggedIn() && !isHome"
+    mode="side">
     <app-sidebar-nav></app-sidebar-nav>
   </mat-drawer>
   <mat-drawer-content>
     <app-top-navigation
-      [title]="title"
-      [isHome]="isHome">
+      [isHome]="isHome"
+      [title]="title">
     </app-top-navigation>
     <div class="main-content">
       <router-outlet></router-outlet>

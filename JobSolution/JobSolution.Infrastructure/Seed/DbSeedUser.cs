@@ -42,7 +42,6 @@ namespace JobSolution.Infrastructure.Seed
             }
 
 
-            // ++++++++++++++EMPLOYERS++++++++++++++++++++++++++++ +
             var User_3 = new User()
             {
                 UserName = "PROIMOBIL",

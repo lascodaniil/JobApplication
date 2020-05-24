@@ -9,7 +9,9 @@ export class ToolBarService {
   title = new Subject();
 
   setTitle(title: string) {
-    setTimeout(() => {this.title.next(title)})
+    setTimeout(() => {
+      this.title.next(title)
+    })
   }
 
   getTitle() {

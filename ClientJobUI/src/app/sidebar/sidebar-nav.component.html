@@ -5,6 +5,9 @@
 
   <a mat-list-item routerLink=""><span class="material-icons">amp_stories</span>Home</a>
   <a mat-list-item routerLink="jobs"><span class="material-icons" style="color: white">apps</span>Jobs</a>
-  <a mat-list-item routerLink="profile" *ngIf="serviceAuth.isLoggedIn();"><span class="material-icons" style="color: white">assignment_ind</span>My Profile</a>
-  <a mat-list-item routerLink="profile" (click)="onAddAdvert()" *ngxPermissionsOnly="['Student']"><span class="material-icons" >post_add</span>Add advert</a>
+  <a *ngIf="serviceAuth.isLoggedIn();" mat-list-item routerLink="profile"><span class="material-icons"
+                                                                                style="color: white">assignment_ind</span>My
+    Profile</a>
+  <a (click)="onAddAdvert()" *ngxPermissionsOnly="['Student']" mat-list-item routerLink="profile"><span
+    class="material-icons">post_add</span>Add advert</a>
 </mat-nav-list>

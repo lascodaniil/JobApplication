@@ -174,8 +174,7 @@ namespace JobSolution.Services.Concrete
         public async Task<PaginatedResult<JobForTableDTO>> GetJobsForStudent(PagedRequest pagedRequest, IMapper mapper)
         {
             var UserId = Convert.ToInt32(_context.HttpContext.User.Claims.Where(x => x.Type == "UserId").First().Value);
-            var ListJobsForStudents = _studentJobService.GetListId();
-
+           
             var result = await _jobRepository.GetPagedDataStudent(pagedRequest, mapper, UserId);
             return result;
         }

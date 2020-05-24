@@ -1,4 +1,5 @@
 ﻿using JobSolution.Domain.Entities;
+using JobSolution.DTO.DTO;
 using JobSolution.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

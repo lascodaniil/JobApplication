@@ -1,8 +1,8 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
-import { ChatDTO } from '../_models/DTO/ChatDTO';
-import { JobDTO } from '../_models/DTO/JobDTO';
+import {EventEmitter, Injectable} from '@angular/core';
+import {HubConnection, HubConnectionBuilder} from '@aspnet/signalr';
+import {ChatDTO} from '../_models/DTO/ChatDTO';
 import {JobForTableDTO} from "../_models/DTO/JobForTableDTO";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,8 +32,19 @@ export class ChatService {
   }
 
   sendMessage(message: ChatDTO) {
-    console.log(message);
     this._hubConnection.invoke('PrivateSendMessage', message.jobTitle, message.employer, message.student, message.from, message.message);
+  }
+
+  newChat(job: JobForTableDTO) {
+    this.chatReceived.emit(job);
+  }
+
+  addOnlineUser() {
+    this._hubConnection.invoke('NewOnlineUser', localStorage.getItem('accessToken'));
+  }
+
+  removeOnlineUser() {
+    this._hubConnection.invoke('LogoutUser', localStorage.getItem('accessToken'));
   }
 
   private createConnection() {
@@ -48,14 +59,15 @@ export class ChatService {
       .start()
       .then(() => {
         this.connectionIsEstablished = true;
-        console.log('Hub connection started');
         this.connectionEstablished.emit(true);
         if (localStorage.getItem('accessToken')) {
           this._hubConnection.invoke('NewOnlineUser', localStorage.getItem('accessToken'));
         }
       })
       .catch(err => {
-        setTimeout(function () { self.startConnection(); }, 5000);
+        setTimeout(function () {
+          self.startConnection();
+        }, 5000);
       });
   }
 
@@ -69,16 +81,4 @@ export class ChatService {
     })
 
   }
-
-  newChat(job: JobForTableDTO) {
-    this.chatReceived.emit(job);
-  }
-
-  addOnlineUser() {
-    this._hubConnection.invoke('NewOnlineUser', localStorage.getItem('accessToken'));
-  }
-  removeOnlineUser() {
-    this._hubConnection.invoke('LogoutUser', localStorage.getItem('accessToken'));
-  }
-
 }

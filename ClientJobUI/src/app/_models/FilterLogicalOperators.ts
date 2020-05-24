@@ -1,3 +1,3 @@
-export enum FilterLogicalOperators{
-    And, Or
+export enum FilterLogicalOperators {
+  And, Or
 }

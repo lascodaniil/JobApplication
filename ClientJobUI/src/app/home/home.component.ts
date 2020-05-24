@@ -4,8 +4,6 @@ import {FormControl} from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
 import {JobType} from '../_models/JobType';
 import {JobService} from '../_services/job.service';
-import {JobDTO} from '../_models/DTO/JobDTO';
-import {UpdateJobComponent} from '../user-profile/update-job/update-job.component';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ViewJobComponent} from './view-job/view-job.component';
 import {JobForViewDTO} from "../_models/DTO/JobForViewDTO";

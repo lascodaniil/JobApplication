@@ -5,23 +5,23 @@
     </h1>
     <div class="search-container">
       <mat-form-field appearance="outline" class="exemple-full-width">
-        <input matInput placeholder="Search your job..." [matAutocomplete]="auto" [formControl]="searchControl">
+        <input [formControl]="searchControl" [matAutocomplete]="auto" matInput placeholder="Search your job...">
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async"
-                      (click)="this.onViewJob(option.jobId)"
+          <mat-option (click)="this.onViewJob(option.jobId)"
+                      *ngFor="let option of filteredOptions | async"
                       [value]="option.title">
             {{option.title}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
     </div>
-    <div class="jobs-types" *ngFor="let type of jobTypes">
+    <div *ngFor="let type of jobTypes" class="jobs-types">
       <div class="jop-post-type">
-        <mat-card >
+        <mat-card>
           <mat-card-title>{{type.name}}</mat-card-title>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Ab animi atque delectus distinctio doloremque eos eum. </p>
-          <button mat-raised-button color="primary" [routerLink]="'/jobs/' + type.id">View all Jobs</button>
+          <button [routerLink]="'/jobs/' + type.id" color="primary" mat-raised-button>View all Jobs</button>
         </mat-card>
       </div>
     </div>

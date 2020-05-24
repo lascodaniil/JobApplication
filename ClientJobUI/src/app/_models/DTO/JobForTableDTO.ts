@@ -4,13 +4,13 @@ export interface JobForTableDTO {
   category: string;
   city: string;
   employer: string;
-  typeJob : string;
+  typeJob: string;
   salary: string;
   contact: string;
   finishedOn: Date;
-  categoryId :number;
-  cityId:number;
+  categoryId: number;
+  cityId: number;
   imageId: number;
-  typeJobId:number;
-  imagePath:string;
+  typeJobId: number;
+  imagePath: string;
 }

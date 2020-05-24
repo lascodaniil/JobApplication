@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace JobSolution.Domain.Entities
+namespace JobSolution.DTO.DTO
 {
     public class UserRegisterDto
     {

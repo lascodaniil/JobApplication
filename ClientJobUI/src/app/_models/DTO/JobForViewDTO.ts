@@ -9,5 +9,5 @@ export interface JobForViewDTO {
   contact: string;
   salary: string;
   imageId: number;
-  imagePath :string;
+  imagePath: string;
 }

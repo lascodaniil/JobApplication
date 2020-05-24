@@ -1,4 +1,4 @@
-export interface Filter{
-    path : string;
-    value : string;
+export interface Filter {
+  path: string;
+  value: string;
 }

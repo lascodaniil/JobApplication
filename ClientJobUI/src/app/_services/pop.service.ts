@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 
 @Injectable({
@@ -7,8 +7,10 @@ import {Subject} from 'rxjs';
 export class PopService {
   popUp = new Subject();
 
-  onPopup(){
+  constructor() {
+  }
+
+  onPopup() {
     return this.popUp.asObservable();
   }
-  constructor() { }
 }

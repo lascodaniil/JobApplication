@@ -1,5 +1,6 @@
 ﻿using JobSolution.Domain;
 using JobSolution.Domain.Entities;
+using JobSolution.DTO.DTO;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 

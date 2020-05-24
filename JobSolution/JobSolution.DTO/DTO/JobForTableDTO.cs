@@ -24,7 +24,7 @@ namespace JobSolution.DTO.DTO
         public int CityId { get; set; }
         [Required]
         public int TypeJobId { get; set; }
-        public int ImageId{get;set;}
+        public int? ImageId{get;set;}
 
         public string ImagePath { get; set; }
         public IFormFile Image { get; set; }

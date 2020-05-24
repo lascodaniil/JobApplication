@@ -17,6 +17,7 @@ using JobSolution.Repository.Interfaces;
 using JobSolution.Repository.Concrete;
 using JobSolution.SignalR.Concrete;
 using JobSolution.Infrastructure.Middleware;
+using JobSolution.Infrastructure.Seed;
 
 namespace JobSolution.API
 {
@@ -86,6 +87,7 @@ namespace JobSolution.API
             {
                 options.Filters.Add(new AuthorizeFilter());
             });
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -144,6 +146,20 @@ namespace JobSolution.API
                     }
                 }
             }
+
+
+
+            //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<Role>>();
+            //    var userManager = serviceScope.ServiceProvider.GetService<UserManager<User>>();
+
+            //    var dbContext = serviceScope.ServiceProvider.GetService<AppDbContext>();
+            //   dbContext.Database.Migrate();
+            //   Seeder.Populate(dbContext, roleManager, userManager).GetAwaiter().GetResult();
+
+            //}
+
         }
     }
 }

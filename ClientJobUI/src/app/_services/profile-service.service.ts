@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { ProfileDTO} from '../_models/DTO/ProfileDTO';
+import {ProfileDTO} from '../_models/DTO/ProfileDTO';
 
 
-const URL_PROFILE ="http://localhost:5000/User";
+const URL_PROFILE = "http://localhost:5000/User";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,4 @@ export class ProfileServiceService {
   updateProfileUser(formData): Observable<any> {
     return this.http.put(`${URL_PROFILE}/Update`, formData);
   }
-
-
 }

@@ -12,7 +12,7 @@ namespace JobSolution.Services.Interfaces
         Task Add(int jobId);
         Task Delete(int jobId);
         Task<IList<JobDTO>> GetStudentJobs();
-        Task<IList<int>> GetListId();
+        
         Task DeleteStudentJobs(int id);
    }
 }

@@ -1,4 +1,4 @@
 export interface CategoryDTO {
-  id:number;
-  category:string;
+  id: number;
+  category: string;
 }

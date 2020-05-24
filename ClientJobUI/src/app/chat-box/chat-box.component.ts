@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { ChatService } from '../_services/chat.service';
-import { ChatDTO } from '../_models/DTO/ChatDTO';
-import { JobDTO } from '../_models/DTO/JobDTO';
-import { ProfileDTO } from '../_models/DTO/ProfileDTO';
-import { ProfileServiceService } from '../_services/profile-service.service';
-import { AuthService } from '../_services/auth.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder} from '@angular/forms';
+import {ChatService} from '../_services/chat.service';
+import {ChatDTO} from '../_models/DTO/ChatDTO';
+import {JobDTO} from '../_models/DTO/JobDTO';
+import {ProfileDTO} from '../_models/DTO/ProfileDTO';
+import {ProfileServiceService} from '../_services/profile-service.service';
+import {AuthService} from '../_services/auth.service';
 
 @Component({
   selector: 'app-chat-box',
@@ -16,7 +16,6 @@ export class ChatBoxComponent implements OnInit {
   isClosed: boolean = true;
   chat: ChatDTO;
   chats: Array<ChatDTO> = [];
-  employerId: number;
   employer: string;
   student: string;
   jobTitle: string;
@@ -27,6 +26,7 @@ export class ChatBoxComponent implements OnInit {
   onlineUsers: string[] = [];
   isOnline: boolean = false;
   isLoggedIn: boolean = false;
+
   constructor(private formBuilder: FormBuilder, private chatService: ChatService,
               private profileService: ProfileServiceService, private authService: AuthService) {
     this.inputValue = this.formBuilder.group({
@@ -40,7 +40,7 @@ export class ChatBoxComponent implements OnInit {
     this.chatService.messageReceived.subscribe((data: ChatDTO) => {
       if (this.userRole === 'Employer') {
         if (this.loggedUser.fullName === data.employer) {
-          if(this.jobTitle !== data.jobTitle){
+          if (this.jobTitle !== data.jobTitle) {
             this.chats = [];
           }
           this.chats.push(data);
@@ -52,18 +52,17 @@ export class ChatBoxComponent implements OnInit {
         }
       } else if (this.loggedUser.fullName === data.student) {
 
-          if(this.jobTitle !== data.jobTitle){
-            this.chats = [];
-          }
-          this.chats.push(data);
-          this.employer = data.employer;
-          this.jobTitle = data.jobTitle;
-          this.student = data.student;
-          this.isClosed = false;
-          this.chatName = data.employer;
+        if (this.jobTitle !== data.jobTitle) {
+          this.chats = [];
+        }
+        this.chats.push(data);
+        this.employer = data.employer;
+        this.jobTitle = data.jobTitle;
+        this.student = data.student;
+        this.isClosed = false;
+        this.chatName = data.employer;
       }
       this.isOnline = this.onlineUsers.includes(this.chatName);
-
     });
 
     this.chatService.onlineUsers.subscribe((data: string[]) => {
@@ -113,7 +112,6 @@ export class ChatBoxComponent implements OnInit {
   }
 
   onSend(value) {
-
     this.chat = {
       date: new Date(),
       employer: this.userRole === 'Employer' ? this.loggedUser.fullName : this.employer,
@@ -124,10 +122,10 @@ export class ChatBoxComponent implements OnInit {
     }
     this.chatService.sendMessage(this.chat);
     this.inputValue.reset();
-
   }
 
-  onClose(){
+  onClose() {
     this.jobTitle = null;
   }
+
 }
